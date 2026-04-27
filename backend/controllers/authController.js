@@ -173,22 +173,18 @@ exports.signIn = async (req, res) => {
   }
 };
 
-// Get User Info
-exports.getUserInfo = async (req, res) => {
+// Get Users Info (Public Access)
+exports.getUsersInfo = async (req, res) => {
   try {
-    const user = await prisma.user.findUnique({
-      where: { id: req.user.id },
+    const users = await prisma.user.findMany({
       select: {
         id: true,
         fullName: true,
         email: true,
-        role: true,
         account_status: true,
         profile_image: true,
         cover_image: true,
         gender: true,
-        dob: true,
-        phone: true,
         website: true,
         bio: true,
         is_verified: true,
@@ -197,7 +193,6 @@ exports.getUserInfo = async (req, res) => {
         followers: true,
         ranking: true,
         ranking_date: true,
-        address: true,
         rating: true,
         social_media: true,
         achievements: true,
@@ -206,21 +201,28 @@ exports.getUserInfo = async (req, res) => {
       },
     });
 
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
+    if (!users) {
+      return res.status(404).json({ error: "Users not found" });
     }
-    res.status(200).json(user);
+    res.status(200).json(users);
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Error fetching user info", error: error.message });
+      .json({ message: "Error fetching users info", error: error.message });
   }
 };
 
-// Get User By ID
-exports.getUserinfoById = async (req, res) => {
+// Get User By ID  (Public Access)
+exports.getUserInfoById = async (req, res) => {
   try {
     const { id } = req.params;
+
+    // Validate UUID format to prevent Prisma 500 errors
+    const uuidRegex =
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    if (!uuidRegex.test(id)) {
+      return res.status(400).json({ error: "Invalid user ID format" });
+    }
 
     const user = await prisma.user.findUnique({
       where: { id },
@@ -228,13 +230,10 @@ exports.getUserinfoById = async (req, res) => {
         id: true,
         fullName: true,
         email: true,
-        role: true,
         account_status: true,
         profile_image: true,
         cover_image: true,
         gender: true,
-        dob: true,
-        phone: true,
         website: true,
         bio: true,
         is_verified: true,
@@ -243,7 +242,6 @@ exports.getUserinfoById = async (req, res) => {
         followers: true,
         ranking: true,
         ranking_date: true,
-        address: true,
         rating: true,
         social_media: true,
         achievements: true,
@@ -260,5 +258,19 @@ exports.getUserinfoById = async (req, res) => {
     res
       .status(500)
       .json({ message: "Error fetching user", error: error.message });
+  }
+};
+
+// Logout
+exports.signOut = async (req, res) => {
+  try {
+    // Since we use stateless JWTs without cookies, the client must discard the token.
+    // This route serves to provide a clean termination point and can be extended
+    // with token blacklisting in the future if needed.
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error logging out", error: error.message });
   }
 };

@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Toaster } from "react-hot-toast"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -38,6 +39,7 @@ export default function RootLayout({
         <StoreProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
             {children}
+            <Toaster position="bottom-right" />
           </ThemeProvider>
         </StoreProvider>
       </body>

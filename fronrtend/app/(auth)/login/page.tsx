@@ -1,10 +1,46 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import toast from "react-hot-toast"
 
 export default function LoginPage() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!email || !password) {
+      toast.error("All fields are required")
+      return
+    }
+
+    setIsLoading(true)
+    try {
+      const res = await fetch("http://localhost:5000/api/v1/auth/signIn", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        toast.error(data.error || data.message || "Invalid credentials")
+        return
+      }
+
+      toast.success(data.message || "Logged in successfully")
+      // Save token (e.g. data.token) or redirect logic here
+    } catch (error: any) {
+      toast.error(error.message || "Failed to connect to the server")
+    } finally {
+      setIsLoading(false)
+    }
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -20,7 +56,7 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
           <label
             className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
@@ -32,6 +68,8 @@ export default function LoginPage() {
             id="email"
             type="email"
             placeholder="name@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 transition-all placeholder:text-zinc-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none dark:border-white/10 dark:bg-[#0a0a0b] dark:text-white dark:placeholder:text-zinc-600"
           />
         </div>
@@ -54,12 +92,14 @@ export default function LoginPage() {
             id="password"
             type="password"
             placeholder="••••••••"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 transition-all placeholder:text-zinc-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 focus:outline-none dark:border-white/10 dark:bg-[#0a0a0b] dark:text-white dark:placeholder:text-zinc-600"
           />
         </div>
 
-        <Button className="mt-4 h-12 w-full rounded-xl bg-indigo-600 font-medium text-white shadow-[0_0_15px_rgba(79,70,229,0.2)] hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600">
-          Sign In
+        <Button disabled={isLoading} className="mt-4 h-12 w-full rounded-xl bg-indigo-600 font-medium text-white shadow-[0_0_15px_rgba(79,70,229,0.2)] hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600">
+          {isLoading ? "Signing In..." : "Sign In"}
         </Button>
       </form>
 

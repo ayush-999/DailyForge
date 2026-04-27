@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const profileRoutes = require("./routes/userProfileRoutes");
 const startCronJobs = require("./cron");
 
 const app = express();
@@ -25,6 +26,7 @@ startCronJobs();
 
 // Routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/profile", profileRoutes);
 
 // serve uploads directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

@@ -11,19 +11,21 @@ const prisma = new PrismaClient({ adapter });
 const {
   signUp,
   signIn,
-  getUserInfo,
-  getUserinfoById,
+  getUsersInfo,
+  getUserInfoById,
   verifyOTP,
+  signOut,
 } = require("../controllers/authController");
 const upload = require("../middleware/uploadMiddleware");
 
 const router = express.Router();
 
+router.get("/getUsersInfo", getUsersInfo);
+router.get("/getUserInfoById/:id", getUserInfoById);
 router.post("/signUp", signUp);
 router.post("/signIn", signIn);
+router.post("/signOut", signOut);
 router.post("/verifyOTP", verifyOTP);
-router.get("/getUser", protect, getUserInfo);
-router.get("/getUserById/:id", getUserinfoById);
 
 router.post(
   "/uploadProfileImage",
