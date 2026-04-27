@@ -31,14 +31,94 @@ exports.signUp = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
+    // Upsert into PendingUser to overwrite if they try again
+    await prisma.pendingUser.upsert({
+      where: { email },
+      update: { fullName, password: hashedPassword, otp, expiresAt },
+      create: { fullName, email, password: hashedPassword, otp, expiresAt },
+    });
+
+    if (process.env.NODE_ENV === "production") {
+      // TODO: Implement actual email sending logic here
+      console.log(`Sending OTP ${otp} to ${email} via email service...`);
+    } else {
+      const fs = require("fs");
+      const path = require("path");
+      const logPath = path.join(__dirname, "../logs/otp-code.log");
+      // Ensure logs directory exists
+      if (!fs.existsSync(path.dirname(logPath))) {
+        fs.mkdirSync(path.dirname(logPath), { recursive: true });
+      }
+      fs.appendFileSync(
+        logPath,
+        `Email: ${email}, OTP: ${otp}, Expires: ${expiresAt}\n`,
+      );
+    }
+
+    res.status(200).json({
+      message: "Verification OTP sent successfully",
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error registering user", error: error.message });
+  }
+};
+
+// Verify OTP
+exports.verifyOTP = async (req, res) => {
+  const { email, otp } = req.body;
+
+  if (!email || !otp) {
+    return res.status(400).json({ error: "Email and OTP are required" });
+  }
+
+  try {
+    const pendingUser = await prisma.pendingUser.findUnique({
+      where: { email },
+    });
+
+    if (!pendingUser) {
+      return res
+        .status(400)
+        .json({ error: "No pending registration found for this email" });
+    }
+
+    if (pendingUser.otp !== otp) {
+      return res.status(400).json({ error: "Invalid OTP" });
+    }
+
+    if (new Date() > pendingUser.expiresAt) {
+      return res.status(400).json({ error: "OTP has expired" });
+    }
+
+    // OTP is valid, create the user
     const user = await prisma.user.create({
       data: {
-        fullName,
-        email,
-        password: hashedPassword,
+        fullName: pendingUser.fullName,
+        email: pendingUser.email,
+        password: pendingUser.password,
+        is_verified: true,
+        account_status: 1, // Active
       },
     });
+
+    // Delete the pending record
+    await prisma.pendingUser.delete({ where: { email } });
+
+    // Clean up log file in development
+    if (process.env.NODE_ENV !== "production") {
+      const fs = require("fs");
+      const path = require("path");
+      const logPath = path.join(__dirname, "../logs/otp-code.log");
+      if (fs.existsSync(logPath)) {
+        // Clear the file
+        fs.writeFileSync(logPath, "");
+      }
+    }
 
     res.status(201).json({
       id: user.id,
@@ -48,11 +128,12 @@ exports.signUp = async (req, res) => {
         email: user.email,
       },
       token: generateToken(user.id),
+      message: "Account verified and created successfully",
     });
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Error registering user", error: error.message });
+      .json({ message: "Error verifying OTP", error: error.message });
   }
 };
 
@@ -181,4 +262,3 @@ exports.getUserinfoById = async (req, res) => {
       .json({ message: "Error fetching user", error: error.message });
   }
 };
-

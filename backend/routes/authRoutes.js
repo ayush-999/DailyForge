@@ -13,6 +13,7 @@ const {
   signIn,
   getUserInfo,
   getUserinfoById,
+  verifyOTP,
 } = require("../controllers/authController");
 const upload = require("../middleware/uploadMiddleware");
 
@@ -20,6 +21,7 @@ const router = express.Router();
 
 router.post("/signUp", signUp);
 router.post("/signIn", signIn);
+router.post("/verifyOTP", verifyOTP);
 router.get("/getUser", protect, getUserInfo);
 router.get("/getUserById/:id", getUserinfoById);
 

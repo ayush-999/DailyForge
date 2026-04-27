@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const startCronJobs = require("./cron");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(
 app.use(express.json());
 
 connectDB();
+startCronJobs();
 
 // Routes
 app.use("/api/v1/auth", authRoutes);
