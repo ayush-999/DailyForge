@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id             String        @id @default(uuid())
+  fullName       String
+  email          String        @unique
+  password       String
+  role           Int           @default(2) // 0=Super Admin, 1=Admin, 2=User
+  account_status Int           @default(0) // 0=Inactive, 1=Active, 2=Suspended, 3=Rejected, 4=Deleted, 5=Banned
+  profile_image  String?       @default("")
+  cover_image    String?       @default("")
+  gender         Int?          @default(0) // 0=Other, 1=Male, 2=Female
+  dob            DateTime?     @default(now()) // Date of Birth
+  phone          String?       @default("")
+  website        String?       @default("")
+  bio            String?       @default("")
+  address        Address[]
+  is_verified    Boolean       @default(false) // false = not verified, true = verified
+  is_featured    Boolean       @default(false) // false = not featured, true = featured
+  rating         Rating[]
+  following      Int           @default(0) // Number of following
+  followers      Int           @default(0) // Number of followers
+  social_media   SocialMedia[] // Social Media Accounts
+  achievements   Achievement[] // Achievements
+  ranking        Int           @default(0) // Rank of the user
+  ranking_date   DateTime      @default(now()) // Date of the last rank update    
+  createdAt      DateTime      @default(now()) // Date of creation
+  updatedAt      DateTime      @updatedAt // Date of updation
+}
+
+model Address {
+  id        String   @id @default(uuid())
+  user_id   String
+  user      User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  address   String?  @default("")
+  city      String?  @default("")
+  state     String?  @default("")
+  zip_code  String?  @default("")
+  country   String?  @default("")
+  createdAt DateTime @default(now()) // Date of creation
+  updatedAt DateTime @updatedAt // Date of updation 
+}
+
+model Rating {
+  id             String   @id @default(uuid())
+  user_id        String
+  user           User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  rating_count   Int      @default(0) // Number of ratings
+  total_rating   Int      @default(0) // Total rating score
+  average_rating Float    @default(0) // Average rating (calculated)
+  comment        String?  @default("")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model SocialMedia {
+  id        String   @id @default(uuid())
+  user_id   String
+  user      User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  platform  String
+  url       String
+  icon      String?  @default("")
+  type      Int      @default(1) // 1=Social Media, 2=Portfolio, 3=Other
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Achievement {
+  id                      String   @id @default(uuid())
+  user_id                 String
+  user                    User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  achievement_title       String
+  achievement_description String?
+  achievement_icon        String?
+  achievement_type        Int      @default(1) // 1=Achievement, 2=Award
+  achievement_date        DateTime @default(now())
+  achievement_image       String?  @default("")
+  achievement_url         String?  @default("")
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
