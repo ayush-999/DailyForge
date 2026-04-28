@@ -1,30 +1,35 @@
-const { PrismaClient } = require("./prisma/generated/client");
-const { PrismaPg } = require("@prisma/adapter-pg");
-
-const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL,
-});
-const prisma = new PrismaClient({ adapter });
+const prisma = require("./lib/prisma");
 
 const startCronJobs = () => {
-  // Check every 1 minute
   setInterval(async () => {
     try {
-      const result = await prisma.pendingUser.deleteMany({
+      const now = new Date();
+
+      const regs = await prisma.pendingRegistration.deleteMany({
+        where: { expiresAt: { lt: now } },
+      });
+      if (regs.count > 0)
+        console.log(`[Cron] Removed ${regs.count} expired registration(s)`);
+
+      const sessions = await prisma.session.deleteMany({
+        where: { expiresAt: { lt: now } },
+      });
+      if (sessions.count > 0)
+        console.log(`[Cron] Removed ${sessions.count} expired session(s)`);
+
+      // Clean up used password reset tokens older than 24h
+      const resets = await prisma.passwordReset.deleteMany({
         where: {
-          expiresAt: {
-            lt: new Date(), // Any record where expiresAt is less than the current time
-          },
+          usedAt: { not: null },
+          expiresAt: { lt: now },
         },
       });
-      
-      if (result.count > 0) {
-        console.log(`[Cron] Cleaned up ${result.count} expired pending user(s).`);
-      }
-    } catch (error) {
-      console.error("[Cron] Error cleaning up pending users:", error.message);
+      if (resets.count > 0)
+        console.log(`[Cron] Removed ${resets.count} used password reset(s)`);
+    } catch (err) {
+      console.error("[Cron]", err.message);
     }
-  }, 60 * 1000); // 60,000 milliseconds = 1 minute
+  }, 60_000);
 };
 
 module.exports = startCronJobs;

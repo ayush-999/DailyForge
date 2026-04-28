@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(node -e \"require\\('@casl/ability'\\); console.log\\('casl ok'\\)\")",
+      "Bash(node -e \"require\\('zod'\\); console.log\\('zod ok'\\)\")",
+      "Bash(node -e \"require\\('express-rate-limit'\\); console.log\\('rate-limit ok'\\)\")",
+      "Bash(node -e \"require\\('helmet'\\); console.log\\('helmet ok'\\)\")",
+      "Bash(node -e \"const p = require\\('prisma/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(node -e \"const p = require\\('@prisma/client/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(npx prisma *)",
+      "Bash(node -e ' *)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

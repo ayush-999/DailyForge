@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import StoreProvider from "@/store/StoreProvider";
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
 
@@ -38,8 +39,10 @@ export default function RootLayout({
       <body>
         <StoreProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-            {children}
-            <Toaster position="bottom-right" />
+            <TooltipProvider>
+              {children}
+              <Toaster position="top-center" />
+            </TooltipProvider>
           </ThemeProvider>
         </StoreProvider>
       </body>

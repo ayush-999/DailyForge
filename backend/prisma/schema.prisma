@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
   output   = "./generated/client"
@@ -10,92 +7,218 @@ datasource db {
   provider = "postgresql"
 }
 
+// ── USERS ────────────────────────────────────────────────────────────────────
+
 model User {
-  id             String        @id @default(uuid())
-  fullName       String
-  email          String        @unique
-  password       String
-  role           Int           @default(2) // 0=Super Admin, 1=Admin, 2=User
-  account_status Int           @default(0) // 0=Inactive, 1=Active, 2=Suspended, 3=Rejected, 4=Deleted, 5=Banned
-  profile_image  String?       @default("")
-  cover_image    String?       @default("")
-  gender         Int?          @default(0) // 0=Other, 1=Male, 2=Female
-  dob            DateTime?     @default(now()) // Date of Birth
-  phone          String?       @default("")
-  website        String?       @default("")
-  bio            String?       @default("")
-  address        Address[]
-  is_verified    Boolean       @default(false) // false = not verified, true = verified
-  is_featured    Boolean       @default(false) // false = not featured, true = featured
-  rating         Rating[]
-  following      Int           @default(0) // Number of following
-  followers      Int           @default(0) // Number of followers
-  social_media   SocialMedia[] // Social Media Accounts
-  achievements   Achievement[] // Achievements
-  ranking        Int           @default(0) // Rank of the user
-  ranking_date   DateTime      @default(now()) // Date of the last rank update    
-  createdAt      DateTime      @default(now()) // Date of creation
-  updatedAt      DateTime      @updatedAt // Date of updation
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String
+  fullName      String
+  displayName   String?
+  avatarUrl     String?
+  timezone      String    @default("UTC")
+  locale        String    @default("en")
+  emailVerified Boolean   @default(false)
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions           Session[]
+  loginAttempts      LoginAttempt[]
+  userRoles          UserRole[]
+  appInstallations   AppInstallation[]
+  auditLogs          AuditLog[]
+  passwordResets     PasswordReset[]
+  pendingEmailChange PendingEmailChange?
+
+  @@index([deletedAt])
 }
 
-model Address {
+model PendingRegistration {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  fullName     String
+  passwordHash String
+  tokenHash    String   @unique
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  @@index([expiresAt])
+}
+
+model PasswordReset {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model PendingEmailChange {
   id        String   @id @default(uuid())
-  user_id   String
-  user      User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  address   String?  @default("")
-  city      String?  @default("")
-  state     String?  @default("")
-  zip_code  String?  @default("")
-  country   String?  @default("")
-  createdAt DateTime @default(now()) // Date of creation
-  updatedAt DateTime @updatedAt // Date of updation 
-}
-
-model Rating {
-  id             String   @id @default(uuid())
-  user_id        String
-  user           User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  rating_count   Int      @default(0) // Number of ratings
-  total_rating   Int      @default(0) // Total rating score
-  average_rating Float    @default(0) // Average rating (calculated)
-  comment        String?  @default("")
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-}
-
-model SocialMedia {
-  id        String   @id @default(uuid())
-  user_id   String
-  user      User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  platform  String
-  url       String
-  icon      String?  @default("")
-  type      Int      @default(1) // 1=Social Media, 2=Portfolio, 3=Other
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Achievement {
-  id                      String   @id @default(uuid())
-  user_id                 String
-  user                    User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  achievement_title       String
-  achievement_description String?
-  achievement_icon        String?
-  achievement_type        Int      @default(1) // 1=Achievement, 2=Award
-  achievement_date        DateTime @default(now())
-  achievement_image       String?  @default("")
-  achievement_url         String?  @default("")
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
-}
-
-model PendingUser {
-  id        String   @id @default(uuid())
-  fullName  String
-  email     String   @unique
-  password  String
-  otp       String
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  newEmail  String
+  tokenHash String   @unique
   expiresAt DateTime
   createdAt DateTime @default(now())
+}
+
+// ── SESSIONS ─────────────────────────────────────────────────────────────────
+
+model Session {
+  id               String    @id @default(uuid())
+  userId           String
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshTokenHash String    @unique
+  userAgent        String?
+  ipAddress        String?
+  lastActiveAt     DateTime  @default(now())
+  expiresAt        DateTime
+  revokedAt        DateTime?
+  createdAt        DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model LoginAttempt {
+  id        String   @id @default(uuid())
+  email     String
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  success   Boolean
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([email, createdAt])
+}
+
+// ── RBAC ─────────────────────────────────────────────────────────────────────
+
+model Role {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  displayName String
+  description String?
+  isSystem    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  userRoles       UserRole[]
+  rolePermissions RolePermission[]
+}
+
+model Permission {
+  id       String @id @default(uuid())
+  resource String
+  action   String
+  scope    String @default("*")
+
+  rolePermissions RolePermission[]
+
+  @@unique([resource, action, scope])
+  @@index([resource, action])
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  grantedAt    DateTime   @default(now())
+
+  @@id([roleId, permissionId])
+}
+
+model UserRole {
+  userId    String
+  roleId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  grantedBy String?
+  grantedAt DateTime @default(now())
+
+  @@id([userId, roleId])
+  @@index([userId])
+}
+
+// ── APP REGISTRY ──────────────────────────────────────────────────────────────
+
+model App {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  description String?
+  iconUrl     String?
+  category    String
+  publisherId String
+  isSystem    Boolean  @default(false)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  versions      AppVersion[]
+  installations AppInstallation[]
+  scopes        AppScope[]
+}
+
+model AppVersion {
+  id        String   @id @default(uuid())
+  appId     String
+  app       App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  version   String
+  changelog String?
+  isLatest  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@unique([appId, version])
+  @@index([appId])
+}
+
+model AppScope {
+  id          String  @id @default(uuid())
+  appId       String
+  app         App     @relation(fields: [appId], references: [id], onDelete: Cascade)
+  scope       String
+  description String?
+  isRequired  Boolean @default(false)
+
+  @@unique([appId, scope])
+}
+
+model AppInstallation {
+  id            String    @id @default(uuid())
+  userId        String
+  appId         String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  app           App       @relation(fields: [appId], references: [id], onDelete: Cascade)
+  grantedScopes String[]
+  settings      Json?
+  installedAt   DateTime  @default(now())
+  uninstalledAt DateTime?
+
+  @@unique([userId, appId])
+  @@index([userId])
+}
+
+// ── AUDIT LOG ────────────────────────────────────────────────────────────────
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  event     String
+  metadata  Json?
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([event, createdAt])
 }
