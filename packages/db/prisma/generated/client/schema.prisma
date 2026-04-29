@@ -1,0 +1,268 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ── USERS ────────────────────────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String
+  fullName      String
+  displayName   String?
+  avatarUrl     String?
+  timezone      String    @default("UTC")
+  locale        String    @default("en")
+  emailVerified Boolean   @default(false)
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions           Session[]
+  loginAttempts      LoginAttempt[]
+  userRoles          UserRole[]
+  appInstallations   AppInstallation[]
+  auditLogs          AuditLog[]
+  passwordResets     PasswordReset[]
+  pendingEmailChange PendingEmailChange?
+  todoLists          TodoList[]
+  todos              Todo[]
+
+  @@index([deletedAt])
+}
+
+model PendingRegistration {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  fullName     String
+  passwordHash String
+  tokenHash    String   @unique
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  @@index([expiresAt])
+}
+
+model PasswordReset {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model PendingEmailChange {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  newEmail  String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+// ── SESSIONS ─────────────────────────────────────────────────────────────────
+
+model Session {
+  id               String    @id @default(uuid())
+  userId           String
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshTokenHash String    @unique
+  userAgent        String?
+  ipAddress        String?
+  lastActiveAt     DateTime  @default(now())
+  expiresAt        DateTime
+  revokedAt        DateTime?
+  createdAt        DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model LoginAttempt {
+  id        String   @id @default(uuid())
+  email     String
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  success   Boolean
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([email, createdAt])
+}
+
+// ── RBAC ─────────────────────────────────────────────────────────────────────
+
+model Role {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  displayName String
+  description String?
+  isSystem    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  userRoles       UserRole[]
+  rolePermissions RolePermission[]
+}
+
+model Permission {
+  id       String @id @default(uuid())
+  resource String
+  action   String
+  scope    String @default("*")
+
+  rolePermissions RolePermission[]
+
+  @@unique([resource, action, scope])
+  @@index([resource, action])
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  grantedAt    DateTime   @default(now())
+
+  @@id([roleId, permissionId])
+}
+
+model UserRole {
+  userId    String
+  roleId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  grantedBy String?
+  grantedAt DateTime @default(now())
+
+  @@id([userId, roleId])
+  @@index([userId])
+}
+
+// ── APP REGISTRY ──────────────────────────────────────────────────────────────
+
+model App {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  description String?
+  iconUrl     String?
+  category    String
+  publisherId String
+  isSystem    Boolean  @default(false)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  versions      AppVersion[]
+  installations AppInstallation[]
+  scopes        AppScope[]
+}
+
+model AppVersion {
+  id        String   @id @default(uuid())
+  appId     String
+  app       App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  version   String
+  changelog String?
+  isLatest  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@unique([appId, version])
+  @@index([appId])
+}
+
+model AppScope {
+  id          String  @id @default(uuid())
+  appId       String
+  app         App     @relation(fields: [appId], references: [id], onDelete: Cascade)
+  scope       String
+  description String?
+  isRequired  Boolean @default(false)
+
+  @@unique([appId, scope])
+}
+
+model AppInstallation {
+  id            String    @id @default(uuid())
+  userId        String
+  appId         String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  app           App       @relation(fields: [appId], references: [id], onDelete: Cascade)
+  grantedScopes String[]
+  settings      Json?
+  installedAt   DateTime  @default(now())
+  uninstalledAt DateTime?
+
+  @@unique([userId, appId])
+  @@index([userId])
+}
+
+// ── TODO APP ─────────────────────────────────────────────────────────────────
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model TodoList {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  color     String   @default("#6366f1")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  todos Todo[]
+
+  @@index([userId])
+}
+
+model Todo {
+  id          String    @id @default(uuid())
+  userId      String
+  todoListId  String?
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  todoList    TodoList? @relation(fields: [todoListId], references: [id], onDelete: SetNull)
+  title       String
+  description String?
+  completed   Boolean   @default(false)
+  completedAt DateTime?
+  priority    Priority  @default(MEDIUM)
+  dueDate     DateTime?
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([userId, completed])
+  @@index([todoListId])
+}
+
+// ── AUDIT LOG ────────────────────────────────────────────────────────────────
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  event     String
+  metadata  Json?
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([event, createdAt])
+}

@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+.next
+dist
+.turbo
+
+# Env
+.env
+.env.local
+.env*.local
+
+# Prisma
+prisma/generated
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Uploads (backend local files)
+backend/uploads/

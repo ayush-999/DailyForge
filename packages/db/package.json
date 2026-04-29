@@ -1,0 +1,31 @@
+{
+  "name": "@dailyforge/db",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:reset": "prisma migrate reset",
+    "db:seed": "tsx -r dotenv/config seeds/seed.ts",
+    "db:seed:apps": "tsx -r dotenv/config seeds/apps.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "@prisma/client-runtime-utils": "^7.8.0",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^16.5.0",
+    "prisma": "^7.8.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.9.3"
+  }
+}

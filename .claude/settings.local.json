@@ -10,7 +10,24 @@
       "Bash(node -e \"const p = require\\('@prisma/client/package.json'\\); console.log\\(p.version\\)\")",
       "Bash(npx prisma *)",
       "Bash(node -e ' *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(pnpm --version)",
+      "Bash(npm --version)",
+      "Bash(git mv *)",
+      "Bash(mkdir -p apps)",
+      "Bash(cp -r fronrtend apps/web)",
+      "Bash(mkdir -p \"f:/Work/process/DailyForge/apps/web/app/api/auth/[...nextauth]\")",
+      "Bash(mkdir -p \"f:/Work/process/DailyForge/apps/web/app/api/trpc/[trpc]\")",
+      "Bash(pnpm install *)",
+      "Bash(pnpm approve-builds *)",
+      "Bash(pnpm --filter @dailyforge/db db:generate)",
+      "Bash(pnpm --filter @dailyforge/web typecheck)",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(pnpm --filter @dailyforge/web dev)",
+      "Bash(kill %1)",
+      "Bash(wait)",
+      "Bash(taskkill /PID 23716 /F)",
+      "PowerShell(Stop-Process -Id 23716 -Force -ErrorAction SilentlyContinue)"
     ]
   }
 }

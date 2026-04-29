@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pnpm --filter @dailyforge/db db:seed)",
+      "Bash(pnpm --filter @dailyforge/db db:seed:apps)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\" http://localhost:3000)",
+      "Bash(curl -s -o /dev/null -w \" | /signin: %{http_code}\" http://localhost:3000/signin)",
+      "Bash(curl -s -o /dev/null -w \" | /dashboard: %{http_code}\" http://localhost:3000/dashboard)",
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowTitle -eq \"\" } | Stop-Process -Force; Write-Host \"Killed node processes\")",
+      "Bash(curl -s -o /dev/null -w \"/ => %{http_code}\" http://localhost:3000)",
+      "Bash(curl -s -o /dev/null -w \" | /signin => %{http_code}\" http://localhost:3000/signin)",
+      "Bash(curl -s -o /dev/null -w \" | /api/trpc => %{http_code}\\\\n\" http://localhost:3000/api/trpc/users.me)",
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "Bash(curl -s -o /dev/null -w \" | /api/trpc/users.me => %{http_code}\\\\n\" \"http://localhost:3000/api/trpc/users.me\")"
+    ]
+  }
+}
