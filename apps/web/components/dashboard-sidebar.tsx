@@ -17,6 +17,14 @@ import {
   Store,
   Sun,
   User,
+  CalendarDays,
+  Heart,
+  Wallet,
+  NotebookPen,
+  Zap,
+  ShieldCheck,
+  Users,
+  KeyRound,
 } from "lucide-react";
 import {
   Sidebar,
@@ -41,6 +49,11 @@ import { cn } from "@/lib/utils";
 
 const APP_ICONS: Record<string, React.ReactNode> = {
   todo: <CheckSquare className="h-4 w-4" />,
+  "daily-planner": <CalendarDays className="h-4 w-4" />,
+  "health-tracker": <Heart className="h-4 w-4" />,
+  "expense-tracker": <Wallet className="h-4 w-4" />,
+  "notes-diary": <NotebookPen className="h-4 w-4" />,
+  productivity: <Zap className="h-4 w-4" />,
 };
 
 function UserAvatar({
@@ -102,6 +115,7 @@ export default function DashboardSidebar() {
   const pathname = usePathname();
   const { data: user } = trpc.users.me.useQuery();
   const { data: rawInstalled = [] } = trpc.apps.listInstalled.useQuery();
+  const { data: adminCheck } = trpc.users.adminCheck.useQuery();
   // Cast to a minimal shape to avoid excessive Prisma type nesting in TS inference
   const installed = rawInstalled as { app: { id: string; slug: string; name: string } }[];
 
@@ -116,7 +130,7 @@ export default function DashboardSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/dashboard" className="flex items-center gap-3">
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg">
                   <Image
                     src="/images/logo.png"
                     alt="DailyForge"
@@ -177,6 +191,42 @@ export default function DashboardSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+            </SidebarMenu>
+          </SidebarGroup>
+        )}
+
+        {/* Admin (super_admin only) */}
+        {adminCheck?.isSuperAdmin && (
+          <SidebarGroup>
+            <SidebarGroupLabel>
+              <ShieldCheck className="mr-1.5 h-3.5 w-3.5" />
+              Admin
+            </SidebarGroupLabel>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname.startsWith("/admin/users")}
+                  tooltip="User Management"
+                >
+                  <Link href="/admin/users">
+                    <Users className="h-4 w-4" />
+                    <span>Users</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname.startsWith("/admin/roles")}
+                  tooltip="Roles & Permissions"
+                >
+                  <Link href="/admin/roles">
+                    <KeyRound className="h-4 w-4" />
+                    <span>Roles</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroup>
         )}

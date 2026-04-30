@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { router, protectedProcedure } from "../trpc/index";
 import { db } from "@dailyforge/db";
+import { createNotification } from "../lib/notify";
 
 export const appsRouter = router({
   list: protectedProcedure.query(async () => {
@@ -20,12 +21,7 @@ export const appsRouter = router({
   }),
 
   install: protectedProcedure
-    .input(
-      z.object({
-        slug: z.string(),
-        grantedScopes: z.array(z.string()),
-      })
-    )
+    .input(z.object({ slug: z.string(), grantedScopes: z.array(z.string()) }))
     .mutation(async ({ ctx, input }) => {
       const app = await db.app.findUnique({ where: { slug: input.slug } });
       if (!app || !app.isPublished) throw new Error("App not found");
@@ -40,6 +36,13 @@ export const appsRouter = router({
         },
       });
 
+      void createNotification(
+        ctx.session.user.id,
+        "app_installed",
+        `${app.name} installed`,
+        `${app.name} is now available in your workspace.`
+      );
+
       return { ok: true };
     }),
 
@@ -53,6 +56,13 @@ export const appsRouter = router({
         where: { userId: ctx.session.user.id, appId: app.id },
         data: { uninstalledAt: new Date() },
       });
+
+      void createNotification(
+        ctx.session.user.id,
+        "app_uninstalled",
+        `${app.name} uninstalled`,
+        `${app.name} has been removed from your workspace.`
+      );
 
       return { ok: true };
     }),

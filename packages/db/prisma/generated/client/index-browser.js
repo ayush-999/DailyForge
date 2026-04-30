@@ -130,6 +130,7 @@ exports.Prisma.UserScalarFieldEnum = {
   timezone: 'timezone',
   locale: 'locale',
   emailVerified: 'emailVerified',
+  status: 'status',
   deletedAt: 'deletedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -279,6 +280,104 @@ exports.Prisma.TodoScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  title: 'title',
+  body: 'body',
+  read: 'read',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.TimeBlockScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  title: 'title',
+  description: 'description',
+  startTime: 'startTime',
+  endTime: 'endTime',
+  color: 'color',
+  completed: 'completed',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.WaterLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  amount: 'amount',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.WorkoutLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  type: 'type',
+  duration: 'duration',
+  calories: 'calories',
+  notes: 'notes',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.SleepLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  bedtime: 'bedtime',
+  wakeTime: 'wakeTime',
+  quality: 'quality',
+  notes: 'notes',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.ExpenseCategoryScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  color: 'color',
+  icon: 'icon',
+  budget: 'budget'
+};
+
+exports.Prisma.ExpenseScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  categoryId: 'categoryId',
+  amount: 'amount',
+  description: 'description',
+  date: 'date',
+  type: 'type',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NoteScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  title: 'title',
+  content: 'content',
+  tags: 'tags',
+  isPinned: 'isPinned',
+  isJournal: 'isJournal',
+  journalDate: 'journalDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PomodoroSessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  taskLabel: 'taskLabel',
+  duration: 'duration',
+  breakDuration: 'breakDuration',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.AuditLogScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -314,6 +413,14 @@ exports.Prisma.JsonNullValueFilter = {
   JsonNull: Prisma.JsonNull,
   AnyNull: Prisma.AnyNull
 };
+exports.AccountStatus = exports.$Enums.AccountStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  BANNED: 'BANNED',
+  PENDING: 'PENDING',
+  DELETED: 'DELETED'
+};
+
 exports.Priority = exports.$Enums.Priority = {
   LOW: 'LOW',
   MEDIUM: 'MEDIUM',
@@ -337,6 +444,15 @@ exports.Prisma.ModelName = {
   AppInstallation: 'AppInstallation',
   TodoList: 'TodoList',
   Todo: 'Todo',
+  Notification: 'Notification',
+  TimeBlock: 'TimeBlock',
+  WaterLog: 'WaterLog',
+  WorkoutLog: 'WorkoutLog',
+  SleepLog: 'SleepLog',
+  ExpenseCategory: 'ExpenseCategory',
+  Expense: 'Expense',
+  Note: 'Note',
+  PomodoroSession: 'PomodoroSession',
   AuditLog: 'AuditLog'
 };
 

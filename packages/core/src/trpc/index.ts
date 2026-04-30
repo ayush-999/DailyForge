@@ -1,6 +1,20 @@
 import { initTRPC, TRPCError } from "@trpc/server";
 import { db } from "@dailyforge/db";
 
+// Prevent flooding the DB — only update lastActiveAt once per 2 min per user
+const activityCache = new Set<string>();
+function touchLastActive(userId: string) {
+  if (activityCache.has(userId)) return;
+  activityCache.add(userId);
+  setTimeout(() => activityCache.delete(userId), 2 * 60 * 1000);
+  void db.session
+    .updateMany({
+      where: { userId, revokedAt: null, expiresAt: { gt: new Date() } },
+      data: { lastActiveAt: new Date() },
+    })
+    .catch(() => {});
+}
+
 export interface SessionUser {
   id?: string;
   email?: string | null;
@@ -29,6 +43,7 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
   if (!ctx.session?.user?.id) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
+  touchLastActive(ctx.session.user.id);
   return next({
     ctx: {
       ...ctx,

@@ -9,19 +9,28 @@ datasource db {
 
 // ── USERS ────────────────────────────────────────────────────────────────────
 
+enum AccountStatus {
+  ACTIVE
+  SUSPENDED
+  BANNED
+  PENDING
+  DELETED
+}
+
 model User {
-  id            String    @id @default(uuid())
-  email         String    @unique
+  id            String        @id @default(uuid())
+  email         String        @unique
   passwordHash  String
   fullName      String
   displayName   String?
   avatarUrl     String?
-  timezone      String    @default("UTC")
-  locale        String    @default("en")
-  emailVerified Boolean   @default(false)
+  timezone      String        @default("UTC")
+  locale        String        @default("en")
+  emailVerified Boolean       @default(false)
+  status        AccountStatus @default(ACTIVE)
   deletedAt     DateTime?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 
   sessions           Session[]
   loginAttempts      LoginAttempt[]
@@ -32,6 +41,15 @@ model User {
   pendingEmailChange PendingEmailChange?
   todoLists          TodoList[]
   todos              Todo[]
+  notifications      Notification[]
+  timeBlocks         TimeBlock[]
+  waterLogs          WaterLog[]
+  workoutLogs        WorkoutLog[]
+  sleepLogs          SleepLog[]
+  expenseCategories  ExpenseCategory[]
+  expenses           Expense[]
+  notes              Note[]
+  pomodoroSessions   PomodoroSession[]
 
   @@index([deletedAt])
 }
@@ -249,6 +267,149 @@ model Todo {
 
   @@index([userId, completed])
   @@index([todoListId])
+}
+
+// ── NOTIFICATIONS ────────────────────────────────────────────────────────────
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  title     String
+  body      String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId, read])
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+// ── DAILY PLANNER ────────────────────────────────────────────────────────────
+
+model TimeBlock {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        DateTime
+  title       String
+  description String?
+  startTime   String
+  endTime     String
+  color       String   @default("#6366f1")
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId, date])
+}
+
+// ── HEALTH TRACKER ────────────────────────────────────────────────────────────
+
+model WaterLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+  amount    Int
+  createdAt DateTime @default(now())
+
+  @@index([userId, date])
+}
+
+model WorkoutLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+  type      String
+  duration  Int
+  calories  Int?
+  notes     String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, date])
+}
+
+model SleepLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+  bedtime   String
+  wakeTime  String
+  quality   Int
+  notes     String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, date])
+}
+
+// ── EXPENSE TRACKER ───────────────────────────────────────────────────────────
+
+model ExpenseCategory {
+  id       String    @id @default(uuid())
+  userId   String
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name     String
+  color    String    @default("#6366f1")
+  icon     String?
+  budget   Float?
+  expenses Expense[]
+
+  @@unique([userId, name])
+  @@index([userId])
+}
+
+model Expense {
+  id          String           @id @default(uuid())
+  userId      String
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categoryId  String?
+  category    ExpenseCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  amount      Float
+  description String
+  date        DateTime
+  type        String           @default("expense")
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([userId, date])
+  @@index([categoryId])
+}
+
+// ── NOTES & DIARY ─────────────────────────────────────────────────────────────
+
+model Note {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  content     String    @default("")
+  tags        String[]
+  isPinned    Boolean   @default(false)
+  isJournal   Boolean   @default(false)
+  journalDate DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([userId, isJournal])
+  @@index([userId, createdAt])
+}
+
+// ── PRODUCTIVITY ──────────────────────────────────────────────────────────────
+
+model PomodoroSession {
+  id            String    @id @default(uuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  taskLabel     String?
+  duration      Int
+  breakDuration Int       @default(5)
+  completedAt   DateTime?
+  createdAt     DateTime  @default(now())
+
+  @@index([userId, createdAt])
 }
 
 // ── AUDIT LOG ────────────────────────────────────────────────────────────────

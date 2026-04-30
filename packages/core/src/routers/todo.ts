@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { router, appProcedure } from "../trpc/index";
 import { db } from "@dailyforge/db";
+import { createNotification } from "../lib/notify";
 
 const READ = appProcedure("todo", "todos:read");
 const WRITE = appProcedure("todo", "todos:write");
@@ -19,18 +20,21 @@ export const todoRouter = router({
     }),
 
     create: WRITE.input(
-      z.object({
-        name: z.string().min(1).max(100),
-        color: z.string().optional(),
-      })
+      z.object({ name: z.string().min(1).max(100), color: z.string().optional() })
     ).mutation(async ({ ctx, input }) => {
-      return db.todoList.create({
+      const list = await db.todoList.create({
         data: {
           userId: ctx.session.user.id,
           name: input.name,
           color: input.color ?? "#6366f1",
         },
       });
+      void createNotification(
+        ctx.session.user.id,
+        "list_created",
+        `List "${input.name}" created`
+      );
+      return list;
     }),
 
     rename: WRITE.input(
@@ -80,11 +84,7 @@ export const todoRouter = router({
       };
 
       const where: WhereClause = { userId };
-
-      if (input.listId) {
-        where.todoListId = input.listId;
-      }
-
+      if (input.listId) where.todoListId = input.listId;
       if (input.filter === "today") {
         where.dueDate = { gte: todayStart, lte: todayEnd };
         where.completed = false;
@@ -108,7 +108,7 @@ export const todoRouter = router({
         dueDate: z.string().datetime().optional(),
       })
     ).mutation(async ({ ctx, input }) => {
-      return db.todo.create({
+      const todo = await db.todo.create({
         data: {
           userId: ctx.session.user.id,
           todoListId: input.listId ?? null,
@@ -117,6 +117,12 @@ export const todoRouter = router({
           dueDate: input.dueDate ? new Date(input.dueDate) : null,
         },
       });
+      void createNotification(
+        ctx.session.user.id,
+        "todo_created",
+        `Task added: "${input.title}"`
+      );
+      return todo;
     }),
 
     update: WRITE.input(
@@ -145,13 +151,22 @@ export const todoRouter = router({
         const todo = await db.todo.findUniqueOrThrow({
           where: { id: input.id, userId: ctx.session.user.id },
         });
-        return db.todo.update({
+        const nowCompleted = !todo.completed;
+        const updated = await db.todo.update({
           where: { id: input.id },
           data: {
-            completed: !todo.completed,
-            completedAt: !todo.completed ? new Date() : null,
+            completed: nowCompleted,
+            completedAt: nowCompleted ? new Date() : null,
           },
         });
+        if (nowCompleted) {
+          void createNotification(
+            ctx.session.user.id,
+            "todo_completed",
+            `Task completed: "${todo.title}"`
+          );
+        }
+        return updated;
       }
     ),
 

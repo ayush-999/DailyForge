@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { signIn } from "next-auth/react"
@@ -10,6 +10,15 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Spinner } from "@/components/ui/spinner"
 import toast from "react-hot-toast"
+
+const STATUS_ERRORS: Record<string, string> = {
+  AccountInactive: "Your session was ended because your account status changed. Please contact support.",
+}
+
+// Messages thrown by authorize() that should be shown verbatim
+const VERBATIM_ERRORS = [
+  "Please verify your email before signing in.",
+]
 
 interface SignInFormData {
   email: string
@@ -19,6 +28,15 @@ interface SignInFormData {
 export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const searchParams = useSearchParams()
+
+  // Show error from middleware redirect (e.g. kicked due to account status change)
+  useEffect(() => {
+    const err = searchParams.get("error")
+    if (err && STATUS_ERRORS[err]) {
+      toast.error(STATUS_ERRORS[err], { duration: 6000 })
+    }
+  }, [searchParams])
 
   const {
     register,
@@ -40,7 +58,7 @@ export default function SignInPage() {
 
       if (result?.error) {
         toast.error(
-          result.error === "Please verify your email before signing in."
+          VERBATIM_ERRORS.includes(result.error)
             ? result.error
             : "Invalid email or password"
         )
