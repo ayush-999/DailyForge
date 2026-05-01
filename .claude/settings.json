@@ -26,7 +26,8 @@
       "Bash(node_modules/.bin/prisma db *)",
       "Bash(node_modules/.bin/prisma generate *)",
       "Bash(pnpm add *)",
-      "Bash(pnpm --filter @dailyforge/db exec prisma db push --accept-data-loss)"
+      "Bash(pnpm --filter @dailyforge/db exec prisma db push --accept-data-loss)",
+      "Bash(pnpm --filter @dailyforge/web add recharts)"
     ]
   }
 }

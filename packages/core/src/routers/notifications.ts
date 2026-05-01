@@ -36,4 +36,27 @@ export const notificationsRouter = router({
     });
     return { ok: true };
   }),
+
+  deleteOne: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      await db.notification.deleteMany({
+        where: { id: input.id, userId: ctx.session.user.id },
+      });
+      return { ok: true };
+    }),
+
+  clearAll: protectedProcedure.mutation(async ({ ctx }) => {
+    await db.notification.deleteMany({
+      where: { userId: ctx.session.user.id },
+    });
+    return { ok: true };
+  }),
+
+  clearRead: protectedProcedure.mutation(async ({ ctx }) => {
+    await db.notification.deleteMany({
+      where: { userId: ctx.session.user.id, read: true },
+    });
+    return { ok: true };
+  }),
 });

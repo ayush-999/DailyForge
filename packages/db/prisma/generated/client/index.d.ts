@@ -94,6 +94,11 @@ export type TodoList = $Result.DefaultSelection<Prisma.$TodoListPayload>
  */
 export type Todo = $Result.DefaultSelection<Prisma.$TodoPayload>
 /**
+ * Model Subtask
+ * 
+ */
+export type Subtask = $Result.DefaultSelection<Prisma.$SubtaskPayload>
+/**
  * Model Notification
  * 
  */
@@ -129,10 +134,20 @@ export type ExpenseCategory = $Result.DefaultSelection<Prisma.$ExpenseCategoryPa
  */
 export type Expense = $Result.DefaultSelection<Prisma.$ExpensePayload>
 /**
+ * Model NoteFolder
+ * 
+ */
+export type NoteFolder = $Result.DefaultSelection<Prisma.$NoteFolderPayload>
+/**
  * Model Note
  * 
  */
 export type Note = $Result.DefaultSelection<Prisma.$NotePayload>
+/**
+ * Model NoteVersion
+ * 
+ */
+export type NoteVersion = $Result.DefaultSelection<Prisma.$NoteVersionPayload>
 /**
  * Model PomodoroSession
  * 
@@ -143,6 +158,36 @@ export type PomodoroSession = $Result.DefaultSelection<Prisma.$PomodoroSessionPa
  * 
  */
 export type AuditLog = $Result.DefaultSelection<Prisma.$AuditLogPayload>
+/**
+ * Model RecurringExpense
+ * 
+ */
+export type RecurringExpense = $Result.DefaultSelection<Prisma.$RecurringExpensePayload>
+/**
+ * Model FinancialGoal
+ * 
+ */
+export type FinancialGoal = $Result.DefaultSelection<Prisma.$FinancialGoalPayload>
+/**
+ * Model HealthProfile
+ * 
+ */
+export type HealthProfile = $Result.DefaultSelection<Prisma.$HealthProfilePayload>
+/**
+ * Model WeightLog
+ * 
+ */
+export type WeightLog = $Result.DefaultSelection<Prisma.$WeightLogPayload>
+/**
+ * Model StepLog
+ * 
+ */
+export type StepLog = $Result.DefaultSelection<Prisma.$StepLogPayload>
+/**
+ * Model FoodLog
+ * 
+ */
+export type FoodLog = $Result.DefaultSelection<Prisma.$FoodLogPayload>
 
 /**
  * Enums
@@ -459,6 +504,16 @@ export class PrismaClient<
   get todo(): Prisma.TodoDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.subtask`: Exposes CRUD operations for the **Subtask** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Subtasks
+    * const subtasks = await prisma.subtask.findMany()
+    * ```
+    */
+  get subtask(): Prisma.SubtaskDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.notification`: Exposes CRUD operations for the **Notification** model.
     * Example usage:
     * ```ts
@@ -529,6 +584,16 @@ export class PrismaClient<
   get expense(): Prisma.ExpenseDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.noteFolder`: Exposes CRUD operations for the **NoteFolder** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NoteFolders
+    * const noteFolders = await prisma.noteFolder.findMany()
+    * ```
+    */
+  get noteFolder(): Prisma.NoteFolderDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.note`: Exposes CRUD operations for the **Note** model.
     * Example usage:
     * ```ts
@@ -537,6 +602,16 @@ export class PrismaClient<
     * ```
     */
   get note(): Prisma.NoteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.noteVersion`: Exposes CRUD operations for the **NoteVersion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more NoteVersions
+    * const noteVersions = await prisma.noteVersion.findMany()
+    * ```
+    */
+  get noteVersion(): Prisma.NoteVersionDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.pomodoroSession`: Exposes CRUD operations for the **PomodoroSession** model.
@@ -557,6 +632,66 @@ export class PrismaClient<
     * ```
     */
   get auditLog(): Prisma.AuditLogDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.recurringExpense`: Exposes CRUD operations for the **RecurringExpense** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RecurringExpenses
+    * const recurringExpenses = await prisma.recurringExpense.findMany()
+    * ```
+    */
+  get recurringExpense(): Prisma.RecurringExpenseDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.financialGoal`: Exposes CRUD operations for the **FinancialGoal** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FinancialGoals
+    * const financialGoals = await prisma.financialGoal.findMany()
+    * ```
+    */
+  get financialGoal(): Prisma.FinancialGoalDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.healthProfile`: Exposes CRUD operations for the **HealthProfile** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more HealthProfiles
+    * const healthProfiles = await prisma.healthProfile.findMany()
+    * ```
+    */
+  get healthProfile(): Prisma.HealthProfileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.weightLog`: Exposes CRUD operations for the **WeightLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more WeightLogs
+    * const weightLogs = await prisma.weightLog.findMany()
+    * ```
+    */
+  get weightLog(): Prisma.WeightLogDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.stepLog`: Exposes CRUD operations for the **StepLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more StepLogs
+    * const stepLogs = await prisma.stepLog.findMany()
+    * ```
+    */
+  get stepLog(): Prisma.StepLogDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.foodLog`: Exposes CRUD operations for the **FoodLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FoodLogs
+    * const foodLogs = await prisma.foodLog.findMany()
+    * ```
+    */
+  get foodLog(): Prisma.FoodLogDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1007,6 +1142,7 @@ export namespace Prisma {
     AppInstallation: 'AppInstallation',
     TodoList: 'TodoList',
     Todo: 'Todo',
+    Subtask: 'Subtask',
     Notification: 'Notification',
     TimeBlock: 'TimeBlock',
     WaterLog: 'WaterLog',
@@ -1014,9 +1150,17 @@ export namespace Prisma {
     SleepLog: 'SleepLog',
     ExpenseCategory: 'ExpenseCategory',
     Expense: 'Expense',
+    NoteFolder: 'NoteFolder',
     Note: 'Note',
+    NoteVersion: 'NoteVersion',
     PomodoroSession: 'PomodoroSession',
-    AuditLog: 'AuditLog'
+    AuditLog: 'AuditLog',
+    RecurringExpense: 'RecurringExpense',
+    FinancialGoal: 'FinancialGoal',
+    HealthProfile: 'HealthProfile',
+    WeightLog: 'WeightLog',
+    StepLog: 'StepLog',
+    FoodLog: 'FoodLog'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1032,7 +1176,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "pendingRegistration" | "passwordReset" | "pendingEmailChange" | "session" | "loginAttempt" | "role" | "permission" | "rolePermission" | "userRole" | "app" | "appVersion" | "appScope" | "appInstallation" | "todoList" | "todo" | "notification" | "timeBlock" | "waterLog" | "workoutLog" | "sleepLog" | "expenseCategory" | "expense" | "note" | "pomodoroSession" | "auditLog"
+      modelProps: "user" | "pendingRegistration" | "passwordReset" | "pendingEmailChange" | "session" | "loginAttempt" | "role" | "permission" | "rolePermission" | "userRole" | "app" | "appVersion" | "appScope" | "appInstallation" | "todoList" | "todo" | "subtask" | "notification" | "timeBlock" | "waterLog" | "workoutLog" | "sleepLog" | "expenseCategory" | "expense" | "noteFolder" | "note" | "noteVersion" | "pomodoroSession" | "auditLog" | "recurringExpense" | "financialGoal" | "healthProfile" | "weightLog" | "stepLog" | "foodLog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2220,6 +2364,80 @@ export namespace Prisma {
           }
         }
       }
+      Subtask: {
+        payload: Prisma.$SubtaskPayload<ExtArgs>
+        fields: Prisma.SubtaskFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SubtaskFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SubtaskFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>
+          }
+          findFirst: {
+            args: Prisma.SubtaskFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SubtaskFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>
+          }
+          findMany: {
+            args: Prisma.SubtaskFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>[]
+          }
+          create: {
+            args: Prisma.SubtaskCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>
+          }
+          createMany: {
+            args: Prisma.SubtaskCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SubtaskCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>[]
+          }
+          delete: {
+            args: Prisma.SubtaskDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>
+          }
+          update: {
+            args: Prisma.SubtaskUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>
+          }
+          deleteMany: {
+            args: Prisma.SubtaskDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SubtaskUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SubtaskUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>[]
+          }
+          upsert: {
+            args: Prisma.SubtaskUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SubtaskPayload>
+          }
+          aggregate: {
+            args: Prisma.SubtaskAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSubtask>
+          }
+          groupBy: {
+            args: Prisma.SubtaskGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SubtaskGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SubtaskCountArgs<ExtArgs>
+            result: $Utils.Optional<SubtaskCountAggregateOutputType> | number
+          }
+        }
+      }
       Notification: {
         payload: Prisma.$NotificationPayload<ExtArgs>
         fields: Prisma.NotificationFieldRefs
@@ -2738,6 +2956,80 @@ export namespace Prisma {
           }
         }
       }
+      NoteFolder: {
+        payload: Prisma.$NoteFolderPayload<ExtArgs>
+        fields: Prisma.NoteFolderFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NoteFolderFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NoteFolderFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>
+          }
+          findFirst: {
+            args: Prisma.NoteFolderFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NoteFolderFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>
+          }
+          findMany: {
+            args: Prisma.NoteFolderFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>[]
+          }
+          create: {
+            args: Prisma.NoteFolderCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>
+          }
+          createMany: {
+            args: Prisma.NoteFolderCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NoteFolderCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>[]
+          }
+          delete: {
+            args: Prisma.NoteFolderDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>
+          }
+          update: {
+            args: Prisma.NoteFolderUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>
+          }
+          deleteMany: {
+            args: Prisma.NoteFolderDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NoteFolderUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.NoteFolderUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>[]
+          }
+          upsert: {
+            args: Prisma.NoteFolderUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteFolderPayload>
+          }
+          aggregate: {
+            args: Prisma.NoteFolderAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNoteFolder>
+          }
+          groupBy: {
+            args: Prisma.NoteFolderGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NoteFolderGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NoteFolderCountArgs<ExtArgs>
+            result: $Utils.Optional<NoteFolderCountAggregateOutputType> | number
+          }
+        }
+      }
       Note: {
         payload: Prisma.$NotePayload<ExtArgs>
         fields: Prisma.NoteFieldRefs
@@ -2809,6 +3101,80 @@ export namespace Prisma {
           count: {
             args: Prisma.NoteCountArgs<ExtArgs>
             result: $Utils.Optional<NoteCountAggregateOutputType> | number
+          }
+        }
+      }
+      NoteVersion: {
+        payload: Prisma.$NoteVersionPayload<ExtArgs>
+        fields: Prisma.NoteVersionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NoteVersionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NoteVersionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>
+          }
+          findFirst: {
+            args: Prisma.NoteVersionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NoteVersionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>
+          }
+          findMany: {
+            args: Prisma.NoteVersionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>[]
+          }
+          create: {
+            args: Prisma.NoteVersionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>
+          }
+          createMany: {
+            args: Prisma.NoteVersionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NoteVersionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>[]
+          }
+          delete: {
+            args: Prisma.NoteVersionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>
+          }
+          update: {
+            args: Prisma.NoteVersionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>
+          }
+          deleteMany: {
+            args: Prisma.NoteVersionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NoteVersionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.NoteVersionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>[]
+          }
+          upsert: {
+            args: Prisma.NoteVersionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NoteVersionPayload>
+          }
+          aggregate: {
+            args: Prisma.NoteVersionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNoteVersion>
+          }
+          groupBy: {
+            args: Prisma.NoteVersionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NoteVersionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NoteVersionCountArgs<ExtArgs>
+            result: $Utils.Optional<NoteVersionCountAggregateOutputType> | number
           }
         }
       }
@@ -2960,6 +3326,450 @@ export namespace Prisma {
           }
         }
       }
+      RecurringExpense: {
+        payload: Prisma.$RecurringExpensePayload<ExtArgs>
+        fields: Prisma.RecurringExpenseFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RecurringExpenseFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RecurringExpenseFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>
+          }
+          findFirst: {
+            args: Prisma.RecurringExpenseFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RecurringExpenseFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>
+          }
+          findMany: {
+            args: Prisma.RecurringExpenseFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>[]
+          }
+          create: {
+            args: Prisma.RecurringExpenseCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>
+          }
+          createMany: {
+            args: Prisma.RecurringExpenseCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RecurringExpenseCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>[]
+          }
+          delete: {
+            args: Prisma.RecurringExpenseDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>
+          }
+          update: {
+            args: Prisma.RecurringExpenseUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>
+          }
+          deleteMany: {
+            args: Prisma.RecurringExpenseDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RecurringExpenseUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RecurringExpenseUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>[]
+          }
+          upsert: {
+            args: Prisma.RecurringExpenseUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RecurringExpensePayload>
+          }
+          aggregate: {
+            args: Prisma.RecurringExpenseAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRecurringExpense>
+          }
+          groupBy: {
+            args: Prisma.RecurringExpenseGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RecurringExpenseGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RecurringExpenseCountArgs<ExtArgs>
+            result: $Utils.Optional<RecurringExpenseCountAggregateOutputType> | number
+          }
+        }
+      }
+      FinancialGoal: {
+        payload: Prisma.$FinancialGoalPayload<ExtArgs>
+        fields: Prisma.FinancialGoalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FinancialGoalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FinancialGoalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>
+          }
+          findFirst: {
+            args: Prisma.FinancialGoalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FinancialGoalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>
+          }
+          findMany: {
+            args: Prisma.FinancialGoalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>[]
+          }
+          create: {
+            args: Prisma.FinancialGoalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>
+          }
+          createMany: {
+            args: Prisma.FinancialGoalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FinancialGoalCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>[]
+          }
+          delete: {
+            args: Prisma.FinancialGoalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>
+          }
+          update: {
+            args: Prisma.FinancialGoalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>
+          }
+          deleteMany: {
+            args: Prisma.FinancialGoalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FinancialGoalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FinancialGoalUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>[]
+          }
+          upsert: {
+            args: Prisma.FinancialGoalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FinancialGoalPayload>
+          }
+          aggregate: {
+            args: Prisma.FinancialGoalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFinancialGoal>
+          }
+          groupBy: {
+            args: Prisma.FinancialGoalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FinancialGoalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FinancialGoalCountArgs<ExtArgs>
+            result: $Utils.Optional<FinancialGoalCountAggregateOutputType> | number
+          }
+        }
+      }
+      HealthProfile: {
+        payload: Prisma.$HealthProfilePayload<ExtArgs>
+        fields: Prisma.HealthProfileFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HealthProfileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HealthProfileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>
+          }
+          findFirst: {
+            args: Prisma.HealthProfileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HealthProfileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>
+          }
+          findMany: {
+            args: Prisma.HealthProfileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>[]
+          }
+          create: {
+            args: Prisma.HealthProfileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>
+          }
+          createMany: {
+            args: Prisma.HealthProfileCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.HealthProfileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>[]
+          }
+          delete: {
+            args: Prisma.HealthProfileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>
+          }
+          update: {
+            args: Prisma.HealthProfileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>
+          }
+          deleteMany: {
+            args: Prisma.HealthProfileDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HealthProfileUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.HealthProfileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>[]
+          }
+          upsert: {
+            args: Prisma.HealthProfileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HealthProfilePayload>
+          }
+          aggregate: {
+            args: Prisma.HealthProfileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHealthProfile>
+          }
+          groupBy: {
+            args: Prisma.HealthProfileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HealthProfileGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.HealthProfileCountArgs<ExtArgs>
+            result: $Utils.Optional<HealthProfileCountAggregateOutputType> | number
+          }
+        }
+      }
+      WeightLog: {
+        payload: Prisma.$WeightLogPayload<ExtArgs>
+        fields: Prisma.WeightLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.WeightLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.WeightLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>
+          }
+          findFirst: {
+            args: Prisma.WeightLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.WeightLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>
+          }
+          findMany: {
+            args: Prisma.WeightLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>[]
+          }
+          create: {
+            args: Prisma.WeightLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>
+          }
+          createMany: {
+            args: Prisma.WeightLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.WeightLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>[]
+          }
+          delete: {
+            args: Prisma.WeightLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>
+          }
+          update: {
+            args: Prisma.WeightLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.WeightLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.WeightLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.WeightLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.WeightLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$WeightLogPayload>
+          }
+          aggregate: {
+            args: Prisma.WeightLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateWeightLog>
+          }
+          groupBy: {
+            args: Prisma.WeightLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<WeightLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.WeightLogCountArgs<ExtArgs>
+            result: $Utils.Optional<WeightLogCountAggregateOutputType> | number
+          }
+        }
+      }
+      StepLog: {
+        payload: Prisma.$StepLogPayload<ExtArgs>
+        fields: Prisma.StepLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.StepLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.StepLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>
+          }
+          findFirst: {
+            args: Prisma.StepLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.StepLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>
+          }
+          findMany: {
+            args: Prisma.StepLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>[]
+          }
+          create: {
+            args: Prisma.StepLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>
+          }
+          createMany: {
+            args: Prisma.StepLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.StepLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>[]
+          }
+          delete: {
+            args: Prisma.StepLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>
+          }
+          update: {
+            args: Prisma.StepLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.StepLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.StepLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.StepLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.StepLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StepLogPayload>
+          }
+          aggregate: {
+            args: Prisma.StepLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStepLog>
+          }
+          groupBy: {
+            args: Prisma.StepLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<StepLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.StepLogCountArgs<ExtArgs>
+            result: $Utils.Optional<StepLogCountAggregateOutputType> | number
+          }
+        }
+      }
+      FoodLog: {
+        payload: Prisma.$FoodLogPayload<ExtArgs>
+        fields: Prisma.FoodLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FoodLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FoodLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>
+          }
+          findFirst: {
+            args: Prisma.FoodLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FoodLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>
+          }
+          findMany: {
+            args: Prisma.FoodLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>[]
+          }
+          create: {
+            args: Prisma.FoodLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>
+          }
+          createMany: {
+            args: Prisma.FoodLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FoodLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>[]
+          }
+          delete: {
+            args: Prisma.FoodLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>
+          }
+          update: {
+            args: Prisma.FoodLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.FoodLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FoodLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FoodLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.FoodLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FoodLogPayload>
+          }
+          aggregate: {
+            args: Prisma.FoodLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFoodLog>
+          }
+          groupBy: {
+            args: Prisma.FoodLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FoodLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FoodLogCountArgs<ExtArgs>
+            result: $Utils.Optional<FoodLogCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3084,6 +3894,7 @@ export namespace Prisma {
     appInstallation?: AppInstallationOmit
     todoList?: TodoListOmit
     todo?: TodoOmit
+    subtask?: SubtaskOmit
     notification?: NotificationOmit
     timeBlock?: TimeBlockOmit
     waterLog?: WaterLogOmit
@@ -3091,9 +3902,17 @@ export namespace Prisma {
     sleepLog?: SleepLogOmit
     expenseCategory?: ExpenseCategoryOmit
     expense?: ExpenseOmit
+    noteFolder?: NoteFolderOmit
     note?: NoteOmit
+    noteVersion?: NoteVersionOmit
     pomodoroSession?: PomodoroSessionOmit
     auditLog?: AuditLogOmit
+    recurringExpense?: RecurringExpenseOmit
+    financialGoal?: FinancialGoalOmit
+    healthProfile?: HealthProfileOmit
+    weightLog?: WeightLogOmit
+    stepLog?: StepLogOmit
+    foodLog?: FoodLogOmit
   }
 
   /* Types for Logging */
@@ -3189,7 +4008,13 @@ export namespace Prisma {
     sleepLogs: number
     expenseCategories: number
     expenses: number
+    recurringExpenses: number
+    financialGoals: number
+    weightLogs: number
+    stepLogs: number
+    foodLogs: number
     notes: number
+    noteFolders: number
     pomodoroSessions: number
   }
 
@@ -3209,7 +4034,13 @@ export namespace Prisma {
     sleepLogs?: boolean | UserCountOutputTypeCountSleepLogsArgs
     expenseCategories?: boolean | UserCountOutputTypeCountExpenseCategoriesArgs
     expenses?: boolean | UserCountOutputTypeCountExpensesArgs
+    recurringExpenses?: boolean | UserCountOutputTypeCountRecurringExpensesArgs
+    financialGoals?: boolean | UserCountOutputTypeCountFinancialGoalsArgs
+    weightLogs?: boolean | UserCountOutputTypeCountWeightLogsArgs
+    stepLogs?: boolean | UserCountOutputTypeCountStepLogsArgs
+    foodLogs?: boolean | UserCountOutputTypeCountFoodLogsArgs
     notes?: boolean | UserCountOutputTypeCountNotesArgs
+    noteFolders?: boolean | UserCountOutputTypeCountNoteFoldersArgs
     pomodoroSessions?: boolean | UserCountOutputTypeCountPomodoroSessionsArgs
   }
 
@@ -3332,8 +4163,50 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
+  export type UserCountOutputTypeCountRecurringExpensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RecurringExpenseWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFinancialGoalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FinancialGoalWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountWeightLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WeightLogWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountStepLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StepLogWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFoodLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FoodLogWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
   export type UserCountOutputTypeCountNotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: NoteWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountNoteFoldersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NoteFolderWhereInput
   }
 
   /**
@@ -3496,15 +4369,48 @@ export namespace Prisma {
 
 
   /**
+   * Count Type TodoCountOutputType
+   */
+
+  export type TodoCountOutputType = {
+    subtasks: number
+  }
+
+  export type TodoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subtasks?: boolean | TodoCountOutputTypeCountSubtasksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TodoCountOutputType without action
+   */
+  export type TodoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TodoCountOutputType
+     */
+    select?: TodoCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TodoCountOutputType without action
+   */
+  export type TodoCountOutputTypeCountSubtasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubtaskWhereInput
+  }
+
+
+  /**
    * Count Type ExpenseCategoryCountOutputType
    */
 
   export type ExpenseCategoryCountOutputType = {
     expenses: number
+    recurringExpenses: number
   }
 
   export type ExpenseCategoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     expenses?: boolean | ExpenseCategoryCountOutputTypeCountExpensesArgs
+    recurringExpenses?: boolean | ExpenseCategoryCountOutputTypeCountRecurringExpensesArgs
   }
 
   // Custom InputTypes
@@ -3523,6 +4429,75 @@ export namespace Prisma {
    */
   export type ExpenseCategoryCountOutputTypeCountExpensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ExpenseWhereInput
+  }
+
+  /**
+   * ExpenseCategoryCountOutputType without action
+   */
+  export type ExpenseCategoryCountOutputTypeCountRecurringExpensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RecurringExpenseWhereInput
+  }
+
+
+  /**
+   * Count Type NoteFolderCountOutputType
+   */
+
+  export type NoteFolderCountOutputType = {
+    notes: number
+  }
+
+  export type NoteFolderCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    notes?: boolean | NoteFolderCountOutputTypeCountNotesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * NoteFolderCountOutputType without action
+   */
+  export type NoteFolderCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolderCountOutputType
+     */
+    select?: NoteFolderCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * NoteFolderCountOutputType without action
+   */
+  export type NoteFolderCountOutputTypeCountNotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NoteWhereInput
+  }
+
+
+  /**
+   * Count Type NoteCountOutputType
+   */
+
+  export type NoteCountOutputType = {
+    versions: number
+  }
+
+  export type NoteCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    versions?: boolean | NoteCountOutputTypeCountVersionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * NoteCountOutputType without action
+   */
+  export type NoteCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteCountOutputType
+     */
+    select?: NoteCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * NoteCountOutputType without action
+   */
+  export type NoteCountOutputTypeCountVersionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NoteVersionWhereInput
   }
 
 
@@ -3774,7 +4749,14 @@ export namespace Prisma {
     sleepLogs?: boolean | User$sleepLogsArgs<ExtArgs>
     expenseCategories?: boolean | User$expenseCategoriesArgs<ExtArgs>
     expenses?: boolean | User$expensesArgs<ExtArgs>
+    recurringExpenses?: boolean | User$recurringExpensesArgs<ExtArgs>
+    financialGoals?: boolean | User$financialGoalsArgs<ExtArgs>
+    healthProfile?: boolean | User$healthProfileArgs<ExtArgs>
+    weightLogs?: boolean | User$weightLogsArgs<ExtArgs>
+    stepLogs?: boolean | User$stepLogsArgs<ExtArgs>
+    foodLogs?: boolean | User$foodLogsArgs<ExtArgs>
     notes?: boolean | User$notesArgs<ExtArgs>
+    noteFolders?: boolean | User$noteFoldersArgs<ExtArgs>
     pomodoroSessions?: boolean | User$pomodoroSessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -3845,7 +4827,14 @@ export namespace Prisma {
     sleepLogs?: boolean | User$sleepLogsArgs<ExtArgs>
     expenseCategories?: boolean | User$expenseCategoriesArgs<ExtArgs>
     expenses?: boolean | User$expensesArgs<ExtArgs>
+    recurringExpenses?: boolean | User$recurringExpensesArgs<ExtArgs>
+    financialGoals?: boolean | User$financialGoalsArgs<ExtArgs>
+    healthProfile?: boolean | User$healthProfileArgs<ExtArgs>
+    weightLogs?: boolean | User$weightLogsArgs<ExtArgs>
+    stepLogs?: boolean | User$stepLogsArgs<ExtArgs>
+    foodLogs?: boolean | User$foodLogsArgs<ExtArgs>
     notes?: boolean | User$notesArgs<ExtArgs>
+    noteFolders?: boolean | User$noteFoldersArgs<ExtArgs>
     pomodoroSessions?: boolean | User$pomodoroSessionsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -3871,7 +4860,14 @@ export namespace Prisma {
       sleepLogs: Prisma.$SleepLogPayload<ExtArgs>[]
       expenseCategories: Prisma.$ExpenseCategoryPayload<ExtArgs>[]
       expenses: Prisma.$ExpensePayload<ExtArgs>[]
+      recurringExpenses: Prisma.$RecurringExpensePayload<ExtArgs>[]
+      financialGoals: Prisma.$FinancialGoalPayload<ExtArgs>[]
+      healthProfile: Prisma.$HealthProfilePayload<ExtArgs> | null
+      weightLogs: Prisma.$WeightLogPayload<ExtArgs>[]
+      stepLogs: Prisma.$StepLogPayload<ExtArgs>[]
+      foodLogs: Prisma.$FoodLogPayload<ExtArgs>[]
       notes: Prisma.$NotePayload<ExtArgs>[]
+      noteFolders: Prisma.$NoteFolderPayload<ExtArgs>[]
       pomodoroSessions: Prisma.$PomodoroSessionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -4298,7 +5294,14 @@ export namespace Prisma {
     sleepLogs<T extends User$sleepLogsArgs<ExtArgs> = {}>(args?: Subset<T, User$sleepLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SleepLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     expenseCategories<T extends User$expenseCategoriesArgs<ExtArgs> = {}>(args?: Subset<T, User$expenseCategoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExpenseCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     expenses<T extends User$expensesArgs<ExtArgs> = {}>(args?: Subset<T, User$expensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    recurringExpenses<T extends User$recurringExpensesArgs<ExtArgs> = {}>(args?: Subset<T, User$recurringExpensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    financialGoals<T extends User$financialGoalsArgs<ExtArgs> = {}>(args?: Subset<T, User$financialGoalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    healthProfile<T extends User$healthProfileArgs<ExtArgs> = {}>(args?: Subset<T, User$healthProfileArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    weightLogs<T extends User$weightLogsArgs<ExtArgs> = {}>(args?: Subset<T, User$weightLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    stepLogs<T extends User$stepLogsArgs<ExtArgs> = {}>(args?: Subset<T, User$stepLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    foodLogs<T extends User$foodLogsArgs<ExtArgs> = {}>(args?: Subset<T, User$foodLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     notes<T extends User$notesArgs<ExtArgs> = {}>(args?: Subset<T, User$notesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    noteFolders<T extends User$noteFoldersArgs<ExtArgs> = {}>(args?: Subset<T, User$noteFoldersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pomodoroSessions<T extends User$pomodoroSessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$pomodoroSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PomodoroSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5114,6 +6117,145 @@ export namespace Prisma {
   }
 
   /**
+   * User.recurringExpenses
+   */
+  export type User$recurringExpensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    where?: RecurringExpenseWhereInput
+    orderBy?: RecurringExpenseOrderByWithRelationInput | RecurringExpenseOrderByWithRelationInput[]
+    cursor?: RecurringExpenseWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RecurringExpenseScalarFieldEnum | RecurringExpenseScalarFieldEnum[]
+  }
+
+  /**
+   * User.financialGoals
+   */
+  export type User$financialGoalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    where?: FinancialGoalWhereInput
+    orderBy?: FinancialGoalOrderByWithRelationInput | FinancialGoalOrderByWithRelationInput[]
+    cursor?: FinancialGoalWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FinancialGoalScalarFieldEnum | FinancialGoalScalarFieldEnum[]
+  }
+
+  /**
+   * User.healthProfile
+   */
+  export type User$healthProfileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    where?: HealthProfileWhereInput
+  }
+
+  /**
+   * User.weightLogs
+   */
+  export type User$weightLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    where?: WeightLogWhereInput
+    orderBy?: WeightLogOrderByWithRelationInput | WeightLogOrderByWithRelationInput[]
+    cursor?: WeightLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: WeightLogScalarFieldEnum | WeightLogScalarFieldEnum[]
+  }
+
+  /**
+   * User.stepLogs
+   */
+  export type User$stepLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    where?: StepLogWhereInput
+    orderBy?: StepLogOrderByWithRelationInput | StepLogOrderByWithRelationInput[]
+    cursor?: StepLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: StepLogScalarFieldEnum | StepLogScalarFieldEnum[]
+  }
+
+  /**
+   * User.foodLogs
+   */
+  export type User$foodLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    where?: FoodLogWhereInput
+    orderBy?: FoodLogOrderByWithRelationInput | FoodLogOrderByWithRelationInput[]
+    cursor?: FoodLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FoodLogScalarFieldEnum | FoodLogScalarFieldEnum[]
+  }
+
+  /**
    * User.notes
    */
   export type User$notesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5135,6 +6277,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+  }
+
+  /**
+   * User.noteFolders
+   */
+  export type User$noteFoldersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    where?: NoteFolderWhereInput
+    orderBy?: NoteFolderOrderByWithRelationInput | NoteFolderOrderByWithRelationInput[]
+    cursor?: NoteFolderWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NoteFolderScalarFieldEnum | NoteFolderScalarFieldEnum[]
   }
 
   /**
@@ -20419,10 +21585,14 @@ export namespace Prisma {
 
   export type TodoAvgAggregateOutputType = {
     sortOrder: number | null
+    estimatedMinutes: number | null
+    actualMinutes: number | null
   }
 
   export type TodoSumAggregateOutputType = {
     sortOrder: number | null
+    estimatedMinutes: number | null
+    actualMinutes: number | null
   }
 
   export type TodoMinAggregateOutputType = {
@@ -20436,6 +21606,12 @@ export namespace Prisma {
     priority: $Enums.Priority | null
     dueDate: Date | null
     sortOrder: number | null
+    status: string | null
+    isUrgent: boolean | null
+    isImportant: boolean | null
+    estimatedMinutes: number | null
+    actualMinutes: number | null
+    timerStartedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -20451,6 +21627,12 @@ export namespace Prisma {
     priority: $Enums.Priority | null
     dueDate: Date | null
     sortOrder: number | null
+    status: string | null
+    isUrgent: boolean | null
+    isImportant: boolean | null
+    estimatedMinutes: number | null
+    actualMinutes: number | null
+    timerStartedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -20466,6 +21648,12 @@ export namespace Prisma {
     priority: number
     dueDate: number
     sortOrder: number
+    status: number
+    isUrgent: number
+    isImportant: number
+    estimatedMinutes: number
+    actualMinutes: number
+    timerStartedAt: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -20474,10 +21662,14 @@ export namespace Prisma {
 
   export type TodoAvgAggregateInputType = {
     sortOrder?: true
+    estimatedMinutes?: true
+    actualMinutes?: true
   }
 
   export type TodoSumAggregateInputType = {
     sortOrder?: true
+    estimatedMinutes?: true
+    actualMinutes?: true
   }
 
   export type TodoMinAggregateInputType = {
@@ -20491,6 +21683,12 @@ export namespace Prisma {
     priority?: true
     dueDate?: true
     sortOrder?: true
+    status?: true
+    isUrgent?: true
+    isImportant?: true
+    estimatedMinutes?: true
+    actualMinutes?: true
+    timerStartedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -20506,6 +21704,12 @@ export namespace Prisma {
     priority?: true
     dueDate?: true
     sortOrder?: true
+    status?: true
+    isUrgent?: true
+    isImportant?: true
+    estimatedMinutes?: true
+    actualMinutes?: true
+    timerStartedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -20521,6 +21725,12 @@ export namespace Prisma {
     priority?: true
     dueDate?: true
     sortOrder?: true
+    status?: true
+    isUrgent?: true
+    isImportant?: true
+    estimatedMinutes?: true
+    actualMinutes?: true
+    timerStartedAt?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -20623,6 +21833,12 @@ export namespace Prisma {
     priority: $Enums.Priority
     dueDate: Date | null
     sortOrder: number
+    status: string
+    isUrgent: boolean
+    isImportant: boolean
+    estimatedMinutes: number | null
+    actualMinutes: number
+    timerStartedAt: Date | null
     createdAt: Date
     updatedAt: Date
     _count: TodoCountAggregateOutputType | null
@@ -20657,10 +21873,18 @@ export namespace Prisma {
     priority?: boolean
     dueDate?: boolean
     sortOrder?: boolean
+    status?: boolean
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: boolean
+    actualMinutes?: boolean
+    timerStartedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     todoList?: boolean | Todo$todoListArgs<ExtArgs>
+    subtasks?: boolean | Todo$subtasksArgs<ExtArgs>
+    _count?: boolean | TodoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["todo"]>
 
   export type TodoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -20674,6 +21898,12 @@ export namespace Prisma {
     priority?: boolean
     dueDate?: boolean
     sortOrder?: boolean
+    status?: boolean
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: boolean
+    actualMinutes?: boolean
+    timerStartedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -20691,6 +21921,12 @@ export namespace Prisma {
     priority?: boolean
     dueDate?: boolean
     sortOrder?: boolean
+    status?: boolean
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: boolean
+    actualMinutes?: boolean
+    timerStartedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -20708,14 +21944,22 @@ export namespace Prisma {
     priority?: boolean
     dueDate?: boolean
     sortOrder?: boolean
+    status?: boolean
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: boolean
+    actualMinutes?: boolean
+    timerStartedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type TodoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "todoListId" | "title" | "description" | "completed" | "completedAt" | "priority" | "dueDate" | "sortOrder" | "createdAt" | "updatedAt", ExtArgs["result"]["todo"]>
+  export type TodoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "todoListId" | "title" | "description" | "completed" | "completedAt" | "priority" | "dueDate" | "sortOrder" | "status" | "isUrgent" | "isImportant" | "estimatedMinutes" | "actualMinutes" | "timerStartedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["todo"]>
   export type TodoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     todoList?: boolean | Todo$todoListArgs<ExtArgs>
+    subtasks?: boolean | Todo$subtasksArgs<ExtArgs>
+    _count?: boolean | TodoCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TodoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -20731,6 +21975,7 @@ export namespace Prisma {
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
       todoList: Prisma.$TodoListPayload<ExtArgs> | null
+      subtasks: Prisma.$SubtaskPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -20743,6 +21988,12 @@ export namespace Prisma {
       priority: $Enums.Priority
       dueDate: Date | null
       sortOrder: number
+      status: string
+      isUrgent: boolean
+      isImportant: boolean
+      estimatedMinutes: number | null
+      actualMinutes: number
+      timerStartedAt: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["todo"]>
@@ -21141,6 +22392,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     todoList<T extends Todo$todoListArgs<ExtArgs> = {}>(args?: Subset<T, Todo$todoListArgs<ExtArgs>>): Prisma__TodoListClient<$Result.GetResult<Prisma.$TodoListPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    subtasks<T extends Todo$subtasksArgs<ExtArgs> = {}>(args?: Subset<T, Todo$subtasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -21180,6 +22432,12 @@ export namespace Prisma {
     readonly priority: FieldRef<"Todo", 'Priority'>
     readonly dueDate: FieldRef<"Todo", 'DateTime'>
     readonly sortOrder: FieldRef<"Todo", 'Int'>
+    readonly status: FieldRef<"Todo", 'String'>
+    readonly isUrgent: FieldRef<"Todo", 'Boolean'>
+    readonly isImportant: FieldRef<"Todo", 'Boolean'>
+    readonly estimatedMinutes: FieldRef<"Todo", 'Int'>
+    readonly actualMinutes: FieldRef<"Todo", 'Int'>
+    readonly timerStartedAt: FieldRef<"Todo", 'DateTime'>
     readonly createdAt: FieldRef<"Todo", 'DateTime'>
     readonly updatedAt: FieldRef<"Todo", 'DateTime'>
   }
@@ -21602,6 +22860,30 @@ export namespace Prisma {
   }
 
   /**
+   * Todo.subtasks
+   */
+  export type Todo$subtasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    where?: SubtaskWhereInput
+    orderBy?: SubtaskOrderByWithRelationInput | SubtaskOrderByWithRelationInput[]
+    cursor?: SubtaskWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SubtaskScalarFieldEnum | SubtaskScalarFieldEnum[]
+  }
+
+  /**
    * Todo without action
    */
   export type TodoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21617,6 +22899,1116 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: TodoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Subtask
+   */
+
+  export type AggregateSubtask = {
+    _count: SubtaskCountAggregateOutputType | null
+    _avg: SubtaskAvgAggregateOutputType | null
+    _sum: SubtaskSumAggregateOutputType | null
+    _min: SubtaskMinAggregateOutputType | null
+    _max: SubtaskMaxAggregateOutputType | null
+  }
+
+  export type SubtaskAvgAggregateOutputType = {
+    sortOrder: number | null
+  }
+
+  export type SubtaskSumAggregateOutputType = {
+    sortOrder: number | null
+  }
+
+  export type SubtaskMinAggregateOutputType = {
+    id: string | null
+    todoId: string | null
+    title: string | null
+    completed: boolean | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type SubtaskMaxAggregateOutputType = {
+    id: string | null
+    todoId: string | null
+    title: string | null
+    completed: boolean | null
+    sortOrder: number | null
+    createdAt: Date | null
+  }
+
+  export type SubtaskCountAggregateOutputType = {
+    id: number
+    todoId: number
+    title: number
+    completed: number
+    sortOrder: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type SubtaskAvgAggregateInputType = {
+    sortOrder?: true
+  }
+
+  export type SubtaskSumAggregateInputType = {
+    sortOrder?: true
+  }
+
+  export type SubtaskMinAggregateInputType = {
+    id?: true
+    todoId?: true
+    title?: true
+    completed?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type SubtaskMaxAggregateInputType = {
+    id?: true
+    todoId?: true
+    title?: true
+    completed?: true
+    sortOrder?: true
+    createdAt?: true
+  }
+
+  export type SubtaskCountAggregateInputType = {
+    id?: true
+    todoId?: true
+    title?: true
+    completed?: true
+    sortOrder?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type SubtaskAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Subtask to aggregate.
+     */
+    where?: SubtaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subtasks to fetch.
+     */
+    orderBy?: SubtaskOrderByWithRelationInput | SubtaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SubtaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subtasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subtasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Subtasks
+    **/
+    _count?: true | SubtaskCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SubtaskAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SubtaskSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SubtaskMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SubtaskMaxAggregateInputType
+  }
+
+  export type GetSubtaskAggregateType<T extends SubtaskAggregateArgs> = {
+        [P in keyof T & keyof AggregateSubtask]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSubtask[P]>
+      : GetScalarType<T[P], AggregateSubtask[P]>
+  }
+
+
+
+
+  export type SubtaskGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SubtaskWhereInput
+    orderBy?: SubtaskOrderByWithAggregationInput | SubtaskOrderByWithAggregationInput[]
+    by: SubtaskScalarFieldEnum[] | SubtaskScalarFieldEnum
+    having?: SubtaskScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SubtaskCountAggregateInputType | true
+    _avg?: SubtaskAvgAggregateInputType
+    _sum?: SubtaskSumAggregateInputType
+    _min?: SubtaskMinAggregateInputType
+    _max?: SubtaskMaxAggregateInputType
+  }
+
+  export type SubtaskGroupByOutputType = {
+    id: string
+    todoId: string
+    title: string
+    completed: boolean
+    sortOrder: number
+    createdAt: Date
+    _count: SubtaskCountAggregateOutputType | null
+    _avg: SubtaskAvgAggregateOutputType | null
+    _sum: SubtaskSumAggregateOutputType | null
+    _min: SubtaskMinAggregateOutputType | null
+    _max: SubtaskMaxAggregateOutputType | null
+  }
+
+  type GetSubtaskGroupByPayload<T extends SubtaskGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SubtaskGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SubtaskGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SubtaskGroupByOutputType[P]>
+            : GetScalarType<T[P], SubtaskGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SubtaskSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    todoId?: boolean
+    title?: boolean
+    completed?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    todo?: boolean | TodoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subtask"]>
+
+  export type SubtaskSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    todoId?: boolean
+    title?: boolean
+    completed?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    todo?: boolean | TodoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subtask"]>
+
+  export type SubtaskSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    todoId?: boolean
+    title?: boolean
+    completed?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+    todo?: boolean | TodoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["subtask"]>
+
+  export type SubtaskSelectScalar = {
+    id?: boolean
+    todoId?: boolean
+    title?: boolean
+    completed?: boolean
+    sortOrder?: boolean
+    createdAt?: boolean
+  }
+
+  export type SubtaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "todoId" | "title" | "completed" | "sortOrder" | "createdAt", ExtArgs["result"]["subtask"]>
+  export type SubtaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    todo?: boolean | TodoDefaultArgs<ExtArgs>
+  }
+  export type SubtaskIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    todo?: boolean | TodoDefaultArgs<ExtArgs>
+  }
+  export type SubtaskIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    todo?: boolean | TodoDefaultArgs<ExtArgs>
+  }
+
+  export type $SubtaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Subtask"
+    objects: {
+      todo: Prisma.$TodoPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      todoId: string
+      title: string
+      completed: boolean
+      sortOrder: number
+      createdAt: Date
+    }, ExtArgs["result"]["subtask"]>
+    composites: {}
+  }
+
+  type SubtaskGetPayload<S extends boolean | null | undefined | SubtaskDefaultArgs> = $Result.GetResult<Prisma.$SubtaskPayload, S>
+
+  type SubtaskCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SubtaskFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SubtaskCountAggregateInputType | true
+    }
+
+  export interface SubtaskDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Subtask'], meta: { name: 'Subtask' } }
+    /**
+     * Find zero or one Subtask that matches the filter.
+     * @param {SubtaskFindUniqueArgs} args - Arguments to find a Subtask
+     * @example
+     * // Get one Subtask
+     * const subtask = await prisma.subtask.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SubtaskFindUniqueArgs>(args: SelectSubset<T, SubtaskFindUniqueArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Subtask that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SubtaskFindUniqueOrThrowArgs} args - Arguments to find a Subtask
+     * @example
+     * // Get one Subtask
+     * const subtask = await prisma.subtask.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SubtaskFindUniqueOrThrowArgs>(args: SelectSubset<T, SubtaskFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Subtask that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubtaskFindFirstArgs} args - Arguments to find a Subtask
+     * @example
+     * // Get one Subtask
+     * const subtask = await prisma.subtask.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SubtaskFindFirstArgs>(args?: SelectSubset<T, SubtaskFindFirstArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Subtask that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubtaskFindFirstOrThrowArgs} args - Arguments to find a Subtask
+     * @example
+     * // Get one Subtask
+     * const subtask = await prisma.subtask.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SubtaskFindFirstOrThrowArgs>(args?: SelectSubset<T, SubtaskFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Subtasks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubtaskFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Subtasks
+     * const subtasks = await prisma.subtask.findMany()
+     * 
+     * // Get first 10 Subtasks
+     * const subtasks = await prisma.subtask.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const subtaskWithIdOnly = await prisma.subtask.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SubtaskFindManyArgs>(args?: SelectSubset<T, SubtaskFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Subtask.
+     * @param {SubtaskCreateArgs} args - Arguments to create a Subtask.
+     * @example
+     * // Create one Subtask
+     * const Subtask = await prisma.subtask.create({
+     *   data: {
+     *     // ... data to create a Subtask
+     *   }
+     * })
+     * 
+     */
+    create<T extends SubtaskCreateArgs>(args: SelectSubset<T, SubtaskCreateArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Subtasks.
+     * @param {SubtaskCreateManyArgs} args - Arguments to create many Subtasks.
+     * @example
+     * // Create many Subtasks
+     * const subtask = await prisma.subtask.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SubtaskCreateManyArgs>(args?: SelectSubset<T, SubtaskCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Subtasks and returns the data saved in the database.
+     * @param {SubtaskCreateManyAndReturnArgs} args - Arguments to create many Subtasks.
+     * @example
+     * // Create many Subtasks
+     * const subtask = await prisma.subtask.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Subtasks and only return the `id`
+     * const subtaskWithIdOnly = await prisma.subtask.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SubtaskCreateManyAndReturnArgs>(args?: SelectSubset<T, SubtaskCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Subtask.
+     * @param {SubtaskDeleteArgs} args - Arguments to delete one Subtask.
+     * @example
+     * // Delete one Subtask
+     * const Subtask = await prisma.subtask.delete({
+     *   where: {
+     *     // ... filter to delete one Subtask
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SubtaskDeleteArgs>(args: SelectSubset<T, SubtaskDeleteArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Subtask.
+     * @param {SubtaskUpdateArgs} args - Arguments to update one Subtask.
+     * @example
+     * // Update one Subtask
+     * const subtask = await prisma.subtask.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SubtaskUpdateArgs>(args: SelectSubset<T, SubtaskUpdateArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Subtasks.
+     * @param {SubtaskDeleteManyArgs} args - Arguments to filter Subtasks to delete.
+     * @example
+     * // Delete a few Subtasks
+     * const { count } = await prisma.subtask.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SubtaskDeleteManyArgs>(args?: SelectSubset<T, SubtaskDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Subtasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubtaskUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Subtasks
+     * const subtask = await prisma.subtask.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SubtaskUpdateManyArgs>(args: SelectSubset<T, SubtaskUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Subtasks and returns the data updated in the database.
+     * @param {SubtaskUpdateManyAndReturnArgs} args - Arguments to update many Subtasks.
+     * @example
+     * // Update many Subtasks
+     * const subtask = await prisma.subtask.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Subtasks and only return the `id`
+     * const subtaskWithIdOnly = await prisma.subtask.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SubtaskUpdateManyAndReturnArgs>(args: SelectSubset<T, SubtaskUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Subtask.
+     * @param {SubtaskUpsertArgs} args - Arguments to update or create a Subtask.
+     * @example
+     * // Update or create a Subtask
+     * const subtask = await prisma.subtask.upsert({
+     *   create: {
+     *     // ... data to create a Subtask
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Subtask we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SubtaskUpsertArgs>(args: SelectSubset<T, SubtaskUpsertArgs<ExtArgs>>): Prisma__SubtaskClient<$Result.GetResult<Prisma.$SubtaskPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Subtasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubtaskCountArgs} args - Arguments to filter Subtasks to count.
+     * @example
+     * // Count the number of Subtasks
+     * const count = await prisma.subtask.count({
+     *   where: {
+     *     // ... the filter for the Subtasks we want to count
+     *   }
+     * })
+    **/
+    count<T extends SubtaskCountArgs>(
+      args?: Subset<T, SubtaskCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SubtaskCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Subtask.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubtaskAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SubtaskAggregateArgs>(args: Subset<T, SubtaskAggregateArgs>): Prisma.PrismaPromise<GetSubtaskAggregateType<T>>
+
+    /**
+     * Group by Subtask.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubtaskGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SubtaskGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SubtaskGroupByArgs['orderBy'] }
+        : { orderBy?: SubtaskGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SubtaskGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubtaskGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Subtask model
+   */
+  readonly fields: SubtaskFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Subtask.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SubtaskClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    todo<T extends TodoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TodoDefaultArgs<ExtArgs>>): Prisma__TodoClient<$Result.GetResult<Prisma.$TodoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Subtask model
+   */
+  interface SubtaskFieldRefs {
+    readonly id: FieldRef<"Subtask", 'String'>
+    readonly todoId: FieldRef<"Subtask", 'String'>
+    readonly title: FieldRef<"Subtask", 'String'>
+    readonly completed: FieldRef<"Subtask", 'Boolean'>
+    readonly sortOrder: FieldRef<"Subtask", 'Int'>
+    readonly createdAt: FieldRef<"Subtask", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Subtask findUnique
+   */
+  export type SubtaskFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * Filter, which Subtask to fetch.
+     */
+    where: SubtaskWhereUniqueInput
+  }
+
+  /**
+   * Subtask findUniqueOrThrow
+   */
+  export type SubtaskFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * Filter, which Subtask to fetch.
+     */
+    where: SubtaskWhereUniqueInput
+  }
+
+  /**
+   * Subtask findFirst
+   */
+  export type SubtaskFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * Filter, which Subtask to fetch.
+     */
+    where?: SubtaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subtasks to fetch.
+     */
+    orderBy?: SubtaskOrderByWithRelationInput | SubtaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Subtasks.
+     */
+    cursor?: SubtaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subtasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subtasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Subtasks.
+     */
+    distinct?: SubtaskScalarFieldEnum | SubtaskScalarFieldEnum[]
+  }
+
+  /**
+   * Subtask findFirstOrThrow
+   */
+  export type SubtaskFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * Filter, which Subtask to fetch.
+     */
+    where?: SubtaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subtasks to fetch.
+     */
+    orderBy?: SubtaskOrderByWithRelationInput | SubtaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Subtasks.
+     */
+    cursor?: SubtaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subtasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subtasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Subtasks.
+     */
+    distinct?: SubtaskScalarFieldEnum | SubtaskScalarFieldEnum[]
+  }
+
+  /**
+   * Subtask findMany
+   */
+  export type SubtaskFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * Filter, which Subtasks to fetch.
+     */
+    where?: SubtaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Subtasks to fetch.
+     */
+    orderBy?: SubtaskOrderByWithRelationInput | SubtaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Subtasks.
+     */
+    cursor?: SubtaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Subtasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Subtasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Subtasks.
+     */
+    distinct?: SubtaskScalarFieldEnum | SubtaskScalarFieldEnum[]
+  }
+
+  /**
+   * Subtask create
+   */
+  export type SubtaskCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Subtask.
+     */
+    data: XOR<SubtaskCreateInput, SubtaskUncheckedCreateInput>
+  }
+
+  /**
+   * Subtask createMany
+   */
+  export type SubtaskCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Subtasks.
+     */
+    data: SubtaskCreateManyInput | SubtaskCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Subtask createManyAndReturn
+   */
+  export type SubtaskCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * The data used to create many Subtasks.
+     */
+    data: SubtaskCreateManyInput | SubtaskCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Subtask update
+   */
+  export type SubtaskUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Subtask.
+     */
+    data: XOR<SubtaskUpdateInput, SubtaskUncheckedUpdateInput>
+    /**
+     * Choose, which Subtask to update.
+     */
+    where: SubtaskWhereUniqueInput
+  }
+
+  /**
+   * Subtask updateMany
+   */
+  export type SubtaskUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Subtasks.
+     */
+    data: XOR<SubtaskUpdateManyMutationInput, SubtaskUncheckedUpdateManyInput>
+    /**
+     * Filter which Subtasks to update
+     */
+    where?: SubtaskWhereInput
+    /**
+     * Limit how many Subtasks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Subtask updateManyAndReturn
+   */
+  export type SubtaskUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * The data used to update Subtasks.
+     */
+    data: XOR<SubtaskUpdateManyMutationInput, SubtaskUncheckedUpdateManyInput>
+    /**
+     * Filter which Subtasks to update
+     */
+    where?: SubtaskWhereInput
+    /**
+     * Limit how many Subtasks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Subtask upsert
+   */
+  export type SubtaskUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Subtask to update in case it exists.
+     */
+    where: SubtaskWhereUniqueInput
+    /**
+     * In case the Subtask found by the `where` argument doesn't exist, create a new Subtask with this data.
+     */
+    create: XOR<SubtaskCreateInput, SubtaskUncheckedCreateInput>
+    /**
+     * In case the Subtask was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SubtaskUpdateInput, SubtaskUncheckedUpdateInput>
+  }
+
+  /**
+   * Subtask delete
+   */
+  export type SubtaskDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
+    /**
+     * Filter which Subtask to delete.
+     */
+    where: SubtaskWhereUniqueInput
+  }
+
+  /**
+   * Subtask deleteMany
+   */
+  export type SubtaskDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Subtasks to delete
+     */
+    where?: SubtaskWhereInput
+    /**
+     * Limit how many Subtasks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Subtask without action
+   */
+  export type SubtaskDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Subtask
+     */
+    select?: SubtaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Subtask
+     */
+    omit?: SubtaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SubtaskInclude<ExtArgs> | null
   }
 
 
@@ -27431,6 +29823,7 @@ export namespace Prisma {
     budget?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     expenses?: boolean | ExpenseCategory$expensesArgs<ExtArgs>
+    recurringExpenses?: boolean | ExpenseCategory$recurringExpensesArgs<ExtArgs>
     _count?: boolean | ExpenseCategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["expenseCategory"]>
 
@@ -27467,6 +29860,7 @@ export namespace Prisma {
   export type ExpenseCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     expenses?: boolean | ExpenseCategory$expensesArgs<ExtArgs>
+    recurringExpenses?: boolean | ExpenseCategory$recurringExpensesArgs<ExtArgs>
     _count?: boolean | ExpenseCategoryCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ExpenseCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -27481,6 +29875,7 @@ export namespace Prisma {
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
       expenses: Prisma.$ExpensePayload<ExtArgs>[]
+      recurringExpenses: Prisma.$RecurringExpensePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -27885,6 +30280,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     expenses<T extends ExpenseCategory$expensesArgs<ExtArgs> = {}>(args?: Subset<T, ExpenseCategory$expensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    recurringExpenses<T extends ExpenseCategory$recurringExpensesArgs<ExtArgs> = {}>(args?: Subset<T, ExpenseCategory$recurringExpensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -28342,6 +30738,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ExpenseScalarFieldEnum | ExpenseScalarFieldEnum[]
+  }
+
+  /**
+   * ExpenseCategory.recurringExpenses
+   */
+  export type ExpenseCategory$recurringExpensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    where?: RecurringExpenseWhereInput
+    orderBy?: RecurringExpenseOrderByWithRelationInput | RecurringExpenseOrderByWithRelationInput[]
+    cursor?: RecurringExpenseWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RecurringExpenseScalarFieldEnum | RecurringExpenseScalarFieldEnum[]
   }
 
   /**
@@ -29540,6 +31960,1099 @@ export namespace Prisma {
 
 
   /**
+   * Model NoteFolder
+   */
+
+  export type AggregateNoteFolder = {
+    _count: NoteFolderCountAggregateOutputType | null
+    _min: NoteFolderMinAggregateOutputType | null
+    _max: NoteFolderMaxAggregateOutputType | null
+  }
+
+  export type NoteFolderMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    name: string | null
+    color: string | null
+    createdAt: Date | null
+  }
+
+  export type NoteFolderMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    name: string | null
+    color: string | null
+    createdAt: Date | null
+  }
+
+  export type NoteFolderCountAggregateOutputType = {
+    id: number
+    userId: number
+    name: number
+    color: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type NoteFolderMinAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    color?: true
+    createdAt?: true
+  }
+
+  export type NoteFolderMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    color?: true
+    createdAt?: true
+  }
+
+  export type NoteFolderCountAggregateInputType = {
+    id?: true
+    userId?: true
+    name?: true
+    color?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type NoteFolderAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NoteFolder to aggregate.
+     */
+    where?: NoteFolderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteFolders to fetch.
+     */
+    orderBy?: NoteFolderOrderByWithRelationInput | NoteFolderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NoteFolderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteFolders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteFolders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NoteFolders
+    **/
+    _count?: true | NoteFolderCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NoteFolderMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NoteFolderMaxAggregateInputType
+  }
+
+  export type GetNoteFolderAggregateType<T extends NoteFolderAggregateArgs> = {
+        [P in keyof T & keyof AggregateNoteFolder]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNoteFolder[P]>
+      : GetScalarType<T[P], AggregateNoteFolder[P]>
+  }
+
+
+
+
+  export type NoteFolderGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NoteFolderWhereInput
+    orderBy?: NoteFolderOrderByWithAggregationInput | NoteFolderOrderByWithAggregationInput[]
+    by: NoteFolderScalarFieldEnum[] | NoteFolderScalarFieldEnum
+    having?: NoteFolderScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NoteFolderCountAggregateInputType | true
+    _min?: NoteFolderMinAggregateInputType
+    _max?: NoteFolderMaxAggregateInputType
+  }
+
+  export type NoteFolderGroupByOutputType = {
+    id: string
+    userId: string
+    name: string
+    color: string
+    createdAt: Date
+    _count: NoteFolderCountAggregateOutputType | null
+    _min: NoteFolderMinAggregateOutputType | null
+    _max: NoteFolderMaxAggregateOutputType | null
+  }
+
+  type GetNoteFolderGroupByPayload<T extends NoteFolderGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NoteFolderGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NoteFolderGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NoteFolderGroupByOutputType[P]>
+            : GetScalarType<T[P], NoteFolderGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NoteFolderSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    color?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    notes?: boolean | NoteFolder$notesArgs<ExtArgs>
+    _count?: boolean | NoteFolderCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["noteFolder"]>
+
+  export type NoteFolderSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    color?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["noteFolder"]>
+
+  export type NoteFolderSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    color?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["noteFolder"]>
+
+  export type NoteFolderSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    name?: boolean
+    color?: boolean
+    createdAt?: boolean
+  }
+
+  export type NoteFolderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "name" | "color" | "createdAt", ExtArgs["result"]["noteFolder"]>
+  export type NoteFolderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    notes?: boolean | NoteFolder$notesArgs<ExtArgs>
+    _count?: boolean | NoteFolderCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type NoteFolderIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NoteFolderIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $NoteFolderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NoteFolder"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      notes: Prisma.$NotePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      name: string
+      color: string
+      createdAt: Date
+    }, ExtArgs["result"]["noteFolder"]>
+    composites: {}
+  }
+
+  type NoteFolderGetPayload<S extends boolean | null | undefined | NoteFolderDefaultArgs> = $Result.GetResult<Prisma.$NoteFolderPayload, S>
+
+  type NoteFolderCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NoteFolderFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NoteFolderCountAggregateInputType | true
+    }
+
+  export interface NoteFolderDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NoteFolder'], meta: { name: 'NoteFolder' } }
+    /**
+     * Find zero or one NoteFolder that matches the filter.
+     * @param {NoteFolderFindUniqueArgs} args - Arguments to find a NoteFolder
+     * @example
+     * // Get one NoteFolder
+     * const noteFolder = await prisma.noteFolder.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NoteFolderFindUniqueArgs>(args: SelectSubset<T, NoteFolderFindUniqueArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one NoteFolder that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NoteFolderFindUniqueOrThrowArgs} args - Arguments to find a NoteFolder
+     * @example
+     * // Get one NoteFolder
+     * const noteFolder = await prisma.noteFolder.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NoteFolderFindUniqueOrThrowArgs>(args: SelectSubset<T, NoteFolderFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NoteFolder that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFolderFindFirstArgs} args - Arguments to find a NoteFolder
+     * @example
+     * // Get one NoteFolder
+     * const noteFolder = await prisma.noteFolder.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NoteFolderFindFirstArgs>(args?: SelectSubset<T, NoteFolderFindFirstArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NoteFolder that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFolderFindFirstOrThrowArgs} args - Arguments to find a NoteFolder
+     * @example
+     * // Get one NoteFolder
+     * const noteFolder = await prisma.noteFolder.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NoteFolderFindFirstOrThrowArgs>(args?: SelectSubset<T, NoteFolderFindFirstOrThrowArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more NoteFolders that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFolderFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NoteFolders
+     * const noteFolders = await prisma.noteFolder.findMany()
+     * 
+     * // Get first 10 NoteFolders
+     * const noteFolders = await prisma.noteFolder.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const noteFolderWithIdOnly = await prisma.noteFolder.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NoteFolderFindManyArgs>(args?: SelectSubset<T, NoteFolderFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a NoteFolder.
+     * @param {NoteFolderCreateArgs} args - Arguments to create a NoteFolder.
+     * @example
+     * // Create one NoteFolder
+     * const NoteFolder = await prisma.noteFolder.create({
+     *   data: {
+     *     // ... data to create a NoteFolder
+     *   }
+     * })
+     * 
+     */
+    create<T extends NoteFolderCreateArgs>(args: SelectSubset<T, NoteFolderCreateArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many NoteFolders.
+     * @param {NoteFolderCreateManyArgs} args - Arguments to create many NoteFolders.
+     * @example
+     * // Create many NoteFolders
+     * const noteFolder = await prisma.noteFolder.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NoteFolderCreateManyArgs>(args?: SelectSubset<T, NoteFolderCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NoteFolders and returns the data saved in the database.
+     * @param {NoteFolderCreateManyAndReturnArgs} args - Arguments to create many NoteFolders.
+     * @example
+     * // Create many NoteFolders
+     * const noteFolder = await prisma.noteFolder.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NoteFolders and only return the `id`
+     * const noteFolderWithIdOnly = await prisma.noteFolder.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NoteFolderCreateManyAndReturnArgs>(args?: SelectSubset<T, NoteFolderCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a NoteFolder.
+     * @param {NoteFolderDeleteArgs} args - Arguments to delete one NoteFolder.
+     * @example
+     * // Delete one NoteFolder
+     * const NoteFolder = await prisma.noteFolder.delete({
+     *   where: {
+     *     // ... filter to delete one NoteFolder
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NoteFolderDeleteArgs>(args: SelectSubset<T, NoteFolderDeleteArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one NoteFolder.
+     * @param {NoteFolderUpdateArgs} args - Arguments to update one NoteFolder.
+     * @example
+     * // Update one NoteFolder
+     * const noteFolder = await prisma.noteFolder.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NoteFolderUpdateArgs>(args: SelectSubset<T, NoteFolderUpdateArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more NoteFolders.
+     * @param {NoteFolderDeleteManyArgs} args - Arguments to filter NoteFolders to delete.
+     * @example
+     * // Delete a few NoteFolders
+     * const { count } = await prisma.noteFolder.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NoteFolderDeleteManyArgs>(args?: SelectSubset<T, NoteFolderDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NoteFolders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFolderUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NoteFolders
+     * const noteFolder = await prisma.noteFolder.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NoteFolderUpdateManyArgs>(args: SelectSubset<T, NoteFolderUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NoteFolders and returns the data updated in the database.
+     * @param {NoteFolderUpdateManyAndReturnArgs} args - Arguments to update many NoteFolders.
+     * @example
+     * // Update many NoteFolders
+     * const noteFolder = await prisma.noteFolder.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more NoteFolders and only return the `id`
+     * const noteFolderWithIdOnly = await prisma.noteFolder.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NoteFolderUpdateManyAndReturnArgs>(args: SelectSubset<T, NoteFolderUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one NoteFolder.
+     * @param {NoteFolderUpsertArgs} args - Arguments to update or create a NoteFolder.
+     * @example
+     * // Update or create a NoteFolder
+     * const noteFolder = await prisma.noteFolder.upsert({
+     *   create: {
+     *     // ... data to create a NoteFolder
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NoteFolder we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NoteFolderUpsertArgs>(args: SelectSubset<T, NoteFolderUpsertArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of NoteFolders.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFolderCountArgs} args - Arguments to filter NoteFolders to count.
+     * @example
+     * // Count the number of NoteFolders
+     * const count = await prisma.noteFolder.count({
+     *   where: {
+     *     // ... the filter for the NoteFolders we want to count
+     *   }
+     * })
+    **/
+    count<T extends NoteFolderCountArgs>(
+      args?: Subset<T, NoteFolderCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NoteFolderCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NoteFolder.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFolderAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NoteFolderAggregateArgs>(args: Subset<T, NoteFolderAggregateArgs>): Prisma.PrismaPromise<GetNoteFolderAggregateType<T>>
+
+    /**
+     * Group by NoteFolder.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFolderGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NoteFolderGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NoteFolderGroupByArgs['orderBy'] }
+        : { orderBy?: NoteFolderGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NoteFolderGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNoteFolderGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NoteFolder model
+   */
+  readonly fields: NoteFolderFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NoteFolder.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NoteFolderClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    notes<T extends NoteFolder$notesArgs<ExtArgs> = {}>(args?: Subset<T, NoteFolder$notesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NoteFolder model
+   */
+  interface NoteFolderFieldRefs {
+    readonly id: FieldRef<"NoteFolder", 'String'>
+    readonly userId: FieldRef<"NoteFolder", 'String'>
+    readonly name: FieldRef<"NoteFolder", 'String'>
+    readonly color: FieldRef<"NoteFolder", 'String'>
+    readonly createdAt: FieldRef<"NoteFolder", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NoteFolder findUnique
+   */
+  export type NoteFolderFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteFolder to fetch.
+     */
+    where: NoteFolderWhereUniqueInput
+  }
+
+  /**
+   * NoteFolder findUniqueOrThrow
+   */
+  export type NoteFolderFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteFolder to fetch.
+     */
+    where: NoteFolderWhereUniqueInput
+  }
+
+  /**
+   * NoteFolder findFirst
+   */
+  export type NoteFolderFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteFolder to fetch.
+     */
+    where?: NoteFolderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteFolders to fetch.
+     */
+    orderBy?: NoteFolderOrderByWithRelationInput | NoteFolderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NoteFolders.
+     */
+    cursor?: NoteFolderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteFolders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteFolders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NoteFolders.
+     */
+    distinct?: NoteFolderScalarFieldEnum | NoteFolderScalarFieldEnum[]
+  }
+
+  /**
+   * NoteFolder findFirstOrThrow
+   */
+  export type NoteFolderFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteFolder to fetch.
+     */
+    where?: NoteFolderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteFolders to fetch.
+     */
+    orderBy?: NoteFolderOrderByWithRelationInput | NoteFolderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NoteFolders.
+     */
+    cursor?: NoteFolderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteFolders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteFolders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NoteFolders.
+     */
+    distinct?: NoteFolderScalarFieldEnum | NoteFolderScalarFieldEnum[]
+  }
+
+  /**
+   * NoteFolder findMany
+   */
+  export type NoteFolderFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteFolders to fetch.
+     */
+    where?: NoteFolderWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteFolders to fetch.
+     */
+    orderBy?: NoteFolderOrderByWithRelationInput | NoteFolderOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NoteFolders.
+     */
+    cursor?: NoteFolderWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteFolders from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteFolders.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NoteFolders.
+     */
+    distinct?: NoteFolderScalarFieldEnum | NoteFolderScalarFieldEnum[]
+  }
+
+  /**
+   * NoteFolder create
+   */
+  export type NoteFolderCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * The data needed to create a NoteFolder.
+     */
+    data: XOR<NoteFolderCreateInput, NoteFolderUncheckedCreateInput>
+  }
+
+  /**
+   * NoteFolder createMany
+   */
+  export type NoteFolderCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NoteFolders.
+     */
+    data: NoteFolderCreateManyInput | NoteFolderCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NoteFolder createManyAndReturn
+   */
+  export type NoteFolderCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * The data used to create many NoteFolders.
+     */
+    data: NoteFolderCreateManyInput | NoteFolderCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NoteFolder update
+   */
+  export type NoteFolderUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * The data needed to update a NoteFolder.
+     */
+    data: XOR<NoteFolderUpdateInput, NoteFolderUncheckedUpdateInput>
+    /**
+     * Choose, which NoteFolder to update.
+     */
+    where: NoteFolderWhereUniqueInput
+  }
+
+  /**
+   * NoteFolder updateMany
+   */
+  export type NoteFolderUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NoteFolders.
+     */
+    data: XOR<NoteFolderUpdateManyMutationInput, NoteFolderUncheckedUpdateManyInput>
+    /**
+     * Filter which NoteFolders to update
+     */
+    where?: NoteFolderWhereInput
+    /**
+     * Limit how many NoteFolders to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * NoteFolder updateManyAndReturn
+   */
+  export type NoteFolderUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * The data used to update NoteFolders.
+     */
+    data: XOR<NoteFolderUpdateManyMutationInput, NoteFolderUncheckedUpdateManyInput>
+    /**
+     * Filter which NoteFolders to update
+     */
+    where?: NoteFolderWhereInput
+    /**
+     * Limit how many NoteFolders to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NoteFolder upsert
+   */
+  export type NoteFolderUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * The filter to search for the NoteFolder to update in case it exists.
+     */
+    where: NoteFolderWhereUniqueInput
+    /**
+     * In case the NoteFolder found by the `where` argument doesn't exist, create a new NoteFolder with this data.
+     */
+    create: XOR<NoteFolderCreateInput, NoteFolderUncheckedCreateInput>
+    /**
+     * In case the NoteFolder was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NoteFolderUpdateInput, NoteFolderUncheckedUpdateInput>
+  }
+
+  /**
+   * NoteFolder delete
+   */
+  export type NoteFolderDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    /**
+     * Filter which NoteFolder to delete.
+     */
+    where: NoteFolderWhereUniqueInput
+  }
+
+  /**
+   * NoteFolder deleteMany
+   */
+  export type NoteFolderDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NoteFolders to delete
+     */
+    where?: NoteFolderWhereInput
+    /**
+     * Limit how many NoteFolders to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * NoteFolder.notes
+   */
+  export type NoteFolder$notesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    where?: NoteWhereInput
+    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    cursor?: NoteWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+  }
+
+  /**
+   * NoteFolder without action
+   */
+  export type NoteFolderDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Note
    */
 
@@ -29552,11 +33065,14 @@ export namespace Prisma {
   export type NoteMinAggregateOutputType = {
     id: string | null
     userId: string | null
+    folderId: string | null
     title: string | null
     content: string | null
     isPinned: boolean | null
     isJournal: boolean | null
     journalDate: Date | null
+    mood: string | null
+    reminderAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -29564,11 +33080,14 @@ export namespace Prisma {
   export type NoteMaxAggregateOutputType = {
     id: string | null
     userId: string | null
+    folderId: string | null
     title: string | null
     content: string | null
     isPinned: boolean | null
     isJournal: boolean | null
     journalDate: Date | null
+    mood: string | null
+    reminderAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -29576,12 +33095,15 @@ export namespace Prisma {
   export type NoteCountAggregateOutputType = {
     id: number
     userId: number
+    folderId: number
     title: number
     content: number
     tags: number
     isPinned: number
     isJournal: number
     journalDate: number
+    mood: number
+    reminderAt: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -29591,11 +33113,14 @@ export namespace Prisma {
   export type NoteMinAggregateInputType = {
     id?: true
     userId?: true
+    folderId?: true
     title?: true
     content?: true
     isPinned?: true
     isJournal?: true
     journalDate?: true
+    mood?: true
+    reminderAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -29603,11 +33128,14 @@ export namespace Prisma {
   export type NoteMaxAggregateInputType = {
     id?: true
     userId?: true
+    folderId?: true
     title?: true
     content?: true
     isPinned?: true
     isJournal?: true
     journalDate?: true
+    mood?: true
+    reminderAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -29615,12 +33143,15 @@ export namespace Prisma {
   export type NoteCountAggregateInputType = {
     id?: true
     userId?: true
+    folderId?: true
     title?: true
     content?: true
     tags?: true
     isPinned?: true
     isJournal?: true
     journalDate?: true
+    mood?: true
+    reminderAt?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -29701,12 +33232,15 @@ export namespace Prisma {
   export type NoteGroupByOutputType = {
     id: string
     userId: string
+    folderId: string | null
     title: string
     content: string
     tags: string[]
     isPinned: boolean
     isJournal: boolean
     journalDate: Date | null
+    mood: string | null
+    reminderAt: Date | null
     createdAt: Date
     updatedAt: Date
     _count: NoteCountAggregateOutputType | null
@@ -29731,83 +33265,110 @@ export namespace Prisma {
   export type NoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    folderId?: boolean
     title?: boolean
     content?: boolean
     tags?: boolean
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: boolean
+    mood?: boolean
+    reminderAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
+    folder?: boolean | Note$folderArgs<ExtArgs>
+    versions?: boolean | Note$versionsArgs<ExtArgs>
+    _count?: boolean | NoteCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["note"]>
 
   export type NoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    folderId?: boolean
     title?: boolean
     content?: boolean
     tags?: boolean
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: boolean
+    mood?: boolean
+    reminderAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
+    folder?: boolean | Note$folderArgs<ExtArgs>
   }, ExtArgs["result"]["note"]>
 
   export type NoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    folderId?: boolean
     title?: boolean
     content?: boolean
     tags?: boolean
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: boolean
+    mood?: boolean
+    reminderAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
+    folder?: boolean | Note$folderArgs<ExtArgs>
   }, ExtArgs["result"]["note"]>
 
   export type NoteSelectScalar = {
     id?: boolean
     userId?: boolean
+    folderId?: boolean
     title?: boolean
     content?: boolean
     tags?: boolean
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: boolean
+    mood?: boolean
+    reminderAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type NoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "content" | "tags" | "isPinned" | "isJournal" | "journalDate" | "createdAt" | "updatedAt", ExtArgs["result"]["note"]>
+  export type NoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "folderId" | "title" | "content" | "tags" | "isPinned" | "isJournal" | "journalDate" | "mood" | "reminderAt" | "createdAt" | "updatedAt", ExtArgs["result"]["note"]>
   export type NoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
+    folder?: boolean | Note$folderArgs<ExtArgs>
+    versions?: boolean | Note$versionsArgs<ExtArgs>
+    _count?: boolean | NoteCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type NoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
+    folder?: boolean | Note$folderArgs<ExtArgs>
   }
   export type NoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
+    folder?: boolean | Note$folderArgs<ExtArgs>
   }
 
   export type $NotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Note"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
+      folder: Prisma.$NoteFolderPayload<ExtArgs> | null
+      versions: Prisma.$NoteVersionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
+      folderId: string | null
       title: string
       content: string
       tags: string[]
       isPinned: boolean
       isJournal: boolean
       journalDate: Date | null
+      mood: string | null
+      reminderAt: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["note"]>
@@ -30205,6 +33766,8 @@ export namespace Prisma {
   export interface Prisma__NoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    folder<T extends Note$folderArgs<ExtArgs> = {}>(args?: Subset<T, Note$folderArgs<ExtArgs>>): Prisma__NoteFolderClient<$Result.GetResult<Prisma.$NoteFolderPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    versions<T extends Note$versionsArgs<ExtArgs> = {}>(args?: Subset<T, Note$versionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -30236,12 +33799,15 @@ export namespace Prisma {
   interface NoteFieldRefs {
     readonly id: FieldRef<"Note", 'String'>
     readonly userId: FieldRef<"Note", 'String'>
+    readonly folderId: FieldRef<"Note", 'String'>
     readonly title: FieldRef<"Note", 'String'>
     readonly content: FieldRef<"Note", 'String'>
     readonly tags: FieldRef<"Note", 'String[]'>
     readonly isPinned: FieldRef<"Note", 'Boolean'>
     readonly isJournal: FieldRef<"Note", 'Boolean'>
     readonly journalDate: FieldRef<"Note", 'DateTime'>
+    readonly mood: FieldRef<"Note", 'String'>
+    readonly reminderAt: FieldRef<"Note", 'DateTime'>
     readonly createdAt: FieldRef<"Note", 'DateTime'>
     readonly updatedAt: FieldRef<"Note", 'DateTime'>
   }
@@ -30645,6 +34211,49 @@ export namespace Prisma {
   }
 
   /**
+   * Note.folder
+   */
+  export type Note$folderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteFolder
+     */
+    select?: NoteFolderSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteFolder
+     */
+    omit?: NoteFolderOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteFolderInclude<ExtArgs> | null
+    where?: NoteFolderWhereInput
+  }
+
+  /**
+   * Note.versions
+   */
+  export type Note$versionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    where?: NoteVersionWhereInput
+    orderBy?: NoteVersionOrderByWithRelationInput | NoteVersionOrderByWithRelationInput[]
+    cursor?: NoteVersionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NoteVersionScalarFieldEnum | NoteVersionScalarFieldEnum[]
+  }
+
+  /**
    * Note without action
    */
   export type NoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -30660,6 +34269,1069 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: NoteInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model NoteVersion
+   */
+
+  export type AggregateNoteVersion = {
+    _count: NoteVersionCountAggregateOutputType | null
+    _min: NoteVersionMinAggregateOutputType | null
+    _max: NoteVersionMaxAggregateOutputType | null
+  }
+
+  export type NoteVersionMinAggregateOutputType = {
+    id: string | null
+    noteId: string | null
+    title: string | null
+    content: string | null
+    createdAt: Date | null
+  }
+
+  export type NoteVersionMaxAggregateOutputType = {
+    id: string | null
+    noteId: string | null
+    title: string | null
+    content: string | null
+    createdAt: Date | null
+  }
+
+  export type NoteVersionCountAggregateOutputType = {
+    id: number
+    noteId: number
+    title: number
+    content: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type NoteVersionMinAggregateInputType = {
+    id?: true
+    noteId?: true
+    title?: true
+    content?: true
+    createdAt?: true
+  }
+
+  export type NoteVersionMaxAggregateInputType = {
+    id?: true
+    noteId?: true
+    title?: true
+    content?: true
+    createdAt?: true
+  }
+
+  export type NoteVersionCountAggregateInputType = {
+    id?: true
+    noteId?: true
+    title?: true
+    content?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type NoteVersionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NoteVersion to aggregate.
+     */
+    where?: NoteVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteVersions to fetch.
+     */
+    orderBy?: NoteVersionOrderByWithRelationInput | NoteVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NoteVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteVersions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned NoteVersions
+    **/
+    _count?: true | NoteVersionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NoteVersionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NoteVersionMaxAggregateInputType
+  }
+
+  export type GetNoteVersionAggregateType<T extends NoteVersionAggregateArgs> = {
+        [P in keyof T & keyof AggregateNoteVersion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNoteVersion[P]>
+      : GetScalarType<T[P], AggregateNoteVersion[P]>
+  }
+
+
+
+
+  export type NoteVersionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NoteVersionWhereInput
+    orderBy?: NoteVersionOrderByWithAggregationInput | NoteVersionOrderByWithAggregationInput[]
+    by: NoteVersionScalarFieldEnum[] | NoteVersionScalarFieldEnum
+    having?: NoteVersionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NoteVersionCountAggregateInputType | true
+    _min?: NoteVersionMinAggregateInputType
+    _max?: NoteVersionMaxAggregateInputType
+  }
+
+  export type NoteVersionGroupByOutputType = {
+    id: string
+    noteId: string
+    title: string
+    content: string
+    createdAt: Date
+    _count: NoteVersionCountAggregateOutputType | null
+    _min: NoteVersionMinAggregateOutputType | null
+    _max: NoteVersionMaxAggregateOutputType | null
+  }
+
+  type GetNoteVersionGroupByPayload<T extends NoteVersionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NoteVersionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NoteVersionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NoteVersionGroupByOutputType[P]>
+            : GetScalarType<T[P], NoteVersionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NoteVersionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    noteId?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+    note?: boolean | NoteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["noteVersion"]>
+
+  export type NoteVersionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    noteId?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+    note?: boolean | NoteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["noteVersion"]>
+
+  export type NoteVersionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    noteId?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+    note?: boolean | NoteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["noteVersion"]>
+
+  export type NoteVersionSelectScalar = {
+    id?: boolean
+    noteId?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+  }
+
+  export type NoteVersionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "noteId" | "title" | "content" | "createdAt", ExtArgs["result"]["noteVersion"]>
+  export type NoteVersionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    note?: boolean | NoteDefaultArgs<ExtArgs>
+  }
+  export type NoteVersionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    note?: boolean | NoteDefaultArgs<ExtArgs>
+  }
+  export type NoteVersionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    note?: boolean | NoteDefaultArgs<ExtArgs>
+  }
+
+  export type $NoteVersionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "NoteVersion"
+    objects: {
+      note: Prisma.$NotePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      noteId: string
+      title: string
+      content: string
+      createdAt: Date
+    }, ExtArgs["result"]["noteVersion"]>
+    composites: {}
+  }
+
+  type NoteVersionGetPayload<S extends boolean | null | undefined | NoteVersionDefaultArgs> = $Result.GetResult<Prisma.$NoteVersionPayload, S>
+
+  type NoteVersionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NoteVersionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NoteVersionCountAggregateInputType | true
+    }
+
+  export interface NoteVersionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['NoteVersion'], meta: { name: 'NoteVersion' } }
+    /**
+     * Find zero or one NoteVersion that matches the filter.
+     * @param {NoteVersionFindUniqueArgs} args - Arguments to find a NoteVersion
+     * @example
+     * // Get one NoteVersion
+     * const noteVersion = await prisma.noteVersion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NoteVersionFindUniqueArgs>(args: SelectSubset<T, NoteVersionFindUniqueArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one NoteVersion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NoteVersionFindUniqueOrThrowArgs} args - Arguments to find a NoteVersion
+     * @example
+     * // Get one NoteVersion
+     * const noteVersion = await prisma.noteVersion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NoteVersionFindUniqueOrThrowArgs>(args: SelectSubset<T, NoteVersionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NoteVersion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteVersionFindFirstArgs} args - Arguments to find a NoteVersion
+     * @example
+     * // Get one NoteVersion
+     * const noteVersion = await prisma.noteVersion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NoteVersionFindFirstArgs>(args?: SelectSubset<T, NoteVersionFindFirstArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first NoteVersion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteVersionFindFirstOrThrowArgs} args - Arguments to find a NoteVersion
+     * @example
+     * // Get one NoteVersion
+     * const noteVersion = await prisma.noteVersion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NoteVersionFindFirstOrThrowArgs>(args?: SelectSubset<T, NoteVersionFindFirstOrThrowArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more NoteVersions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteVersionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all NoteVersions
+     * const noteVersions = await prisma.noteVersion.findMany()
+     * 
+     * // Get first 10 NoteVersions
+     * const noteVersions = await prisma.noteVersion.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const noteVersionWithIdOnly = await prisma.noteVersion.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NoteVersionFindManyArgs>(args?: SelectSubset<T, NoteVersionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a NoteVersion.
+     * @param {NoteVersionCreateArgs} args - Arguments to create a NoteVersion.
+     * @example
+     * // Create one NoteVersion
+     * const NoteVersion = await prisma.noteVersion.create({
+     *   data: {
+     *     // ... data to create a NoteVersion
+     *   }
+     * })
+     * 
+     */
+    create<T extends NoteVersionCreateArgs>(args: SelectSubset<T, NoteVersionCreateArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many NoteVersions.
+     * @param {NoteVersionCreateManyArgs} args - Arguments to create many NoteVersions.
+     * @example
+     * // Create many NoteVersions
+     * const noteVersion = await prisma.noteVersion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NoteVersionCreateManyArgs>(args?: SelectSubset<T, NoteVersionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many NoteVersions and returns the data saved in the database.
+     * @param {NoteVersionCreateManyAndReturnArgs} args - Arguments to create many NoteVersions.
+     * @example
+     * // Create many NoteVersions
+     * const noteVersion = await prisma.noteVersion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many NoteVersions and only return the `id`
+     * const noteVersionWithIdOnly = await prisma.noteVersion.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NoteVersionCreateManyAndReturnArgs>(args?: SelectSubset<T, NoteVersionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a NoteVersion.
+     * @param {NoteVersionDeleteArgs} args - Arguments to delete one NoteVersion.
+     * @example
+     * // Delete one NoteVersion
+     * const NoteVersion = await prisma.noteVersion.delete({
+     *   where: {
+     *     // ... filter to delete one NoteVersion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NoteVersionDeleteArgs>(args: SelectSubset<T, NoteVersionDeleteArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one NoteVersion.
+     * @param {NoteVersionUpdateArgs} args - Arguments to update one NoteVersion.
+     * @example
+     * // Update one NoteVersion
+     * const noteVersion = await prisma.noteVersion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NoteVersionUpdateArgs>(args: SelectSubset<T, NoteVersionUpdateArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more NoteVersions.
+     * @param {NoteVersionDeleteManyArgs} args - Arguments to filter NoteVersions to delete.
+     * @example
+     * // Delete a few NoteVersions
+     * const { count } = await prisma.noteVersion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NoteVersionDeleteManyArgs>(args?: SelectSubset<T, NoteVersionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NoteVersions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteVersionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many NoteVersions
+     * const noteVersion = await prisma.noteVersion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NoteVersionUpdateManyArgs>(args: SelectSubset<T, NoteVersionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more NoteVersions and returns the data updated in the database.
+     * @param {NoteVersionUpdateManyAndReturnArgs} args - Arguments to update many NoteVersions.
+     * @example
+     * // Update many NoteVersions
+     * const noteVersion = await prisma.noteVersion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more NoteVersions and only return the `id`
+     * const noteVersionWithIdOnly = await prisma.noteVersion.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NoteVersionUpdateManyAndReturnArgs>(args: SelectSubset<T, NoteVersionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one NoteVersion.
+     * @param {NoteVersionUpsertArgs} args - Arguments to update or create a NoteVersion.
+     * @example
+     * // Update or create a NoteVersion
+     * const noteVersion = await prisma.noteVersion.upsert({
+     *   create: {
+     *     // ... data to create a NoteVersion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the NoteVersion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NoteVersionUpsertArgs>(args: SelectSubset<T, NoteVersionUpsertArgs<ExtArgs>>): Prisma__NoteVersionClient<$Result.GetResult<Prisma.$NoteVersionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of NoteVersions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteVersionCountArgs} args - Arguments to filter NoteVersions to count.
+     * @example
+     * // Count the number of NoteVersions
+     * const count = await prisma.noteVersion.count({
+     *   where: {
+     *     // ... the filter for the NoteVersions we want to count
+     *   }
+     * })
+    **/
+    count<T extends NoteVersionCountArgs>(
+      args?: Subset<T, NoteVersionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NoteVersionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a NoteVersion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteVersionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NoteVersionAggregateArgs>(args: Subset<T, NoteVersionAggregateArgs>): Prisma.PrismaPromise<GetNoteVersionAggregateType<T>>
+
+    /**
+     * Group by NoteVersion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteVersionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NoteVersionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NoteVersionGroupByArgs['orderBy'] }
+        : { orderBy?: NoteVersionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NoteVersionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNoteVersionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the NoteVersion model
+   */
+  readonly fields: NoteVersionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for NoteVersion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NoteVersionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    note<T extends NoteDefaultArgs<ExtArgs> = {}>(args?: Subset<T, NoteDefaultArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the NoteVersion model
+   */
+  interface NoteVersionFieldRefs {
+    readonly id: FieldRef<"NoteVersion", 'String'>
+    readonly noteId: FieldRef<"NoteVersion", 'String'>
+    readonly title: FieldRef<"NoteVersion", 'String'>
+    readonly content: FieldRef<"NoteVersion", 'String'>
+    readonly createdAt: FieldRef<"NoteVersion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * NoteVersion findUnique
+   */
+  export type NoteVersionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteVersion to fetch.
+     */
+    where: NoteVersionWhereUniqueInput
+  }
+
+  /**
+   * NoteVersion findUniqueOrThrow
+   */
+  export type NoteVersionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteVersion to fetch.
+     */
+    where: NoteVersionWhereUniqueInput
+  }
+
+  /**
+   * NoteVersion findFirst
+   */
+  export type NoteVersionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteVersion to fetch.
+     */
+    where?: NoteVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteVersions to fetch.
+     */
+    orderBy?: NoteVersionOrderByWithRelationInput | NoteVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NoteVersions.
+     */
+    cursor?: NoteVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteVersions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NoteVersions.
+     */
+    distinct?: NoteVersionScalarFieldEnum | NoteVersionScalarFieldEnum[]
+  }
+
+  /**
+   * NoteVersion findFirstOrThrow
+   */
+  export type NoteVersionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteVersion to fetch.
+     */
+    where?: NoteVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteVersions to fetch.
+     */
+    orderBy?: NoteVersionOrderByWithRelationInput | NoteVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for NoteVersions.
+     */
+    cursor?: NoteVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteVersions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NoteVersions.
+     */
+    distinct?: NoteVersionScalarFieldEnum | NoteVersionScalarFieldEnum[]
+  }
+
+  /**
+   * NoteVersion findMany
+   */
+  export type NoteVersionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * Filter, which NoteVersions to fetch.
+     */
+    where?: NoteVersionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of NoteVersions to fetch.
+     */
+    orderBy?: NoteVersionOrderByWithRelationInput | NoteVersionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing NoteVersions.
+     */
+    cursor?: NoteVersionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` NoteVersions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` NoteVersions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of NoteVersions.
+     */
+    distinct?: NoteVersionScalarFieldEnum | NoteVersionScalarFieldEnum[]
+  }
+
+  /**
+   * NoteVersion create
+   */
+  export type NoteVersionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a NoteVersion.
+     */
+    data: XOR<NoteVersionCreateInput, NoteVersionUncheckedCreateInput>
+  }
+
+  /**
+   * NoteVersion createMany
+   */
+  export type NoteVersionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many NoteVersions.
+     */
+    data: NoteVersionCreateManyInput | NoteVersionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * NoteVersion createManyAndReturn
+   */
+  export type NoteVersionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * The data used to create many NoteVersions.
+     */
+    data: NoteVersionCreateManyInput | NoteVersionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NoteVersion update
+   */
+  export type NoteVersionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a NoteVersion.
+     */
+    data: XOR<NoteVersionUpdateInput, NoteVersionUncheckedUpdateInput>
+    /**
+     * Choose, which NoteVersion to update.
+     */
+    where: NoteVersionWhereUniqueInput
+  }
+
+  /**
+   * NoteVersion updateMany
+   */
+  export type NoteVersionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update NoteVersions.
+     */
+    data: XOR<NoteVersionUpdateManyMutationInput, NoteVersionUncheckedUpdateManyInput>
+    /**
+     * Filter which NoteVersions to update
+     */
+    where?: NoteVersionWhereInput
+    /**
+     * Limit how many NoteVersions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * NoteVersion updateManyAndReturn
+   */
+  export type NoteVersionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * The data used to update NoteVersions.
+     */
+    data: XOR<NoteVersionUpdateManyMutationInput, NoteVersionUncheckedUpdateManyInput>
+    /**
+     * Filter which NoteVersions to update
+     */
+    where?: NoteVersionWhereInput
+    /**
+     * Limit how many NoteVersions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * NoteVersion upsert
+   */
+  export type NoteVersionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the NoteVersion to update in case it exists.
+     */
+    where: NoteVersionWhereUniqueInput
+    /**
+     * In case the NoteVersion found by the `where` argument doesn't exist, create a new NoteVersion with this data.
+     */
+    create: XOR<NoteVersionCreateInput, NoteVersionUncheckedCreateInput>
+    /**
+     * In case the NoteVersion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NoteVersionUpdateInput, NoteVersionUncheckedUpdateInput>
+  }
+
+  /**
+   * NoteVersion delete
+   */
+  export type NoteVersionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
+    /**
+     * Filter which NoteVersion to delete.
+     */
+    where: NoteVersionWhereUniqueInput
+  }
+
+  /**
+   * NoteVersion deleteMany
+   */
+  export type NoteVersionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which NoteVersions to delete
+     */
+    where?: NoteVersionWhereInput
+    /**
+     * Limit how many NoteVersions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * NoteVersion without action
+   */
+  export type NoteVersionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the NoteVersion
+     */
+    select?: NoteVersionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the NoteVersion
+     */
+    omit?: NoteVersionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteVersionInclude<ExtArgs> | null
   }
 
 
@@ -32895,6 +37567,7057 @@ export namespace Prisma {
 
 
   /**
+   * Model RecurringExpense
+   */
+
+  export type AggregateRecurringExpense = {
+    _count: RecurringExpenseCountAggregateOutputType | null
+    _avg: RecurringExpenseAvgAggregateOutputType | null
+    _sum: RecurringExpenseSumAggregateOutputType | null
+    _min: RecurringExpenseMinAggregateOutputType | null
+    _max: RecurringExpenseMaxAggregateOutputType | null
+  }
+
+  export type RecurringExpenseAvgAggregateOutputType = {
+    amount: number | null
+    dayOfMonth: number | null
+    dayOfWeek: number | null
+  }
+
+  export type RecurringExpenseSumAggregateOutputType = {
+    amount: number | null
+    dayOfMonth: number | null
+    dayOfWeek: number | null
+  }
+
+  export type RecurringExpenseMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    title: string | null
+    amount: number | null
+    type: string | null
+    categoryId: string | null
+    frequency: string | null
+    dayOfMonth: number | null
+    dayOfWeek: number | null
+    notes: string | null
+    isActive: boolean | null
+    nextDueAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RecurringExpenseMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    title: string | null
+    amount: number | null
+    type: string | null
+    categoryId: string | null
+    frequency: string | null
+    dayOfMonth: number | null
+    dayOfWeek: number | null
+    notes: string | null
+    isActive: boolean | null
+    nextDueAt: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RecurringExpenseCountAggregateOutputType = {
+    id: number
+    userId: number
+    title: number
+    amount: number
+    type: number
+    categoryId: number
+    frequency: number
+    dayOfMonth: number
+    dayOfWeek: number
+    notes: number
+    isActive: number
+    nextDueAt: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type RecurringExpenseAvgAggregateInputType = {
+    amount?: true
+    dayOfMonth?: true
+    dayOfWeek?: true
+  }
+
+  export type RecurringExpenseSumAggregateInputType = {
+    amount?: true
+    dayOfMonth?: true
+    dayOfWeek?: true
+  }
+
+  export type RecurringExpenseMinAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    amount?: true
+    type?: true
+    categoryId?: true
+    frequency?: true
+    dayOfMonth?: true
+    dayOfWeek?: true
+    notes?: true
+    isActive?: true
+    nextDueAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RecurringExpenseMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    amount?: true
+    type?: true
+    categoryId?: true
+    frequency?: true
+    dayOfMonth?: true
+    dayOfWeek?: true
+    notes?: true
+    isActive?: true
+    nextDueAt?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RecurringExpenseCountAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    amount?: true
+    type?: true
+    categoryId?: true
+    frequency?: true
+    dayOfMonth?: true
+    dayOfWeek?: true
+    notes?: true
+    isActive?: true
+    nextDueAt?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type RecurringExpenseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RecurringExpense to aggregate.
+     */
+    where?: RecurringExpenseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RecurringExpenses to fetch.
+     */
+    orderBy?: RecurringExpenseOrderByWithRelationInput | RecurringExpenseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RecurringExpenseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RecurringExpenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RecurringExpenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned RecurringExpenses
+    **/
+    _count?: true | RecurringExpenseCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: RecurringExpenseAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: RecurringExpenseSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RecurringExpenseMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RecurringExpenseMaxAggregateInputType
+  }
+
+  export type GetRecurringExpenseAggregateType<T extends RecurringExpenseAggregateArgs> = {
+        [P in keyof T & keyof AggregateRecurringExpense]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRecurringExpense[P]>
+      : GetScalarType<T[P], AggregateRecurringExpense[P]>
+  }
+
+
+
+
+  export type RecurringExpenseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RecurringExpenseWhereInput
+    orderBy?: RecurringExpenseOrderByWithAggregationInput | RecurringExpenseOrderByWithAggregationInput[]
+    by: RecurringExpenseScalarFieldEnum[] | RecurringExpenseScalarFieldEnum
+    having?: RecurringExpenseScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RecurringExpenseCountAggregateInputType | true
+    _avg?: RecurringExpenseAvgAggregateInputType
+    _sum?: RecurringExpenseSumAggregateInputType
+    _min?: RecurringExpenseMinAggregateInputType
+    _max?: RecurringExpenseMaxAggregateInputType
+  }
+
+  export type RecurringExpenseGroupByOutputType = {
+    id: string
+    userId: string
+    title: string
+    amount: number
+    type: string
+    categoryId: string | null
+    frequency: string
+    dayOfMonth: number | null
+    dayOfWeek: number | null
+    notes: string | null
+    isActive: boolean
+    nextDueAt: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: RecurringExpenseCountAggregateOutputType | null
+    _avg: RecurringExpenseAvgAggregateOutputType | null
+    _sum: RecurringExpenseSumAggregateOutputType | null
+    _min: RecurringExpenseMinAggregateOutputType | null
+    _max: RecurringExpenseMaxAggregateOutputType | null
+  }
+
+  type GetRecurringExpenseGroupByPayload<T extends RecurringExpenseGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RecurringExpenseGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RecurringExpenseGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RecurringExpenseGroupByOutputType[P]>
+            : GetScalarType<T[P], RecurringExpenseGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RecurringExpenseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    amount?: boolean
+    type?: boolean
+    categoryId?: boolean
+    frequency?: boolean
+    dayOfMonth?: boolean
+    dayOfWeek?: boolean
+    notes?: boolean
+    isActive?: boolean
+    nextDueAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    category?: boolean | RecurringExpense$categoryArgs<ExtArgs>
+  }, ExtArgs["result"]["recurringExpense"]>
+
+  export type RecurringExpenseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    amount?: boolean
+    type?: boolean
+    categoryId?: boolean
+    frequency?: boolean
+    dayOfMonth?: boolean
+    dayOfWeek?: boolean
+    notes?: boolean
+    isActive?: boolean
+    nextDueAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    category?: boolean | RecurringExpense$categoryArgs<ExtArgs>
+  }, ExtArgs["result"]["recurringExpense"]>
+
+  export type RecurringExpenseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    amount?: boolean
+    type?: boolean
+    categoryId?: boolean
+    frequency?: boolean
+    dayOfMonth?: boolean
+    dayOfWeek?: boolean
+    notes?: boolean
+    isActive?: boolean
+    nextDueAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    category?: boolean | RecurringExpense$categoryArgs<ExtArgs>
+  }, ExtArgs["result"]["recurringExpense"]>
+
+  export type RecurringExpenseSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    amount?: boolean
+    type?: boolean
+    categoryId?: boolean
+    frequency?: boolean
+    dayOfMonth?: boolean
+    dayOfWeek?: boolean
+    notes?: boolean
+    isActive?: boolean
+    nextDueAt?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type RecurringExpenseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "amount" | "type" | "categoryId" | "frequency" | "dayOfMonth" | "dayOfWeek" | "notes" | "isActive" | "nextDueAt" | "createdAt" | "updatedAt", ExtArgs["result"]["recurringExpense"]>
+  export type RecurringExpenseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    category?: boolean | RecurringExpense$categoryArgs<ExtArgs>
+  }
+  export type RecurringExpenseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    category?: boolean | RecurringExpense$categoryArgs<ExtArgs>
+  }
+  export type RecurringExpenseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    category?: boolean | RecurringExpense$categoryArgs<ExtArgs>
+  }
+
+  export type $RecurringExpensePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RecurringExpense"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      category: Prisma.$ExpenseCategoryPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      title: string
+      amount: number
+      type: string
+      categoryId: string | null
+      frequency: string
+      dayOfMonth: number | null
+      dayOfWeek: number | null
+      notes: string | null
+      isActive: boolean
+      nextDueAt: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["recurringExpense"]>
+    composites: {}
+  }
+
+  type RecurringExpenseGetPayload<S extends boolean | null | undefined | RecurringExpenseDefaultArgs> = $Result.GetResult<Prisma.$RecurringExpensePayload, S>
+
+  type RecurringExpenseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RecurringExpenseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RecurringExpenseCountAggregateInputType | true
+    }
+
+  export interface RecurringExpenseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RecurringExpense'], meta: { name: 'RecurringExpense' } }
+    /**
+     * Find zero or one RecurringExpense that matches the filter.
+     * @param {RecurringExpenseFindUniqueArgs} args - Arguments to find a RecurringExpense
+     * @example
+     * // Get one RecurringExpense
+     * const recurringExpense = await prisma.recurringExpense.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RecurringExpenseFindUniqueArgs>(args: SelectSubset<T, RecurringExpenseFindUniqueArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one RecurringExpense that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RecurringExpenseFindUniqueOrThrowArgs} args - Arguments to find a RecurringExpense
+     * @example
+     * // Get one RecurringExpense
+     * const recurringExpense = await prisma.recurringExpense.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RecurringExpenseFindUniqueOrThrowArgs>(args: SelectSubset<T, RecurringExpenseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RecurringExpense that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RecurringExpenseFindFirstArgs} args - Arguments to find a RecurringExpense
+     * @example
+     * // Get one RecurringExpense
+     * const recurringExpense = await prisma.recurringExpense.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RecurringExpenseFindFirstArgs>(args?: SelectSubset<T, RecurringExpenseFindFirstArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RecurringExpense that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RecurringExpenseFindFirstOrThrowArgs} args - Arguments to find a RecurringExpense
+     * @example
+     * // Get one RecurringExpense
+     * const recurringExpense = await prisma.recurringExpense.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RecurringExpenseFindFirstOrThrowArgs>(args?: SelectSubset<T, RecurringExpenseFindFirstOrThrowArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more RecurringExpenses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RecurringExpenseFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all RecurringExpenses
+     * const recurringExpenses = await prisma.recurringExpense.findMany()
+     * 
+     * // Get first 10 RecurringExpenses
+     * const recurringExpenses = await prisma.recurringExpense.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const recurringExpenseWithIdOnly = await prisma.recurringExpense.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RecurringExpenseFindManyArgs>(args?: SelectSubset<T, RecurringExpenseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a RecurringExpense.
+     * @param {RecurringExpenseCreateArgs} args - Arguments to create a RecurringExpense.
+     * @example
+     * // Create one RecurringExpense
+     * const RecurringExpense = await prisma.recurringExpense.create({
+     *   data: {
+     *     // ... data to create a RecurringExpense
+     *   }
+     * })
+     * 
+     */
+    create<T extends RecurringExpenseCreateArgs>(args: SelectSubset<T, RecurringExpenseCreateArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many RecurringExpenses.
+     * @param {RecurringExpenseCreateManyArgs} args - Arguments to create many RecurringExpenses.
+     * @example
+     * // Create many RecurringExpenses
+     * const recurringExpense = await prisma.recurringExpense.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RecurringExpenseCreateManyArgs>(args?: SelectSubset<T, RecurringExpenseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many RecurringExpenses and returns the data saved in the database.
+     * @param {RecurringExpenseCreateManyAndReturnArgs} args - Arguments to create many RecurringExpenses.
+     * @example
+     * // Create many RecurringExpenses
+     * const recurringExpense = await prisma.recurringExpense.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many RecurringExpenses and only return the `id`
+     * const recurringExpenseWithIdOnly = await prisma.recurringExpense.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RecurringExpenseCreateManyAndReturnArgs>(args?: SelectSubset<T, RecurringExpenseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a RecurringExpense.
+     * @param {RecurringExpenseDeleteArgs} args - Arguments to delete one RecurringExpense.
+     * @example
+     * // Delete one RecurringExpense
+     * const RecurringExpense = await prisma.recurringExpense.delete({
+     *   where: {
+     *     // ... filter to delete one RecurringExpense
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RecurringExpenseDeleteArgs>(args: SelectSubset<T, RecurringExpenseDeleteArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one RecurringExpense.
+     * @param {RecurringExpenseUpdateArgs} args - Arguments to update one RecurringExpense.
+     * @example
+     * // Update one RecurringExpense
+     * const recurringExpense = await prisma.recurringExpense.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RecurringExpenseUpdateArgs>(args: SelectSubset<T, RecurringExpenseUpdateArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more RecurringExpenses.
+     * @param {RecurringExpenseDeleteManyArgs} args - Arguments to filter RecurringExpenses to delete.
+     * @example
+     * // Delete a few RecurringExpenses
+     * const { count } = await prisma.recurringExpense.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RecurringExpenseDeleteManyArgs>(args?: SelectSubset<T, RecurringExpenseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RecurringExpenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RecurringExpenseUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many RecurringExpenses
+     * const recurringExpense = await prisma.recurringExpense.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RecurringExpenseUpdateManyArgs>(args: SelectSubset<T, RecurringExpenseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RecurringExpenses and returns the data updated in the database.
+     * @param {RecurringExpenseUpdateManyAndReturnArgs} args - Arguments to update many RecurringExpenses.
+     * @example
+     * // Update many RecurringExpenses
+     * const recurringExpense = await prisma.recurringExpense.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more RecurringExpenses and only return the `id`
+     * const recurringExpenseWithIdOnly = await prisma.recurringExpense.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RecurringExpenseUpdateManyAndReturnArgs>(args: SelectSubset<T, RecurringExpenseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one RecurringExpense.
+     * @param {RecurringExpenseUpsertArgs} args - Arguments to update or create a RecurringExpense.
+     * @example
+     * // Update or create a RecurringExpense
+     * const recurringExpense = await prisma.recurringExpense.upsert({
+     *   create: {
+     *     // ... data to create a RecurringExpense
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the RecurringExpense we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RecurringExpenseUpsertArgs>(args: SelectSubset<T, RecurringExpenseUpsertArgs<ExtArgs>>): Prisma__RecurringExpenseClient<$Result.GetResult<Prisma.$RecurringExpensePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of RecurringExpenses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RecurringExpenseCountArgs} args - Arguments to filter RecurringExpenses to count.
+     * @example
+     * // Count the number of RecurringExpenses
+     * const count = await prisma.recurringExpense.count({
+     *   where: {
+     *     // ... the filter for the RecurringExpenses we want to count
+     *   }
+     * })
+    **/
+    count<T extends RecurringExpenseCountArgs>(
+      args?: Subset<T, RecurringExpenseCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RecurringExpenseCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a RecurringExpense.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RecurringExpenseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RecurringExpenseAggregateArgs>(args: Subset<T, RecurringExpenseAggregateArgs>): Prisma.PrismaPromise<GetRecurringExpenseAggregateType<T>>
+
+    /**
+     * Group by RecurringExpense.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RecurringExpenseGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RecurringExpenseGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RecurringExpenseGroupByArgs['orderBy'] }
+        : { orderBy?: RecurringExpenseGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RecurringExpenseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRecurringExpenseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the RecurringExpense model
+   */
+  readonly fields: RecurringExpenseFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for RecurringExpense.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RecurringExpenseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    category<T extends RecurringExpense$categoryArgs<ExtArgs> = {}>(args?: Subset<T, RecurringExpense$categoryArgs<ExtArgs>>): Prisma__ExpenseCategoryClient<$Result.GetResult<Prisma.$ExpenseCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the RecurringExpense model
+   */
+  interface RecurringExpenseFieldRefs {
+    readonly id: FieldRef<"RecurringExpense", 'String'>
+    readonly userId: FieldRef<"RecurringExpense", 'String'>
+    readonly title: FieldRef<"RecurringExpense", 'String'>
+    readonly amount: FieldRef<"RecurringExpense", 'Float'>
+    readonly type: FieldRef<"RecurringExpense", 'String'>
+    readonly categoryId: FieldRef<"RecurringExpense", 'String'>
+    readonly frequency: FieldRef<"RecurringExpense", 'String'>
+    readonly dayOfMonth: FieldRef<"RecurringExpense", 'Int'>
+    readonly dayOfWeek: FieldRef<"RecurringExpense", 'Int'>
+    readonly notes: FieldRef<"RecurringExpense", 'String'>
+    readonly isActive: FieldRef<"RecurringExpense", 'Boolean'>
+    readonly nextDueAt: FieldRef<"RecurringExpense", 'DateTime'>
+    readonly createdAt: FieldRef<"RecurringExpense", 'DateTime'>
+    readonly updatedAt: FieldRef<"RecurringExpense", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * RecurringExpense findUnique
+   */
+  export type RecurringExpenseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * Filter, which RecurringExpense to fetch.
+     */
+    where: RecurringExpenseWhereUniqueInput
+  }
+
+  /**
+   * RecurringExpense findUniqueOrThrow
+   */
+  export type RecurringExpenseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * Filter, which RecurringExpense to fetch.
+     */
+    where: RecurringExpenseWhereUniqueInput
+  }
+
+  /**
+   * RecurringExpense findFirst
+   */
+  export type RecurringExpenseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * Filter, which RecurringExpense to fetch.
+     */
+    where?: RecurringExpenseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RecurringExpenses to fetch.
+     */
+    orderBy?: RecurringExpenseOrderByWithRelationInput | RecurringExpenseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RecurringExpenses.
+     */
+    cursor?: RecurringExpenseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RecurringExpenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RecurringExpenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RecurringExpenses.
+     */
+    distinct?: RecurringExpenseScalarFieldEnum | RecurringExpenseScalarFieldEnum[]
+  }
+
+  /**
+   * RecurringExpense findFirstOrThrow
+   */
+  export type RecurringExpenseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * Filter, which RecurringExpense to fetch.
+     */
+    where?: RecurringExpenseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RecurringExpenses to fetch.
+     */
+    orderBy?: RecurringExpenseOrderByWithRelationInput | RecurringExpenseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RecurringExpenses.
+     */
+    cursor?: RecurringExpenseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RecurringExpenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RecurringExpenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RecurringExpenses.
+     */
+    distinct?: RecurringExpenseScalarFieldEnum | RecurringExpenseScalarFieldEnum[]
+  }
+
+  /**
+   * RecurringExpense findMany
+   */
+  export type RecurringExpenseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * Filter, which RecurringExpenses to fetch.
+     */
+    where?: RecurringExpenseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RecurringExpenses to fetch.
+     */
+    orderBy?: RecurringExpenseOrderByWithRelationInput | RecurringExpenseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing RecurringExpenses.
+     */
+    cursor?: RecurringExpenseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RecurringExpenses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RecurringExpenses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RecurringExpenses.
+     */
+    distinct?: RecurringExpenseScalarFieldEnum | RecurringExpenseScalarFieldEnum[]
+  }
+
+  /**
+   * RecurringExpense create
+   */
+  export type RecurringExpenseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * The data needed to create a RecurringExpense.
+     */
+    data: XOR<RecurringExpenseCreateInput, RecurringExpenseUncheckedCreateInput>
+  }
+
+  /**
+   * RecurringExpense createMany
+   */
+  export type RecurringExpenseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many RecurringExpenses.
+     */
+    data: RecurringExpenseCreateManyInput | RecurringExpenseCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RecurringExpense createManyAndReturn
+   */
+  export type RecurringExpenseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * The data used to create many RecurringExpenses.
+     */
+    data: RecurringExpenseCreateManyInput | RecurringExpenseCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RecurringExpense update
+   */
+  export type RecurringExpenseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * The data needed to update a RecurringExpense.
+     */
+    data: XOR<RecurringExpenseUpdateInput, RecurringExpenseUncheckedUpdateInput>
+    /**
+     * Choose, which RecurringExpense to update.
+     */
+    where: RecurringExpenseWhereUniqueInput
+  }
+
+  /**
+   * RecurringExpense updateMany
+   */
+  export type RecurringExpenseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update RecurringExpenses.
+     */
+    data: XOR<RecurringExpenseUpdateManyMutationInput, RecurringExpenseUncheckedUpdateManyInput>
+    /**
+     * Filter which RecurringExpenses to update
+     */
+    where?: RecurringExpenseWhereInput
+    /**
+     * Limit how many RecurringExpenses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RecurringExpense updateManyAndReturn
+   */
+  export type RecurringExpenseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * The data used to update RecurringExpenses.
+     */
+    data: XOR<RecurringExpenseUpdateManyMutationInput, RecurringExpenseUncheckedUpdateManyInput>
+    /**
+     * Filter which RecurringExpenses to update
+     */
+    where?: RecurringExpenseWhereInput
+    /**
+     * Limit how many RecurringExpenses to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RecurringExpense upsert
+   */
+  export type RecurringExpenseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * The filter to search for the RecurringExpense to update in case it exists.
+     */
+    where: RecurringExpenseWhereUniqueInput
+    /**
+     * In case the RecurringExpense found by the `where` argument doesn't exist, create a new RecurringExpense with this data.
+     */
+    create: XOR<RecurringExpenseCreateInput, RecurringExpenseUncheckedCreateInput>
+    /**
+     * In case the RecurringExpense was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RecurringExpenseUpdateInput, RecurringExpenseUncheckedUpdateInput>
+  }
+
+  /**
+   * RecurringExpense delete
+   */
+  export type RecurringExpenseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+    /**
+     * Filter which RecurringExpense to delete.
+     */
+    where: RecurringExpenseWhereUniqueInput
+  }
+
+  /**
+   * RecurringExpense deleteMany
+   */
+  export type RecurringExpenseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RecurringExpenses to delete
+     */
+    where?: RecurringExpenseWhereInput
+    /**
+     * Limit how many RecurringExpenses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * RecurringExpense.category
+   */
+  export type RecurringExpense$categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExpenseCategory
+     */
+    select?: ExpenseCategorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExpenseCategory
+     */
+    omit?: ExpenseCategoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ExpenseCategoryInclude<ExtArgs> | null
+    where?: ExpenseCategoryWhereInput
+  }
+
+  /**
+   * RecurringExpense without action
+   */
+  export type RecurringExpenseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RecurringExpense
+     */
+    select?: RecurringExpenseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RecurringExpense
+     */
+    omit?: RecurringExpenseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RecurringExpenseInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FinancialGoal
+   */
+
+  export type AggregateFinancialGoal = {
+    _count: FinancialGoalCountAggregateOutputType | null
+    _avg: FinancialGoalAvgAggregateOutputType | null
+    _sum: FinancialGoalSumAggregateOutputType | null
+    _min: FinancialGoalMinAggregateOutputType | null
+    _max: FinancialGoalMaxAggregateOutputType | null
+  }
+
+  export type FinancialGoalAvgAggregateOutputType = {
+    targetAmount: number | null
+    savedAmount: number | null
+  }
+
+  export type FinancialGoalSumAggregateOutputType = {
+    targetAmount: number | null
+    savedAmount: number | null
+  }
+
+  export type FinancialGoalMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    title: string | null
+    targetAmount: number | null
+    savedAmount: number | null
+    deadline: Date | null
+    icon: string | null
+    color: string | null
+    isCompleted: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FinancialGoalMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    title: string | null
+    targetAmount: number | null
+    savedAmount: number | null
+    deadline: Date | null
+    icon: string | null
+    color: string | null
+    isCompleted: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FinancialGoalCountAggregateOutputType = {
+    id: number
+    userId: number
+    title: number
+    targetAmount: number
+    savedAmount: number
+    deadline: number
+    icon: number
+    color: number
+    isCompleted: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FinancialGoalAvgAggregateInputType = {
+    targetAmount?: true
+    savedAmount?: true
+  }
+
+  export type FinancialGoalSumAggregateInputType = {
+    targetAmount?: true
+    savedAmount?: true
+  }
+
+  export type FinancialGoalMinAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    targetAmount?: true
+    savedAmount?: true
+    deadline?: true
+    icon?: true
+    color?: true
+    isCompleted?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FinancialGoalMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    targetAmount?: true
+    savedAmount?: true
+    deadline?: true
+    icon?: true
+    color?: true
+    isCompleted?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FinancialGoalCountAggregateInputType = {
+    id?: true
+    userId?: true
+    title?: true
+    targetAmount?: true
+    savedAmount?: true
+    deadline?: true
+    icon?: true
+    color?: true
+    isCompleted?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FinancialGoalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FinancialGoal to aggregate.
+     */
+    where?: FinancialGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FinancialGoals to fetch.
+     */
+    orderBy?: FinancialGoalOrderByWithRelationInput | FinancialGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FinancialGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FinancialGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FinancialGoals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FinancialGoals
+    **/
+    _count?: true | FinancialGoalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FinancialGoalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FinancialGoalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FinancialGoalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FinancialGoalMaxAggregateInputType
+  }
+
+  export type GetFinancialGoalAggregateType<T extends FinancialGoalAggregateArgs> = {
+        [P in keyof T & keyof AggregateFinancialGoal]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFinancialGoal[P]>
+      : GetScalarType<T[P], AggregateFinancialGoal[P]>
+  }
+
+
+
+
+  export type FinancialGoalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FinancialGoalWhereInput
+    orderBy?: FinancialGoalOrderByWithAggregationInput | FinancialGoalOrderByWithAggregationInput[]
+    by: FinancialGoalScalarFieldEnum[] | FinancialGoalScalarFieldEnum
+    having?: FinancialGoalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FinancialGoalCountAggregateInputType | true
+    _avg?: FinancialGoalAvgAggregateInputType
+    _sum?: FinancialGoalSumAggregateInputType
+    _min?: FinancialGoalMinAggregateInputType
+    _max?: FinancialGoalMaxAggregateInputType
+  }
+
+  export type FinancialGoalGroupByOutputType = {
+    id: string
+    userId: string
+    title: string
+    targetAmount: number
+    savedAmount: number
+    deadline: Date
+    icon: string
+    color: string
+    isCompleted: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: FinancialGoalCountAggregateOutputType | null
+    _avg: FinancialGoalAvgAggregateOutputType | null
+    _sum: FinancialGoalSumAggregateOutputType | null
+    _min: FinancialGoalMinAggregateOutputType | null
+    _max: FinancialGoalMaxAggregateOutputType | null
+  }
+
+  type GetFinancialGoalGroupByPayload<T extends FinancialGoalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FinancialGoalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FinancialGoalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FinancialGoalGroupByOutputType[P]>
+            : GetScalarType<T[P], FinancialGoalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FinancialGoalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    targetAmount?: boolean
+    savedAmount?: boolean
+    deadline?: boolean
+    icon?: boolean
+    color?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["financialGoal"]>
+
+  export type FinancialGoalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    targetAmount?: boolean
+    savedAmount?: boolean
+    deadline?: boolean
+    icon?: boolean
+    color?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["financialGoal"]>
+
+  export type FinancialGoalSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    targetAmount?: boolean
+    savedAmount?: boolean
+    deadline?: boolean
+    icon?: boolean
+    color?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["financialGoal"]>
+
+  export type FinancialGoalSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    title?: boolean
+    targetAmount?: boolean
+    savedAmount?: boolean
+    deadline?: boolean
+    icon?: boolean
+    color?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FinancialGoalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "targetAmount" | "savedAmount" | "deadline" | "icon" | "color" | "isCompleted" | "createdAt" | "updatedAt", ExtArgs["result"]["financialGoal"]>
+  export type FinancialGoalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type FinancialGoalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type FinancialGoalIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $FinancialGoalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FinancialGoal"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      title: string
+      targetAmount: number
+      savedAmount: number
+      deadline: Date
+      icon: string
+      color: string
+      isCompleted: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["financialGoal"]>
+    composites: {}
+  }
+
+  type FinancialGoalGetPayload<S extends boolean | null | undefined | FinancialGoalDefaultArgs> = $Result.GetResult<Prisma.$FinancialGoalPayload, S>
+
+  type FinancialGoalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FinancialGoalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FinancialGoalCountAggregateInputType | true
+    }
+
+  export interface FinancialGoalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FinancialGoal'], meta: { name: 'FinancialGoal' } }
+    /**
+     * Find zero or one FinancialGoal that matches the filter.
+     * @param {FinancialGoalFindUniqueArgs} args - Arguments to find a FinancialGoal
+     * @example
+     * // Get one FinancialGoal
+     * const financialGoal = await prisma.financialGoal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FinancialGoalFindUniqueArgs>(args: SelectSubset<T, FinancialGoalFindUniqueArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FinancialGoal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FinancialGoalFindUniqueOrThrowArgs} args - Arguments to find a FinancialGoal
+     * @example
+     * // Get one FinancialGoal
+     * const financialGoal = await prisma.financialGoal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FinancialGoalFindUniqueOrThrowArgs>(args: SelectSubset<T, FinancialGoalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FinancialGoal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FinancialGoalFindFirstArgs} args - Arguments to find a FinancialGoal
+     * @example
+     * // Get one FinancialGoal
+     * const financialGoal = await prisma.financialGoal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FinancialGoalFindFirstArgs>(args?: SelectSubset<T, FinancialGoalFindFirstArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FinancialGoal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FinancialGoalFindFirstOrThrowArgs} args - Arguments to find a FinancialGoal
+     * @example
+     * // Get one FinancialGoal
+     * const financialGoal = await prisma.financialGoal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FinancialGoalFindFirstOrThrowArgs>(args?: SelectSubset<T, FinancialGoalFindFirstOrThrowArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FinancialGoals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FinancialGoalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FinancialGoals
+     * const financialGoals = await prisma.financialGoal.findMany()
+     * 
+     * // Get first 10 FinancialGoals
+     * const financialGoals = await prisma.financialGoal.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const financialGoalWithIdOnly = await prisma.financialGoal.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FinancialGoalFindManyArgs>(args?: SelectSubset<T, FinancialGoalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FinancialGoal.
+     * @param {FinancialGoalCreateArgs} args - Arguments to create a FinancialGoal.
+     * @example
+     * // Create one FinancialGoal
+     * const FinancialGoal = await prisma.financialGoal.create({
+     *   data: {
+     *     // ... data to create a FinancialGoal
+     *   }
+     * })
+     * 
+     */
+    create<T extends FinancialGoalCreateArgs>(args: SelectSubset<T, FinancialGoalCreateArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FinancialGoals.
+     * @param {FinancialGoalCreateManyArgs} args - Arguments to create many FinancialGoals.
+     * @example
+     * // Create many FinancialGoals
+     * const financialGoal = await prisma.financialGoal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FinancialGoalCreateManyArgs>(args?: SelectSubset<T, FinancialGoalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FinancialGoals and returns the data saved in the database.
+     * @param {FinancialGoalCreateManyAndReturnArgs} args - Arguments to create many FinancialGoals.
+     * @example
+     * // Create many FinancialGoals
+     * const financialGoal = await prisma.financialGoal.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FinancialGoals and only return the `id`
+     * const financialGoalWithIdOnly = await prisma.financialGoal.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FinancialGoalCreateManyAndReturnArgs>(args?: SelectSubset<T, FinancialGoalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FinancialGoal.
+     * @param {FinancialGoalDeleteArgs} args - Arguments to delete one FinancialGoal.
+     * @example
+     * // Delete one FinancialGoal
+     * const FinancialGoal = await prisma.financialGoal.delete({
+     *   where: {
+     *     // ... filter to delete one FinancialGoal
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FinancialGoalDeleteArgs>(args: SelectSubset<T, FinancialGoalDeleteArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FinancialGoal.
+     * @param {FinancialGoalUpdateArgs} args - Arguments to update one FinancialGoal.
+     * @example
+     * // Update one FinancialGoal
+     * const financialGoal = await prisma.financialGoal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FinancialGoalUpdateArgs>(args: SelectSubset<T, FinancialGoalUpdateArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FinancialGoals.
+     * @param {FinancialGoalDeleteManyArgs} args - Arguments to filter FinancialGoals to delete.
+     * @example
+     * // Delete a few FinancialGoals
+     * const { count } = await prisma.financialGoal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FinancialGoalDeleteManyArgs>(args?: SelectSubset<T, FinancialGoalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FinancialGoals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FinancialGoalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FinancialGoals
+     * const financialGoal = await prisma.financialGoal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FinancialGoalUpdateManyArgs>(args: SelectSubset<T, FinancialGoalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FinancialGoals and returns the data updated in the database.
+     * @param {FinancialGoalUpdateManyAndReturnArgs} args - Arguments to update many FinancialGoals.
+     * @example
+     * // Update many FinancialGoals
+     * const financialGoal = await prisma.financialGoal.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FinancialGoals and only return the `id`
+     * const financialGoalWithIdOnly = await prisma.financialGoal.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FinancialGoalUpdateManyAndReturnArgs>(args: SelectSubset<T, FinancialGoalUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FinancialGoal.
+     * @param {FinancialGoalUpsertArgs} args - Arguments to update or create a FinancialGoal.
+     * @example
+     * // Update or create a FinancialGoal
+     * const financialGoal = await prisma.financialGoal.upsert({
+     *   create: {
+     *     // ... data to create a FinancialGoal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FinancialGoal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FinancialGoalUpsertArgs>(args: SelectSubset<T, FinancialGoalUpsertArgs<ExtArgs>>): Prisma__FinancialGoalClient<$Result.GetResult<Prisma.$FinancialGoalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FinancialGoals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FinancialGoalCountArgs} args - Arguments to filter FinancialGoals to count.
+     * @example
+     * // Count the number of FinancialGoals
+     * const count = await prisma.financialGoal.count({
+     *   where: {
+     *     // ... the filter for the FinancialGoals we want to count
+     *   }
+     * })
+    **/
+    count<T extends FinancialGoalCountArgs>(
+      args?: Subset<T, FinancialGoalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FinancialGoalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FinancialGoal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FinancialGoalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FinancialGoalAggregateArgs>(args: Subset<T, FinancialGoalAggregateArgs>): Prisma.PrismaPromise<GetFinancialGoalAggregateType<T>>
+
+    /**
+     * Group by FinancialGoal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FinancialGoalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FinancialGoalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FinancialGoalGroupByArgs['orderBy'] }
+        : { orderBy?: FinancialGoalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FinancialGoalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFinancialGoalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FinancialGoal model
+   */
+  readonly fields: FinancialGoalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FinancialGoal.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FinancialGoalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FinancialGoal model
+   */
+  interface FinancialGoalFieldRefs {
+    readonly id: FieldRef<"FinancialGoal", 'String'>
+    readonly userId: FieldRef<"FinancialGoal", 'String'>
+    readonly title: FieldRef<"FinancialGoal", 'String'>
+    readonly targetAmount: FieldRef<"FinancialGoal", 'Float'>
+    readonly savedAmount: FieldRef<"FinancialGoal", 'Float'>
+    readonly deadline: FieldRef<"FinancialGoal", 'DateTime'>
+    readonly icon: FieldRef<"FinancialGoal", 'String'>
+    readonly color: FieldRef<"FinancialGoal", 'String'>
+    readonly isCompleted: FieldRef<"FinancialGoal", 'Boolean'>
+    readonly createdAt: FieldRef<"FinancialGoal", 'DateTime'>
+    readonly updatedAt: FieldRef<"FinancialGoal", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FinancialGoal findUnique
+   */
+  export type FinancialGoalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * Filter, which FinancialGoal to fetch.
+     */
+    where: FinancialGoalWhereUniqueInput
+  }
+
+  /**
+   * FinancialGoal findUniqueOrThrow
+   */
+  export type FinancialGoalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * Filter, which FinancialGoal to fetch.
+     */
+    where: FinancialGoalWhereUniqueInput
+  }
+
+  /**
+   * FinancialGoal findFirst
+   */
+  export type FinancialGoalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * Filter, which FinancialGoal to fetch.
+     */
+    where?: FinancialGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FinancialGoals to fetch.
+     */
+    orderBy?: FinancialGoalOrderByWithRelationInput | FinancialGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FinancialGoals.
+     */
+    cursor?: FinancialGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FinancialGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FinancialGoals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FinancialGoals.
+     */
+    distinct?: FinancialGoalScalarFieldEnum | FinancialGoalScalarFieldEnum[]
+  }
+
+  /**
+   * FinancialGoal findFirstOrThrow
+   */
+  export type FinancialGoalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * Filter, which FinancialGoal to fetch.
+     */
+    where?: FinancialGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FinancialGoals to fetch.
+     */
+    orderBy?: FinancialGoalOrderByWithRelationInput | FinancialGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FinancialGoals.
+     */
+    cursor?: FinancialGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FinancialGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FinancialGoals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FinancialGoals.
+     */
+    distinct?: FinancialGoalScalarFieldEnum | FinancialGoalScalarFieldEnum[]
+  }
+
+  /**
+   * FinancialGoal findMany
+   */
+  export type FinancialGoalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * Filter, which FinancialGoals to fetch.
+     */
+    where?: FinancialGoalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FinancialGoals to fetch.
+     */
+    orderBy?: FinancialGoalOrderByWithRelationInput | FinancialGoalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FinancialGoals.
+     */
+    cursor?: FinancialGoalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FinancialGoals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FinancialGoals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FinancialGoals.
+     */
+    distinct?: FinancialGoalScalarFieldEnum | FinancialGoalScalarFieldEnum[]
+  }
+
+  /**
+   * FinancialGoal create
+   */
+  export type FinancialGoalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FinancialGoal.
+     */
+    data: XOR<FinancialGoalCreateInput, FinancialGoalUncheckedCreateInput>
+  }
+
+  /**
+   * FinancialGoal createMany
+   */
+  export type FinancialGoalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FinancialGoals.
+     */
+    data: FinancialGoalCreateManyInput | FinancialGoalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FinancialGoal createManyAndReturn
+   */
+  export type FinancialGoalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * The data used to create many FinancialGoals.
+     */
+    data: FinancialGoalCreateManyInput | FinancialGoalCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FinancialGoal update
+   */
+  export type FinancialGoalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FinancialGoal.
+     */
+    data: XOR<FinancialGoalUpdateInput, FinancialGoalUncheckedUpdateInput>
+    /**
+     * Choose, which FinancialGoal to update.
+     */
+    where: FinancialGoalWhereUniqueInput
+  }
+
+  /**
+   * FinancialGoal updateMany
+   */
+  export type FinancialGoalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FinancialGoals.
+     */
+    data: XOR<FinancialGoalUpdateManyMutationInput, FinancialGoalUncheckedUpdateManyInput>
+    /**
+     * Filter which FinancialGoals to update
+     */
+    where?: FinancialGoalWhereInput
+    /**
+     * Limit how many FinancialGoals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FinancialGoal updateManyAndReturn
+   */
+  export type FinancialGoalUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * The data used to update FinancialGoals.
+     */
+    data: XOR<FinancialGoalUpdateManyMutationInput, FinancialGoalUncheckedUpdateManyInput>
+    /**
+     * Filter which FinancialGoals to update
+     */
+    where?: FinancialGoalWhereInput
+    /**
+     * Limit how many FinancialGoals to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FinancialGoal upsert
+   */
+  export type FinancialGoalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FinancialGoal to update in case it exists.
+     */
+    where: FinancialGoalWhereUniqueInput
+    /**
+     * In case the FinancialGoal found by the `where` argument doesn't exist, create a new FinancialGoal with this data.
+     */
+    create: XOR<FinancialGoalCreateInput, FinancialGoalUncheckedCreateInput>
+    /**
+     * In case the FinancialGoal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FinancialGoalUpdateInput, FinancialGoalUncheckedUpdateInput>
+  }
+
+  /**
+   * FinancialGoal delete
+   */
+  export type FinancialGoalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+    /**
+     * Filter which FinancialGoal to delete.
+     */
+    where: FinancialGoalWhereUniqueInput
+  }
+
+  /**
+   * FinancialGoal deleteMany
+   */
+  export type FinancialGoalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FinancialGoals to delete
+     */
+    where?: FinancialGoalWhereInput
+    /**
+     * Limit how many FinancialGoals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FinancialGoal without action
+   */
+  export type FinancialGoalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FinancialGoal
+     */
+    select?: FinancialGoalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FinancialGoal
+     */
+    omit?: FinancialGoalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FinancialGoalInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model HealthProfile
+   */
+
+  export type AggregateHealthProfile = {
+    _count: HealthProfileCountAggregateOutputType | null
+    _avg: HealthProfileAvgAggregateOutputType | null
+    _sum: HealthProfileSumAggregateOutputType | null
+    _min: HealthProfileMinAggregateOutputType | null
+    _max: HealthProfileMaxAggregateOutputType | null
+  }
+
+  export type HealthProfileAvgAggregateOutputType = {
+    age: number | null
+    weightKg: number | null
+    heightCm: number | null
+    targetWeightKg: number | null
+    dailyStepGoal: number | null
+    dailyWaterGoalMl: number | null
+    dailyCalorieGoal: number | null
+  }
+
+  export type HealthProfileSumAggregateOutputType = {
+    age: number | null
+    weightKg: number | null
+    heightCm: number | null
+    targetWeightKg: number | null
+    dailyStepGoal: number | null
+    dailyWaterGoalMl: number | null
+    dailyCalorieGoal: number | null
+  }
+
+  export type HealthProfileMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    age: number | null
+    weightKg: number | null
+    heightCm: number | null
+    gender: string | null
+    goal: string | null
+    targetWeightKg: number | null
+    dailyStepGoal: number | null
+    dailyWaterGoalMl: number | null
+    dailyCalorieGoal: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HealthProfileMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    age: number | null
+    weightKg: number | null
+    heightCm: number | null
+    gender: string | null
+    goal: string | null
+    targetWeightKg: number | null
+    dailyStepGoal: number | null
+    dailyWaterGoalMl: number | null
+    dailyCalorieGoal: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HealthProfileCountAggregateOutputType = {
+    id: number
+    userId: number
+    age: number
+    weightKg: number
+    heightCm: number
+    gender: number
+    goal: number
+    targetWeightKg: number
+    dailyStepGoal: number
+    dailyWaterGoalMl: number
+    dailyCalorieGoal: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type HealthProfileAvgAggregateInputType = {
+    age?: true
+    weightKg?: true
+    heightCm?: true
+    targetWeightKg?: true
+    dailyStepGoal?: true
+    dailyWaterGoalMl?: true
+    dailyCalorieGoal?: true
+  }
+
+  export type HealthProfileSumAggregateInputType = {
+    age?: true
+    weightKg?: true
+    heightCm?: true
+    targetWeightKg?: true
+    dailyStepGoal?: true
+    dailyWaterGoalMl?: true
+    dailyCalorieGoal?: true
+  }
+
+  export type HealthProfileMinAggregateInputType = {
+    id?: true
+    userId?: true
+    age?: true
+    weightKg?: true
+    heightCm?: true
+    gender?: true
+    goal?: true
+    targetWeightKg?: true
+    dailyStepGoal?: true
+    dailyWaterGoalMl?: true
+    dailyCalorieGoal?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HealthProfileMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    age?: true
+    weightKg?: true
+    heightCm?: true
+    gender?: true
+    goal?: true
+    targetWeightKg?: true
+    dailyStepGoal?: true
+    dailyWaterGoalMl?: true
+    dailyCalorieGoal?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HealthProfileCountAggregateInputType = {
+    id?: true
+    userId?: true
+    age?: true
+    weightKg?: true
+    heightCm?: true
+    gender?: true
+    goal?: true
+    targetWeightKg?: true
+    dailyStepGoal?: true
+    dailyWaterGoalMl?: true
+    dailyCalorieGoal?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type HealthProfileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HealthProfile to aggregate.
+     */
+    where?: HealthProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthProfiles to fetch.
+     */
+    orderBy?: HealthProfileOrderByWithRelationInput | HealthProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HealthProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned HealthProfiles
+    **/
+    _count?: true | HealthProfileCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HealthProfileAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HealthProfileSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HealthProfileMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HealthProfileMaxAggregateInputType
+  }
+
+  export type GetHealthProfileAggregateType<T extends HealthProfileAggregateArgs> = {
+        [P in keyof T & keyof AggregateHealthProfile]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHealthProfile[P]>
+      : GetScalarType<T[P], AggregateHealthProfile[P]>
+  }
+
+
+
+
+  export type HealthProfileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HealthProfileWhereInput
+    orderBy?: HealthProfileOrderByWithAggregationInput | HealthProfileOrderByWithAggregationInput[]
+    by: HealthProfileScalarFieldEnum[] | HealthProfileScalarFieldEnum
+    having?: HealthProfileScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HealthProfileCountAggregateInputType | true
+    _avg?: HealthProfileAvgAggregateInputType
+    _sum?: HealthProfileSumAggregateInputType
+    _min?: HealthProfileMinAggregateInputType
+    _max?: HealthProfileMaxAggregateInputType
+  }
+
+  export type HealthProfileGroupByOutputType = {
+    id: string
+    userId: string
+    age: number | null
+    weightKg: number | null
+    heightCm: number | null
+    gender: string | null
+    goal: string | null
+    targetWeightKg: number | null
+    dailyStepGoal: number
+    dailyWaterGoalMl: number
+    dailyCalorieGoal: number
+    createdAt: Date
+    updatedAt: Date
+    _count: HealthProfileCountAggregateOutputType | null
+    _avg: HealthProfileAvgAggregateOutputType | null
+    _sum: HealthProfileSumAggregateOutputType | null
+    _min: HealthProfileMinAggregateOutputType | null
+    _max: HealthProfileMaxAggregateOutputType | null
+  }
+
+  type GetHealthProfileGroupByPayload<T extends HealthProfileGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HealthProfileGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HealthProfileGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HealthProfileGroupByOutputType[P]>
+            : GetScalarType<T[P], HealthProfileGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HealthProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    age?: boolean
+    weightKg?: boolean
+    heightCm?: boolean
+    gender?: boolean
+    goal?: boolean
+    targetWeightKg?: boolean
+    dailyStepGoal?: boolean
+    dailyWaterGoalMl?: boolean
+    dailyCalorieGoal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["healthProfile"]>
+
+  export type HealthProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    age?: boolean
+    weightKg?: boolean
+    heightCm?: boolean
+    gender?: boolean
+    goal?: boolean
+    targetWeightKg?: boolean
+    dailyStepGoal?: boolean
+    dailyWaterGoalMl?: boolean
+    dailyCalorieGoal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["healthProfile"]>
+
+  export type HealthProfileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    age?: boolean
+    weightKg?: boolean
+    heightCm?: boolean
+    gender?: boolean
+    goal?: boolean
+    targetWeightKg?: boolean
+    dailyStepGoal?: boolean
+    dailyWaterGoalMl?: boolean
+    dailyCalorieGoal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["healthProfile"]>
+
+  export type HealthProfileSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    age?: boolean
+    weightKg?: boolean
+    heightCm?: boolean
+    gender?: boolean
+    goal?: boolean
+    targetWeightKg?: boolean
+    dailyStepGoal?: boolean
+    dailyWaterGoalMl?: boolean
+    dailyCalorieGoal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type HealthProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "age" | "weightKg" | "heightCm" | "gender" | "goal" | "targetWeightKg" | "dailyStepGoal" | "dailyWaterGoalMl" | "dailyCalorieGoal" | "createdAt" | "updatedAt", ExtArgs["result"]["healthProfile"]>
+  export type HealthProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type HealthProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type HealthProfileIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $HealthProfilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "HealthProfile"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      age: number | null
+      weightKg: number | null
+      heightCm: number | null
+      gender: string | null
+      goal: string | null
+      targetWeightKg: number | null
+      dailyStepGoal: number
+      dailyWaterGoalMl: number
+      dailyCalorieGoal: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["healthProfile"]>
+    composites: {}
+  }
+
+  type HealthProfileGetPayload<S extends boolean | null | undefined | HealthProfileDefaultArgs> = $Result.GetResult<Prisma.$HealthProfilePayload, S>
+
+  type HealthProfileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HealthProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HealthProfileCountAggregateInputType | true
+    }
+
+  export interface HealthProfileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['HealthProfile'], meta: { name: 'HealthProfile' } }
+    /**
+     * Find zero or one HealthProfile that matches the filter.
+     * @param {HealthProfileFindUniqueArgs} args - Arguments to find a HealthProfile
+     * @example
+     * // Get one HealthProfile
+     * const healthProfile = await prisma.healthProfile.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HealthProfileFindUniqueArgs>(args: SelectSubset<T, HealthProfileFindUniqueArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one HealthProfile that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HealthProfileFindUniqueOrThrowArgs} args - Arguments to find a HealthProfile
+     * @example
+     * // Get one HealthProfile
+     * const healthProfile = await prisma.healthProfile.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HealthProfileFindUniqueOrThrowArgs>(args: SelectSubset<T, HealthProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HealthProfile that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthProfileFindFirstArgs} args - Arguments to find a HealthProfile
+     * @example
+     * // Get one HealthProfile
+     * const healthProfile = await prisma.healthProfile.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HealthProfileFindFirstArgs>(args?: SelectSubset<T, HealthProfileFindFirstArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HealthProfile that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthProfileFindFirstOrThrowArgs} args - Arguments to find a HealthProfile
+     * @example
+     * // Get one HealthProfile
+     * const healthProfile = await prisma.healthProfile.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HealthProfileFindFirstOrThrowArgs>(args?: SelectSubset<T, HealthProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HealthProfiles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all HealthProfiles
+     * const healthProfiles = await prisma.healthProfile.findMany()
+     * 
+     * // Get first 10 HealthProfiles
+     * const healthProfiles = await prisma.healthProfile.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const healthProfileWithIdOnly = await prisma.healthProfile.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HealthProfileFindManyArgs>(args?: SelectSubset<T, HealthProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a HealthProfile.
+     * @param {HealthProfileCreateArgs} args - Arguments to create a HealthProfile.
+     * @example
+     * // Create one HealthProfile
+     * const HealthProfile = await prisma.healthProfile.create({
+     *   data: {
+     *     // ... data to create a HealthProfile
+     *   }
+     * })
+     * 
+     */
+    create<T extends HealthProfileCreateArgs>(args: SelectSubset<T, HealthProfileCreateArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many HealthProfiles.
+     * @param {HealthProfileCreateManyArgs} args - Arguments to create many HealthProfiles.
+     * @example
+     * // Create many HealthProfiles
+     * const healthProfile = await prisma.healthProfile.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HealthProfileCreateManyArgs>(args?: SelectSubset<T, HealthProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many HealthProfiles and returns the data saved in the database.
+     * @param {HealthProfileCreateManyAndReturnArgs} args - Arguments to create many HealthProfiles.
+     * @example
+     * // Create many HealthProfiles
+     * const healthProfile = await prisma.healthProfile.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many HealthProfiles and only return the `id`
+     * const healthProfileWithIdOnly = await prisma.healthProfile.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends HealthProfileCreateManyAndReturnArgs>(args?: SelectSubset<T, HealthProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a HealthProfile.
+     * @param {HealthProfileDeleteArgs} args - Arguments to delete one HealthProfile.
+     * @example
+     * // Delete one HealthProfile
+     * const HealthProfile = await prisma.healthProfile.delete({
+     *   where: {
+     *     // ... filter to delete one HealthProfile
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HealthProfileDeleteArgs>(args: SelectSubset<T, HealthProfileDeleteArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one HealthProfile.
+     * @param {HealthProfileUpdateArgs} args - Arguments to update one HealthProfile.
+     * @example
+     * // Update one HealthProfile
+     * const healthProfile = await prisma.healthProfile.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HealthProfileUpdateArgs>(args: SelectSubset<T, HealthProfileUpdateArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more HealthProfiles.
+     * @param {HealthProfileDeleteManyArgs} args - Arguments to filter HealthProfiles to delete.
+     * @example
+     * // Delete a few HealthProfiles
+     * const { count } = await prisma.healthProfile.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HealthProfileDeleteManyArgs>(args?: SelectSubset<T, HealthProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HealthProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthProfileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many HealthProfiles
+     * const healthProfile = await prisma.healthProfile.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HealthProfileUpdateManyArgs>(args: SelectSubset<T, HealthProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HealthProfiles and returns the data updated in the database.
+     * @param {HealthProfileUpdateManyAndReturnArgs} args - Arguments to update many HealthProfiles.
+     * @example
+     * // Update many HealthProfiles
+     * const healthProfile = await prisma.healthProfile.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more HealthProfiles and only return the `id`
+     * const healthProfileWithIdOnly = await prisma.healthProfile.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends HealthProfileUpdateManyAndReturnArgs>(args: SelectSubset<T, HealthProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one HealthProfile.
+     * @param {HealthProfileUpsertArgs} args - Arguments to update or create a HealthProfile.
+     * @example
+     * // Update or create a HealthProfile
+     * const healthProfile = await prisma.healthProfile.upsert({
+     *   create: {
+     *     // ... data to create a HealthProfile
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the HealthProfile we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HealthProfileUpsertArgs>(args: SelectSubset<T, HealthProfileUpsertArgs<ExtArgs>>): Prisma__HealthProfileClient<$Result.GetResult<Prisma.$HealthProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of HealthProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthProfileCountArgs} args - Arguments to filter HealthProfiles to count.
+     * @example
+     * // Count the number of HealthProfiles
+     * const count = await prisma.healthProfile.count({
+     *   where: {
+     *     // ... the filter for the HealthProfiles we want to count
+     *   }
+     * })
+    **/
+    count<T extends HealthProfileCountArgs>(
+      args?: Subset<T, HealthProfileCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HealthProfileCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a HealthProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HealthProfileAggregateArgs>(args: Subset<T, HealthProfileAggregateArgs>): Prisma.PrismaPromise<GetHealthProfileAggregateType<T>>
+
+    /**
+     * Group by HealthProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HealthProfileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HealthProfileGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HealthProfileGroupByArgs['orderBy'] }
+        : { orderBy?: HealthProfileGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HealthProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHealthProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the HealthProfile model
+   */
+  readonly fields: HealthProfileFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for HealthProfile.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HealthProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the HealthProfile model
+   */
+  interface HealthProfileFieldRefs {
+    readonly id: FieldRef<"HealthProfile", 'String'>
+    readonly userId: FieldRef<"HealthProfile", 'String'>
+    readonly age: FieldRef<"HealthProfile", 'Int'>
+    readonly weightKg: FieldRef<"HealthProfile", 'Float'>
+    readonly heightCm: FieldRef<"HealthProfile", 'Float'>
+    readonly gender: FieldRef<"HealthProfile", 'String'>
+    readonly goal: FieldRef<"HealthProfile", 'String'>
+    readonly targetWeightKg: FieldRef<"HealthProfile", 'Float'>
+    readonly dailyStepGoal: FieldRef<"HealthProfile", 'Int'>
+    readonly dailyWaterGoalMl: FieldRef<"HealthProfile", 'Int'>
+    readonly dailyCalorieGoal: FieldRef<"HealthProfile", 'Int'>
+    readonly createdAt: FieldRef<"HealthProfile", 'DateTime'>
+    readonly updatedAt: FieldRef<"HealthProfile", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * HealthProfile findUnique
+   */
+  export type HealthProfileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthProfile to fetch.
+     */
+    where: HealthProfileWhereUniqueInput
+  }
+
+  /**
+   * HealthProfile findUniqueOrThrow
+   */
+  export type HealthProfileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthProfile to fetch.
+     */
+    where: HealthProfileWhereUniqueInput
+  }
+
+  /**
+   * HealthProfile findFirst
+   */
+  export type HealthProfileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthProfile to fetch.
+     */
+    where?: HealthProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthProfiles to fetch.
+     */
+    orderBy?: HealthProfileOrderByWithRelationInput | HealthProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HealthProfiles.
+     */
+    cursor?: HealthProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HealthProfiles.
+     */
+    distinct?: HealthProfileScalarFieldEnum | HealthProfileScalarFieldEnum[]
+  }
+
+  /**
+   * HealthProfile findFirstOrThrow
+   */
+  export type HealthProfileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthProfile to fetch.
+     */
+    where?: HealthProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthProfiles to fetch.
+     */
+    orderBy?: HealthProfileOrderByWithRelationInput | HealthProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HealthProfiles.
+     */
+    cursor?: HealthProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HealthProfiles.
+     */
+    distinct?: HealthProfileScalarFieldEnum | HealthProfileScalarFieldEnum[]
+  }
+
+  /**
+   * HealthProfile findMany
+   */
+  export type HealthProfileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which HealthProfiles to fetch.
+     */
+    where?: HealthProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HealthProfiles to fetch.
+     */
+    orderBy?: HealthProfileOrderByWithRelationInput | HealthProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing HealthProfiles.
+     */
+    cursor?: HealthProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HealthProfiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HealthProfiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HealthProfiles.
+     */
+    distinct?: HealthProfileScalarFieldEnum | HealthProfileScalarFieldEnum[]
+  }
+
+  /**
+   * HealthProfile create
+   */
+  export type HealthProfileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to create a HealthProfile.
+     */
+    data: XOR<HealthProfileCreateInput, HealthProfileUncheckedCreateInput>
+  }
+
+  /**
+   * HealthProfile createMany
+   */
+  export type HealthProfileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many HealthProfiles.
+     */
+    data: HealthProfileCreateManyInput | HealthProfileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * HealthProfile createManyAndReturn
+   */
+  export type HealthProfileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * The data used to create many HealthProfiles.
+     */
+    data: HealthProfileCreateManyInput | HealthProfileCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * HealthProfile update
+   */
+  export type HealthProfileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to update a HealthProfile.
+     */
+    data: XOR<HealthProfileUpdateInput, HealthProfileUncheckedUpdateInput>
+    /**
+     * Choose, which HealthProfile to update.
+     */
+    where: HealthProfileWhereUniqueInput
+  }
+
+  /**
+   * HealthProfile updateMany
+   */
+  export type HealthProfileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update HealthProfiles.
+     */
+    data: XOR<HealthProfileUpdateManyMutationInput, HealthProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which HealthProfiles to update
+     */
+    where?: HealthProfileWhereInput
+    /**
+     * Limit how many HealthProfiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HealthProfile updateManyAndReturn
+   */
+  export type HealthProfileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * The data used to update HealthProfiles.
+     */
+    data: XOR<HealthProfileUpdateManyMutationInput, HealthProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which HealthProfiles to update
+     */
+    where?: HealthProfileWhereInput
+    /**
+     * Limit how many HealthProfiles to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * HealthProfile upsert
+   */
+  export type HealthProfileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * The filter to search for the HealthProfile to update in case it exists.
+     */
+    where: HealthProfileWhereUniqueInput
+    /**
+     * In case the HealthProfile found by the `where` argument doesn't exist, create a new HealthProfile with this data.
+     */
+    create: XOR<HealthProfileCreateInput, HealthProfileUncheckedCreateInput>
+    /**
+     * In case the HealthProfile was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HealthProfileUpdateInput, HealthProfileUncheckedUpdateInput>
+  }
+
+  /**
+   * HealthProfile delete
+   */
+  export type HealthProfileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+    /**
+     * Filter which HealthProfile to delete.
+     */
+    where: HealthProfileWhereUniqueInput
+  }
+
+  /**
+   * HealthProfile deleteMany
+   */
+  export type HealthProfileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HealthProfiles to delete
+     */
+    where?: HealthProfileWhereInput
+    /**
+     * Limit how many HealthProfiles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * HealthProfile without action
+   */
+  export type HealthProfileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HealthProfile
+     */
+    select?: HealthProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HealthProfile
+     */
+    omit?: HealthProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HealthProfileInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model WeightLog
+   */
+
+  export type AggregateWeightLog = {
+    _count: WeightLogCountAggregateOutputType | null
+    _avg: WeightLogAvgAggregateOutputType | null
+    _sum: WeightLogSumAggregateOutputType | null
+    _min: WeightLogMinAggregateOutputType | null
+    _max: WeightLogMaxAggregateOutputType | null
+  }
+
+  export type WeightLogAvgAggregateOutputType = {
+    weightKg: number | null
+  }
+
+  export type WeightLogSumAggregateOutputType = {
+    weightKg: number | null
+  }
+
+  export type WeightLogMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    date: Date | null
+    weightKg: number | null
+    notes: string | null
+    createdAt: Date | null
+  }
+
+  export type WeightLogMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    date: Date | null
+    weightKg: number | null
+    notes: string | null
+    createdAt: Date | null
+  }
+
+  export type WeightLogCountAggregateOutputType = {
+    id: number
+    userId: number
+    date: number
+    weightKg: number
+    notes: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type WeightLogAvgAggregateInputType = {
+    weightKg?: true
+  }
+
+  export type WeightLogSumAggregateInputType = {
+    weightKg?: true
+  }
+
+  export type WeightLogMinAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    weightKg?: true
+    notes?: true
+    createdAt?: true
+  }
+
+  export type WeightLogMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    weightKg?: true
+    notes?: true
+    createdAt?: true
+  }
+
+  export type WeightLogCountAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    weightKg?: true
+    notes?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type WeightLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WeightLog to aggregate.
+     */
+    where?: WeightLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeightLogs to fetch.
+     */
+    orderBy?: WeightLogOrderByWithRelationInput | WeightLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: WeightLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeightLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeightLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned WeightLogs
+    **/
+    _count?: true | WeightLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: WeightLogAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: WeightLogSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: WeightLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: WeightLogMaxAggregateInputType
+  }
+
+  export type GetWeightLogAggregateType<T extends WeightLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateWeightLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateWeightLog[P]>
+      : GetScalarType<T[P], AggregateWeightLog[P]>
+  }
+
+
+
+
+  export type WeightLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: WeightLogWhereInput
+    orderBy?: WeightLogOrderByWithAggregationInput | WeightLogOrderByWithAggregationInput[]
+    by: WeightLogScalarFieldEnum[] | WeightLogScalarFieldEnum
+    having?: WeightLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: WeightLogCountAggregateInputType | true
+    _avg?: WeightLogAvgAggregateInputType
+    _sum?: WeightLogSumAggregateInputType
+    _min?: WeightLogMinAggregateInputType
+    _max?: WeightLogMaxAggregateInputType
+  }
+
+  export type WeightLogGroupByOutputType = {
+    id: string
+    userId: string
+    date: Date
+    weightKg: number
+    notes: string | null
+    createdAt: Date
+    _count: WeightLogCountAggregateOutputType | null
+    _avg: WeightLogAvgAggregateOutputType | null
+    _sum: WeightLogSumAggregateOutputType | null
+    _min: WeightLogMinAggregateOutputType | null
+    _max: WeightLogMaxAggregateOutputType | null
+  }
+
+  type GetWeightLogGroupByPayload<T extends WeightLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<WeightLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof WeightLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], WeightLogGroupByOutputType[P]>
+            : GetScalarType<T[P], WeightLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type WeightLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    weightKg?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weightLog"]>
+
+  export type WeightLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    weightKg?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weightLog"]>
+
+  export type WeightLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    weightKg?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["weightLog"]>
+
+  export type WeightLogSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    weightKg?: boolean
+    notes?: boolean
+    createdAt?: boolean
+  }
+
+  export type WeightLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "date" | "weightKg" | "notes" | "createdAt", ExtArgs["result"]["weightLog"]>
+  export type WeightLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type WeightLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type WeightLogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $WeightLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "WeightLog"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      date: Date
+      weightKg: number
+      notes: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["weightLog"]>
+    composites: {}
+  }
+
+  type WeightLogGetPayload<S extends boolean | null | undefined | WeightLogDefaultArgs> = $Result.GetResult<Prisma.$WeightLogPayload, S>
+
+  type WeightLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<WeightLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: WeightLogCountAggregateInputType | true
+    }
+
+  export interface WeightLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['WeightLog'], meta: { name: 'WeightLog' } }
+    /**
+     * Find zero or one WeightLog that matches the filter.
+     * @param {WeightLogFindUniqueArgs} args - Arguments to find a WeightLog
+     * @example
+     * // Get one WeightLog
+     * const weightLog = await prisma.weightLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends WeightLogFindUniqueArgs>(args: SelectSubset<T, WeightLogFindUniqueArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one WeightLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {WeightLogFindUniqueOrThrowArgs} args - Arguments to find a WeightLog
+     * @example
+     * // Get one WeightLog
+     * const weightLog = await prisma.weightLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends WeightLogFindUniqueOrThrowArgs>(args: SelectSubset<T, WeightLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WeightLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeightLogFindFirstArgs} args - Arguments to find a WeightLog
+     * @example
+     * // Get one WeightLog
+     * const weightLog = await prisma.weightLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends WeightLogFindFirstArgs>(args?: SelectSubset<T, WeightLogFindFirstArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first WeightLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeightLogFindFirstOrThrowArgs} args - Arguments to find a WeightLog
+     * @example
+     * // Get one WeightLog
+     * const weightLog = await prisma.weightLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends WeightLogFindFirstOrThrowArgs>(args?: SelectSubset<T, WeightLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more WeightLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeightLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all WeightLogs
+     * const weightLogs = await prisma.weightLog.findMany()
+     * 
+     * // Get first 10 WeightLogs
+     * const weightLogs = await prisma.weightLog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const weightLogWithIdOnly = await prisma.weightLog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends WeightLogFindManyArgs>(args?: SelectSubset<T, WeightLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a WeightLog.
+     * @param {WeightLogCreateArgs} args - Arguments to create a WeightLog.
+     * @example
+     * // Create one WeightLog
+     * const WeightLog = await prisma.weightLog.create({
+     *   data: {
+     *     // ... data to create a WeightLog
+     *   }
+     * })
+     * 
+     */
+    create<T extends WeightLogCreateArgs>(args: SelectSubset<T, WeightLogCreateArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many WeightLogs.
+     * @param {WeightLogCreateManyArgs} args - Arguments to create many WeightLogs.
+     * @example
+     * // Create many WeightLogs
+     * const weightLog = await prisma.weightLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends WeightLogCreateManyArgs>(args?: SelectSubset<T, WeightLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many WeightLogs and returns the data saved in the database.
+     * @param {WeightLogCreateManyAndReturnArgs} args - Arguments to create many WeightLogs.
+     * @example
+     * // Create many WeightLogs
+     * const weightLog = await prisma.weightLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many WeightLogs and only return the `id`
+     * const weightLogWithIdOnly = await prisma.weightLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends WeightLogCreateManyAndReturnArgs>(args?: SelectSubset<T, WeightLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a WeightLog.
+     * @param {WeightLogDeleteArgs} args - Arguments to delete one WeightLog.
+     * @example
+     * // Delete one WeightLog
+     * const WeightLog = await prisma.weightLog.delete({
+     *   where: {
+     *     // ... filter to delete one WeightLog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends WeightLogDeleteArgs>(args: SelectSubset<T, WeightLogDeleteArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one WeightLog.
+     * @param {WeightLogUpdateArgs} args - Arguments to update one WeightLog.
+     * @example
+     * // Update one WeightLog
+     * const weightLog = await prisma.weightLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends WeightLogUpdateArgs>(args: SelectSubset<T, WeightLogUpdateArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more WeightLogs.
+     * @param {WeightLogDeleteManyArgs} args - Arguments to filter WeightLogs to delete.
+     * @example
+     * // Delete a few WeightLogs
+     * const { count } = await prisma.weightLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends WeightLogDeleteManyArgs>(args?: SelectSubset<T, WeightLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WeightLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeightLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many WeightLogs
+     * const weightLog = await prisma.weightLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends WeightLogUpdateManyArgs>(args: SelectSubset<T, WeightLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more WeightLogs and returns the data updated in the database.
+     * @param {WeightLogUpdateManyAndReturnArgs} args - Arguments to update many WeightLogs.
+     * @example
+     * // Update many WeightLogs
+     * const weightLog = await prisma.weightLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more WeightLogs and only return the `id`
+     * const weightLogWithIdOnly = await prisma.weightLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends WeightLogUpdateManyAndReturnArgs>(args: SelectSubset<T, WeightLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one WeightLog.
+     * @param {WeightLogUpsertArgs} args - Arguments to update or create a WeightLog.
+     * @example
+     * // Update or create a WeightLog
+     * const weightLog = await prisma.weightLog.upsert({
+     *   create: {
+     *     // ... data to create a WeightLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the WeightLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends WeightLogUpsertArgs>(args: SelectSubset<T, WeightLogUpsertArgs<ExtArgs>>): Prisma__WeightLogClient<$Result.GetResult<Prisma.$WeightLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of WeightLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeightLogCountArgs} args - Arguments to filter WeightLogs to count.
+     * @example
+     * // Count the number of WeightLogs
+     * const count = await prisma.weightLog.count({
+     *   where: {
+     *     // ... the filter for the WeightLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends WeightLogCountArgs>(
+      args?: Subset<T, WeightLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], WeightLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a WeightLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeightLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends WeightLogAggregateArgs>(args: Subset<T, WeightLogAggregateArgs>): Prisma.PrismaPromise<GetWeightLogAggregateType<T>>
+
+    /**
+     * Group by WeightLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {WeightLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends WeightLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: WeightLogGroupByArgs['orderBy'] }
+        : { orderBy?: WeightLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, WeightLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetWeightLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the WeightLog model
+   */
+  readonly fields: WeightLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for WeightLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__WeightLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the WeightLog model
+   */
+  interface WeightLogFieldRefs {
+    readonly id: FieldRef<"WeightLog", 'String'>
+    readonly userId: FieldRef<"WeightLog", 'String'>
+    readonly date: FieldRef<"WeightLog", 'DateTime'>
+    readonly weightKg: FieldRef<"WeightLog", 'Float'>
+    readonly notes: FieldRef<"WeightLog", 'String'>
+    readonly createdAt: FieldRef<"WeightLog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * WeightLog findUnique
+   */
+  export type WeightLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * Filter, which WeightLog to fetch.
+     */
+    where: WeightLogWhereUniqueInput
+  }
+
+  /**
+   * WeightLog findUniqueOrThrow
+   */
+  export type WeightLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * Filter, which WeightLog to fetch.
+     */
+    where: WeightLogWhereUniqueInput
+  }
+
+  /**
+   * WeightLog findFirst
+   */
+  export type WeightLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * Filter, which WeightLog to fetch.
+     */
+    where?: WeightLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeightLogs to fetch.
+     */
+    orderBy?: WeightLogOrderByWithRelationInput | WeightLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WeightLogs.
+     */
+    cursor?: WeightLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeightLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeightLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WeightLogs.
+     */
+    distinct?: WeightLogScalarFieldEnum | WeightLogScalarFieldEnum[]
+  }
+
+  /**
+   * WeightLog findFirstOrThrow
+   */
+  export type WeightLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * Filter, which WeightLog to fetch.
+     */
+    where?: WeightLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeightLogs to fetch.
+     */
+    orderBy?: WeightLogOrderByWithRelationInput | WeightLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for WeightLogs.
+     */
+    cursor?: WeightLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeightLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeightLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WeightLogs.
+     */
+    distinct?: WeightLogScalarFieldEnum | WeightLogScalarFieldEnum[]
+  }
+
+  /**
+   * WeightLog findMany
+   */
+  export type WeightLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * Filter, which WeightLogs to fetch.
+     */
+    where?: WeightLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of WeightLogs to fetch.
+     */
+    orderBy?: WeightLogOrderByWithRelationInput | WeightLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing WeightLogs.
+     */
+    cursor?: WeightLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` WeightLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` WeightLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of WeightLogs.
+     */
+    distinct?: WeightLogScalarFieldEnum | WeightLogScalarFieldEnum[]
+  }
+
+  /**
+   * WeightLog create
+   */
+  export type WeightLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * The data needed to create a WeightLog.
+     */
+    data: XOR<WeightLogCreateInput, WeightLogUncheckedCreateInput>
+  }
+
+  /**
+   * WeightLog createMany
+   */
+  export type WeightLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many WeightLogs.
+     */
+    data: WeightLogCreateManyInput | WeightLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * WeightLog createManyAndReturn
+   */
+  export type WeightLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many WeightLogs.
+     */
+    data: WeightLogCreateManyInput | WeightLogCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WeightLog update
+   */
+  export type WeightLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * The data needed to update a WeightLog.
+     */
+    data: XOR<WeightLogUpdateInput, WeightLogUncheckedUpdateInput>
+    /**
+     * Choose, which WeightLog to update.
+     */
+    where: WeightLogWhereUniqueInput
+  }
+
+  /**
+   * WeightLog updateMany
+   */
+  export type WeightLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update WeightLogs.
+     */
+    data: XOR<WeightLogUpdateManyMutationInput, WeightLogUncheckedUpdateManyInput>
+    /**
+     * Filter which WeightLogs to update
+     */
+    where?: WeightLogWhereInput
+    /**
+     * Limit how many WeightLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * WeightLog updateManyAndReturn
+   */
+  export type WeightLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * The data used to update WeightLogs.
+     */
+    data: XOR<WeightLogUpdateManyMutationInput, WeightLogUncheckedUpdateManyInput>
+    /**
+     * Filter which WeightLogs to update
+     */
+    where?: WeightLogWhereInput
+    /**
+     * Limit how many WeightLogs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * WeightLog upsert
+   */
+  export type WeightLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * The filter to search for the WeightLog to update in case it exists.
+     */
+    where: WeightLogWhereUniqueInput
+    /**
+     * In case the WeightLog found by the `where` argument doesn't exist, create a new WeightLog with this data.
+     */
+    create: XOR<WeightLogCreateInput, WeightLogUncheckedCreateInput>
+    /**
+     * In case the WeightLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<WeightLogUpdateInput, WeightLogUncheckedUpdateInput>
+  }
+
+  /**
+   * WeightLog delete
+   */
+  export type WeightLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+    /**
+     * Filter which WeightLog to delete.
+     */
+    where: WeightLogWhereUniqueInput
+  }
+
+  /**
+   * WeightLog deleteMany
+   */
+  export type WeightLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which WeightLogs to delete
+     */
+    where?: WeightLogWhereInput
+    /**
+     * Limit how many WeightLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * WeightLog without action
+   */
+  export type WeightLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WeightLog
+     */
+    select?: WeightLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the WeightLog
+     */
+    omit?: WeightLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WeightLogInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model StepLog
+   */
+
+  export type AggregateStepLog = {
+    _count: StepLogCountAggregateOutputType | null
+    _avg: StepLogAvgAggregateOutputType | null
+    _sum: StepLogSumAggregateOutputType | null
+    _min: StepLogMinAggregateOutputType | null
+    _max: StepLogMaxAggregateOutputType | null
+  }
+
+  export type StepLogAvgAggregateOutputType = {
+    steps: number | null
+    goal: number | null
+  }
+
+  export type StepLogSumAggregateOutputType = {
+    steps: number | null
+    goal: number | null
+  }
+
+  export type StepLogMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    date: Date | null
+    steps: number | null
+    goal: number | null
+    createdAt: Date | null
+  }
+
+  export type StepLogMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    date: Date | null
+    steps: number | null
+    goal: number | null
+    createdAt: Date | null
+  }
+
+  export type StepLogCountAggregateOutputType = {
+    id: number
+    userId: number
+    date: number
+    steps: number
+    goal: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type StepLogAvgAggregateInputType = {
+    steps?: true
+    goal?: true
+  }
+
+  export type StepLogSumAggregateInputType = {
+    steps?: true
+    goal?: true
+  }
+
+  export type StepLogMinAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    steps?: true
+    goal?: true
+    createdAt?: true
+  }
+
+  export type StepLogMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    steps?: true
+    goal?: true
+    createdAt?: true
+  }
+
+  export type StepLogCountAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    steps?: true
+    goal?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type StepLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StepLog to aggregate.
+     */
+    where?: StepLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StepLogs to fetch.
+     */
+    orderBy?: StepLogOrderByWithRelationInput | StepLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: StepLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StepLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StepLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned StepLogs
+    **/
+    _count?: true | StepLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: StepLogAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: StepLogSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: StepLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: StepLogMaxAggregateInputType
+  }
+
+  export type GetStepLogAggregateType<T extends StepLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateStepLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStepLog[P]>
+      : GetScalarType<T[P], AggregateStepLog[P]>
+  }
+
+
+
+
+  export type StepLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StepLogWhereInput
+    orderBy?: StepLogOrderByWithAggregationInput | StepLogOrderByWithAggregationInput[]
+    by: StepLogScalarFieldEnum[] | StepLogScalarFieldEnum
+    having?: StepLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: StepLogCountAggregateInputType | true
+    _avg?: StepLogAvgAggregateInputType
+    _sum?: StepLogSumAggregateInputType
+    _min?: StepLogMinAggregateInputType
+    _max?: StepLogMaxAggregateInputType
+  }
+
+  export type StepLogGroupByOutputType = {
+    id: string
+    userId: string
+    date: Date
+    steps: number
+    goal: number
+    createdAt: Date
+    _count: StepLogCountAggregateOutputType | null
+    _avg: StepLogAvgAggregateOutputType | null
+    _sum: StepLogSumAggregateOutputType | null
+    _min: StepLogMinAggregateOutputType | null
+    _max: StepLogMaxAggregateOutputType | null
+  }
+
+  type GetStepLogGroupByPayload<T extends StepLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<StepLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof StepLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], StepLogGroupByOutputType[P]>
+            : GetScalarType<T[P], StepLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type StepLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    steps?: boolean
+    goal?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["stepLog"]>
+
+  export type StepLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    steps?: boolean
+    goal?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["stepLog"]>
+
+  export type StepLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    steps?: boolean
+    goal?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["stepLog"]>
+
+  export type StepLogSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    steps?: boolean
+    goal?: boolean
+    createdAt?: boolean
+  }
+
+  export type StepLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "date" | "steps" | "goal" | "createdAt", ExtArgs["result"]["stepLog"]>
+  export type StepLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type StepLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type StepLogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $StepLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "StepLog"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      date: Date
+      steps: number
+      goal: number
+      createdAt: Date
+    }, ExtArgs["result"]["stepLog"]>
+    composites: {}
+  }
+
+  type StepLogGetPayload<S extends boolean | null | undefined | StepLogDefaultArgs> = $Result.GetResult<Prisma.$StepLogPayload, S>
+
+  type StepLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<StepLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: StepLogCountAggregateInputType | true
+    }
+
+  export interface StepLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['StepLog'], meta: { name: 'StepLog' } }
+    /**
+     * Find zero or one StepLog that matches the filter.
+     * @param {StepLogFindUniqueArgs} args - Arguments to find a StepLog
+     * @example
+     * // Get one StepLog
+     * const stepLog = await prisma.stepLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends StepLogFindUniqueArgs>(args: SelectSubset<T, StepLogFindUniqueArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one StepLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {StepLogFindUniqueOrThrowArgs} args - Arguments to find a StepLog
+     * @example
+     * // Get one StepLog
+     * const stepLog = await prisma.stepLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends StepLogFindUniqueOrThrowArgs>(args: SelectSubset<T, StepLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first StepLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StepLogFindFirstArgs} args - Arguments to find a StepLog
+     * @example
+     * // Get one StepLog
+     * const stepLog = await prisma.stepLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends StepLogFindFirstArgs>(args?: SelectSubset<T, StepLogFindFirstArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first StepLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StepLogFindFirstOrThrowArgs} args - Arguments to find a StepLog
+     * @example
+     * // Get one StepLog
+     * const stepLog = await prisma.stepLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends StepLogFindFirstOrThrowArgs>(args?: SelectSubset<T, StepLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more StepLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StepLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all StepLogs
+     * const stepLogs = await prisma.stepLog.findMany()
+     * 
+     * // Get first 10 StepLogs
+     * const stepLogs = await prisma.stepLog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const stepLogWithIdOnly = await prisma.stepLog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends StepLogFindManyArgs>(args?: SelectSubset<T, StepLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a StepLog.
+     * @param {StepLogCreateArgs} args - Arguments to create a StepLog.
+     * @example
+     * // Create one StepLog
+     * const StepLog = await prisma.stepLog.create({
+     *   data: {
+     *     // ... data to create a StepLog
+     *   }
+     * })
+     * 
+     */
+    create<T extends StepLogCreateArgs>(args: SelectSubset<T, StepLogCreateArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many StepLogs.
+     * @param {StepLogCreateManyArgs} args - Arguments to create many StepLogs.
+     * @example
+     * // Create many StepLogs
+     * const stepLog = await prisma.stepLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends StepLogCreateManyArgs>(args?: SelectSubset<T, StepLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many StepLogs and returns the data saved in the database.
+     * @param {StepLogCreateManyAndReturnArgs} args - Arguments to create many StepLogs.
+     * @example
+     * // Create many StepLogs
+     * const stepLog = await prisma.stepLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many StepLogs and only return the `id`
+     * const stepLogWithIdOnly = await prisma.stepLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends StepLogCreateManyAndReturnArgs>(args?: SelectSubset<T, StepLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a StepLog.
+     * @param {StepLogDeleteArgs} args - Arguments to delete one StepLog.
+     * @example
+     * // Delete one StepLog
+     * const StepLog = await prisma.stepLog.delete({
+     *   where: {
+     *     // ... filter to delete one StepLog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends StepLogDeleteArgs>(args: SelectSubset<T, StepLogDeleteArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one StepLog.
+     * @param {StepLogUpdateArgs} args - Arguments to update one StepLog.
+     * @example
+     * // Update one StepLog
+     * const stepLog = await prisma.stepLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends StepLogUpdateArgs>(args: SelectSubset<T, StepLogUpdateArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more StepLogs.
+     * @param {StepLogDeleteManyArgs} args - Arguments to filter StepLogs to delete.
+     * @example
+     * // Delete a few StepLogs
+     * const { count } = await prisma.stepLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends StepLogDeleteManyArgs>(args?: SelectSubset<T, StepLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more StepLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StepLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many StepLogs
+     * const stepLog = await prisma.stepLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends StepLogUpdateManyArgs>(args: SelectSubset<T, StepLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more StepLogs and returns the data updated in the database.
+     * @param {StepLogUpdateManyAndReturnArgs} args - Arguments to update many StepLogs.
+     * @example
+     * // Update many StepLogs
+     * const stepLog = await prisma.stepLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more StepLogs and only return the `id`
+     * const stepLogWithIdOnly = await prisma.stepLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends StepLogUpdateManyAndReturnArgs>(args: SelectSubset<T, StepLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one StepLog.
+     * @param {StepLogUpsertArgs} args - Arguments to update or create a StepLog.
+     * @example
+     * // Update or create a StepLog
+     * const stepLog = await prisma.stepLog.upsert({
+     *   create: {
+     *     // ... data to create a StepLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the StepLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends StepLogUpsertArgs>(args: SelectSubset<T, StepLogUpsertArgs<ExtArgs>>): Prisma__StepLogClient<$Result.GetResult<Prisma.$StepLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of StepLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StepLogCountArgs} args - Arguments to filter StepLogs to count.
+     * @example
+     * // Count the number of StepLogs
+     * const count = await prisma.stepLog.count({
+     *   where: {
+     *     // ... the filter for the StepLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends StepLogCountArgs>(
+      args?: Subset<T, StepLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], StepLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a StepLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StepLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StepLogAggregateArgs>(args: Subset<T, StepLogAggregateArgs>): Prisma.PrismaPromise<GetStepLogAggregateType<T>>
+
+    /**
+     * Group by StepLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StepLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends StepLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: StepLogGroupByArgs['orderBy'] }
+        : { orderBy?: StepLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, StepLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStepLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the StepLog model
+   */
+  readonly fields: StepLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for StepLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__StepLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the StepLog model
+   */
+  interface StepLogFieldRefs {
+    readonly id: FieldRef<"StepLog", 'String'>
+    readonly userId: FieldRef<"StepLog", 'String'>
+    readonly date: FieldRef<"StepLog", 'DateTime'>
+    readonly steps: FieldRef<"StepLog", 'Int'>
+    readonly goal: FieldRef<"StepLog", 'Int'>
+    readonly createdAt: FieldRef<"StepLog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * StepLog findUnique
+   */
+  export type StepLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * Filter, which StepLog to fetch.
+     */
+    where: StepLogWhereUniqueInput
+  }
+
+  /**
+   * StepLog findUniqueOrThrow
+   */
+  export type StepLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * Filter, which StepLog to fetch.
+     */
+    where: StepLogWhereUniqueInput
+  }
+
+  /**
+   * StepLog findFirst
+   */
+  export type StepLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * Filter, which StepLog to fetch.
+     */
+    where?: StepLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StepLogs to fetch.
+     */
+    orderBy?: StepLogOrderByWithRelationInput | StepLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StepLogs.
+     */
+    cursor?: StepLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StepLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StepLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StepLogs.
+     */
+    distinct?: StepLogScalarFieldEnum | StepLogScalarFieldEnum[]
+  }
+
+  /**
+   * StepLog findFirstOrThrow
+   */
+  export type StepLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * Filter, which StepLog to fetch.
+     */
+    where?: StepLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StepLogs to fetch.
+     */
+    orderBy?: StepLogOrderByWithRelationInput | StepLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StepLogs.
+     */
+    cursor?: StepLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StepLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StepLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StepLogs.
+     */
+    distinct?: StepLogScalarFieldEnum | StepLogScalarFieldEnum[]
+  }
+
+  /**
+   * StepLog findMany
+   */
+  export type StepLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * Filter, which StepLogs to fetch.
+     */
+    where?: StepLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StepLogs to fetch.
+     */
+    orderBy?: StepLogOrderByWithRelationInput | StepLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing StepLogs.
+     */
+    cursor?: StepLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StepLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StepLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StepLogs.
+     */
+    distinct?: StepLogScalarFieldEnum | StepLogScalarFieldEnum[]
+  }
+
+  /**
+   * StepLog create
+   */
+  export type StepLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * The data needed to create a StepLog.
+     */
+    data: XOR<StepLogCreateInput, StepLogUncheckedCreateInput>
+  }
+
+  /**
+   * StepLog createMany
+   */
+  export type StepLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many StepLogs.
+     */
+    data: StepLogCreateManyInput | StepLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * StepLog createManyAndReturn
+   */
+  export type StepLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many StepLogs.
+     */
+    data: StepLogCreateManyInput | StepLogCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * StepLog update
+   */
+  export type StepLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * The data needed to update a StepLog.
+     */
+    data: XOR<StepLogUpdateInput, StepLogUncheckedUpdateInput>
+    /**
+     * Choose, which StepLog to update.
+     */
+    where: StepLogWhereUniqueInput
+  }
+
+  /**
+   * StepLog updateMany
+   */
+  export type StepLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update StepLogs.
+     */
+    data: XOR<StepLogUpdateManyMutationInput, StepLogUncheckedUpdateManyInput>
+    /**
+     * Filter which StepLogs to update
+     */
+    where?: StepLogWhereInput
+    /**
+     * Limit how many StepLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * StepLog updateManyAndReturn
+   */
+  export type StepLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * The data used to update StepLogs.
+     */
+    data: XOR<StepLogUpdateManyMutationInput, StepLogUncheckedUpdateManyInput>
+    /**
+     * Filter which StepLogs to update
+     */
+    where?: StepLogWhereInput
+    /**
+     * Limit how many StepLogs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * StepLog upsert
+   */
+  export type StepLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * The filter to search for the StepLog to update in case it exists.
+     */
+    where: StepLogWhereUniqueInput
+    /**
+     * In case the StepLog found by the `where` argument doesn't exist, create a new StepLog with this data.
+     */
+    create: XOR<StepLogCreateInput, StepLogUncheckedCreateInput>
+    /**
+     * In case the StepLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<StepLogUpdateInput, StepLogUncheckedUpdateInput>
+  }
+
+  /**
+   * StepLog delete
+   */
+  export type StepLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+    /**
+     * Filter which StepLog to delete.
+     */
+    where: StepLogWhereUniqueInput
+  }
+
+  /**
+   * StepLog deleteMany
+   */
+  export type StepLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StepLogs to delete
+     */
+    where?: StepLogWhereInput
+    /**
+     * Limit how many StepLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * StepLog without action
+   */
+  export type StepLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StepLog
+     */
+    select?: StepLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StepLog
+     */
+    omit?: StepLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StepLogInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FoodLog
+   */
+
+  export type AggregateFoodLog = {
+    _count: FoodLogCountAggregateOutputType | null
+    _avg: FoodLogAvgAggregateOutputType | null
+    _sum: FoodLogSumAggregateOutputType | null
+    _min: FoodLogMinAggregateOutputType | null
+    _max: FoodLogMaxAggregateOutputType | null
+  }
+
+  export type FoodLogAvgAggregateOutputType = {
+    calories: number | null
+    protein: number | null
+    carbs: number | null
+    fat: number | null
+  }
+
+  export type FoodLogSumAggregateOutputType = {
+    calories: number | null
+    protein: number | null
+    carbs: number | null
+    fat: number | null
+  }
+
+  export type FoodLogMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    date: Date | null
+    mealType: string | null
+    name: string | null
+    calories: number | null
+    protein: number | null
+    carbs: number | null
+    fat: number | null
+    createdAt: Date | null
+  }
+
+  export type FoodLogMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    date: Date | null
+    mealType: string | null
+    name: string | null
+    calories: number | null
+    protein: number | null
+    carbs: number | null
+    fat: number | null
+    createdAt: Date | null
+  }
+
+  export type FoodLogCountAggregateOutputType = {
+    id: number
+    userId: number
+    date: number
+    mealType: number
+    name: number
+    calories: number
+    protein: number
+    carbs: number
+    fat: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type FoodLogAvgAggregateInputType = {
+    calories?: true
+    protein?: true
+    carbs?: true
+    fat?: true
+  }
+
+  export type FoodLogSumAggregateInputType = {
+    calories?: true
+    protein?: true
+    carbs?: true
+    fat?: true
+  }
+
+  export type FoodLogMinAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    mealType?: true
+    name?: true
+    calories?: true
+    protein?: true
+    carbs?: true
+    fat?: true
+    createdAt?: true
+  }
+
+  export type FoodLogMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    mealType?: true
+    name?: true
+    calories?: true
+    protein?: true
+    carbs?: true
+    fat?: true
+    createdAt?: true
+  }
+
+  export type FoodLogCountAggregateInputType = {
+    id?: true
+    userId?: true
+    date?: true
+    mealType?: true
+    name?: true
+    calories?: true
+    protein?: true
+    carbs?: true
+    fat?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type FoodLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FoodLog to aggregate.
+     */
+    where?: FoodLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FoodLogs to fetch.
+     */
+    orderBy?: FoodLogOrderByWithRelationInput | FoodLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FoodLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FoodLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FoodLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FoodLogs
+    **/
+    _count?: true | FoodLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FoodLogAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FoodLogSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FoodLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FoodLogMaxAggregateInputType
+  }
+
+  export type GetFoodLogAggregateType<T extends FoodLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateFoodLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFoodLog[P]>
+      : GetScalarType<T[P], AggregateFoodLog[P]>
+  }
+
+
+
+
+  export type FoodLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FoodLogWhereInput
+    orderBy?: FoodLogOrderByWithAggregationInput | FoodLogOrderByWithAggregationInput[]
+    by: FoodLogScalarFieldEnum[] | FoodLogScalarFieldEnum
+    having?: FoodLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FoodLogCountAggregateInputType | true
+    _avg?: FoodLogAvgAggregateInputType
+    _sum?: FoodLogSumAggregateInputType
+    _min?: FoodLogMinAggregateInputType
+    _max?: FoodLogMaxAggregateInputType
+  }
+
+  export type FoodLogGroupByOutputType = {
+    id: string
+    userId: string
+    date: Date
+    mealType: string
+    name: string
+    calories: number
+    protein: number | null
+    carbs: number | null
+    fat: number | null
+    createdAt: Date
+    _count: FoodLogCountAggregateOutputType | null
+    _avg: FoodLogAvgAggregateOutputType | null
+    _sum: FoodLogSumAggregateOutputType | null
+    _min: FoodLogMinAggregateOutputType | null
+    _max: FoodLogMaxAggregateOutputType | null
+  }
+
+  type GetFoodLogGroupByPayload<T extends FoodLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FoodLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FoodLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FoodLogGroupByOutputType[P]>
+            : GetScalarType<T[P], FoodLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FoodLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    mealType?: boolean
+    name?: boolean
+    calories?: boolean
+    protein?: boolean
+    carbs?: boolean
+    fat?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["foodLog"]>
+
+  export type FoodLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    mealType?: boolean
+    name?: boolean
+    calories?: boolean
+    protein?: boolean
+    carbs?: boolean
+    fat?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["foodLog"]>
+
+  export type FoodLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    mealType?: boolean
+    name?: boolean
+    calories?: boolean
+    protein?: boolean
+    carbs?: boolean
+    fat?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["foodLog"]>
+
+  export type FoodLogSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    date?: boolean
+    mealType?: boolean
+    name?: boolean
+    calories?: boolean
+    protein?: boolean
+    carbs?: boolean
+    fat?: boolean
+    createdAt?: boolean
+  }
+
+  export type FoodLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "date" | "mealType" | "name" | "calories" | "protein" | "carbs" | "fat" | "createdAt", ExtArgs["result"]["foodLog"]>
+  export type FoodLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type FoodLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type FoodLogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $FoodLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FoodLog"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      date: Date
+      mealType: string
+      name: string
+      calories: number
+      protein: number | null
+      carbs: number | null
+      fat: number | null
+      createdAt: Date
+    }, ExtArgs["result"]["foodLog"]>
+    composites: {}
+  }
+
+  type FoodLogGetPayload<S extends boolean | null | undefined | FoodLogDefaultArgs> = $Result.GetResult<Prisma.$FoodLogPayload, S>
+
+  type FoodLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FoodLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FoodLogCountAggregateInputType | true
+    }
+
+  export interface FoodLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FoodLog'], meta: { name: 'FoodLog' } }
+    /**
+     * Find zero or one FoodLog that matches the filter.
+     * @param {FoodLogFindUniqueArgs} args - Arguments to find a FoodLog
+     * @example
+     * // Get one FoodLog
+     * const foodLog = await prisma.foodLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FoodLogFindUniqueArgs>(args: SelectSubset<T, FoodLogFindUniqueArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FoodLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FoodLogFindUniqueOrThrowArgs} args - Arguments to find a FoodLog
+     * @example
+     * // Get one FoodLog
+     * const foodLog = await prisma.foodLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FoodLogFindUniqueOrThrowArgs>(args: SelectSubset<T, FoodLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FoodLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FoodLogFindFirstArgs} args - Arguments to find a FoodLog
+     * @example
+     * // Get one FoodLog
+     * const foodLog = await prisma.foodLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FoodLogFindFirstArgs>(args?: SelectSubset<T, FoodLogFindFirstArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FoodLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FoodLogFindFirstOrThrowArgs} args - Arguments to find a FoodLog
+     * @example
+     * // Get one FoodLog
+     * const foodLog = await prisma.foodLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FoodLogFindFirstOrThrowArgs>(args?: SelectSubset<T, FoodLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FoodLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FoodLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FoodLogs
+     * const foodLogs = await prisma.foodLog.findMany()
+     * 
+     * // Get first 10 FoodLogs
+     * const foodLogs = await prisma.foodLog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const foodLogWithIdOnly = await prisma.foodLog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FoodLogFindManyArgs>(args?: SelectSubset<T, FoodLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FoodLog.
+     * @param {FoodLogCreateArgs} args - Arguments to create a FoodLog.
+     * @example
+     * // Create one FoodLog
+     * const FoodLog = await prisma.foodLog.create({
+     *   data: {
+     *     // ... data to create a FoodLog
+     *   }
+     * })
+     * 
+     */
+    create<T extends FoodLogCreateArgs>(args: SelectSubset<T, FoodLogCreateArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FoodLogs.
+     * @param {FoodLogCreateManyArgs} args - Arguments to create many FoodLogs.
+     * @example
+     * // Create many FoodLogs
+     * const foodLog = await prisma.foodLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FoodLogCreateManyArgs>(args?: SelectSubset<T, FoodLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FoodLogs and returns the data saved in the database.
+     * @param {FoodLogCreateManyAndReturnArgs} args - Arguments to create many FoodLogs.
+     * @example
+     * // Create many FoodLogs
+     * const foodLog = await prisma.foodLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FoodLogs and only return the `id`
+     * const foodLogWithIdOnly = await prisma.foodLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FoodLogCreateManyAndReturnArgs>(args?: SelectSubset<T, FoodLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FoodLog.
+     * @param {FoodLogDeleteArgs} args - Arguments to delete one FoodLog.
+     * @example
+     * // Delete one FoodLog
+     * const FoodLog = await prisma.foodLog.delete({
+     *   where: {
+     *     // ... filter to delete one FoodLog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FoodLogDeleteArgs>(args: SelectSubset<T, FoodLogDeleteArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FoodLog.
+     * @param {FoodLogUpdateArgs} args - Arguments to update one FoodLog.
+     * @example
+     * // Update one FoodLog
+     * const foodLog = await prisma.foodLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FoodLogUpdateArgs>(args: SelectSubset<T, FoodLogUpdateArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FoodLogs.
+     * @param {FoodLogDeleteManyArgs} args - Arguments to filter FoodLogs to delete.
+     * @example
+     * // Delete a few FoodLogs
+     * const { count } = await prisma.foodLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FoodLogDeleteManyArgs>(args?: SelectSubset<T, FoodLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FoodLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FoodLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FoodLogs
+     * const foodLog = await prisma.foodLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FoodLogUpdateManyArgs>(args: SelectSubset<T, FoodLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FoodLogs and returns the data updated in the database.
+     * @param {FoodLogUpdateManyAndReturnArgs} args - Arguments to update many FoodLogs.
+     * @example
+     * // Update many FoodLogs
+     * const foodLog = await prisma.foodLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FoodLogs and only return the `id`
+     * const foodLogWithIdOnly = await prisma.foodLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FoodLogUpdateManyAndReturnArgs>(args: SelectSubset<T, FoodLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FoodLog.
+     * @param {FoodLogUpsertArgs} args - Arguments to update or create a FoodLog.
+     * @example
+     * // Update or create a FoodLog
+     * const foodLog = await prisma.foodLog.upsert({
+     *   create: {
+     *     // ... data to create a FoodLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FoodLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FoodLogUpsertArgs>(args: SelectSubset<T, FoodLogUpsertArgs<ExtArgs>>): Prisma__FoodLogClient<$Result.GetResult<Prisma.$FoodLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FoodLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FoodLogCountArgs} args - Arguments to filter FoodLogs to count.
+     * @example
+     * // Count the number of FoodLogs
+     * const count = await prisma.foodLog.count({
+     *   where: {
+     *     // ... the filter for the FoodLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends FoodLogCountArgs>(
+      args?: Subset<T, FoodLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FoodLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FoodLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FoodLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FoodLogAggregateArgs>(args: Subset<T, FoodLogAggregateArgs>): Prisma.PrismaPromise<GetFoodLogAggregateType<T>>
+
+    /**
+     * Group by FoodLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FoodLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FoodLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FoodLogGroupByArgs['orderBy'] }
+        : { orderBy?: FoodLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FoodLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFoodLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FoodLog model
+   */
+  readonly fields: FoodLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FoodLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FoodLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FoodLog model
+   */
+  interface FoodLogFieldRefs {
+    readonly id: FieldRef<"FoodLog", 'String'>
+    readonly userId: FieldRef<"FoodLog", 'String'>
+    readonly date: FieldRef<"FoodLog", 'DateTime'>
+    readonly mealType: FieldRef<"FoodLog", 'String'>
+    readonly name: FieldRef<"FoodLog", 'String'>
+    readonly calories: FieldRef<"FoodLog", 'Int'>
+    readonly protein: FieldRef<"FoodLog", 'Float'>
+    readonly carbs: FieldRef<"FoodLog", 'Float'>
+    readonly fat: FieldRef<"FoodLog", 'Float'>
+    readonly createdAt: FieldRef<"FoodLog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FoodLog findUnique
+   */
+  export type FoodLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * Filter, which FoodLog to fetch.
+     */
+    where: FoodLogWhereUniqueInput
+  }
+
+  /**
+   * FoodLog findUniqueOrThrow
+   */
+  export type FoodLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * Filter, which FoodLog to fetch.
+     */
+    where: FoodLogWhereUniqueInput
+  }
+
+  /**
+   * FoodLog findFirst
+   */
+  export type FoodLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * Filter, which FoodLog to fetch.
+     */
+    where?: FoodLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FoodLogs to fetch.
+     */
+    orderBy?: FoodLogOrderByWithRelationInput | FoodLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FoodLogs.
+     */
+    cursor?: FoodLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FoodLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FoodLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FoodLogs.
+     */
+    distinct?: FoodLogScalarFieldEnum | FoodLogScalarFieldEnum[]
+  }
+
+  /**
+   * FoodLog findFirstOrThrow
+   */
+  export type FoodLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * Filter, which FoodLog to fetch.
+     */
+    where?: FoodLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FoodLogs to fetch.
+     */
+    orderBy?: FoodLogOrderByWithRelationInput | FoodLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FoodLogs.
+     */
+    cursor?: FoodLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FoodLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FoodLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FoodLogs.
+     */
+    distinct?: FoodLogScalarFieldEnum | FoodLogScalarFieldEnum[]
+  }
+
+  /**
+   * FoodLog findMany
+   */
+  export type FoodLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * Filter, which FoodLogs to fetch.
+     */
+    where?: FoodLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FoodLogs to fetch.
+     */
+    orderBy?: FoodLogOrderByWithRelationInput | FoodLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FoodLogs.
+     */
+    cursor?: FoodLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FoodLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FoodLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FoodLogs.
+     */
+    distinct?: FoodLogScalarFieldEnum | FoodLogScalarFieldEnum[]
+  }
+
+  /**
+   * FoodLog create
+   */
+  export type FoodLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FoodLog.
+     */
+    data: XOR<FoodLogCreateInput, FoodLogUncheckedCreateInput>
+  }
+
+  /**
+   * FoodLog createMany
+   */
+  export type FoodLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FoodLogs.
+     */
+    data: FoodLogCreateManyInput | FoodLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FoodLog createManyAndReturn
+   */
+  export type FoodLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many FoodLogs.
+     */
+    data: FoodLogCreateManyInput | FoodLogCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FoodLog update
+   */
+  export type FoodLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FoodLog.
+     */
+    data: XOR<FoodLogUpdateInput, FoodLogUncheckedUpdateInput>
+    /**
+     * Choose, which FoodLog to update.
+     */
+    where: FoodLogWhereUniqueInput
+  }
+
+  /**
+   * FoodLog updateMany
+   */
+  export type FoodLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FoodLogs.
+     */
+    data: XOR<FoodLogUpdateManyMutationInput, FoodLogUncheckedUpdateManyInput>
+    /**
+     * Filter which FoodLogs to update
+     */
+    where?: FoodLogWhereInput
+    /**
+     * Limit how many FoodLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FoodLog updateManyAndReturn
+   */
+  export type FoodLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * The data used to update FoodLogs.
+     */
+    data: XOR<FoodLogUpdateManyMutationInput, FoodLogUncheckedUpdateManyInput>
+    /**
+     * Filter which FoodLogs to update
+     */
+    where?: FoodLogWhereInput
+    /**
+     * Limit how many FoodLogs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FoodLog upsert
+   */
+  export type FoodLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FoodLog to update in case it exists.
+     */
+    where: FoodLogWhereUniqueInput
+    /**
+     * In case the FoodLog found by the `where` argument doesn't exist, create a new FoodLog with this data.
+     */
+    create: XOR<FoodLogCreateInput, FoodLogUncheckedCreateInput>
+    /**
+     * In case the FoodLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FoodLogUpdateInput, FoodLogUncheckedUpdateInput>
+  }
+
+  /**
+   * FoodLog delete
+   */
+  export type FoodLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+    /**
+     * Filter which FoodLog to delete.
+     */
+    where: FoodLogWhereUniqueInput
+  }
+
+  /**
+   * FoodLog deleteMany
+   */
+  export type FoodLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FoodLogs to delete
+     */
+    where?: FoodLogWhereInput
+    /**
+     * Limit how many FoodLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FoodLog without action
+   */
+  export type FoodLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FoodLog
+     */
+    select?: FoodLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FoodLog
+     */
+    omit?: FoodLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodLogInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -33109,11 +44832,29 @@ export namespace Prisma {
     priority: 'priority',
     dueDate: 'dueDate',
     sortOrder: 'sortOrder',
+    status: 'status',
+    isUrgent: 'isUrgent',
+    isImportant: 'isImportant',
+    estimatedMinutes: 'estimatedMinutes',
+    actualMinutes: 'actualMinutes',
+    timerStartedAt: 'timerStartedAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type TodoScalarFieldEnum = (typeof TodoScalarFieldEnum)[keyof typeof TodoScalarFieldEnum]
+
+
+  export const SubtaskScalarFieldEnum: {
+    id: 'id',
+    todoId: 'todoId',
+    title: 'title',
+    completed: 'completed',
+    sortOrder: 'sortOrder',
+    createdAt: 'createdAt'
+  };
+
+  export type SubtaskScalarFieldEnum = (typeof SubtaskScalarFieldEnum)[keyof typeof SubtaskScalarFieldEnum]
 
 
   export const NotificationScalarFieldEnum: {
@@ -33212,20 +44953,45 @@ export namespace Prisma {
   export type ExpenseScalarFieldEnum = (typeof ExpenseScalarFieldEnum)[keyof typeof ExpenseScalarFieldEnum]
 
 
+  export const NoteFolderScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    name: 'name',
+    color: 'color',
+    createdAt: 'createdAt'
+  };
+
+  export type NoteFolderScalarFieldEnum = (typeof NoteFolderScalarFieldEnum)[keyof typeof NoteFolderScalarFieldEnum]
+
+
   export const NoteScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
+    folderId: 'folderId',
     title: 'title',
     content: 'content',
     tags: 'tags',
     isPinned: 'isPinned',
     isJournal: 'isJournal',
     journalDate: 'journalDate',
+    mood: 'mood',
+    reminderAt: 'reminderAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type NoteScalarFieldEnum = (typeof NoteScalarFieldEnum)[keyof typeof NoteScalarFieldEnum]
+
+
+  export const NoteVersionScalarFieldEnum: {
+    id: 'id',
+    noteId: 'noteId',
+    title: 'title',
+    content: 'content',
+    createdAt: 'createdAt'
+  };
+
+  export type NoteVersionScalarFieldEnum = (typeof NoteVersionScalarFieldEnum)[keyof typeof NoteVersionScalarFieldEnum]
 
 
   export const PomodoroSessionScalarFieldEnum: {
@@ -33252,6 +45018,102 @@ export namespace Prisma {
   };
 
   export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
+
+
+  export const RecurringExpenseScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    title: 'title',
+    amount: 'amount',
+    type: 'type',
+    categoryId: 'categoryId',
+    frequency: 'frequency',
+    dayOfMonth: 'dayOfMonth',
+    dayOfWeek: 'dayOfWeek',
+    notes: 'notes',
+    isActive: 'isActive',
+    nextDueAt: 'nextDueAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type RecurringExpenseScalarFieldEnum = (typeof RecurringExpenseScalarFieldEnum)[keyof typeof RecurringExpenseScalarFieldEnum]
+
+
+  export const FinancialGoalScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    title: 'title',
+    targetAmount: 'targetAmount',
+    savedAmount: 'savedAmount',
+    deadline: 'deadline',
+    icon: 'icon',
+    color: 'color',
+    isCompleted: 'isCompleted',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FinancialGoalScalarFieldEnum = (typeof FinancialGoalScalarFieldEnum)[keyof typeof FinancialGoalScalarFieldEnum]
+
+
+  export const HealthProfileScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    age: 'age',
+    weightKg: 'weightKg',
+    heightCm: 'heightCm',
+    gender: 'gender',
+    goal: 'goal',
+    targetWeightKg: 'targetWeightKg',
+    dailyStepGoal: 'dailyStepGoal',
+    dailyWaterGoalMl: 'dailyWaterGoalMl',
+    dailyCalorieGoal: 'dailyCalorieGoal',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type HealthProfileScalarFieldEnum = (typeof HealthProfileScalarFieldEnum)[keyof typeof HealthProfileScalarFieldEnum]
+
+
+  export const WeightLogScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    date: 'date',
+    weightKg: 'weightKg',
+    notes: 'notes',
+    createdAt: 'createdAt'
+  };
+
+  export type WeightLogScalarFieldEnum = (typeof WeightLogScalarFieldEnum)[keyof typeof WeightLogScalarFieldEnum]
+
+
+  export const StepLogScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    date: 'date',
+    steps: 'steps',
+    goal: 'goal',
+    createdAt: 'createdAt'
+  };
+
+  export type StepLogScalarFieldEnum = (typeof StepLogScalarFieldEnum)[keyof typeof StepLogScalarFieldEnum]
+
+
+  export const FoodLogScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    date: 'date',
+    mealType: 'mealType',
+    name: 'name',
+    calories: 'calories',
+    protein: 'protein',
+    carbs: 'carbs',
+    fat: 'fat',
+    createdAt: 'createdAt'
+  };
+
+  export type FoodLogScalarFieldEnum = (typeof FoodLogScalarFieldEnum)[keyof typeof FoodLogScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -33441,7 +45303,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogListRelationFilter
     expenseCategories?: ExpenseCategoryListRelationFilter
     expenses?: ExpenseListRelationFilter
+    recurringExpenses?: RecurringExpenseListRelationFilter
+    financialGoals?: FinancialGoalListRelationFilter
+    healthProfile?: XOR<HealthProfileNullableScalarRelationFilter, HealthProfileWhereInput> | null
+    weightLogs?: WeightLogListRelationFilter
+    stepLogs?: StepLogListRelationFilter
+    foodLogs?: FoodLogListRelationFilter
     notes?: NoteListRelationFilter
+    noteFolders?: NoteFolderListRelationFilter
     pomodoroSessions?: PomodoroSessionListRelationFilter
   }
 
@@ -33475,7 +45344,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogOrderByRelationAggregateInput
     expenseCategories?: ExpenseCategoryOrderByRelationAggregateInput
     expenses?: ExpenseOrderByRelationAggregateInput
+    recurringExpenses?: RecurringExpenseOrderByRelationAggregateInput
+    financialGoals?: FinancialGoalOrderByRelationAggregateInput
+    healthProfile?: HealthProfileOrderByWithRelationInput
+    weightLogs?: WeightLogOrderByRelationAggregateInput
+    stepLogs?: StepLogOrderByRelationAggregateInput
+    foodLogs?: FoodLogOrderByRelationAggregateInput
     notes?: NoteOrderByRelationAggregateInput
+    noteFolders?: NoteFolderOrderByRelationAggregateInput
     pomodoroSessions?: PomodoroSessionOrderByRelationAggregateInput
   }
 
@@ -33512,7 +45388,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogListRelationFilter
     expenseCategories?: ExpenseCategoryListRelationFilter
     expenses?: ExpenseListRelationFilter
+    recurringExpenses?: RecurringExpenseListRelationFilter
+    financialGoals?: FinancialGoalListRelationFilter
+    healthProfile?: XOR<HealthProfileNullableScalarRelationFilter, HealthProfileWhereInput> | null
+    weightLogs?: WeightLogListRelationFilter
+    stepLogs?: StepLogListRelationFilter
+    foodLogs?: FoodLogListRelationFilter
     notes?: NoteListRelationFilter
+    noteFolders?: NoteFolderListRelationFilter
     pomodoroSessions?: PomodoroSessionListRelationFilter
   }, "id" | "email">
 
@@ -34447,10 +46330,17 @@ export namespace Prisma {
     priority?: EnumPriorityFilter<"Todo"> | $Enums.Priority
     dueDate?: DateTimeNullableFilter<"Todo"> | Date | string | null
     sortOrder?: IntFilter<"Todo"> | number
+    status?: StringFilter<"Todo"> | string
+    isUrgent?: BoolFilter<"Todo"> | boolean
+    isImportant?: BoolFilter<"Todo"> | boolean
+    estimatedMinutes?: IntNullableFilter<"Todo"> | number | null
+    actualMinutes?: IntFilter<"Todo"> | number
+    timerStartedAt?: DateTimeNullableFilter<"Todo"> | Date | string | null
     createdAt?: DateTimeFilter<"Todo"> | Date | string
     updatedAt?: DateTimeFilter<"Todo"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     todoList?: XOR<TodoListNullableScalarRelationFilter, TodoListWhereInput> | null
+    subtasks?: SubtaskListRelationFilter
   }
 
   export type TodoOrderByWithRelationInput = {
@@ -34464,10 +46354,17 @@ export namespace Prisma {
     priority?: SortOrder
     dueDate?: SortOrderInput | SortOrder
     sortOrder?: SortOrder
+    status?: SortOrder
+    isUrgent?: SortOrder
+    isImportant?: SortOrder
+    estimatedMinutes?: SortOrderInput | SortOrder
+    actualMinutes?: SortOrder
+    timerStartedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
     todoList?: TodoListOrderByWithRelationInput
+    subtasks?: SubtaskOrderByRelationAggregateInput
   }
 
   export type TodoWhereUniqueInput = Prisma.AtLeast<{
@@ -34484,10 +46381,17 @@ export namespace Prisma {
     priority?: EnumPriorityFilter<"Todo"> | $Enums.Priority
     dueDate?: DateTimeNullableFilter<"Todo"> | Date | string | null
     sortOrder?: IntFilter<"Todo"> | number
+    status?: StringFilter<"Todo"> | string
+    isUrgent?: BoolFilter<"Todo"> | boolean
+    isImportant?: BoolFilter<"Todo"> | boolean
+    estimatedMinutes?: IntNullableFilter<"Todo"> | number | null
+    actualMinutes?: IntFilter<"Todo"> | number
+    timerStartedAt?: DateTimeNullableFilter<"Todo"> | Date | string | null
     createdAt?: DateTimeFilter<"Todo"> | Date | string
     updatedAt?: DateTimeFilter<"Todo"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     todoList?: XOR<TodoListNullableScalarRelationFilter, TodoListWhereInput> | null
+    subtasks?: SubtaskListRelationFilter
   }, "id">
 
   export type TodoOrderByWithAggregationInput = {
@@ -34501,6 +46405,12 @@ export namespace Prisma {
     priority?: SortOrder
     dueDate?: SortOrderInput | SortOrder
     sortOrder?: SortOrder
+    status?: SortOrder
+    isUrgent?: SortOrder
+    isImportant?: SortOrder
+    estimatedMinutes?: SortOrderInput | SortOrder
+    actualMinutes?: SortOrder
+    timerStartedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: TodoCountOrderByAggregateInput
@@ -34524,8 +46434,76 @@ export namespace Prisma {
     priority?: EnumPriorityWithAggregatesFilter<"Todo"> | $Enums.Priority
     dueDate?: DateTimeNullableWithAggregatesFilter<"Todo"> | Date | string | null
     sortOrder?: IntWithAggregatesFilter<"Todo"> | number
+    status?: StringWithAggregatesFilter<"Todo"> | string
+    isUrgent?: BoolWithAggregatesFilter<"Todo"> | boolean
+    isImportant?: BoolWithAggregatesFilter<"Todo"> | boolean
+    estimatedMinutes?: IntNullableWithAggregatesFilter<"Todo"> | number | null
+    actualMinutes?: IntWithAggregatesFilter<"Todo"> | number
+    timerStartedAt?: DateTimeNullableWithAggregatesFilter<"Todo"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Todo"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Todo"> | Date | string
+  }
+
+  export type SubtaskWhereInput = {
+    AND?: SubtaskWhereInput | SubtaskWhereInput[]
+    OR?: SubtaskWhereInput[]
+    NOT?: SubtaskWhereInput | SubtaskWhereInput[]
+    id?: StringFilter<"Subtask"> | string
+    todoId?: StringFilter<"Subtask"> | string
+    title?: StringFilter<"Subtask"> | string
+    completed?: BoolFilter<"Subtask"> | boolean
+    sortOrder?: IntFilter<"Subtask"> | number
+    createdAt?: DateTimeFilter<"Subtask"> | Date | string
+    todo?: XOR<TodoScalarRelationFilter, TodoWhereInput>
+  }
+
+  export type SubtaskOrderByWithRelationInput = {
+    id?: SortOrder
+    todoId?: SortOrder
+    title?: SortOrder
+    completed?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    todo?: TodoOrderByWithRelationInput
+  }
+
+  export type SubtaskWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SubtaskWhereInput | SubtaskWhereInput[]
+    OR?: SubtaskWhereInput[]
+    NOT?: SubtaskWhereInput | SubtaskWhereInput[]
+    todoId?: StringFilter<"Subtask"> | string
+    title?: StringFilter<"Subtask"> | string
+    completed?: BoolFilter<"Subtask"> | boolean
+    sortOrder?: IntFilter<"Subtask"> | number
+    createdAt?: DateTimeFilter<"Subtask"> | Date | string
+    todo?: XOR<TodoScalarRelationFilter, TodoWhereInput>
+  }, "id">
+
+  export type SubtaskOrderByWithAggregationInput = {
+    id?: SortOrder
+    todoId?: SortOrder
+    title?: SortOrder
+    completed?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+    _count?: SubtaskCountOrderByAggregateInput
+    _avg?: SubtaskAvgOrderByAggregateInput
+    _max?: SubtaskMaxOrderByAggregateInput
+    _min?: SubtaskMinOrderByAggregateInput
+    _sum?: SubtaskSumOrderByAggregateInput
+  }
+
+  export type SubtaskScalarWhereWithAggregatesInput = {
+    AND?: SubtaskScalarWhereWithAggregatesInput | SubtaskScalarWhereWithAggregatesInput[]
+    OR?: SubtaskScalarWhereWithAggregatesInput[]
+    NOT?: SubtaskScalarWhereWithAggregatesInput | SubtaskScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Subtask"> | string
+    todoId?: StringWithAggregatesFilter<"Subtask"> | string
+    title?: StringWithAggregatesFilter<"Subtask"> | string
+    completed?: BoolWithAggregatesFilter<"Subtask"> | boolean
+    sortOrder?: IntWithAggregatesFilter<"Subtask"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Subtask"> | Date | string
   }
 
   export type NotificationWhereInput = {
@@ -34891,6 +46869,7 @@ export namespace Prisma {
     budget?: FloatNullableFilter<"ExpenseCategory"> | number | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     expenses?: ExpenseListRelationFilter
+    recurringExpenses?: RecurringExpenseListRelationFilter
   }
 
   export type ExpenseCategoryOrderByWithRelationInput = {
@@ -34902,6 +46881,7 @@ export namespace Prisma {
     budget?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
     expenses?: ExpenseOrderByRelationAggregateInput
+    recurringExpenses?: RecurringExpenseOrderByRelationAggregateInput
   }
 
   export type ExpenseCategoryWhereUniqueInput = Prisma.AtLeast<{
@@ -34917,6 +46897,7 @@ export namespace Prisma {
     budget?: FloatNullableFilter<"ExpenseCategory"> | number | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     expenses?: ExpenseListRelationFilter
+    recurringExpenses?: RecurringExpenseListRelationFilter
   }, "id" | "userId_name">
 
   export type ExpenseCategoryOrderByWithAggregationInput = {
@@ -35025,35 +47006,104 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Expense"> | Date | string
   }
 
+  export type NoteFolderWhereInput = {
+    AND?: NoteFolderWhereInput | NoteFolderWhereInput[]
+    OR?: NoteFolderWhereInput[]
+    NOT?: NoteFolderWhereInput | NoteFolderWhereInput[]
+    id?: StringFilter<"NoteFolder"> | string
+    userId?: StringFilter<"NoteFolder"> | string
+    name?: StringFilter<"NoteFolder"> | string
+    color?: StringFilter<"NoteFolder"> | string
+    createdAt?: DateTimeFilter<"NoteFolder"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    notes?: NoteListRelationFilter
+  }
+
+  export type NoteFolderOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    notes?: NoteOrderByRelationAggregateInput
+  }
+
+  export type NoteFolderWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_name?: NoteFolderUserIdNameCompoundUniqueInput
+    AND?: NoteFolderWhereInput | NoteFolderWhereInput[]
+    OR?: NoteFolderWhereInput[]
+    NOT?: NoteFolderWhereInput | NoteFolderWhereInput[]
+    userId?: StringFilter<"NoteFolder"> | string
+    name?: StringFilter<"NoteFolder"> | string
+    color?: StringFilter<"NoteFolder"> | string
+    createdAt?: DateTimeFilter<"NoteFolder"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    notes?: NoteListRelationFilter
+  }, "id" | "userId_name">
+
+  export type NoteFolderOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+    _count?: NoteFolderCountOrderByAggregateInput
+    _max?: NoteFolderMaxOrderByAggregateInput
+    _min?: NoteFolderMinOrderByAggregateInput
+  }
+
+  export type NoteFolderScalarWhereWithAggregatesInput = {
+    AND?: NoteFolderScalarWhereWithAggregatesInput | NoteFolderScalarWhereWithAggregatesInput[]
+    OR?: NoteFolderScalarWhereWithAggregatesInput[]
+    NOT?: NoteFolderScalarWhereWithAggregatesInput | NoteFolderScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NoteFolder"> | string
+    userId?: StringWithAggregatesFilter<"NoteFolder"> | string
+    name?: StringWithAggregatesFilter<"NoteFolder"> | string
+    color?: StringWithAggregatesFilter<"NoteFolder"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"NoteFolder"> | Date | string
+  }
+
   export type NoteWhereInput = {
     AND?: NoteWhereInput | NoteWhereInput[]
     OR?: NoteWhereInput[]
     NOT?: NoteWhereInput | NoteWhereInput[]
     id?: StringFilter<"Note"> | string
     userId?: StringFilter<"Note"> | string
+    folderId?: StringNullableFilter<"Note"> | string | null
     title?: StringFilter<"Note"> | string
     content?: StringFilter<"Note"> | string
     tags?: StringNullableListFilter<"Note">
     isPinned?: BoolFilter<"Note"> | boolean
     isJournal?: BoolFilter<"Note"> | boolean
     journalDate?: DateTimeNullableFilter<"Note"> | Date | string | null
+    mood?: StringNullableFilter<"Note"> | string | null
+    reminderAt?: DateTimeNullableFilter<"Note"> | Date | string | null
     createdAt?: DateTimeFilter<"Note"> | Date | string
     updatedAt?: DateTimeFilter<"Note"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    folder?: XOR<NoteFolderNullableScalarRelationFilter, NoteFolderWhereInput> | null
+    versions?: NoteVersionListRelationFilter
   }
 
   export type NoteOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
+    folderId?: SortOrderInput | SortOrder
     title?: SortOrder
     content?: SortOrder
     tags?: SortOrder
     isPinned?: SortOrder
     isJournal?: SortOrder
     journalDate?: SortOrderInput | SortOrder
+    mood?: SortOrderInput | SortOrder
+    reminderAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
+    folder?: NoteFolderOrderByWithRelationInput
+    versions?: NoteVersionOrderByRelationAggregateInput
   }
 
   export type NoteWhereUniqueInput = Prisma.AtLeast<{
@@ -35062,26 +47112,34 @@ export namespace Prisma {
     OR?: NoteWhereInput[]
     NOT?: NoteWhereInput | NoteWhereInput[]
     userId?: StringFilter<"Note"> | string
+    folderId?: StringNullableFilter<"Note"> | string | null
     title?: StringFilter<"Note"> | string
     content?: StringFilter<"Note"> | string
     tags?: StringNullableListFilter<"Note">
     isPinned?: BoolFilter<"Note"> | boolean
     isJournal?: BoolFilter<"Note"> | boolean
     journalDate?: DateTimeNullableFilter<"Note"> | Date | string | null
+    mood?: StringNullableFilter<"Note"> | string | null
+    reminderAt?: DateTimeNullableFilter<"Note"> | Date | string | null
     createdAt?: DateTimeFilter<"Note"> | Date | string
     updatedAt?: DateTimeFilter<"Note"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    folder?: XOR<NoteFolderNullableScalarRelationFilter, NoteFolderWhereInput> | null
+    versions?: NoteVersionListRelationFilter
   }, "id">
 
   export type NoteOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
+    folderId?: SortOrderInput | SortOrder
     title?: SortOrder
     content?: SortOrder
     tags?: SortOrder
     isPinned?: SortOrder
     isJournal?: SortOrder
     journalDate?: SortOrderInput | SortOrder
+    mood?: SortOrderInput | SortOrder
+    reminderAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: NoteCountOrderByAggregateInput
@@ -35095,14 +47153,72 @@ export namespace Prisma {
     NOT?: NoteScalarWhereWithAggregatesInput | NoteScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Note"> | string
     userId?: StringWithAggregatesFilter<"Note"> | string
+    folderId?: StringNullableWithAggregatesFilter<"Note"> | string | null
     title?: StringWithAggregatesFilter<"Note"> | string
     content?: StringWithAggregatesFilter<"Note"> | string
     tags?: StringNullableListFilter<"Note">
     isPinned?: BoolWithAggregatesFilter<"Note"> | boolean
     isJournal?: BoolWithAggregatesFilter<"Note"> | boolean
     journalDate?: DateTimeNullableWithAggregatesFilter<"Note"> | Date | string | null
+    mood?: StringNullableWithAggregatesFilter<"Note"> | string | null
+    reminderAt?: DateTimeNullableWithAggregatesFilter<"Note"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Note"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Note"> | Date | string
+  }
+
+  export type NoteVersionWhereInput = {
+    AND?: NoteVersionWhereInput | NoteVersionWhereInput[]
+    OR?: NoteVersionWhereInput[]
+    NOT?: NoteVersionWhereInput | NoteVersionWhereInput[]
+    id?: StringFilter<"NoteVersion"> | string
+    noteId?: StringFilter<"NoteVersion"> | string
+    title?: StringFilter<"NoteVersion"> | string
+    content?: StringFilter<"NoteVersion"> | string
+    createdAt?: DateTimeFilter<"NoteVersion"> | Date | string
+    note?: XOR<NoteScalarRelationFilter, NoteWhereInput>
+  }
+
+  export type NoteVersionOrderByWithRelationInput = {
+    id?: SortOrder
+    noteId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    note?: NoteOrderByWithRelationInput
+  }
+
+  export type NoteVersionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NoteVersionWhereInput | NoteVersionWhereInput[]
+    OR?: NoteVersionWhereInput[]
+    NOT?: NoteVersionWhereInput | NoteVersionWhereInput[]
+    noteId?: StringFilter<"NoteVersion"> | string
+    title?: StringFilter<"NoteVersion"> | string
+    content?: StringFilter<"NoteVersion"> | string
+    createdAt?: DateTimeFilter<"NoteVersion"> | Date | string
+    note?: XOR<NoteScalarRelationFilter, NoteWhereInput>
+  }, "id">
+
+  export type NoteVersionOrderByWithAggregationInput = {
+    id?: SortOrder
+    noteId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    _count?: NoteVersionCountOrderByAggregateInput
+    _max?: NoteVersionMaxOrderByAggregateInput
+    _min?: NoteVersionMinOrderByAggregateInput
+  }
+
+  export type NoteVersionScalarWhereWithAggregatesInput = {
+    AND?: NoteVersionScalarWhereWithAggregatesInput | NoteVersionScalarWhereWithAggregatesInput[]
+    OR?: NoteVersionScalarWhereWithAggregatesInput[]
+    NOT?: NoteVersionScalarWhereWithAggregatesInput | NoteVersionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"NoteVersion"> | string
+    noteId?: StringWithAggregatesFilter<"NoteVersion"> | string
+    title?: StringWithAggregatesFilter<"NoteVersion"> | string
+    content?: StringWithAggregatesFilter<"NoteVersion"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"NoteVersion"> | Date | string
   }
 
   export type PomodoroSessionWhereInput = {
@@ -35237,6 +47353,501 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"AuditLog"> | Date | string
   }
 
+  export type RecurringExpenseWhereInput = {
+    AND?: RecurringExpenseWhereInput | RecurringExpenseWhereInput[]
+    OR?: RecurringExpenseWhereInput[]
+    NOT?: RecurringExpenseWhereInput | RecurringExpenseWhereInput[]
+    id?: StringFilter<"RecurringExpense"> | string
+    userId?: StringFilter<"RecurringExpense"> | string
+    title?: StringFilter<"RecurringExpense"> | string
+    amount?: FloatFilter<"RecurringExpense"> | number
+    type?: StringFilter<"RecurringExpense"> | string
+    categoryId?: StringNullableFilter<"RecurringExpense"> | string | null
+    frequency?: StringFilter<"RecurringExpense"> | string
+    dayOfMonth?: IntNullableFilter<"RecurringExpense"> | number | null
+    dayOfWeek?: IntNullableFilter<"RecurringExpense"> | number | null
+    notes?: StringNullableFilter<"RecurringExpense"> | string | null
+    isActive?: BoolFilter<"RecurringExpense"> | boolean
+    nextDueAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    createdAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    updatedAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    category?: XOR<ExpenseCategoryNullableScalarRelationFilter, ExpenseCategoryWhereInput> | null
+  }
+
+  export type RecurringExpenseOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    frequency?: SortOrder
+    dayOfMonth?: SortOrderInput | SortOrder
+    dayOfWeek?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    nextDueAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    category?: ExpenseCategoryOrderByWithRelationInput
+  }
+
+  export type RecurringExpenseWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: RecurringExpenseWhereInput | RecurringExpenseWhereInput[]
+    OR?: RecurringExpenseWhereInput[]
+    NOT?: RecurringExpenseWhereInput | RecurringExpenseWhereInput[]
+    userId?: StringFilter<"RecurringExpense"> | string
+    title?: StringFilter<"RecurringExpense"> | string
+    amount?: FloatFilter<"RecurringExpense"> | number
+    type?: StringFilter<"RecurringExpense"> | string
+    categoryId?: StringNullableFilter<"RecurringExpense"> | string | null
+    frequency?: StringFilter<"RecurringExpense"> | string
+    dayOfMonth?: IntNullableFilter<"RecurringExpense"> | number | null
+    dayOfWeek?: IntNullableFilter<"RecurringExpense"> | number | null
+    notes?: StringNullableFilter<"RecurringExpense"> | string | null
+    isActive?: BoolFilter<"RecurringExpense"> | boolean
+    nextDueAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    createdAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    updatedAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    category?: XOR<ExpenseCategoryNullableScalarRelationFilter, ExpenseCategoryWhereInput> | null
+  }, "id">
+
+  export type RecurringExpenseOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    frequency?: SortOrder
+    dayOfMonth?: SortOrderInput | SortOrder
+    dayOfWeek?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    nextDueAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: RecurringExpenseCountOrderByAggregateInput
+    _avg?: RecurringExpenseAvgOrderByAggregateInput
+    _max?: RecurringExpenseMaxOrderByAggregateInput
+    _min?: RecurringExpenseMinOrderByAggregateInput
+    _sum?: RecurringExpenseSumOrderByAggregateInput
+  }
+
+  export type RecurringExpenseScalarWhereWithAggregatesInput = {
+    AND?: RecurringExpenseScalarWhereWithAggregatesInput | RecurringExpenseScalarWhereWithAggregatesInput[]
+    OR?: RecurringExpenseScalarWhereWithAggregatesInput[]
+    NOT?: RecurringExpenseScalarWhereWithAggregatesInput | RecurringExpenseScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"RecurringExpense"> | string
+    userId?: StringWithAggregatesFilter<"RecurringExpense"> | string
+    title?: StringWithAggregatesFilter<"RecurringExpense"> | string
+    amount?: FloatWithAggregatesFilter<"RecurringExpense"> | number
+    type?: StringWithAggregatesFilter<"RecurringExpense"> | string
+    categoryId?: StringNullableWithAggregatesFilter<"RecurringExpense"> | string | null
+    frequency?: StringWithAggregatesFilter<"RecurringExpense"> | string
+    dayOfMonth?: IntNullableWithAggregatesFilter<"RecurringExpense"> | number | null
+    dayOfWeek?: IntNullableWithAggregatesFilter<"RecurringExpense"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"RecurringExpense"> | string | null
+    isActive?: BoolWithAggregatesFilter<"RecurringExpense"> | boolean
+    nextDueAt?: DateTimeWithAggregatesFilter<"RecurringExpense"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"RecurringExpense"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"RecurringExpense"> | Date | string
+  }
+
+  export type FinancialGoalWhereInput = {
+    AND?: FinancialGoalWhereInput | FinancialGoalWhereInput[]
+    OR?: FinancialGoalWhereInput[]
+    NOT?: FinancialGoalWhereInput | FinancialGoalWhereInput[]
+    id?: StringFilter<"FinancialGoal"> | string
+    userId?: StringFilter<"FinancialGoal"> | string
+    title?: StringFilter<"FinancialGoal"> | string
+    targetAmount?: FloatFilter<"FinancialGoal"> | number
+    savedAmount?: FloatFilter<"FinancialGoal"> | number
+    deadline?: DateTimeFilter<"FinancialGoal"> | Date | string
+    icon?: StringFilter<"FinancialGoal"> | string
+    color?: StringFilter<"FinancialGoal"> | string
+    isCompleted?: BoolFilter<"FinancialGoal"> | boolean
+    createdAt?: DateTimeFilter<"FinancialGoal"> | Date | string
+    updatedAt?: DateTimeFilter<"FinancialGoal"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type FinancialGoalOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    targetAmount?: SortOrder
+    savedAmount?: SortOrder
+    deadline?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type FinancialGoalWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FinancialGoalWhereInput | FinancialGoalWhereInput[]
+    OR?: FinancialGoalWhereInput[]
+    NOT?: FinancialGoalWhereInput | FinancialGoalWhereInput[]
+    userId?: StringFilter<"FinancialGoal"> | string
+    title?: StringFilter<"FinancialGoal"> | string
+    targetAmount?: FloatFilter<"FinancialGoal"> | number
+    savedAmount?: FloatFilter<"FinancialGoal"> | number
+    deadline?: DateTimeFilter<"FinancialGoal"> | Date | string
+    icon?: StringFilter<"FinancialGoal"> | string
+    color?: StringFilter<"FinancialGoal"> | string
+    isCompleted?: BoolFilter<"FinancialGoal"> | boolean
+    createdAt?: DateTimeFilter<"FinancialGoal"> | Date | string
+    updatedAt?: DateTimeFilter<"FinancialGoal"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type FinancialGoalOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    targetAmount?: SortOrder
+    savedAmount?: SortOrder
+    deadline?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FinancialGoalCountOrderByAggregateInput
+    _avg?: FinancialGoalAvgOrderByAggregateInput
+    _max?: FinancialGoalMaxOrderByAggregateInput
+    _min?: FinancialGoalMinOrderByAggregateInput
+    _sum?: FinancialGoalSumOrderByAggregateInput
+  }
+
+  export type FinancialGoalScalarWhereWithAggregatesInput = {
+    AND?: FinancialGoalScalarWhereWithAggregatesInput | FinancialGoalScalarWhereWithAggregatesInput[]
+    OR?: FinancialGoalScalarWhereWithAggregatesInput[]
+    NOT?: FinancialGoalScalarWhereWithAggregatesInput | FinancialGoalScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FinancialGoal"> | string
+    userId?: StringWithAggregatesFilter<"FinancialGoal"> | string
+    title?: StringWithAggregatesFilter<"FinancialGoal"> | string
+    targetAmount?: FloatWithAggregatesFilter<"FinancialGoal"> | number
+    savedAmount?: FloatWithAggregatesFilter<"FinancialGoal"> | number
+    deadline?: DateTimeWithAggregatesFilter<"FinancialGoal"> | Date | string
+    icon?: StringWithAggregatesFilter<"FinancialGoal"> | string
+    color?: StringWithAggregatesFilter<"FinancialGoal"> | string
+    isCompleted?: BoolWithAggregatesFilter<"FinancialGoal"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"FinancialGoal"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FinancialGoal"> | Date | string
+  }
+
+  export type HealthProfileWhereInput = {
+    AND?: HealthProfileWhereInput | HealthProfileWhereInput[]
+    OR?: HealthProfileWhereInput[]
+    NOT?: HealthProfileWhereInput | HealthProfileWhereInput[]
+    id?: StringFilter<"HealthProfile"> | string
+    userId?: StringFilter<"HealthProfile"> | string
+    age?: IntNullableFilter<"HealthProfile"> | number | null
+    weightKg?: FloatNullableFilter<"HealthProfile"> | number | null
+    heightCm?: FloatNullableFilter<"HealthProfile"> | number | null
+    gender?: StringNullableFilter<"HealthProfile"> | string | null
+    goal?: StringNullableFilter<"HealthProfile"> | string | null
+    targetWeightKg?: FloatNullableFilter<"HealthProfile"> | number | null
+    dailyStepGoal?: IntFilter<"HealthProfile"> | number
+    dailyWaterGoalMl?: IntFilter<"HealthProfile"> | number
+    dailyCalorieGoal?: IntFilter<"HealthProfile"> | number
+    createdAt?: DateTimeFilter<"HealthProfile"> | Date | string
+    updatedAt?: DateTimeFilter<"HealthProfile"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type HealthProfileOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    age?: SortOrderInput | SortOrder
+    weightKg?: SortOrderInput | SortOrder
+    heightCm?: SortOrderInput | SortOrder
+    gender?: SortOrderInput | SortOrder
+    goal?: SortOrderInput | SortOrder
+    targetWeightKg?: SortOrderInput | SortOrder
+    dailyStepGoal?: SortOrder
+    dailyWaterGoalMl?: SortOrder
+    dailyCalorieGoal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type HealthProfileWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId?: string
+    AND?: HealthProfileWhereInput | HealthProfileWhereInput[]
+    OR?: HealthProfileWhereInput[]
+    NOT?: HealthProfileWhereInput | HealthProfileWhereInput[]
+    age?: IntNullableFilter<"HealthProfile"> | number | null
+    weightKg?: FloatNullableFilter<"HealthProfile"> | number | null
+    heightCm?: FloatNullableFilter<"HealthProfile"> | number | null
+    gender?: StringNullableFilter<"HealthProfile"> | string | null
+    goal?: StringNullableFilter<"HealthProfile"> | string | null
+    targetWeightKg?: FloatNullableFilter<"HealthProfile"> | number | null
+    dailyStepGoal?: IntFilter<"HealthProfile"> | number
+    dailyWaterGoalMl?: IntFilter<"HealthProfile"> | number
+    dailyCalorieGoal?: IntFilter<"HealthProfile"> | number
+    createdAt?: DateTimeFilter<"HealthProfile"> | Date | string
+    updatedAt?: DateTimeFilter<"HealthProfile"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "userId">
+
+  export type HealthProfileOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    age?: SortOrderInput | SortOrder
+    weightKg?: SortOrderInput | SortOrder
+    heightCm?: SortOrderInput | SortOrder
+    gender?: SortOrderInput | SortOrder
+    goal?: SortOrderInput | SortOrder
+    targetWeightKg?: SortOrderInput | SortOrder
+    dailyStepGoal?: SortOrder
+    dailyWaterGoalMl?: SortOrder
+    dailyCalorieGoal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: HealthProfileCountOrderByAggregateInput
+    _avg?: HealthProfileAvgOrderByAggregateInput
+    _max?: HealthProfileMaxOrderByAggregateInput
+    _min?: HealthProfileMinOrderByAggregateInput
+    _sum?: HealthProfileSumOrderByAggregateInput
+  }
+
+  export type HealthProfileScalarWhereWithAggregatesInput = {
+    AND?: HealthProfileScalarWhereWithAggregatesInput | HealthProfileScalarWhereWithAggregatesInput[]
+    OR?: HealthProfileScalarWhereWithAggregatesInput[]
+    NOT?: HealthProfileScalarWhereWithAggregatesInput | HealthProfileScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"HealthProfile"> | string
+    userId?: StringWithAggregatesFilter<"HealthProfile"> | string
+    age?: IntNullableWithAggregatesFilter<"HealthProfile"> | number | null
+    weightKg?: FloatNullableWithAggregatesFilter<"HealthProfile"> | number | null
+    heightCm?: FloatNullableWithAggregatesFilter<"HealthProfile"> | number | null
+    gender?: StringNullableWithAggregatesFilter<"HealthProfile"> | string | null
+    goal?: StringNullableWithAggregatesFilter<"HealthProfile"> | string | null
+    targetWeightKg?: FloatNullableWithAggregatesFilter<"HealthProfile"> | number | null
+    dailyStepGoal?: IntWithAggregatesFilter<"HealthProfile"> | number
+    dailyWaterGoalMl?: IntWithAggregatesFilter<"HealthProfile"> | number
+    dailyCalorieGoal?: IntWithAggregatesFilter<"HealthProfile"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"HealthProfile"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"HealthProfile"> | Date | string
+  }
+
+  export type WeightLogWhereInput = {
+    AND?: WeightLogWhereInput | WeightLogWhereInput[]
+    OR?: WeightLogWhereInput[]
+    NOT?: WeightLogWhereInput | WeightLogWhereInput[]
+    id?: StringFilter<"WeightLog"> | string
+    userId?: StringFilter<"WeightLog"> | string
+    date?: DateTimeFilter<"WeightLog"> | Date | string
+    weightKg?: FloatFilter<"WeightLog"> | number
+    notes?: StringNullableFilter<"WeightLog"> | string | null
+    createdAt?: DateTimeFilter<"WeightLog"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type WeightLogOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    weightKg?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type WeightLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: WeightLogWhereInput | WeightLogWhereInput[]
+    OR?: WeightLogWhereInput[]
+    NOT?: WeightLogWhereInput | WeightLogWhereInput[]
+    userId?: StringFilter<"WeightLog"> | string
+    date?: DateTimeFilter<"WeightLog"> | Date | string
+    weightKg?: FloatFilter<"WeightLog"> | number
+    notes?: StringNullableFilter<"WeightLog"> | string | null
+    createdAt?: DateTimeFilter<"WeightLog"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type WeightLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    weightKg?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: WeightLogCountOrderByAggregateInput
+    _avg?: WeightLogAvgOrderByAggregateInput
+    _max?: WeightLogMaxOrderByAggregateInput
+    _min?: WeightLogMinOrderByAggregateInput
+    _sum?: WeightLogSumOrderByAggregateInput
+  }
+
+  export type WeightLogScalarWhereWithAggregatesInput = {
+    AND?: WeightLogScalarWhereWithAggregatesInput | WeightLogScalarWhereWithAggregatesInput[]
+    OR?: WeightLogScalarWhereWithAggregatesInput[]
+    NOT?: WeightLogScalarWhereWithAggregatesInput | WeightLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"WeightLog"> | string
+    userId?: StringWithAggregatesFilter<"WeightLog"> | string
+    date?: DateTimeWithAggregatesFilter<"WeightLog"> | Date | string
+    weightKg?: FloatWithAggregatesFilter<"WeightLog"> | number
+    notes?: StringNullableWithAggregatesFilter<"WeightLog"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"WeightLog"> | Date | string
+  }
+
+  export type StepLogWhereInput = {
+    AND?: StepLogWhereInput | StepLogWhereInput[]
+    OR?: StepLogWhereInput[]
+    NOT?: StepLogWhereInput | StepLogWhereInput[]
+    id?: StringFilter<"StepLog"> | string
+    userId?: StringFilter<"StepLog"> | string
+    date?: DateTimeFilter<"StepLog"> | Date | string
+    steps?: IntFilter<"StepLog"> | number
+    goal?: IntFilter<"StepLog"> | number
+    createdAt?: DateTimeFilter<"StepLog"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type StepLogOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    steps?: SortOrder
+    goal?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type StepLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: StepLogWhereInput | StepLogWhereInput[]
+    OR?: StepLogWhereInput[]
+    NOT?: StepLogWhereInput | StepLogWhereInput[]
+    userId?: StringFilter<"StepLog"> | string
+    date?: DateTimeFilter<"StepLog"> | Date | string
+    steps?: IntFilter<"StepLog"> | number
+    goal?: IntFilter<"StepLog"> | number
+    createdAt?: DateTimeFilter<"StepLog"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type StepLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    steps?: SortOrder
+    goal?: SortOrder
+    createdAt?: SortOrder
+    _count?: StepLogCountOrderByAggregateInput
+    _avg?: StepLogAvgOrderByAggregateInput
+    _max?: StepLogMaxOrderByAggregateInput
+    _min?: StepLogMinOrderByAggregateInput
+    _sum?: StepLogSumOrderByAggregateInput
+  }
+
+  export type StepLogScalarWhereWithAggregatesInput = {
+    AND?: StepLogScalarWhereWithAggregatesInput | StepLogScalarWhereWithAggregatesInput[]
+    OR?: StepLogScalarWhereWithAggregatesInput[]
+    NOT?: StepLogScalarWhereWithAggregatesInput | StepLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"StepLog"> | string
+    userId?: StringWithAggregatesFilter<"StepLog"> | string
+    date?: DateTimeWithAggregatesFilter<"StepLog"> | Date | string
+    steps?: IntWithAggregatesFilter<"StepLog"> | number
+    goal?: IntWithAggregatesFilter<"StepLog"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"StepLog"> | Date | string
+  }
+
+  export type FoodLogWhereInput = {
+    AND?: FoodLogWhereInput | FoodLogWhereInput[]
+    OR?: FoodLogWhereInput[]
+    NOT?: FoodLogWhereInput | FoodLogWhereInput[]
+    id?: StringFilter<"FoodLog"> | string
+    userId?: StringFilter<"FoodLog"> | string
+    date?: DateTimeFilter<"FoodLog"> | Date | string
+    mealType?: StringFilter<"FoodLog"> | string
+    name?: StringFilter<"FoodLog"> | string
+    calories?: IntFilter<"FoodLog"> | number
+    protein?: FloatNullableFilter<"FoodLog"> | number | null
+    carbs?: FloatNullableFilter<"FoodLog"> | number | null
+    fat?: FloatNullableFilter<"FoodLog"> | number | null
+    createdAt?: DateTimeFilter<"FoodLog"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type FoodLogOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    mealType?: SortOrder
+    name?: SortOrder
+    calories?: SortOrder
+    protein?: SortOrderInput | SortOrder
+    carbs?: SortOrderInput | SortOrder
+    fat?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type FoodLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FoodLogWhereInput | FoodLogWhereInput[]
+    OR?: FoodLogWhereInput[]
+    NOT?: FoodLogWhereInput | FoodLogWhereInput[]
+    userId?: StringFilter<"FoodLog"> | string
+    date?: DateTimeFilter<"FoodLog"> | Date | string
+    mealType?: StringFilter<"FoodLog"> | string
+    name?: StringFilter<"FoodLog"> | string
+    calories?: IntFilter<"FoodLog"> | number
+    protein?: FloatNullableFilter<"FoodLog"> | number | null
+    carbs?: FloatNullableFilter<"FoodLog"> | number | null
+    fat?: FloatNullableFilter<"FoodLog"> | number | null
+    createdAt?: DateTimeFilter<"FoodLog"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type FoodLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    mealType?: SortOrder
+    name?: SortOrder
+    calories?: SortOrder
+    protein?: SortOrderInput | SortOrder
+    carbs?: SortOrderInput | SortOrder
+    fat?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: FoodLogCountOrderByAggregateInput
+    _avg?: FoodLogAvgOrderByAggregateInput
+    _max?: FoodLogMaxOrderByAggregateInput
+    _min?: FoodLogMinOrderByAggregateInput
+    _sum?: FoodLogSumOrderByAggregateInput
+  }
+
+  export type FoodLogScalarWhereWithAggregatesInput = {
+    AND?: FoodLogScalarWhereWithAggregatesInput | FoodLogScalarWhereWithAggregatesInput[]
+    OR?: FoodLogScalarWhereWithAggregatesInput[]
+    NOT?: FoodLogScalarWhereWithAggregatesInput | FoodLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FoodLog"> | string
+    userId?: StringWithAggregatesFilter<"FoodLog"> | string
+    date?: DateTimeWithAggregatesFilter<"FoodLog"> | Date | string
+    mealType?: StringWithAggregatesFilter<"FoodLog"> | string
+    name?: StringWithAggregatesFilter<"FoodLog"> | string
+    calories?: IntWithAggregatesFilter<"FoodLog"> | number
+    protein?: FloatNullableWithAggregatesFilter<"FoodLog"> | number | null
+    carbs?: FloatNullableWithAggregatesFilter<"FoodLog"> | number | null
+    fat?: FloatNullableWithAggregatesFilter<"FoodLog"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"FoodLog"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
@@ -35267,7 +47878,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -35301,7 +47919,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -35335,7 +47960,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -35369,7 +48001,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -36348,10 +48987,17 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutTodosInput
     todoList?: TodoListCreateNestedOneWithoutTodosInput
+    subtasks?: SubtaskCreateNestedManyWithoutTodoInput
   }
 
   export type TodoUncheckedCreateInput = {
@@ -36365,8 +49011,15 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    subtasks?: SubtaskUncheckedCreateNestedManyWithoutTodoInput
   }
 
   export type TodoUpdateInput = {
@@ -36378,10 +49031,17 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutTodosNestedInput
     todoList?: TodoListUpdateOneWithoutTodosNestedInput
+    subtasks?: SubtaskUpdateManyWithoutTodoNestedInput
   }
 
   export type TodoUncheckedUpdateInput = {
@@ -36395,8 +49055,15 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subtasks?: SubtaskUncheckedUpdateManyWithoutTodoNestedInput
   }
 
   export type TodoCreateManyInput = {
@@ -36410,6 +49077,12 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -36423,6 +49096,12 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -36438,8 +49117,76 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubtaskCreateInput = {
+    id?: string
+    title: string
+    completed?: boolean
+    sortOrder?: number
+    createdAt?: Date | string
+    todo: TodoCreateNestedOneWithoutSubtasksInput
+  }
+
+  export type SubtaskUncheckedCreateInput = {
+    id?: string
+    todoId: string
+    title: string
+    completed?: boolean
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type SubtaskUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    todo?: TodoUpdateOneRequiredWithoutSubtasksNestedInput
+  }
+
+  export type SubtaskUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    todoId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubtaskCreateManyInput = {
+    id?: string
+    todoId: string
+    title: string
+    completed?: boolean
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type SubtaskUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubtaskUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    todoId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type NotificationCreateInput = {
@@ -36823,6 +49570,7 @@ export namespace Prisma {
     budget?: number | null
     user: UserCreateNestedOneWithoutExpenseCategoriesInput
     expenses?: ExpenseCreateNestedManyWithoutCategoryInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutCategoryInput
   }
 
   export type ExpenseCategoryUncheckedCreateInput = {
@@ -36833,6 +49581,7 @@ export namespace Prisma {
     icon?: string | null
     budget?: number | null
     expenses?: ExpenseUncheckedCreateNestedManyWithoutCategoryInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type ExpenseCategoryUpdateInput = {
@@ -36843,6 +49592,7 @@ export namespace Prisma {
     budget?: NullableFloatFieldUpdateOperationsInput | number | null
     user?: UserUpdateOneRequiredWithoutExpenseCategoriesNestedInput
     expenses?: ExpenseUpdateManyWithoutCategoryNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutCategoryNestedInput
   }
 
   export type ExpenseCategoryUncheckedUpdateInput = {
@@ -36853,6 +49603,7 @@ export namespace Prisma {
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     budget?: NullableFloatFieldUpdateOperationsInput | number | null
     expenses?: ExpenseUncheckedUpdateManyWithoutCategoryNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type ExpenseCategoryCreateManyInput = {
@@ -36963,6 +49714,65 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type NoteFolderCreateInput = {
+    id?: string
+    name: string
+    color?: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutNoteFoldersInput
+    notes?: NoteCreateNestedManyWithoutFolderInput
+  }
+
+  export type NoteFolderUncheckedCreateInput = {
+    id?: string
+    userId: string
+    name: string
+    color?: string
+    createdAt?: Date | string
+    notes?: NoteUncheckedCreateNestedManyWithoutFolderInput
+  }
+
+  export type NoteFolderUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNoteFoldersNestedInput
+    notes?: NoteUpdateManyWithoutFolderNestedInput
+  }
+
+  export type NoteFolderUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    notes?: NoteUncheckedUpdateManyWithoutFolderNestedInput
+  }
+
+  export type NoteFolderCreateManyInput = {
+    id?: string
+    userId: string
+    name: string
+    color?: string
+    createdAt?: Date | string
+  }
+
+  export type NoteFolderUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteFolderUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type NoteCreateInput = {
     id?: string
     title: string
@@ -36971,22 +49781,30 @@ export namespace Prisma {
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutNotesInput
+    folder?: NoteFolderCreateNestedOneWithoutNotesInput
+    versions?: NoteVersionCreateNestedManyWithoutNoteInput
   }
 
   export type NoteUncheckedCreateInput = {
     id?: string
     userId: string
+    folderId?: string | null
     title: string
     content?: string
     tags?: NoteCreatetagsInput | string[]
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    versions?: NoteVersionUncheckedCreateNestedManyWithoutNoteInput
   }
 
   export type NoteUpdateInput = {
@@ -36997,33 +49815,44 @@ export namespace Prisma {
     isPinned?: BoolFieldUpdateOperationsInput | boolean
     isJournal?: BoolFieldUpdateOperationsInput | boolean
     journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutNotesNestedInput
+    folder?: NoteFolderUpdateOneWithoutNotesNestedInput
+    versions?: NoteVersionUpdateManyWithoutNoteNestedInput
   }
 
   export type NoteUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    folderId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     tags?: NoteUpdatetagsInput | string[]
     isPinned?: BoolFieldUpdateOperationsInput | boolean
     isJournal?: BoolFieldUpdateOperationsInput | boolean
     journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    versions?: NoteVersionUncheckedUpdateManyWithoutNoteNestedInput
   }
 
   export type NoteCreateManyInput = {
     id?: string
     userId: string
+    folderId?: string | null
     title: string
     content?: string
     tags?: NoteCreatetagsInput | string[]
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -37036,6 +49865,8 @@ export namespace Prisma {
     isPinned?: BoolFieldUpdateOperationsInput | boolean
     isJournal?: BoolFieldUpdateOperationsInput | boolean
     journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -37043,14 +49874,72 @@ export namespace Prisma {
   export type NoteUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    folderId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     tags?: NoteUpdatetagsInput | string[]
     isPinned?: BoolFieldUpdateOperationsInput | boolean
     isJournal?: BoolFieldUpdateOperationsInput | boolean
     journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteVersionCreateInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    note: NoteCreateNestedOneWithoutVersionsInput
+  }
+
+  export type NoteVersionUncheckedCreateInput = {
+    id?: string
+    noteId: string
+    title: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type NoteVersionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NoteUpdateOneRequiredWithoutVersionsNestedInput
+  }
+
+  export type NoteVersionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    noteId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteVersionCreateManyInput = {
+    id?: string
+    noteId: string
+    title: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type NoteVersionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteVersionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    noteId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PomodoroSessionCreateInput = {
@@ -37188,6 +50077,545 @@ export namespace Prisma {
     metadata?: NullableJsonNullValueInput | InputJsonValue
     ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
     userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RecurringExpenseCreateInput = {
+    id?: string
+    title: string
+    amount: number
+    type?: string
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutRecurringExpensesInput
+    category?: ExpenseCategoryCreateNestedOneWithoutRecurringExpensesInput
+  }
+
+  export type RecurringExpenseUncheckedCreateInput = {
+    id?: string
+    userId: string
+    title: string
+    amount: number
+    type?: string
+    categoryId?: string | null
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RecurringExpenseUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutRecurringExpensesNestedInput
+    category?: ExpenseCategoryUpdateOneWithoutRecurringExpensesNestedInput
+  }
+
+  export type RecurringExpenseUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RecurringExpenseCreateManyInput = {
+    id?: string
+    userId: string
+    title: string
+    amount: number
+    type?: string
+    categoryId?: string | null
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RecurringExpenseUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RecurringExpenseUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FinancialGoalCreateInput = {
+    id?: string
+    title: string
+    targetAmount: number
+    savedAmount?: number
+    deadline: Date | string
+    icon?: string
+    color?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutFinancialGoalsInput
+  }
+
+  export type FinancialGoalUncheckedCreateInput = {
+    id?: string
+    userId: string
+    title: string
+    targetAmount: number
+    savedAmount?: number
+    deadline: Date | string
+    icon?: string
+    color?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FinancialGoalUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetAmount?: FloatFieldUpdateOperationsInput | number
+    savedAmount?: FloatFieldUpdateOperationsInput | number
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFinancialGoalsNestedInput
+  }
+
+  export type FinancialGoalUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetAmount?: FloatFieldUpdateOperationsInput | number
+    savedAmount?: FloatFieldUpdateOperationsInput | number
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FinancialGoalCreateManyInput = {
+    id?: string
+    userId: string
+    title: string
+    targetAmount: number
+    savedAmount?: number
+    deadline: Date | string
+    icon?: string
+    color?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FinancialGoalUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetAmount?: FloatFieldUpdateOperationsInput | number
+    savedAmount?: FloatFieldUpdateOperationsInput | number
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FinancialGoalUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetAmount?: FloatFieldUpdateOperationsInput | number
+    savedAmount?: FloatFieldUpdateOperationsInput | number
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthProfileCreateInput = {
+    id?: string
+    age?: number | null
+    weightKg?: number | null
+    heightCm?: number | null
+    gender?: string | null
+    goal?: string | null
+    targetWeightKg?: number | null
+    dailyStepGoal?: number
+    dailyWaterGoalMl?: number
+    dailyCalorieGoal?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutHealthProfileInput
+  }
+
+  export type HealthProfileUncheckedCreateInput = {
+    id?: string
+    userId: string
+    age?: number | null
+    weightKg?: number | null
+    heightCm?: number | null
+    gender?: string | null
+    goal?: string | null
+    targetWeightKg?: number | null
+    dailyStepGoal?: number
+    dailyWaterGoalMl?: number
+    dailyCalorieGoal?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthProfileUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    age?: NullableIntFieldUpdateOperationsInput | number | null
+    weightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    heightCm?: NullableFloatFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    targetWeightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    dailyStepGoal?: IntFieldUpdateOperationsInput | number
+    dailyWaterGoalMl?: IntFieldUpdateOperationsInput | number
+    dailyCalorieGoal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutHealthProfileNestedInput
+  }
+
+  export type HealthProfileUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    age?: NullableIntFieldUpdateOperationsInput | number | null
+    weightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    heightCm?: NullableFloatFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    targetWeightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    dailyStepGoal?: IntFieldUpdateOperationsInput | number
+    dailyWaterGoalMl?: IntFieldUpdateOperationsInput | number
+    dailyCalorieGoal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthProfileCreateManyInput = {
+    id?: string
+    userId: string
+    age?: number | null
+    weightKg?: number | null
+    heightCm?: number | null
+    gender?: string | null
+    goal?: string | null
+    targetWeightKg?: number | null
+    dailyStepGoal?: number
+    dailyWaterGoalMl?: number
+    dailyCalorieGoal?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthProfileUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    age?: NullableIntFieldUpdateOperationsInput | number | null
+    weightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    heightCm?: NullableFloatFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    targetWeightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    dailyStepGoal?: IntFieldUpdateOperationsInput | number
+    dailyWaterGoalMl?: IntFieldUpdateOperationsInput | number
+    dailyCalorieGoal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthProfileUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    age?: NullableIntFieldUpdateOperationsInput | number | null
+    weightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    heightCm?: NullableFloatFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    targetWeightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    dailyStepGoal?: IntFieldUpdateOperationsInput | number
+    dailyWaterGoalMl?: IntFieldUpdateOperationsInput | number
+    dailyCalorieGoal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeightLogCreateInput = {
+    id?: string
+    date: Date | string
+    weightKg: number
+    notes?: string | null
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutWeightLogsInput
+  }
+
+  export type WeightLogUncheckedCreateInput = {
+    id?: string
+    userId: string
+    date: Date | string
+    weightKg: number
+    notes?: string | null
+    createdAt?: Date | string
+  }
+
+  export type WeightLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    weightKg?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutWeightLogsNestedInput
+  }
+
+  export type WeightLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    weightKg?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeightLogCreateManyInput = {
+    id?: string
+    userId: string
+    date: Date | string
+    weightKg: number
+    notes?: string | null
+    createdAt?: Date | string
+  }
+
+  export type WeightLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    weightKg?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeightLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    weightKg?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StepLogCreateInput = {
+    id?: string
+    date: Date | string
+    steps: number
+    goal?: number
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutStepLogsInput
+  }
+
+  export type StepLogUncheckedCreateInput = {
+    id?: string
+    userId: string
+    date: Date | string
+    steps: number
+    goal?: number
+    createdAt?: Date | string
+  }
+
+  export type StepLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    steps?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutStepLogsNestedInput
+  }
+
+  export type StepLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    steps?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StepLogCreateManyInput = {
+    id?: string
+    userId: string
+    date: Date | string
+    steps: number
+    goal?: number
+    createdAt?: Date | string
+  }
+
+  export type StepLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    steps?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StepLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    steps?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FoodLogCreateInput = {
+    id?: string
+    date: Date | string
+    mealType: string
+    name: string
+    calories: number
+    protein?: number | null
+    carbs?: number | null
+    fat?: number | null
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutFoodLogsInput
+  }
+
+  export type FoodLogUncheckedCreateInput = {
+    id?: string
+    userId: string
+    date: Date | string
+    mealType: string
+    name: string
+    calories: number
+    protein?: number | null
+    carbs?: number | null
+    fat?: number | null
+    createdAt?: Date | string
+  }
+
+  export type FoodLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    mealType?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    calories?: IntFieldUpdateOperationsInput | number
+    protein?: NullableFloatFieldUpdateOperationsInput | number | null
+    carbs?: NullableFloatFieldUpdateOperationsInput | number | null
+    fat?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFoodLogsNestedInput
+  }
+
+  export type FoodLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    mealType?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    calories?: IntFieldUpdateOperationsInput | number
+    protein?: NullableFloatFieldUpdateOperationsInput | number | null
+    carbs?: NullableFloatFieldUpdateOperationsInput | number | null
+    fat?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FoodLogCreateManyInput = {
+    id?: string
+    userId: string
+    date: Date | string
+    mealType: string
+    name: string
+    calories: number
+    protein?: number | null
+    carbs?: number | null
+    fat?: number | null
+    createdAt?: Date | string
+  }
+
+  export type FoodLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    mealType?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    calories?: IntFieldUpdateOperationsInput | number
+    protein?: NullableFloatFieldUpdateOperationsInput | number | null
+    carbs?: NullableFloatFieldUpdateOperationsInput | number | null
+    fat?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FoodLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    mealType?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    calories?: IntFieldUpdateOperationsInput | number
+    protein?: NullableFloatFieldUpdateOperationsInput | number | null
+    carbs?: NullableFloatFieldUpdateOperationsInput | number | null
+    fat?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -37350,10 +50778,51 @@ export namespace Prisma {
     none?: ExpenseWhereInput
   }
 
+  export type RecurringExpenseListRelationFilter = {
+    every?: RecurringExpenseWhereInput
+    some?: RecurringExpenseWhereInput
+    none?: RecurringExpenseWhereInput
+  }
+
+  export type FinancialGoalListRelationFilter = {
+    every?: FinancialGoalWhereInput
+    some?: FinancialGoalWhereInput
+    none?: FinancialGoalWhereInput
+  }
+
+  export type HealthProfileNullableScalarRelationFilter = {
+    is?: HealthProfileWhereInput | null
+    isNot?: HealthProfileWhereInput | null
+  }
+
+  export type WeightLogListRelationFilter = {
+    every?: WeightLogWhereInput
+    some?: WeightLogWhereInput
+    none?: WeightLogWhereInput
+  }
+
+  export type StepLogListRelationFilter = {
+    every?: StepLogWhereInput
+    some?: StepLogWhereInput
+    none?: StepLogWhereInput
+  }
+
+  export type FoodLogListRelationFilter = {
+    every?: FoodLogWhereInput
+    some?: FoodLogWhereInput
+    none?: FoodLogWhereInput
+  }
+
   export type NoteListRelationFilter = {
     every?: NoteWhereInput
     some?: NoteWhereInput
     none?: NoteWhereInput
+  }
+
+  export type NoteFolderListRelationFilter = {
+    every?: NoteFolderWhereInput
+    some?: NoteFolderWhereInput
+    none?: NoteFolderWhereInput
   }
 
   export type PomodoroSessionListRelationFilter = {
@@ -37427,7 +50896,31 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type RecurringExpenseOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FinancialGoalOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type WeightLogOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type StepLogOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FoodLogOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type NoteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type NoteFolderOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -38109,9 +51602,30 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type TodoListNullableScalarRelationFilter = {
     is?: TodoListWhereInput | null
     isNot?: TodoListWhereInput | null
+  }
+
+  export type SubtaskListRelationFilter = {
+    every?: SubtaskWhereInput
+    some?: SubtaskWhereInput
+    none?: SubtaskWhereInput
+  }
+
+  export type SubtaskOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type TodoCountOrderByAggregateInput = {
@@ -38125,12 +51639,20 @@ export namespace Prisma {
     priority?: SortOrder
     dueDate?: SortOrder
     sortOrder?: SortOrder
+    status?: SortOrder
+    isUrgent?: SortOrder
+    isImportant?: SortOrder
+    estimatedMinutes?: SortOrder
+    actualMinutes?: SortOrder
+    timerStartedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type TodoAvgOrderByAggregateInput = {
     sortOrder?: SortOrder
+    estimatedMinutes?: SortOrder
+    actualMinutes?: SortOrder
   }
 
   export type TodoMaxOrderByAggregateInput = {
@@ -38144,6 +51666,12 @@ export namespace Prisma {
     priority?: SortOrder
     dueDate?: SortOrder
     sortOrder?: SortOrder
+    status?: SortOrder
+    isUrgent?: SortOrder
+    isImportant?: SortOrder
+    estimatedMinutes?: SortOrder
+    actualMinutes?: SortOrder
+    timerStartedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -38159,12 +51687,20 @@ export namespace Prisma {
     priority?: SortOrder
     dueDate?: SortOrder
     sortOrder?: SortOrder
+    status?: SortOrder
+    isUrgent?: SortOrder
+    isImportant?: SortOrder
+    estimatedMinutes?: SortOrder
+    actualMinutes?: SortOrder
+    timerStartedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type TodoSumOrderByAggregateInput = {
     sortOrder?: SortOrder
+    estimatedMinutes?: SortOrder
+    actualMinutes?: SortOrder
   }
 
   export type EnumPriorityWithAggregatesFilter<$PrismaModel = never> = {
@@ -38191,6 +51727,62 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type TodoScalarRelationFilter = {
+    is?: TodoWhereInput
+    isNot?: TodoWhereInput
+  }
+
+  export type SubtaskCountOrderByAggregateInput = {
+    id?: SortOrder
+    todoId?: SortOrder
+    title?: SortOrder
+    completed?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SubtaskAvgOrderByAggregateInput = {
+    sortOrder?: SortOrder
+  }
+
+  export type SubtaskMaxOrderByAggregateInput = {
+    id?: SortOrder
+    todoId?: SortOrder
+    title?: SortOrder
+    completed?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SubtaskMinOrderByAggregateInput = {
+    id?: SortOrder
+    todoId?: SortOrder
+    title?: SortOrder
+    completed?: SortOrder
+    sortOrder?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SubtaskSumOrderByAggregateInput = {
+    sortOrder?: SortOrder
   }
 
   export type NotificationCountOrderByAggregateInput = {
@@ -38297,17 +51889,6 @@ export namespace Prisma {
     amount?: SortOrder
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type WorkoutLogCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -38349,22 +51930,6 @@ export namespace Prisma {
   export type WorkoutLogSumOrderByAggregateInput = {
     duration?: SortOrder
     calories?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type SleepLogCountOrderByAggregateInput = {
@@ -38551,15 +52116,62 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NoteFolderUserIdNameCompoundUniqueInput = {
+    userId: string
+    name: string
+  }
+
+  export type NoteFolderCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NoteFolderMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NoteFolderMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    name?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NoteFolderNullableScalarRelationFilter = {
+    is?: NoteFolderWhereInput | null
+    isNot?: NoteFolderWhereInput | null
+  }
+
+  export type NoteVersionListRelationFilter = {
+    every?: NoteVersionWhereInput
+    some?: NoteVersionWhereInput
+    none?: NoteVersionWhereInput
+  }
+
+  export type NoteVersionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type NoteCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    folderId?: SortOrder
     title?: SortOrder
     content?: SortOrder
     tags?: SortOrder
     isPinned?: SortOrder
     isJournal?: SortOrder
     journalDate?: SortOrder
+    mood?: SortOrder
+    reminderAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -38567,11 +52179,14 @@ export namespace Prisma {
   export type NoteMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    folderId?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPinned?: SortOrder
     isJournal?: SortOrder
     journalDate?: SortOrder
+    mood?: SortOrder
+    reminderAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -38579,13 +52194,45 @@ export namespace Prisma {
   export type NoteMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    folderId?: SortOrder
     title?: SortOrder
     content?: SortOrder
     isPinned?: SortOrder
     isJournal?: SortOrder
     journalDate?: SortOrder
+    mood?: SortOrder
+    reminderAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type NoteScalarRelationFilter = {
+    is?: NoteWhereInput
+    isNot?: NoteWhereInput
+  }
+
+  export type NoteVersionCountOrderByAggregateInput = {
+    id?: SortOrder
+    noteId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NoteVersionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    noteId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type NoteVersionMinOrderByAggregateInput = {
+    id?: SortOrder
+    noteId?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type PomodoroSessionCountOrderByAggregateInput = {
@@ -38654,6 +52301,314 @@ export namespace Prisma {
     ipAddress?: SortOrder
     userAgent?: SortOrder
     createdAt?: SortOrder
+  }
+
+  export type RecurringExpenseCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    categoryId?: SortOrder
+    frequency?: SortOrder
+    dayOfMonth?: SortOrder
+    dayOfWeek?: SortOrder
+    notes?: SortOrder
+    isActive?: SortOrder
+    nextDueAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RecurringExpenseAvgOrderByAggregateInput = {
+    amount?: SortOrder
+    dayOfMonth?: SortOrder
+    dayOfWeek?: SortOrder
+  }
+
+  export type RecurringExpenseMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    categoryId?: SortOrder
+    frequency?: SortOrder
+    dayOfMonth?: SortOrder
+    dayOfWeek?: SortOrder
+    notes?: SortOrder
+    isActive?: SortOrder
+    nextDueAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RecurringExpenseMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    categoryId?: SortOrder
+    frequency?: SortOrder
+    dayOfMonth?: SortOrder
+    dayOfWeek?: SortOrder
+    notes?: SortOrder
+    isActive?: SortOrder
+    nextDueAt?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RecurringExpenseSumOrderByAggregateInput = {
+    amount?: SortOrder
+    dayOfMonth?: SortOrder
+    dayOfWeek?: SortOrder
+  }
+
+  export type FinancialGoalCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    targetAmount?: SortOrder
+    savedAmount?: SortOrder
+    deadline?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FinancialGoalAvgOrderByAggregateInput = {
+    targetAmount?: SortOrder
+    savedAmount?: SortOrder
+  }
+
+  export type FinancialGoalMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    targetAmount?: SortOrder
+    savedAmount?: SortOrder
+    deadline?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FinancialGoalMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    title?: SortOrder
+    targetAmount?: SortOrder
+    savedAmount?: SortOrder
+    deadline?: SortOrder
+    icon?: SortOrder
+    color?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FinancialGoalSumOrderByAggregateInput = {
+    targetAmount?: SortOrder
+    savedAmount?: SortOrder
+  }
+
+  export type HealthProfileCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    age?: SortOrder
+    weightKg?: SortOrder
+    heightCm?: SortOrder
+    gender?: SortOrder
+    goal?: SortOrder
+    targetWeightKg?: SortOrder
+    dailyStepGoal?: SortOrder
+    dailyWaterGoalMl?: SortOrder
+    dailyCalorieGoal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HealthProfileAvgOrderByAggregateInput = {
+    age?: SortOrder
+    weightKg?: SortOrder
+    heightCm?: SortOrder
+    targetWeightKg?: SortOrder
+    dailyStepGoal?: SortOrder
+    dailyWaterGoalMl?: SortOrder
+    dailyCalorieGoal?: SortOrder
+  }
+
+  export type HealthProfileMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    age?: SortOrder
+    weightKg?: SortOrder
+    heightCm?: SortOrder
+    gender?: SortOrder
+    goal?: SortOrder
+    targetWeightKg?: SortOrder
+    dailyStepGoal?: SortOrder
+    dailyWaterGoalMl?: SortOrder
+    dailyCalorieGoal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HealthProfileMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    age?: SortOrder
+    weightKg?: SortOrder
+    heightCm?: SortOrder
+    gender?: SortOrder
+    goal?: SortOrder
+    targetWeightKg?: SortOrder
+    dailyStepGoal?: SortOrder
+    dailyWaterGoalMl?: SortOrder
+    dailyCalorieGoal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HealthProfileSumOrderByAggregateInput = {
+    age?: SortOrder
+    weightKg?: SortOrder
+    heightCm?: SortOrder
+    targetWeightKg?: SortOrder
+    dailyStepGoal?: SortOrder
+    dailyWaterGoalMl?: SortOrder
+    dailyCalorieGoal?: SortOrder
+  }
+
+  export type WeightLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    weightKg?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WeightLogAvgOrderByAggregateInput = {
+    weightKg?: SortOrder
+  }
+
+  export type WeightLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    weightKg?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WeightLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    weightKg?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type WeightLogSumOrderByAggregateInput = {
+    weightKg?: SortOrder
+  }
+
+  export type StepLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    steps?: SortOrder
+    goal?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type StepLogAvgOrderByAggregateInput = {
+    steps?: SortOrder
+    goal?: SortOrder
+  }
+
+  export type StepLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    steps?: SortOrder
+    goal?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type StepLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    steps?: SortOrder
+    goal?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type StepLogSumOrderByAggregateInput = {
+    steps?: SortOrder
+    goal?: SortOrder
+  }
+
+  export type FoodLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    mealType?: SortOrder
+    name?: SortOrder
+    calories?: SortOrder
+    protein?: SortOrder
+    carbs?: SortOrder
+    fat?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type FoodLogAvgOrderByAggregateInput = {
+    calories?: SortOrder
+    protein?: SortOrder
+    carbs?: SortOrder
+    fat?: SortOrder
+  }
+
+  export type FoodLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    mealType?: SortOrder
+    name?: SortOrder
+    calories?: SortOrder
+    protein?: SortOrder
+    carbs?: SortOrder
+    fat?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type FoodLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    date?: SortOrder
+    mealType?: SortOrder
+    name?: SortOrder
+    calories?: SortOrder
+    protein?: SortOrder
+    carbs?: SortOrder
+    fat?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type FoodLogSumOrderByAggregateInput = {
+    calories?: SortOrder
+    protein?: SortOrder
+    carbs?: SortOrder
+    fat?: SortOrder
   }
 
   export type SessionCreateNestedManyWithoutUserInput = {
@@ -38767,11 +52722,59 @@ export namespace Prisma {
     connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
   }
 
+  export type RecurringExpenseCreateNestedManyWithoutUserInput = {
+    create?: XOR<RecurringExpenseCreateWithoutUserInput, RecurringExpenseUncheckedCreateWithoutUserInput> | RecurringExpenseCreateWithoutUserInput[] | RecurringExpenseUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutUserInput | RecurringExpenseCreateOrConnectWithoutUserInput[]
+    createMany?: RecurringExpenseCreateManyUserInputEnvelope
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+  }
+
+  export type FinancialGoalCreateNestedManyWithoutUserInput = {
+    create?: XOR<FinancialGoalCreateWithoutUserInput, FinancialGoalUncheckedCreateWithoutUserInput> | FinancialGoalCreateWithoutUserInput[] | FinancialGoalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FinancialGoalCreateOrConnectWithoutUserInput | FinancialGoalCreateOrConnectWithoutUserInput[]
+    createMany?: FinancialGoalCreateManyUserInputEnvelope
+    connect?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+  }
+
+  export type HealthProfileCreateNestedOneWithoutUserInput = {
+    create?: XOR<HealthProfileCreateWithoutUserInput, HealthProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: HealthProfileCreateOrConnectWithoutUserInput
+    connect?: HealthProfileWhereUniqueInput
+  }
+
+  export type WeightLogCreateNestedManyWithoutUserInput = {
+    create?: XOR<WeightLogCreateWithoutUserInput, WeightLogUncheckedCreateWithoutUserInput> | WeightLogCreateWithoutUserInput[] | WeightLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeightLogCreateOrConnectWithoutUserInput | WeightLogCreateOrConnectWithoutUserInput[]
+    createMany?: WeightLogCreateManyUserInputEnvelope
+    connect?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+  }
+
+  export type StepLogCreateNestedManyWithoutUserInput = {
+    create?: XOR<StepLogCreateWithoutUserInput, StepLogUncheckedCreateWithoutUserInput> | StepLogCreateWithoutUserInput[] | StepLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StepLogCreateOrConnectWithoutUserInput | StepLogCreateOrConnectWithoutUserInput[]
+    createMany?: StepLogCreateManyUserInputEnvelope
+    connect?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+  }
+
+  export type FoodLogCreateNestedManyWithoutUserInput = {
+    create?: XOR<FoodLogCreateWithoutUserInput, FoodLogUncheckedCreateWithoutUserInput> | FoodLogCreateWithoutUserInput[] | FoodLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodLogCreateOrConnectWithoutUserInput | FoodLogCreateOrConnectWithoutUserInput[]
+    createMany?: FoodLogCreateManyUserInputEnvelope
+    connect?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+  }
+
   export type NoteCreateNestedManyWithoutUserInput = {
     create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
     connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
     createMany?: NoteCreateManyUserInputEnvelope
     connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  }
+
+  export type NoteFolderCreateNestedManyWithoutUserInput = {
+    create?: XOR<NoteFolderCreateWithoutUserInput, NoteFolderUncheckedCreateWithoutUserInput> | NoteFolderCreateWithoutUserInput[] | NoteFolderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteFolderCreateOrConnectWithoutUserInput | NoteFolderCreateOrConnectWithoutUserInput[]
+    createMany?: NoteFolderCreateManyUserInputEnvelope
+    connect?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
   }
 
   export type PomodoroSessionCreateNestedManyWithoutUserInput = {
@@ -38892,11 +52895,59 @@ export namespace Prisma {
     connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
   }
 
+  export type RecurringExpenseUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<RecurringExpenseCreateWithoutUserInput, RecurringExpenseUncheckedCreateWithoutUserInput> | RecurringExpenseCreateWithoutUserInput[] | RecurringExpenseUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutUserInput | RecurringExpenseCreateOrConnectWithoutUserInput[]
+    createMany?: RecurringExpenseCreateManyUserInputEnvelope
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+  }
+
+  export type FinancialGoalUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FinancialGoalCreateWithoutUserInput, FinancialGoalUncheckedCreateWithoutUserInput> | FinancialGoalCreateWithoutUserInput[] | FinancialGoalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FinancialGoalCreateOrConnectWithoutUserInput | FinancialGoalCreateOrConnectWithoutUserInput[]
+    createMany?: FinancialGoalCreateManyUserInputEnvelope
+    connect?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+  }
+
+  export type HealthProfileUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<HealthProfileCreateWithoutUserInput, HealthProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: HealthProfileCreateOrConnectWithoutUserInput
+    connect?: HealthProfileWhereUniqueInput
+  }
+
+  export type WeightLogUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<WeightLogCreateWithoutUserInput, WeightLogUncheckedCreateWithoutUserInput> | WeightLogCreateWithoutUserInput[] | WeightLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeightLogCreateOrConnectWithoutUserInput | WeightLogCreateOrConnectWithoutUserInput[]
+    createMany?: WeightLogCreateManyUserInputEnvelope
+    connect?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+  }
+
+  export type StepLogUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<StepLogCreateWithoutUserInput, StepLogUncheckedCreateWithoutUserInput> | StepLogCreateWithoutUserInput[] | StepLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StepLogCreateOrConnectWithoutUserInput | StepLogCreateOrConnectWithoutUserInput[]
+    createMany?: StepLogCreateManyUserInputEnvelope
+    connect?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+  }
+
+  export type FoodLogUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FoodLogCreateWithoutUserInput, FoodLogUncheckedCreateWithoutUserInput> | FoodLogCreateWithoutUserInput[] | FoodLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodLogCreateOrConnectWithoutUserInput | FoodLogCreateOrConnectWithoutUserInput[]
+    createMany?: FoodLogCreateManyUserInputEnvelope
+    connect?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+  }
+
   export type NoteUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
     connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
     createMany?: NoteCreateManyUserInputEnvelope
     connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  }
+
+  export type NoteFolderUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<NoteFolderCreateWithoutUserInput, NoteFolderUncheckedCreateWithoutUserInput> | NoteFolderCreateWithoutUserInput[] | NoteFolderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteFolderCreateOrConnectWithoutUserInput | NoteFolderCreateOrConnectWithoutUserInput[]
+    createMany?: NoteFolderCreateManyUserInputEnvelope
+    connect?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
   }
 
   export type PomodoroSessionUncheckedCreateNestedManyWithoutUserInput = {
@@ -39150,6 +53201,86 @@ export namespace Prisma {
     deleteMany?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
   }
 
+  export type RecurringExpenseUpdateManyWithoutUserNestedInput = {
+    create?: XOR<RecurringExpenseCreateWithoutUserInput, RecurringExpenseUncheckedCreateWithoutUserInput> | RecurringExpenseCreateWithoutUserInput[] | RecurringExpenseUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutUserInput | RecurringExpenseCreateOrConnectWithoutUserInput[]
+    upsert?: RecurringExpenseUpsertWithWhereUniqueWithoutUserInput | RecurringExpenseUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: RecurringExpenseCreateManyUserInputEnvelope
+    set?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    disconnect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    delete?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    update?: RecurringExpenseUpdateWithWhereUniqueWithoutUserInput | RecurringExpenseUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: RecurringExpenseUpdateManyWithWhereWithoutUserInput | RecurringExpenseUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: RecurringExpenseScalarWhereInput | RecurringExpenseScalarWhereInput[]
+  }
+
+  export type FinancialGoalUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FinancialGoalCreateWithoutUserInput, FinancialGoalUncheckedCreateWithoutUserInput> | FinancialGoalCreateWithoutUserInput[] | FinancialGoalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FinancialGoalCreateOrConnectWithoutUserInput | FinancialGoalCreateOrConnectWithoutUserInput[]
+    upsert?: FinancialGoalUpsertWithWhereUniqueWithoutUserInput | FinancialGoalUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FinancialGoalCreateManyUserInputEnvelope
+    set?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    disconnect?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    delete?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    connect?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    update?: FinancialGoalUpdateWithWhereUniqueWithoutUserInput | FinancialGoalUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FinancialGoalUpdateManyWithWhereWithoutUserInput | FinancialGoalUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FinancialGoalScalarWhereInput | FinancialGoalScalarWhereInput[]
+  }
+
+  export type HealthProfileUpdateOneWithoutUserNestedInput = {
+    create?: XOR<HealthProfileCreateWithoutUserInput, HealthProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: HealthProfileCreateOrConnectWithoutUserInput
+    upsert?: HealthProfileUpsertWithoutUserInput
+    disconnect?: HealthProfileWhereInput | boolean
+    delete?: HealthProfileWhereInput | boolean
+    connect?: HealthProfileWhereUniqueInput
+    update?: XOR<XOR<HealthProfileUpdateToOneWithWhereWithoutUserInput, HealthProfileUpdateWithoutUserInput>, HealthProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type WeightLogUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WeightLogCreateWithoutUserInput, WeightLogUncheckedCreateWithoutUserInput> | WeightLogCreateWithoutUserInput[] | WeightLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeightLogCreateOrConnectWithoutUserInput | WeightLogCreateOrConnectWithoutUserInput[]
+    upsert?: WeightLogUpsertWithWhereUniqueWithoutUserInput | WeightLogUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WeightLogCreateManyUserInputEnvelope
+    set?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    disconnect?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    delete?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    connect?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    update?: WeightLogUpdateWithWhereUniqueWithoutUserInput | WeightLogUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WeightLogUpdateManyWithWhereWithoutUserInput | WeightLogUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WeightLogScalarWhereInput | WeightLogScalarWhereInput[]
+  }
+
+  export type StepLogUpdateManyWithoutUserNestedInput = {
+    create?: XOR<StepLogCreateWithoutUserInput, StepLogUncheckedCreateWithoutUserInput> | StepLogCreateWithoutUserInput[] | StepLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StepLogCreateOrConnectWithoutUserInput | StepLogCreateOrConnectWithoutUserInput[]
+    upsert?: StepLogUpsertWithWhereUniqueWithoutUserInput | StepLogUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: StepLogCreateManyUserInputEnvelope
+    set?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    disconnect?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    delete?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    connect?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    update?: StepLogUpdateWithWhereUniqueWithoutUserInput | StepLogUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: StepLogUpdateManyWithWhereWithoutUserInput | StepLogUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: StepLogScalarWhereInput | StepLogScalarWhereInput[]
+  }
+
+  export type FoodLogUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FoodLogCreateWithoutUserInput, FoodLogUncheckedCreateWithoutUserInput> | FoodLogCreateWithoutUserInput[] | FoodLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodLogCreateOrConnectWithoutUserInput | FoodLogCreateOrConnectWithoutUserInput[]
+    upsert?: FoodLogUpsertWithWhereUniqueWithoutUserInput | FoodLogUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FoodLogCreateManyUserInputEnvelope
+    set?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    disconnect?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    delete?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    connect?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    update?: FoodLogUpdateWithWhereUniqueWithoutUserInput | FoodLogUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FoodLogUpdateManyWithWhereWithoutUserInput | FoodLogUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FoodLogScalarWhereInput | FoodLogScalarWhereInput[]
+  }
+
   export type NoteUpdateManyWithoutUserNestedInput = {
     create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
     connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
@@ -39162,6 +53293,20 @@ export namespace Prisma {
     update?: NoteUpdateWithWhereUniqueWithoutUserInput | NoteUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: NoteUpdateManyWithWhereWithoutUserInput | NoteUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  }
+
+  export type NoteFolderUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NoteFolderCreateWithoutUserInput, NoteFolderUncheckedCreateWithoutUserInput> | NoteFolderCreateWithoutUserInput[] | NoteFolderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteFolderCreateOrConnectWithoutUserInput | NoteFolderCreateOrConnectWithoutUserInput[]
+    upsert?: NoteFolderUpsertWithWhereUniqueWithoutUserInput | NoteFolderUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NoteFolderCreateManyUserInputEnvelope
+    set?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    disconnect?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    delete?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    connect?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    update?: NoteFolderUpdateWithWhereUniqueWithoutUserInput | NoteFolderUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NoteFolderUpdateManyWithWhereWithoutUserInput | NoteFolderUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NoteFolderScalarWhereInput | NoteFolderScalarWhereInput[]
   }
 
   export type PomodoroSessionUpdateManyWithoutUserNestedInput = {
@@ -39398,6 +53543,86 @@ export namespace Prisma {
     deleteMany?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
   }
 
+  export type RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<RecurringExpenseCreateWithoutUserInput, RecurringExpenseUncheckedCreateWithoutUserInput> | RecurringExpenseCreateWithoutUserInput[] | RecurringExpenseUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutUserInput | RecurringExpenseCreateOrConnectWithoutUserInput[]
+    upsert?: RecurringExpenseUpsertWithWhereUniqueWithoutUserInput | RecurringExpenseUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: RecurringExpenseCreateManyUserInputEnvelope
+    set?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    disconnect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    delete?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    update?: RecurringExpenseUpdateWithWhereUniqueWithoutUserInput | RecurringExpenseUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: RecurringExpenseUpdateManyWithWhereWithoutUserInput | RecurringExpenseUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: RecurringExpenseScalarWhereInput | RecurringExpenseScalarWhereInput[]
+  }
+
+  export type FinancialGoalUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FinancialGoalCreateWithoutUserInput, FinancialGoalUncheckedCreateWithoutUserInput> | FinancialGoalCreateWithoutUserInput[] | FinancialGoalUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FinancialGoalCreateOrConnectWithoutUserInput | FinancialGoalCreateOrConnectWithoutUserInput[]
+    upsert?: FinancialGoalUpsertWithWhereUniqueWithoutUserInput | FinancialGoalUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FinancialGoalCreateManyUserInputEnvelope
+    set?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    disconnect?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    delete?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    connect?: FinancialGoalWhereUniqueInput | FinancialGoalWhereUniqueInput[]
+    update?: FinancialGoalUpdateWithWhereUniqueWithoutUserInput | FinancialGoalUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FinancialGoalUpdateManyWithWhereWithoutUserInput | FinancialGoalUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FinancialGoalScalarWhereInput | FinancialGoalScalarWhereInput[]
+  }
+
+  export type HealthProfileUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<HealthProfileCreateWithoutUserInput, HealthProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: HealthProfileCreateOrConnectWithoutUserInput
+    upsert?: HealthProfileUpsertWithoutUserInput
+    disconnect?: HealthProfileWhereInput | boolean
+    delete?: HealthProfileWhereInput | boolean
+    connect?: HealthProfileWhereUniqueInput
+    update?: XOR<XOR<HealthProfileUpdateToOneWithWhereWithoutUserInput, HealthProfileUpdateWithoutUserInput>, HealthProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type WeightLogUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<WeightLogCreateWithoutUserInput, WeightLogUncheckedCreateWithoutUserInput> | WeightLogCreateWithoutUserInput[] | WeightLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: WeightLogCreateOrConnectWithoutUserInput | WeightLogCreateOrConnectWithoutUserInput[]
+    upsert?: WeightLogUpsertWithWhereUniqueWithoutUserInput | WeightLogUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: WeightLogCreateManyUserInputEnvelope
+    set?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    disconnect?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    delete?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    connect?: WeightLogWhereUniqueInput | WeightLogWhereUniqueInput[]
+    update?: WeightLogUpdateWithWhereUniqueWithoutUserInput | WeightLogUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: WeightLogUpdateManyWithWhereWithoutUserInput | WeightLogUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: WeightLogScalarWhereInput | WeightLogScalarWhereInput[]
+  }
+
+  export type StepLogUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<StepLogCreateWithoutUserInput, StepLogUncheckedCreateWithoutUserInput> | StepLogCreateWithoutUserInput[] | StepLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StepLogCreateOrConnectWithoutUserInput | StepLogCreateOrConnectWithoutUserInput[]
+    upsert?: StepLogUpsertWithWhereUniqueWithoutUserInput | StepLogUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: StepLogCreateManyUserInputEnvelope
+    set?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    disconnect?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    delete?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    connect?: StepLogWhereUniqueInput | StepLogWhereUniqueInput[]
+    update?: StepLogUpdateWithWhereUniqueWithoutUserInput | StepLogUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: StepLogUpdateManyWithWhereWithoutUserInput | StepLogUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: StepLogScalarWhereInput | StepLogScalarWhereInput[]
+  }
+
+  export type FoodLogUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FoodLogCreateWithoutUserInput, FoodLogUncheckedCreateWithoutUserInput> | FoodLogCreateWithoutUserInput[] | FoodLogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodLogCreateOrConnectWithoutUserInput | FoodLogCreateOrConnectWithoutUserInput[]
+    upsert?: FoodLogUpsertWithWhereUniqueWithoutUserInput | FoodLogUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FoodLogCreateManyUserInputEnvelope
+    set?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    disconnect?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    delete?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    connect?: FoodLogWhereUniqueInput | FoodLogWhereUniqueInput[]
+    update?: FoodLogUpdateWithWhereUniqueWithoutUserInput | FoodLogUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FoodLogUpdateManyWithWhereWithoutUserInput | FoodLogUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FoodLogScalarWhereInput | FoodLogScalarWhereInput[]
+  }
+
   export type NoteUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
     connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
@@ -39410,6 +53635,20 @@ export namespace Prisma {
     update?: NoteUpdateWithWhereUniqueWithoutUserInput | NoteUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: NoteUpdateManyWithWhereWithoutUserInput | NoteUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  }
+
+  export type NoteFolderUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NoteFolderCreateWithoutUserInput, NoteFolderUncheckedCreateWithoutUserInput> | NoteFolderCreateWithoutUserInput[] | NoteFolderUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteFolderCreateOrConnectWithoutUserInput | NoteFolderCreateOrConnectWithoutUserInput[]
+    upsert?: NoteFolderUpsertWithWhereUniqueWithoutUserInput | NoteFolderUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NoteFolderCreateManyUserInputEnvelope
+    set?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    disconnect?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    delete?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    connect?: NoteFolderWhereUniqueInput | NoteFolderWhereUniqueInput[]
+    update?: NoteFolderUpdateWithWhereUniqueWithoutUserInput | NoteFolderUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NoteFolderUpdateManyWithWhereWithoutUserInput | NoteFolderUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NoteFolderScalarWhereInput | NoteFolderScalarWhereInput[]
   }
 
   export type PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput = {
@@ -39925,12 +54164,34 @@ export namespace Prisma {
     connect?: TodoListWhereUniqueInput
   }
 
+  export type SubtaskCreateNestedManyWithoutTodoInput = {
+    create?: XOR<SubtaskCreateWithoutTodoInput, SubtaskUncheckedCreateWithoutTodoInput> | SubtaskCreateWithoutTodoInput[] | SubtaskUncheckedCreateWithoutTodoInput[]
+    connectOrCreate?: SubtaskCreateOrConnectWithoutTodoInput | SubtaskCreateOrConnectWithoutTodoInput[]
+    createMany?: SubtaskCreateManyTodoInputEnvelope
+    connect?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+  }
+
+  export type SubtaskUncheckedCreateNestedManyWithoutTodoInput = {
+    create?: XOR<SubtaskCreateWithoutTodoInput, SubtaskUncheckedCreateWithoutTodoInput> | SubtaskCreateWithoutTodoInput[] | SubtaskUncheckedCreateWithoutTodoInput[]
+    connectOrCreate?: SubtaskCreateOrConnectWithoutTodoInput | SubtaskCreateOrConnectWithoutTodoInput[]
+    createMany?: SubtaskCreateManyTodoInputEnvelope
+    connect?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+  }
+
   export type EnumPriorityFieldUpdateOperationsInput = {
     set?: $Enums.Priority
   }
 
   export type IntFieldUpdateOperationsInput = {
     set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -39953,6 +54214,48 @@ export namespace Prisma {
     delete?: TodoListWhereInput | boolean
     connect?: TodoListWhereUniqueInput
     update?: XOR<XOR<TodoListUpdateToOneWithWhereWithoutTodosInput, TodoListUpdateWithoutTodosInput>, TodoListUncheckedUpdateWithoutTodosInput>
+  }
+
+  export type SubtaskUpdateManyWithoutTodoNestedInput = {
+    create?: XOR<SubtaskCreateWithoutTodoInput, SubtaskUncheckedCreateWithoutTodoInput> | SubtaskCreateWithoutTodoInput[] | SubtaskUncheckedCreateWithoutTodoInput[]
+    connectOrCreate?: SubtaskCreateOrConnectWithoutTodoInput | SubtaskCreateOrConnectWithoutTodoInput[]
+    upsert?: SubtaskUpsertWithWhereUniqueWithoutTodoInput | SubtaskUpsertWithWhereUniqueWithoutTodoInput[]
+    createMany?: SubtaskCreateManyTodoInputEnvelope
+    set?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    disconnect?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    delete?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    connect?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    update?: SubtaskUpdateWithWhereUniqueWithoutTodoInput | SubtaskUpdateWithWhereUniqueWithoutTodoInput[]
+    updateMany?: SubtaskUpdateManyWithWhereWithoutTodoInput | SubtaskUpdateManyWithWhereWithoutTodoInput[]
+    deleteMany?: SubtaskScalarWhereInput | SubtaskScalarWhereInput[]
+  }
+
+  export type SubtaskUncheckedUpdateManyWithoutTodoNestedInput = {
+    create?: XOR<SubtaskCreateWithoutTodoInput, SubtaskUncheckedCreateWithoutTodoInput> | SubtaskCreateWithoutTodoInput[] | SubtaskUncheckedCreateWithoutTodoInput[]
+    connectOrCreate?: SubtaskCreateOrConnectWithoutTodoInput | SubtaskCreateOrConnectWithoutTodoInput[]
+    upsert?: SubtaskUpsertWithWhereUniqueWithoutTodoInput | SubtaskUpsertWithWhereUniqueWithoutTodoInput[]
+    createMany?: SubtaskCreateManyTodoInputEnvelope
+    set?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    disconnect?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    delete?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    connect?: SubtaskWhereUniqueInput | SubtaskWhereUniqueInput[]
+    update?: SubtaskUpdateWithWhereUniqueWithoutTodoInput | SubtaskUpdateWithWhereUniqueWithoutTodoInput[]
+    updateMany?: SubtaskUpdateManyWithWhereWithoutTodoInput | SubtaskUpdateManyWithWhereWithoutTodoInput[]
+    deleteMany?: SubtaskScalarWhereInput | SubtaskScalarWhereInput[]
+  }
+
+  export type TodoCreateNestedOneWithoutSubtasksInput = {
+    create?: XOR<TodoCreateWithoutSubtasksInput, TodoUncheckedCreateWithoutSubtasksInput>
+    connectOrCreate?: TodoCreateOrConnectWithoutSubtasksInput
+    connect?: TodoWhereUniqueInput
+  }
+
+  export type TodoUpdateOneRequiredWithoutSubtasksNestedInput = {
+    create?: XOR<TodoCreateWithoutSubtasksInput, TodoUncheckedCreateWithoutSubtasksInput>
+    connectOrCreate?: TodoCreateOrConnectWithoutSubtasksInput
+    upsert?: TodoUpsertWithoutSubtasksInput
+    connect?: TodoWhereUniqueInput
+    update?: XOR<XOR<TodoUpdateToOneWithWhereWithoutSubtasksInput, TodoUpdateWithoutSubtasksInput>, TodoUncheckedUpdateWithoutSubtasksInput>
   }
 
   export type UserCreateNestedOneWithoutNotificationsInput = {
@@ -40003,14 +54306,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type UserUpdateOneRequiredWithoutWorkoutLogsNestedInput = {
     create?: XOR<UserCreateWithoutWorkoutLogsInput, UserUncheckedCreateWithoutWorkoutLogsInput>
     connectOrCreate?: UserCreateOrConnectWithoutWorkoutLogsInput
@@ -40046,11 +54341,25 @@ export namespace Prisma {
     connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
   }
 
+  export type RecurringExpenseCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<RecurringExpenseCreateWithoutCategoryInput, RecurringExpenseUncheckedCreateWithoutCategoryInput> | RecurringExpenseCreateWithoutCategoryInput[] | RecurringExpenseUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutCategoryInput | RecurringExpenseCreateOrConnectWithoutCategoryInput[]
+    createMany?: RecurringExpenseCreateManyCategoryInputEnvelope
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+  }
+
   export type ExpenseUncheckedCreateNestedManyWithoutCategoryInput = {
     create?: XOR<ExpenseCreateWithoutCategoryInput, ExpenseUncheckedCreateWithoutCategoryInput> | ExpenseCreateWithoutCategoryInput[] | ExpenseUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: ExpenseCreateOrConnectWithoutCategoryInput | ExpenseCreateOrConnectWithoutCategoryInput[]
     createMany?: ExpenseCreateManyCategoryInputEnvelope
     connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
+  }
+
+  export type RecurringExpenseUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<RecurringExpenseCreateWithoutCategoryInput, RecurringExpenseUncheckedCreateWithoutCategoryInput> | RecurringExpenseCreateWithoutCategoryInput[] | RecurringExpenseUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutCategoryInput | RecurringExpenseCreateOrConnectWithoutCategoryInput[]
+    createMany?: RecurringExpenseCreateManyCategoryInputEnvelope
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
   }
 
   export type NullableFloatFieldUpdateOperationsInput = {
@@ -40083,6 +54392,20 @@ export namespace Prisma {
     deleteMany?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
   }
 
+  export type RecurringExpenseUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<RecurringExpenseCreateWithoutCategoryInput, RecurringExpenseUncheckedCreateWithoutCategoryInput> | RecurringExpenseCreateWithoutCategoryInput[] | RecurringExpenseUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutCategoryInput | RecurringExpenseCreateOrConnectWithoutCategoryInput[]
+    upsert?: RecurringExpenseUpsertWithWhereUniqueWithoutCategoryInput | RecurringExpenseUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: RecurringExpenseCreateManyCategoryInputEnvelope
+    set?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    disconnect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    delete?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    update?: RecurringExpenseUpdateWithWhereUniqueWithoutCategoryInput | RecurringExpenseUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: RecurringExpenseUpdateManyWithWhereWithoutCategoryInput | RecurringExpenseUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: RecurringExpenseScalarWhereInput | RecurringExpenseScalarWhereInput[]
+  }
+
   export type ExpenseUncheckedUpdateManyWithoutCategoryNestedInput = {
     create?: XOR<ExpenseCreateWithoutCategoryInput, ExpenseUncheckedCreateWithoutCategoryInput> | ExpenseCreateWithoutCategoryInput[] | ExpenseUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: ExpenseCreateOrConnectWithoutCategoryInput | ExpenseCreateOrConnectWithoutCategoryInput[]
@@ -40095,6 +54418,20 @@ export namespace Prisma {
     update?: ExpenseUpdateWithWhereUniqueWithoutCategoryInput | ExpenseUpdateWithWhereUniqueWithoutCategoryInput[]
     updateMany?: ExpenseUpdateManyWithWhereWithoutCategoryInput | ExpenseUpdateManyWithWhereWithoutCategoryInput[]
     deleteMany?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
+  }
+
+  export type RecurringExpenseUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<RecurringExpenseCreateWithoutCategoryInput, RecurringExpenseUncheckedCreateWithoutCategoryInput> | RecurringExpenseCreateWithoutCategoryInput[] | RecurringExpenseUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: RecurringExpenseCreateOrConnectWithoutCategoryInput | RecurringExpenseCreateOrConnectWithoutCategoryInput[]
+    upsert?: RecurringExpenseUpsertWithWhereUniqueWithoutCategoryInput | RecurringExpenseUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: RecurringExpenseCreateManyCategoryInputEnvelope
+    set?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    disconnect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    delete?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    connect?: RecurringExpenseWhereUniqueInput | RecurringExpenseWhereUniqueInput[]
+    update?: RecurringExpenseUpdateWithWhereUniqueWithoutCategoryInput | RecurringExpenseUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: RecurringExpenseUpdateManyWithWhereWithoutCategoryInput | RecurringExpenseUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: RecurringExpenseScalarWhereInput | RecurringExpenseScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutExpensesInput = {
@@ -40135,6 +54472,62 @@ export namespace Prisma {
     update?: XOR<XOR<ExpenseCategoryUpdateToOneWithWhereWithoutExpensesInput, ExpenseCategoryUpdateWithoutExpensesInput>, ExpenseCategoryUncheckedUpdateWithoutExpensesInput>
   }
 
+  export type UserCreateNestedOneWithoutNoteFoldersInput = {
+    create?: XOR<UserCreateWithoutNoteFoldersInput, UserUncheckedCreateWithoutNoteFoldersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNoteFoldersInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type NoteCreateNestedManyWithoutFolderInput = {
+    create?: XOR<NoteCreateWithoutFolderInput, NoteUncheckedCreateWithoutFolderInput> | NoteCreateWithoutFolderInput[] | NoteUncheckedCreateWithoutFolderInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutFolderInput | NoteCreateOrConnectWithoutFolderInput[]
+    createMany?: NoteCreateManyFolderInputEnvelope
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  }
+
+  export type NoteUncheckedCreateNestedManyWithoutFolderInput = {
+    create?: XOR<NoteCreateWithoutFolderInput, NoteUncheckedCreateWithoutFolderInput> | NoteCreateWithoutFolderInput[] | NoteUncheckedCreateWithoutFolderInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutFolderInput | NoteCreateOrConnectWithoutFolderInput[]
+    createMany?: NoteCreateManyFolderInputEnvelope
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutNoteFoldersNestedInput = {
+    create?: XOR<UserCreateWithoutNoteFoldersInput, UserUncheckedCreateWithoutNoteFoldersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNoteFoldersInput
+    upsert?: UserUpsertWithoutNoteFoldersInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNoteFoldersInput, UserUpdateWithoutNoteFoldersInput>, UserUncheckedUpdateWithoutNoteFoldersInput>
+  }
+
+  export type NoteUpdateManyWithoutFolderNestedInput = {
+    create?: XOR<NoteCreateWithoutFolderInput, NoteUncheckedCreateWithoutFolderInput> | NoteCreateWithoutFolderInput[] | NoteUncheckedCreateWithoutFolderInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutFolderInput | NoteCreateOrConnectWithoutFolderInput[]
+    upsert?: NoteUpsertWithWhereUniqueWithoutFolderInput | NoteUpsertWithWhereUniqueWithoutFolderInput[]
+    createMany?: NoteCreateManyFolderInputEnvelope
+    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    update?: NoteUpdateWithWhereUniqueWithoutFolderInput | NoteUpdateWithWhereUniqueWithoutFolderInput[]
+    updateMany?: NoteUpdateManyWithWhereWithoutFolderInput | NoteUpdateManyWithWhereWithoutFolderInput[]
+    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  }
+
+  export type NoteUncheckedUpdateManyWithoutFolderNestedInput = {
+    create?: XOR<NoteCreateWithoutFolderInput, NoteUncheckedCreateWithoutFolderInput> | NoteCreateWithoutFolderInput[] | NoteUncheckedCreateWithoutFolderInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutFolderInput | NoteCreateOrConnectWithoutFolderInput[]
+    upsert?: NoteUpsertWithWhereUniqueWithoutFolderInput | NoteUpsertWithWhereUniqueWithoutFolderInput[]
+    createMany?: NoteCreateManyFolderInputEnvelope
+    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    update?: NoteUpdateWithWhereUniqueWithoutFolderInput | NoteUpdateWithWhereUniqueWithoutFolderInput[]
+    updateMany?: NoteUpdateManyWithWhereWithoutFolderInput | NoteUpdateManyWithWhereWithoutFolderInput[]
+    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  }
+
   export type NoteCreatetagsInput = {
     set: string[]
   }
@@ -40143,6 +54536,26 @@ export namespace Prisma {
     create?: XOR<UserCreateWithoutNotesInput, UserUncheckedCreateWithoutNotesInput>
     connectOrCreate?: UserCreateOrConnectWithoutNotesInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type NoteFolderCreateNestedOneWithoutNotesInput = {
+    create?: XOR<NoteFolderCreateWithoutNotesInput, NoteFolderUncheckedCreateWithoutNotesInput>
+    connectOrCreate?: NoteFolderCreateOrConnectWithoutNotesInput
+    connect?: NoteFolderWhereUniqueInput
+  }
+
+  export type NoteVersionCreateNestedManyWithoutNoteInput = {
+    create?: XOR<NoteVersionCreateWithoutNoteInput, NoteVersionUncheckedCreateWithoutNoteInput> | NoteVersionCreateWithoutNoteInput[] | NoteVersionUncheckedCreateWithoutNoteInput[]
+    connectOrCreate?: NoteVersionCreateOrConnectWithoutNoteInput | NoteVersionCreateOrConnectWithoutNoteInput[]
+    createMany?: NoteVersionCreateManyNoteInputEnvelope
+    connect?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+  }
+
+  export type NoteVersionUncheckedCreateNestedManyWithoutNoteInput = {
+    create?: XOR<NoteVersionCreateWithoutNoteInput, NoteVersionUncheckedCreateWithoutNoteInput> | NoteVersionCreateWithoutNoteInput[] | NoteVersionUncheckedCreateWithoutNoteInput[]
+    connectOrCreate?: NoteVersionCreateOrConnectWithoutNoteInput | NoteVersionCreateOrConnectWithoutNoteInput[]
+    createMany?: NoteVersionCreateManyNoteInputEnvelope
+    connect?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
   }
 
   export type NoteUpdatetagsInput = {
@@ -40156,6 +54569,58 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutNotesInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNotesInput, UserUpdateWithoutNotesInput>, UserUncheckedUpdateWithoutNotesInput>
+  }
+
+  export type NoteFolderUpdateOneWithoutNotesNestedInput = {
+    create?: XOR<NoteFolderCreateWithoutNotesInput, NoteFolderUncheckedCreateWithoutNotesInput>
+    connectOrCreate?: NoteFolderCreateOrConnectWithoutNotesInput
+    upsert?: NoteFolderUpsertWithoutNotesInput
+    disconnect?: NoteFolderWhereInput | boolean
+    delete?: NoteFolderWhereInput | boolean
+    connect?: NoteFolderWhereUniqueInput
+    update?: XOR<XOR<NoteFolderUpdateToOneWithWhereWithoutNotesInput, NoteFolderUpdateWithoutNotesInput>, NoteFolderUncheckedUpdateWithoutNotesInput>
+  }
+
+  export type NoteVersionUpdateManyWithoutNoteNestedInput = {
+    create?: XOR<NoteVersionCreateWithoutNoteInput, NoteVersionUncheckedCreateWithoutNoteInput> | NoteVersionCreateWithoutNoteInput[] | NoteVersionUncheckedCreateWithoutNoteInput[]
+    connectOrCreate?: NoteVersionCreateOrConnectWithoutNoteInput | NoteVersionCreateOrConnectWithoutNoteInput[]
+    upsert?: NoteVersionUpsertWithWhereUniqueWithoutNoteInput | NoteVersionUpsertWithWhereUniqueWithoutNoteInput[]
+    createMany?: NoteVersionCreateManyNoteInputEnvelope
+    set?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    disconnect?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    delete?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    connect?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    update?: NoteVersionUpdateWithWhereUniqueWithoutNoteInput | NoteVersionUpdateWithWhereUniqueWithoutNoteInput[]
+    updateMany?: NoteVersionUpdateManyWithWhereWithoutNoteInput | NoteVersionUpdateManyWithWhereWithoutNoteInput[]
+    deleteMany?: NoteVersionScalarWhereInput | NoteVersionScalarWhereInput[]
+  }
+
+  export type NoteVersionUncheckedUpdateManyWithoutNoteNestedInput = {
+    create?: XOR<NoteVersionCreateWithoutNoteInput, NoteVersionUncheckedCreateWithoutNoteInput> | NoteVersionCreateWithoutNoteInput[] | NoteVersionUncheckedCreateWithoutNoteInput[]
+    connectOrCreate?: NoteVersionCreateOrConnectWithoutNoteInput | NoteVersionCreateOrConnectWithoutNoteInput[]
+    upsert?: NoteVersionUpsertWithWhereUniqueWithoutNoteInput | NoteVersionUpsertWithWhereUniqueWithoutNoteInput[]
+    createMany?: NoteVersionCreateManyNoteInputEnvelope
+    set?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    disconnect?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    delete?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    connect?: NoteVersionWhereUniqueInput | NoteVersionWhereUniqueInput[]
+    update?: NoteVersionUpdateWithWhereUniqueWithoutNoteInput | NoteVersionUpdateWithWhereUniqueWithoutNoteInput[]
+    updateMany?: NoteVersionUpdateManyWithWhereWithoutNoteInput | NoteVersionUpdateManyWithWhereWithoutNoteInput[]
+    deleteMany?: NoteVersionScalarWhereInput | NoteVersionScalarWhereInput[]
+  }
+
+  export type NoteCreateNestedOneWithoutVersionsInput = {
+    create?: XOR<NoteCreateWithoutVersionsInput, NoteUncheckedCreateWithoutVersionsInput>
+    connectOrCreate?: NoteCreateOrConnectWithoutVersionsInput
+    connect?: NoteWhereUniqueInput
+  }
+
+  export type NoteUpdateOneRequiredWithoutVersionsNestedInput = {
+    create?: XOR<NoteCreateWithoutVersionsInput, NoteUncheckedCreateWithoutVersionsInput>
+    connectOrCreate?: NoteCreateOrConnectWithoutVersionsInput
+    upsert?: NoteUpsertWithoutVersionsInput
+    connect?: NoteWhereUniqueInput
+    update?: XOR<XOR<NoteUpdateToOneWithWhereWithoutVersionsInput, NoteUpdateWithoutVersionsInput>, NoteUncheckedUpdateWithoutVersionsInput>
   }
 
   export type UserCreateNestedOneWithoutPomodoroSessionsInput = {
@@ -40186,6 +54651,106 @@ export namespace Prisma {
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAuditLogsInput, UserUpdateWithoutAuditLogsInput>, UserUncheckedUpdateWithoutAuditLogsInput>
+  }
+
+  export type UserCreateNestedOneWithoutRecurringExpensesInput = {
+    create?: XOR<UserCreateWithoutRecurringExpensesInput, UserUncheckedCreateWithoutRecurringExpensesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRecurringExpensesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ExpenseCategoryCreateNestedOneWithoutRecurringExpensesInput = {
+    create?: XOR<ExpenseCategoryCreateWithoutRecurringExpensesInput, ExpenseCategoryUncheckedCreateWithoutRecurringExpensesInput>
+    connectOrCreate?: ExpenseCategoryCreateOrConnectWithoutRecurringExpensesInput
+    connect?: ExpenseCategoryWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutRecurringExpensesNestedInput = {
+    create?: XOR<UserCreateWithoutRecurringExpensesInput, UserUncheckedCreateWithoutRecurringExpensesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRecurringExpensesInput
+    upsert?: UserUpsertWithoutRecurringExpensesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRecurringExpensesInput, UserUpdateWithoutRecurringExpensesInput>, UserUncheckedUpdateWithoutRecurringExpensesInput>
+  }
+
+  export type ExpenseCategoryUpdateOneWithoutRecurringExpensesNestedInput = {
+    create?: XOR<ExpenseCategoryCreateWithoutRecurringExpensesInput, ExpenseCategoryUncheckedCreateWithoutRecurringExpensesInput>
+    connectOrCreate?: ExpenseCategoryCreateOrConnectWithoutRecurringExpensesInput
+    upsert?: ExpenseCategoryUpsertWithoutRecurringExpensesInput
+    disconnect?: ExpenseCategoryWhereInput | boolean
+    delete?: ExpenseCategoryWhereInput | boolean
+    connect?: ExpenseCategoryWhereUniqueInput
+    update?: XOR<XOR<ExpenseCategoryUpdateToOneWithWhereWithoutRecurringExpensesInput, ExpenseCategoryUpdateWithoutRecurringExpensesInput>, ExpenseCategoryUncheckedUpdateWithoutRecurringExpensesInput>
+  }
+
+  export type UserCreateNestedOneWithoutFinancialGoalsInput = {
+    create?: XOR<UserCreateWithoutFinancialGoalsInput, UserUncheckedCreateWithoutFinancialGoalsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFinancialGoalsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutFinancialGoalsNestedInput = {
+    create?: XOR<UserCreateWithoutFinancialGoalsInput, UserUncheckedCreateWithoutFinancialGoalsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFinancialGoalsInput
+    upsert?: UserUpsertWithoutFinancialGoalsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFinancialGoalsInput, UserUpdateWithoutFinancialGoalsInput>, UserUncheckedUpdateWithoutFinancialGoalsInput>
+  }
+
+  export type UserCreateNestedOneWithoutHealthProfileInput = {
+    create?: XOR<UserCreateWithoutHealthProfileInput, UserUncheckedCreateWithoutHealthProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutHealthProfileInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutHealthProfileNestedInput = {
+    create?: XOR<UserCreateWithoutHealthProfileInput, UserUncheckedCreateWithoutHealthProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutHealthProfileInput
+    upsert?: UserUpsertWithoutHealthProfileInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutHealthProfileInput, UserUpdateWithoutHealthProfileInput>, UserUncheckedUpdateWithoutHealthProfileInput>
+  }
+
+  export type UserCreateNestedOneWithoutWeightLogsInput = {
+    create?: XOR<UserCreateWithoutWeightLogsInput, UserUncheckedCreateWithoutWeightLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWeightLogsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutWeightLogsNestedInput = {
+    create?: XOR<UserCreateWithoutWeightLogsInput, UserUncheckedCreateWithoutWeightLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutWeightLogsInput
+    upsert?: UserUpsertWithoutWeightLogsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutWeightLogsInput, UserUpdateWithoutWeightLogsInput>, UserUncheckedUpdateWithoutWeightLogsInput>
+  }
+
+  export type UserCreateNestedOneWithoutStepLogsInput = {
+    create?: XOR<UserCreateWithoutStepLogsInput, UserUncheckedCreateWithoutStepLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStepLogsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutStepLogsNestedInput = {
+    create?: XOR<UserCreateWithoutStepLogsInput, UserUncheckedCreateWithoutStepLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStepLogsInput
+    upsert?: UserUpsertWithoutStepLogsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutStepLogsInput, UserUpdateWithoutStepLogsInput>, UserUncheckedUpdateWithoutStepLogsInput>
+  }
+
+  export type UserCreateNestedOneWithoutFoodLogsInput = {
+    create?: XOR<UserCreateWithoutFoodLogsInput, UserUncheckedCreateWithoutFoodLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFoodLogsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutFoodLogsNestedInput = {
+    create?: XOR<UserCreateWithoutFoodLogsInput, UserUncheckedCreateWithoutFoodLogsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFoodLogsInput
+    upsert?: UserUpsertWithoutFoodLogsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFoodLogsInput, UserUpdateWithoutFoodLogsInput>, UserUncheckedUpdateWithoutFoodLogsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -40700,9 +55265,16 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     todoList?: TodoListCreateNestedOneWithoutTodosInput
+    subtasks?: SubtaskCreateNestedManyWithoutTodoInput
   }
 
   export type TodoUncheckedCreateWithoutUserInput = {
@@ -40715,8 +55287,15 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    subtasks?: SubtaskUncheckedCreateNestedManyWithoutTodoInput
   }
 
   export type TodoCreateOrConnectWithoutUserInput = {
@@ -40884,6 +55463,7 @@ export namespace Prisma {
     icon?: string | null
     budget?: number | null
     expenses?: ExpenseCreateNestedManyWithoutCategoryInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutCategoryInput
   }
 
   export type ExpenseCategoryUncheckedCreateWithoutUserInput = {
@@ -40893,6 +55473,7 @@ export namespace Prisma {
     icon?: string | null
     budget?: number | null
     expenses?: ExpenseUncheckedCreateNestedManyWithoutCategoryInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type ExpenseCategoryCreateOrConnectWithoutUserInput = {
@@ -40937,6 +55518,205 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type RecurringExpenseCreateWithoutUserInput = {
+    id?: string
+    title: string
+    amount: number
+    type?: string
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    category?: ExpenseCategoryCreateNestedOneWithoutRecurringExpensesInput
+  }
+
+  export type RecurringExpenseUncheckedCreateWithoutUserInput = {
+    id?: string
+    title: string
+    amount: number
+    type?: string
+    categoryId?: string | null
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RecurringExpenseCreateOrConnectWithoutUserInput = {
+    where: RecurringExpenseWhereUniqueInput
+    create: XOR<RecurringExpenseCreateWithoutUserInput, RecurringExpenseUncheckedCreateWithoutUserInput>
+  }
+
+  export type RecurringExpenseCreateManyUserInputEnvelope = {
+    data: RecurringExpenseCreateManyUserInput | RecurringExpenseCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FinancialGoalCreateWithoutUserInput = {
+    id?: string
+    title: string
+    targetAmount: number
+    savedAmount?: number
+    deadline: Date | string
+    icon?: string
+    color?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FinancialGoalUncheckedCreateWithoutUserInput = {
+    id?: string
+    title: string
+    targetAmount: number
+    savedAmount?: number
+    deadline: Date | string
+    icon?: string
+    color?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FinancialGoalCreateOrConnectWithoutUserInput = {
+    where: FinancialGoalWhereUniqueInput
+    create: XOR<FinancialGoalCreateWithoutUserInput, FinancialGoalUncheckedCreateWithoutUserInput>
+  }
+
+  export type FinancialGoalCreateManyUserInputEnvelope = {
+    data: FinancialGoalCreateManyUserInput | FinancialGoalCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type HealthProfileCreateWithoutUserInput = {
+    id?: string
+    age?: number | null
+    weightKg?: number | null
+    heightCm?: number | null
+    gender?: string | null
+    goal?: string | null
+    targetWeightKg?: number | null
+    dailyStepGoal?: number
+    dailyWaterGoalMl?: number
+    dailyCalorieGoal?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthProfileUncheckedCreateWithoutUserInput = {
+    id?: string
+    age?: number | null
+    weightKg?: number | null
+    heightCm?: number | null
+    gender?: string | null
+    goal?: string | null
+    targetWeightKg?: number | null
+    dailyStepGoal?: number
+    dailyWaterGoalMl?: number
+    dailyCalorieGoal?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HealthProfileCreateOrConnectWithoutUserInput = {
+    where: HealthProfileWhereUniqueInput
+    create: XOR<HealthProfileCreateWithoutUserInput, HealthProfileUncheckedCreateWithoutUserInput>
+  }
+
+  export type WeightLogCreateWithoutUserInput = {
+    id?: string
+    date: Date | string
+    weightKg: number
+    notes?: string | null
+    createdAt?: Date | string
+  }
+
+  export type WeightLogUncheckedCreateWithoutUserInput = {
+    id?: string
+    date: Date | string
+    weightKg: number
+    notes?: string | null
+    createdAt?: Date | string
+  }
+
+  export type WeightLogCreateOrConnectWithoutUserInput = {
+    where: WeightLogWhereUniqueInput
+    create: XOR<WeightLogCreateWithoutUserInput, WeightLogUncheckedCreateWithoutUserInput>
+  }
+
+  export type WeightLogCreateManyUserInputEnvelope = {
+    data: WeightLogCreateManyUserInput | WeightLogCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type StepLogCreateWithoutUserInput = {
+    id?: string
+    date: Date | string
+    steps: number
+    goal?: number
+    createdAt?: Date | string
+  }
+
+  export type StepLogUncheckedCreateWithoutUserInput = {
+    id?: string
+    date: Date | string
+    steps: number
+    goal?: number
+    createdAt?: Date | string
+  }
+
+  export type StepLogCreateOrConnectWithoutUserInput = {
+    where: StepLogWhereUniqueInput
+    create: XOR<StepLogCreateWithoutUserInput, StepLogUncheckedCreateWithoutUserInput>
+  }
+
+  export type StepLogCreateManyUserInputEnvelope = {
+    data: StepLogCreateManyUserInput | StepLogCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FoodLogCreateWithoutUserInput = {
+    id?: string
+    date: Date | string
+    mealType: string
+    name: string
+    calories: number
+    protein?: number | null
+    carbs?: number | null
+    fat?: number | null
+    createdAt?: Date | string
+  }
+
+  export type FoodLogUncheckedCreateWithoutUserInput = {
+    id?: string
+    date: Date | string
+    mealType: string
+    name: string
+    calories: number
+    protein?: number | null
+    carbs?: number | null
+    fat?: number | null
+    createdAt?: Date | string
+  }
+
+  export type FoodLogCreateOrConnectWithoutUserInput = {
+    where: FoodLogWhereUniqueInput
+    create: XOR<FoodLogCreateWithoutUserInput, FoodLogUncheckedCreateWithoutUserInput>
+  }
+
+  export type FoodLogCreateManyUserInputEnvelope = {
+    data: FoodLogCreateManyUserInput | FoodLogCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type NoteCreateWithoutUserInput = {
     id?: string
     title: string
@@ -40945,20 +55725,28 @@ export namespace Prisma {
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    folder?: NoteFolderCreateNestedOneWithoutNotesInput
+    versions?: NoteVersionCreateNestedManyWithoutNoteInput
   }
 
   export type NoteUncheckedCreateWithoutUserInput = {
     id?: string
+    folderId?: string | null
     title: string
     content?: string
     tags?: NoteCreatetagsInput | string[]
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    versions?: NoteVersionUncheckedCreateNestedManyWithoutNoteInput
   }
 
   export type NoteCreateOrConnectWithoutUserInput = {
@@ -40968,6 +55756,32 @@ export namespace Prisma {
 
   export type NoteCreateManyUserInputEnvelope = {
     data: NoteCreateManyUserInput | NoteCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NoteFolderCreateWithoutUserInput = {
+    id?: string
+    name: string
+    color?: string
+    createdAt?: Date | string
+    notes?: NoteCreateNestedManyWithoutFolderInput
+  }
+
+  export type NoteFolderUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    color?: string
+    createdAt?: Date | string
+    notes?: NoteUncheckedCreateNestedManyWithoutFolderInput
+  }
+
+  export type NoteFolderCreateOrConnectWithoutUserInput = {
+    where: NoteFolderWhereUniqueInput
+    create: XOR<NoteFolderCreateWithoutUserInput, NoteFolderUncheckedCreateWithoutUserInput>
+  }
+
+  export type NoteFolderCreateManyUserInputEnvelope = {
+    data: NoteFolderCreateManyUserInput | NoteFolderCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -41256,6 +56070,12 @@ export namespace Prisma {
     priority?: EnumPriorityFilter<"Todo"> | $Enums.Priority
     dueDate?: DateTimeNullableFilter<"Todo"> | Date | string | null
     sortOrder?: IntFilter<"Todo"> | number
+    status?: StringFilter<"Todo"> | string
+    isUrgent?: BoolFilter<"Todo"> | boolean
+    isImportant?: BoolFilter<"Todo"> | boolean
+    estimatedMinutes?: IntNullableFilter<"Todo"> | number | null
+    actualMinutes?: IntFilter<"Todo"> | number
+    timerStartedAt?: DateTimeNullableFilter<"Todo"> | Date | string | null
     createdAt?: DateTimeFilter<"Todo"> | Date | string
     updatedAt?: DateTimeFilter<"Todo"> | Date | string
   }
@@ -41468,6 +56288,204 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Expense"> | Date | string
   }
 
+  export type RecurringExpenseUpsertWithWhereUniqueWithoutUserInput = {
+    where: RecurringExpenseWhereUniqueInput
+    update: XOR<RecurringExpenseUpdateWithoutUserInput, RecurringExpenseUncheckedUpdateWithoutUserInput>
+    create: XOR<RecurringExpenseCreateWithoutUserInput, RecurringExpenseUncheckedCreateWithoutUserInput>
+  }
+
+  export type RecurringExpenseUpdateWithWhereUniqueWithoutUserInput = {
+    where: RecurringExpenseWhereUniqueInput
+    data: XOR<RecurringExpenseUpdateWithoutUserInput, RecurringExpenseUncheckedUpdateWithoutUserInput>
+  }
+
+  export type RecurringExpenseUpdateManyWithWhereWithoutUserInput = {
+    where: RecurringExpenseScalarWhereInput
+    data: XOR<RecurringExpenseUpdateManyMutationInput, RecurringExpenseUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type RecurringExpenseScalarWhereInput = {
+    AND?: RecurringExpenseScalarWhereInput | RecurringExpenseScalarWhereInput[]
+    OR?: RecurringExpenseScalarWhereInput[]
+    NOT?: RecurringExpenseScalarWhereInput | RecurringExpenseScalarWhereInput[]
+    id?: StringFilter<"RecurringExpense"> | string
+    userId?: StringFilter<"RecurringExpense"> | string
+    title?: StringFilter<"RecurringExpense"> | string
+    amount?: FloatFilter<"RecurringExpense"> | number
+    type?: StringFilter<"RecurringExpense"> | string
+    categoryId?: StringNullableFilter<"RecurringExpense"> | string | null
+    frequency?: StringFilter<"RecurringExpense"> | string
+    dayOfMonth?: IntNullableFilter<"RecurringExpense"> | number | null
+    dayOfWeek?: IntNullableFilter<"RecurringExpense"> | number | null
+    notes?: StringNullableFilter<"RecurringExpense"> | string | null
+    isActive?: BoolFilter<"RecurringExpense"> | boolean
+    nextDueAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    createdAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+    updatedAt?: DateTimeFilter<"RecurringExpense"> | Date | string
+  }
+
+  export type FinancialGoalUpsertWithWhereUniqueWithoutUserInput = {
+    where: FinancialGoalWhereUniqueInput
+    update: XOR<FinancialGoalUpdateWithoutUserInput, FinancialGoalUncheckedUpdateWithoutUserInput>
+    create: XOR<FinancialGoalCreateWithoutUserInput, FinancialGoalUncheckedCreateWithoutUserInput>
+  }
+
+  export type FinancialGoalUpdateWithWhereUniqueWithoutUserInput = {
+    where: FinancialGoalWhereUniqueInput
+    data: XOR<FinancialGoalUpdateWithoutUserInput, FinancialGoalUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FinancialGoalUpdateManyWithWhereWithoutUserInput = {
+    where: FinancialGoalScalarWhereInput
+    data: XOR<FinancialGoalUpdateManyMutationInput, FinancialGoalUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FinancialGoalScalarWhereInput = {
+    AND?: FinancialGoalScalarWhereInput | FinancialGoalScalarWhereInput[]
+    OR?: FinancialGoalScalarWhereInput[]
+    NOT?: FinancialGoalScalarWhereInput | FinancialGoalScalarWhereInput[]
+    id?: StringFilter<"FinancialGoal"> | string
+    userId?: StringFilter<"FinancialGoal"> | string
+    title?: StringFilter<"FinancialGoal"> | string
+    targetAmount?: FloatFilter<"FinancialGoal"> | number
+    savedAmount?: FloatFilter<"FinancialGoal"> | number
+    deadline?: DateTimeFilter<"FinancialGoal"> | Date | string
+    icon?: StringFilter<"FinancialGoal"> | string
+    color?: StringFilter<"FinancialGoal"> | string
+    isCompleted?: BoolFilter<"FinancialGoal"> | boolean
+    createdAt?: DateTimeFilter<"FinancialGoal"> | Date | string
+    updatedAt?: DateTimeFilter<"FinancialGoal"> | Date | string
+  }
+
+  export type HealthProfileUpsertWithoutUserInput = {
+    update: XOR<HealthProfileUpdateWithoutUserInput, HealthProfileUncheckedUpdateWithoutUserInput>
+    create: XOR<HealthProfileCreateWithoutUserInput, HealthProfileUncheckedCreateWithoutUserInput>
+    where?: HealthProfileWhereInput
+  }
+
+  export type HealthProfileUpdateToOneWithWhereWithoutUserInput = {
+    where?: HealthProfileWhereInput
+    data: XOR<HealthProfileUpdateWithoutUserInput, HealthProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type HealthProfileUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    age?: NullableIntFieldUpdateOperationsInput | number | null
+    weightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    heightCm?: NullableFloatFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    targetWeightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    dailyStepGoal?: IntFieldUpdateOperationsInput | number
+    dailyWaterGoalMl?: IntFieldUpdateOperationsInput | number
+    dailyCalorieGoal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HealthProfileUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    age?: NullableIntFieldUpdateOperationsInput | number | null
+    weightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    heightCm?: NullableFloatFieldUpdateOperationsInput | number | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    targetWeightKg?: NullableFloatFieldUpdateOperationsInput | number | null
+    dailyStepGoal?: IntFieldUpdateOperationsInput | number
+    dailyWaterGoalMl?: IntFieldUpdateOperationsInput | number
+    dailyCalorieGoal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeightLogUpsertWithWhereUniqueWithoutUserInput = {
+    where: WeightLogWhereUniqueInput
+    update: XOR<WeightLogUpdateWithoutUserInput, WeightLogUncheckedUpdateWithoutUserInput>
+    create: XOR<WeightLogCreateWithoutUserInput, WeightLogUncheckedCreateWithoutUserInput>
+  }
+
+  export type WeightLogUpdateWithWhereUniqueWithoutUserInput = {
+    where: WeightLogWhereUniqueInput
+    data: XOR<WeightLogUpdateWithoutUserInput, WeightLogUncheckedUpdateWithoutUserInput>
+  }
+
+  export type WeightLogUpdateManyWithWhereWithoutUserInput = {
+    where: WeightLogScalarWhereInput
+    data: XOR<WeightLogUpdateManyMutationInput, WeightLogUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type WeightLogScalarWhereInput = {
+    AND?: WeightLogScalarWhereInput | WeightLogScalarWhereInput[]
+    OR?: WeightLogScalarWhereInput[]
+    NOT?: WeightLogScalarWhereInput | WeightLogScalarWhereInput[]
+    id?: StringFilter<"WeightLog"> | string
+    userId?: StringFilter<"WeightLog"> | string
+    date?: DateTimeFilter<"WeightLog"> | Date | string
+    weightKg?: FloatFilter<"WeightLog"> | number
+    notes?: StringNullableFilter<"WeightLog"> | string | null
+    createdAt?: DateTimeFilter<"WeightLog"> | Date | string
+  }
+
+  export type StepLogUpsertWithWhereUniqueWithoutUserInput = {
+    where: StepLogWhereUniqueInput
+    update: XOR<StepLogUpdateWithoutUserInput, StepLogUncheckedUpdateWithoutUserInput>
+    create: XOR<StepLogCreateWithoutUserInput, StepLogUncheckedCreateWithoutUserInput>
+  }
+
+  export type StepLogUpdateWithWhereUniqueWithoutUserInput = {
+    where: StepLogWhereUniqueInput
+    data: XOR<StepLogUpdateWithoutUserInput, StepLogUncheckedUpdateWithoutUserInput>
+  }
+
+  export type StepLogUpdateManyWithWhereWithoutUserInput = {
+    where: StepLogScalarWhereInput
+    data: XOR<StepLogUpdateManyMutationInput, StepLogUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type StepLogScalarWhereInput = {
+    AND?: StepLogScalarWhereInput | StepLogScalarWhereInput[]
+    OR?: StepLogScalarWhereInput[]
+    NOT?: StepLogScalarWhereInput | StepLogScalarWhereInput[]
+    id?: StringFilter<"StepLog"> | string
+    userId?: StringFilter<"StepLog"> | string
+    date?: DateTimeFilter<"StepLog"> | Date | string
+    steps?: IntFilter<"StepLog"> | number
+    goal?: IntFilter<"StepLog"> | number
+    createdAt?: DateTimeFilter<"StepLog"> | Date | string
+  }
+
+  export type FoodLogUpsertWithWhereUniqueWithoutUserInput = {
+    where: FoodLogWhereUniqueInput
+    update: XOR<FoodLogUpdateWithoutUserInput, FoodLogUncheckedUpdateWithoutUserInput>
+    create: XOR<FoodLogCreateWithoutUserInput, FoodLogUncheckedCreateWithoutUserInput>
+  }
+
+  export type FoodLogUpdateWithWhereUniqueWithoutUserInput = {
+    where: FoodLogWhereUniqueInput
+    data: XOR<FoodLogUpdateWithoutUserInput, FoodLogUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FoodLogUpdateManyWithWhereWithoutUserInput = {
+    where: FoodLogScalarWhereInput
+    data: XOR<FoodLogUpdateManyMutationInput, FoodLogUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FoodLogScalarWhereInput = {
+    AND?: FoodLogScalarWhereInput | FoodLogScalarWhereInput[]
+    OR?: FoodLogScalarWhereInput[]
+    NOT?: FoodLogScalarWhereInput | FoodLogScalarWhereInput[]
+    id?: StringFilter<"FoodLog"> | string
+    userId?: StringFilter<"FoodLog"> | string
+    date?: DateTimeFilter<"FoodLog"> | Date | string
+    mealType?: StringFilter<"FoodLog"> | string
+    name?: StringFilter<"FoodLog"> | string
+    calories?: IntFilter<"FoodLog"> | number
+    protein?: FloatNullableFilter<"FoodLog"> | number | null
+    carbs?: FloatNullableFilter<"FoodLog"> | number | null
+    fat?: FloatNullableFilter<"FoodLog"> | number | null
+    createdAt?: DateTimeFilter<"FoodLog"> | Date | string
+  }
+
   export type NoteUpsertWithWhereUniqueWithoutUserInput = {
     where: NoteWhereUniqueInput
     update: XOR<NoteUpdateWithoutUserInput, NoteUncheckedUpdateWithoutUserInput>
@@ -41490,14 +56508,44 @@ export namespace Prisma {
     NOT?: NoteScalarWhereInput | NoteScalarWhereInput[]
     id?: StringFilter<"Note"> | string
     userId?: StringFilter<"Note"> | string
+    folderId?: StringNullableFilter<"Note"> | string | null
     title?: StringFilter<"Note"> | string
     content?: StringFilter<"Note"> | string
     tags?: StringNullableListFilter<"Note">
     isPinned?: BoolFilter<"Note"> | boolean
     isJournal?: BoolFilter<"Note"> | boolean
     journalDate?: DateTimeNullableFilter<"Note"> | Date | string | null
+    mood?: StringNullableFilter<"Note"> | string | null
+    reminderAt?: DateTimeNullableFilter<"Note"> | Date | string | null
     createdAt?: DateTimeFilter<"Note"> | Date | string
     updatedAt?: DateTimeFilter<"Note"> | Date | string
+  }
+
+  export type NoteFolderUpsertWithWhereUniqueWithoutUserInput = {
+    where: NoteFolderWhereUniqueInput
+    update: XOR<NoteFolderUpdateWithoutUserInput, NoteFolderUncheckedUpdateWithoutUserInput>
+    create: XOR<NoteFolderCreateWithoutUserInput, NoteFolderUncheckedCreateWithoutUserInput>
+  }
+
+  export type NoteFolderUpdateWithWhereUniqueWithoutUserInput = {
+    where: NoteFolderWhereUniqueInput
+    data: XOR<NoteFolderUpdateWithoutUserInput, NoteFolderUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NoteFolderUpdateManyWithWhereWithoutUserInput = {
+    where: NoteFolderScalarWhereInput
+    data: XOR<NoteFolderUpdateManyMutationInput, NoteFolderUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type NoteFolderScalarWhereInput = {
+    AND?: NoteFolderScalarWhereInput | NoteFolderScalarWhereInput[]
+    OR?: NoteFolderScalarWhereInput[]
+    NOT?: NoteFolderScalarWhereInput | NoteFolderScalarWhereInput[]
+    id?: StringFilter<"NoteFolder"> | string
+    userId?: StringFilter<"NoteFolder"> | string
+    name?: StringFilter<"NoteFolder"> | string
+    color?: StringFilter<"NoteFolder"> | string
+    createdAt?: DateTimeFilter<"NoteFolder"> | Date | string
   }
 
   export type PomodoroSessionUpsertWithWhereUniqueWithoutUserInput = {
@@ -41558,7 +56606,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -41591,7 +56646,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -41640,7 +56702,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -41673,7 +56742,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -41706,7 +56782,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -41739,7 +56822,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -41788,7 +56878,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -41821,7 +56918,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -41854,7 +56958,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -41887,7 +56998,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -41936,7 +57054,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -41969,7 +57094,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -42002,7 +57134,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -42035,7 +57174,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -42084,7 +57230,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -42117,7 +57270,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -42369,7 +57529,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -42402,7 +57569,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -42476,7 +57650,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -42509,7 +57690,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -42882,7 +58070,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -42915,7 +58110,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -43001,7 +58203,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -43034,7 +58243,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -43110,7 +58326,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -43143,7 +58366,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -43161,9 +58391,16 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutTodosInput
+    subtasks?: SubtaskCreateNestedManyWithoutTodoInput
   }
 
   export type TodoUncheckedCreateWithoutTodoListInput = {
@@ -43176,8 +58413,15 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    subtasks?: SubtaskUncheckedCreateNestedManyWithoutTodoInput
   }
 
   export type TodoCreateOrConnectWithoutTodoListInput = {
@@ -43230,7 +58474,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -43263,7 +58514,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -43312,7 +58570,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -43345,7 +58610,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -43375,6 +58647,32 @@ export namespace Prisma {
   export type TodoListCreateOrConnectWithoutTodosInput = {
     where: TodoListWhereUniqueInput
     create: XOR<TodoListCreateWithoutTodosInput, TodoListUncheckedCreateWithoutTodosInput>
+  }
+
+  export type SubtaskCreateWithoutTodoInput = {
+    id?: string
+    title: string
+    completed?: boolean
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type SubtaskUncheckedCreateWithoutTodoInput = {
+    id?: string
+    title: string
+    completed?: boolean
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type SubtaskCreateOrConnectWithoutTodoInput = {
+    where: SubtaskWhereUniqueInput
+    create: XOR<SubtaskCreateWithoutTodoInput, SubtaskUncheckedCreateWithoutTodoInput>
+  }
+
+  export type SubtaskCreateManyTodoInputEnvelope = {
+    data: SubtaskCreateManyTodoInput | SubtaskCreateManyTodoInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutTodosInput = {
@@ -43417,7 +58715,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -43450,7 +58755,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -43479,6 +58791,134 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubtaskUpsertWithWhereUniqueWithoutTodoInput = {
+    where: SubtaskWhereUniqueInput
+    update: XOR<SubtaskUpdateWithoutTodoInput, SubtaskUncheckedUpdateWithoutTodoInput>
+    create: XOR<SubtaskCreateWithoutTodoInput, SubtaskUncheckedCreateWithoutTodoInput>
+  }
+
+  export type SubtaskUpdateWithWhereUniqueWithoutTodoInput = {
+    where: SubtaskWhereUniqueInput
+    data: XOR<SubtaskUpdateWithoutTodoInput, SubtaskUncheckedUpdateWithoutTodoInput>
+  }
+
+  export type SubtaskUpdateManyWithWhereWithoutTodoInput = {
+    where: SubtaskScalarWhereInput
+    data: XOR<SubtaskUpdateManyMutationInput, SubtaskUncheckedUpdateManyWithoutTodoInput>
+  }
+
+  export type SubtaskScalarWhereInput = {
+    AND?: SubtaskScalarWhereInput | SubtaskScalarWhereInput[]
+    OR?: SubtaskScalarWhereInput[]
+    NOT?: SubtaskScalarWhereInput | SubtaskScalarWhereInput[]
+    id?: StringFilter<"Subtask"> | string
+    todoId?: StringFilter<"Subtask"> | string
+    title?: StringFilter<"Subtask"> | string
+    completed?: BoolFilter<"Subtask"> | boolean
+    sortOrder?: IntFilter<"Subtask"> | number
+    createdAt?: DateTimeFilter<"Subtask"> | Date | string
+  }
+
+  export type TodoCreateWithoutSubtasksInput = {
+    id?: string
+    title: string
+    description?: string | null
+    completed?: boolean
+    completedAt?: Date | string | null
+    priority?: $Enums.Priority
+    dueDate?: Date | string | null
+    sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutTodosInput
+    todoList?: TodoListCreateNestedOneWithoutTodosInput
+  }
+
+  export type TodoUncheckedCreateWithoutSubtasksInput = {
+    id?: string
+    userId: string
+    todoListId?: string | null
+    title: string
+    description?: string | null
+    completed?: boolean
+    completedAt?: Date | string | null
+    priority?: $Enums.Priority
+    dueDate?: Date | string | null
+    sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TodoCreateOrConnectWithoutSubtasksInput = {
+    where: TodoWhereUniqueInput
+    create: XOR<TodoCreateWithoutSubtasksInput, TodoUncheckedCreateWithoutSubtasksInput>
+  }
+
+  export type TodoUpsertWithoutSubtasksInput = {
+    update: XOR<TodoUpdateWithoutSubtasksInput, TodoUncheckedUpdateWithoutSubtasksInput>
+    create: XOR<TodoCreateWithoutSubtasksInput, TodoUncheckedCreateWithoutSubtasksInput>
+    where?: TodoWhereInput
+  }
+
+  export type TodoUpdateToOneWithWhereWithoutSubtasksInput = {
+    where?: TodoWhereInput
+    data: XOR<TodoUpdateWithoutSubtasksInput, TodoUncheckedUpdateWithoutSubtasksInput>
+  }
+
+  export type TodoUpdateWithoutSubtasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
+    dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutTodosNestedInput
+    todoList?: TodoListUpdateOneWithoutTodosNestedInput
+  }
+
+  export type TodoUncheckedUpdateWithoutSubtasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    todoListId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
+    dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -43512,7 +58952,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -43545,7 +58992,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -43594,7 +59048,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -43627,7 +59088,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -43660,7 +59128,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -43693,7 +59168,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -43742,7 +59224,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -43775,7 +59264,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -43808,7 +59304,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -43841,7 +59344,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -43890,7 +59400,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -43923,7 +59440,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -43956,7 +59480,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -43989,7 +59520,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -44038,7 +59576,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -44071,7 +59616,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -44104,7 +59656,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -44137,7 +59696,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -44186,7 +59752,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -44219,7 +59792,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -44252,7 +59832,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -44285,7 +59872,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -44323,6 +59917,48 @@ export namespace Prisma {
 
   export type ExpenseCreateManyCategoryInputEnvelope = {
     data: ExpenseCreateManyCategoryInput | ExpenseCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type RecurringExpenseCreateWithoutCategoryInput = {
+    id?: string
+    title: string
+    amount: number
+    type?: string
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutRecurringExpensesInput
+  }
+
+  export type RecurringExpenseUncheckedCreateWithoutCategoryInput = {
+    id?: string
+    userId: string
+    title: string
+    amount: number
+    type?: string
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RecurringExpenseCreateOrConnectWithoutCategoryInput = {
+    where: RecurringExpenseWhereUniqueInput
+    create: XOR<RecurringExpenseCreateWithoutCategoryInput, RecurringExpenseUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type RecurringExpenseCreateManyCategoryInputEnvelope = {
+    data: RecurringExpenseCreateManyCategoryInput | RecurringExpenseCreateManyCategoryInput[]
     skipDuplicates?: boolean
   }
 
@@ -44366,7 +60002,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -44399,7 +60042,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -44417,6 +60067,22 @@ export namespace Prisma {
   export type ExpenseUpdateManyWithWhereWithoutCategoryInput = {
     where: ExpenseScalarWhereInput
     data: XOR<ExpenseUpdateManyMutationInput, ExpenseUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type RecurringExpenseUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: RecurringExpenseWhereUniqueInput
+    update: XOR<RecurringExpenseUpdateWithoutCategoryInput, RecurringExpenseUncheckedUpdateWithoutCategoryInput>
+    create: XOR<RecurringExpenseCreateWithoutCategoryInput, RecurringExpenseUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type RecurringExpenseUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: RecurringExpenseWhereUniqueInput
+    data: XOR<RecurringExpenseUpdateWithoutCategoryInput, RecurringExpenseUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type RecurringExpenseUpdateManyWithWhereWithoutCategoryInput = {
+    where: RecurringExpenseScalarWhereInput
+    data: XOR<RecurringExpenseUpdateManyMutationInput, RecurringExpenseUncheckedUpdateManyWithoutCategoryInput>
   }
 
   export type UserCreateWithoutExpensesInput = {
@@ -44448,7 +60114,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -44481,7 +60154,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -44497,6 +60177,7 @@ export namespace Prisma {
     icon?: string | null
     budget?: number | null
     user: UserCreateNestedOneWithoutExpenseCategoriesInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutCategoryInput
   }
 
   export type ExpenseCategoryUncheckedCreateWithoutExpensesInput = {
@@ -44506,6 +60187,7 @@ export namespace Prisma {
     color?: string
     icon?: string | null
     budget?: number | null
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type ExpenseCategoryCreateOrConnectWithoutExpensesInput = {
@@ -44553,7 +60235,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -44586,7 +60275,14 @@ export namespace Prisma {
     workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -44608,6 +60304,7 @@ export namespace Prisma {
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     budget?: NullableFloatFieldUpdateOperationsInput | number | null
     user?: UserUpdateOneRequiredWithoutExpenseCategoriesNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutCategoryNestedInput
   }
 
   export type ExpenseCategoryUncheckedUpdateWithoutExpensesInput = {
@@ -44617,6 +60314,241 @@ export namespace Prisma {
     color?: StringFieldUpdateOperationsInput | string
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     budget?: NullableFloatFieldUpdateOperationsInput | number | null
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type UserCreateWithoutNoteFoldersInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeCreateNestedOneWithoutUserInput
+    todoLists?: TodoListCreateNestedManyWithoutUserInput
+    todos?: TodoCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
+    notes?: NoteCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutNoteFoldersInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleUncheckedCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeUncheckedCreateNestedOneWithoutUserInput
+    todoLists?: TodoListUncheckedCreateNestedManyWithoutUserInput
+    todos?: TodoUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogUncheckedCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
+    notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutNoteFoldersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutNoteFoldersInput, UserUncheckedCreateWithoutNoteFoldersInput>
+  }
+
+  export type NoteCreateWithoutFolderInput = {
+    id?: string
+    title: string
+    content?: string
+    tags?: NoteCreatetagsInput | string[]
+    isPinned?: boolean
+    isJournal?: boolean
+    journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutNotesInput
+    versions?: NoteVersionCreateNestedManyWithoutNoteInput
+  }
+
+  export type NoteUncheckedCreateWithoutFolderInput = {
+    id?: string
+    userId: string
+    title: string
+    content?: string
+    tags?: NoteCreatetagsInput | string[]
+    isPinned?: boolean
+    isJournal?: boolean
+    journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    versions?: NoteVersionUncheckedCreateNestedManyWithoutNoteInput
+  }
+
+  export type NoteCreateOrConnectWithoutFolderInput = {
+    where: NoteWhereUniqueInput
+    create: XOR<NoteCreateWithoutFolderInput, NoteUncheckedCreateWithoutFolderInput>
+  }
+
+  export type NoteCreateManyFolderInputEnvelope = {
+    data: NoteCreateManyFolderInput | NoteCreateManyFolderInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutNoteFoldersInput = {
+    update: XOR<UserUpdateWithoutNoteFoldersInput, UserUncheckedUpdateWithoutNoteFoldersInput>
+    create: XOR<UserCreateWithoutNoteFoldersInput, UserUncheckedCreateWithoutNoteFoldersInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutNoteFoldersInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutNoteFoldersInput, UserUncheckedUpdateWithoutNoteFoldersInput>
+  }
+
+  export type UserUpdateWithoutNoteFoldersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUpdateManyWithoutUserNestedInput
+    todos?: TodoUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
+    notes?: NoteUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutNoteFoldersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUncheckedUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUncheckedUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUncheckedUpdateManyWithoutUserNestedInput
+    todos?: TodoUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUncheckedUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
+    notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type NoteUpsertWithWhereUniqueWithoutFolderInput = {
+    where: NoteWhereUniqueInput
+    update: XOR<NoteUpdateWithoutFolderInput, NoteUncheckedUpdateWithoutFolderInput>
+    create: XOR<NoteCreateWithoutFolderInput, NoteUncheckedCreateWithoutFolderInput>
+  }
+
+  export type NoteUpdateWithWhereUniqueWithoutFolderInput = {
+    where: NoteWhereUniqueInput
+    data: XOR<NoteUpdateWithoutFolderInput, NoteUncheckedUpdateWithoutFolderInput>
+  }
+
+  export type NoteUpdateManyWithWhereWithoutFolderInput = {
+    where: NoteScalarWhereInput
+    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyWithoutFolderInput>
   }
 
   export type UserCreateWithoutNotesInput = {
@@ -44649,6 +60581,13 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -44682,12 +60621,64 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutNotesInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutNotesInput, UserUncheckedCreateWithoutNotesInput>
+  }
+
+  export type NoteFolderCreateWithoutNotesInput = {
+    id?: string
+    name: string
+    color?: string
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutNoteFoldersInput
+  }
+
+  export type NoteFolderUncheckedCreateWithoutNotesInput = {
+    id?: string
+    userId: string
+    name: string
+    color?: string
+    createdAt?: Date | string
+  }
+
+  export type NoteFolderCreateOrConnectWithoutNotesInput = {
+    where: NoteFolderWhereUniqueInput
+    create: XOR<NoteFolderCreateWithoutNotesInput, NoteFolderUncheckedCreateWithoutNotesInput>
+  }
+
+  export type NoteVersionCreateWithoutNoteInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type NoteVersionUncheckedCreateWithoutNoteInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type NoteVersionCreateOrConnectWithoutNoteInput = {
+    where: NoteVersionWhereUniqueInput
+    create: XOR<NoteVersionCreateWithoutNoteInput, NoteVersionUncheckedCreateWithoutNoteInput>
+  }
+
+  export type NoteVersionCreateManyNoteInputEnvelope = {
+    data: NoteVersionCreateManyNoteInput | NoteVersionCreateManyNoteInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutNotesInput = {
@@ -44731,6 +60722,13 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -44764,7 +60762,148 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type NoteFolderUpsertWithoutNotesInput = {
+    update: XOR<NoteFolderUpdateWithoutNotesInput, NoteFolderUncheckedUpdateWithoutNotesInput>
+    create: XOR<NoteFolderCreateWithoutNotesInput, NoteFolderUncheckedCreateWithoutNotesInput>
+    where?: NoteFolderWhereInput
+  }
+
+  export type NoteFolderUpdateToOneWithWhereWithoutNotesInput = {
+    where?: NoteFolderWhereInput
+    data: XOR<NoteFolderUpdateWithoutNotesInput, NoteFolderUncheckedUpdateWithoutNotesInput>
+  }
+
+  export type NoteFolderUpdateWithoutNotesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNoteFoldersNestedInput
+  }
+
+  export type NoteFolderUncheckedUpdateWithoutNotesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteVersionUpsertWithWhereUniqueWithoutNoteInput = {
+    where: NoteVersionWhereUniqueInput
+    update: XOR<NoteVersionUpdateWithoutNoteInput, NoteVersionUncheckedUpdateWithoutNoteInput>
+    create: XOR<NoteVersionCreateWithoutNoteInput, NoteVersionUncheckedCreateWithoutNoteInput>
+  }
+
+  export type NoteVersionUpdateWithWhereUniqueWithoutNoteInput = {
+    where: NoteVersionWhereUniqueInput
+    data: XOR<NoteVersionUpdateWithoutNoteInput, NoteVersionUncheckedUpdateWithoutNoteInput>
+  }
+
+  export type NoteVersionUpdateManyWithWhereWithoutNoteInput = {
+    where: NoteVersionScalarWhereInput
+    data: XOR<NoteVersionUpdateManyMutationInput, NoteVersionUncheckedUpdateManyWithoutNoteInput>
+  }
+
+  export type NoteVersionScalarWhereInput = {
+    AND?: NoteVersionScalarWhereInput | NoteVersionScalarWhereInput[]
+    OR?: NoteVersionScalarWhereInput[]
+    NOT?: NoteVersionScalarWhereInput | NoteVersionScalarWhereInput[]
+    id?: StringFilter<"NoteVersion"> | string
+    noteId?: StringFilter<"NoteVersion"> | string
+    title?: StringFilter<"NoteVersion"> | string
+    content?: StringFilter<"NoteVersion"> | string
+    createdAt?: DateTimeFilter<"NoteVersion"> | Date | string
+  }
+
+  export type NoteCreateWithoutVersionsInput = {
+    id?: string
+    title: string
+    content?: string
+    tags?: NoteCreatetagsInput | string[]
+    isPinned?: boolean
+    isJournal?: boolean
+    journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutNotesInput
+    folder?: NoteFolderCreateNestedOneWithoutNotesInput
+  }
+
+  export type NoteUncheckedCreateWithoutVersionsInput = {
+    id?: string
+    userId: string
+    folderId?: string | null
+    title: string
+    content?: string
+    tags?: NoteCreatetagsInput | string[]
+    isPinned?: boolean
+    isJournal?: boolean
+    journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NoteCreateOrConnectWithoutVersionsInput = {
+    where: NoteWhereUniqueInput
+    create: XOR<NoteCreateWithoutVersionsInput, NoteUncheckedCreateWithoutVersionsInput>
+  }
+
+  export type NoteUpsertWithoutVersionsInput = {
+    update: XOR<NoteUpdateWithoutVersionsInput, NoteUncheckedUpdateWithoutVersionsInput>
+    create: XOR<NoteCreateWithoutVersionsInput, NoteUncheckedCreateWithoutVersionsInput>
+    where?: NoteWhereInput
+  }
+
+  export type NoteUpdateToOneWithWhereWithoutVersionsInput = {
+    where?: NoteWhereInput
+    data: XOR<NoteUpdateWithoutVersionsInput, NoteUncheckedUpdateWithoutVersionsInput>
+  }
+
+  export type NoteUpdateWithoutVersionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    tags?: NoteUpdatetagsInput | string[]
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isJournal?: BoolFieldUpdateOperationsInput | boolean
+    journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNotesNestedInput
+    folder?: NoteFolderUpdateOneWithoutNotesNestedInput
+  }
+
+  export type NoteUncheckedUpdateWithoutVersionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    folderId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    tags?: NoteUpdatetagsInput | string[]
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isJournal?: BoolFieldUpdateOperationsInput | boolean
+    journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateWithoutPomodoroSessionsInput = {
@@ -44797,7 +60936,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPomodoroSessionsInput = {
@@ -44830,7 +60976,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPomodoroSessionsInput = {
@@ -44879,7 +61032,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPomodoroSessionsInput = {
@@ -44912,7 +61072,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAuditLogsInput = {
@@ -44944,7 +61111,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
     expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
     notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
   }
 
@@ -44977,7 +61151,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
     expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
     notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
     pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -45026,7 +61207,14 @@ export namespace Prisma {
     sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
     notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
   }
 
@@ -45059,7 +61247,1126 @@ export namespace Prisma {
     sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
     expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
     notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutRecurringExpensesInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeCreateNestedOneWithoutUserInput
+    todoLists?: TodoListCreateNestedManyWithoutUserInput
+    todos?: TodoCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    expenses?: ExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
+    notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutRecurringExpensesInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleUncheckedCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeUncheckedCreateNestedOneWithoutUserInput
+    todoLists?: TodoListUncheckedCreateNestedManyWithoutUserInput
+    todos?: TodoUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogUncheckedCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
+    notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutRecurringExpensesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutRecurringExpensesInput, UserUncheckedCreateWithoutRecurringExpensesInput>
+  }
+
+  export type ExpenseCategoryCreateWithoutRecurringExpensesInput = {
+    id?: string
+    name: string
+    color?: string
+    icon?: string | null
+    budget?: number | null
+    user: UserCreateNestedOneWithoutExpenseCategoriesInput
+    expenses?: ExpenseCreateNestedManyWithoutCategoryInput
+  }
+
+  export type ExpenseCategoryUncheckedCreateWithoutRecurringExpensesInput = {
+    id?: string
+    userId: string
+    name: string
+    color?: string
+    icon?: string | null
+    budget?: number | null
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type ExpenseCategoryCreateOrConnectWithoutRecurringExpensesInput = {
+    where: ExpenseCategoryWhereUniqueInput
+    create: XOR<ExpenseCategoryCreateWithoutRecurringExpensesInput, ExpenseCategoryUncheckedCreateWithoutRecurringExpensesInput>
+  }
+
+  export type UserUpsertWithoutRecurringExpensesInput = {
+    update: XOR<UserUpdateWithoutRecurringExpensesInput, UserUncheckedUpdateWithoutRecurringExpensesInput>
+    create: XOR<UserCreateWithoutRecurringExpensesInput, UserUncheckedCreateWithoutRecurringExpensesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutRecurringExpensesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutRecurringExpensesInput, UserUncheckedUpdateWithoutRecurringExpensesInput>
+  }
+
+  export type UserUpdateWithoutRecurringExpensesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUpdateManyWithoutUserNestedInput
+    todos?: TodoUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
+    notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutRecurringExpensesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUncheckedUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUncheckedUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUncheckedUpdateManyWithoutUserNestedInput
+    todos?: TodoUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUncheckedUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
+    notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ExpenseCategoryUpsertWithoutRecurringExpensesInput = {
+    update: XOR<ExpenseCategoryUpdateWithoutRecurringExpensesInput, ExpenseCategoryUncheckedUpdateWithoutRecurringExpensesInput>
+    create: XOR<ExpenseCategoryCreateWithoutRecurringExpensesInput, ExpenseCategoryUncheckedCreateWithoutRecurringExpensesInput>
+    where?: ExpenseCategoryWhereInput
+  }
+
+  export type ExpenseCategoryUpdateToOneWithWhereWithoutRecurringExpensesInput = {
+    where?: ExpenseCategoryWhereInput
+    data: XOR<ExpenseCategoryUpdateWithoutRecurringExpensesInput, ExpenseCategoryUncheckedUpdateWithoutRecurringExpensesInput>
+  }
+
+  export type ExpenseCategoryUpdateWithoutRecurringExpensesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableFloatFieldUpdateOperationsInput | number | null
+    user?: UserUpdateOneRequiredWithoutExpenseCategoriesNestedInput
+    expenses?: ExpenseUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type ExpenseCategoryUncheckedUpdateWithoutRecurringExpensesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableFloatFieldUpdateOperationsInput | number | null
+    expenses?: ExpenseUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type UserCreateWithoutFinancialGoalsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeCreateNestedOneWithoutUserInput
+    todoLists?: TodoListCreateNestedManyWithoutUserInput
+    todos?: TodoCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
+    notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFinancialGoalsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleUncheckedCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeUncheckedCreateNestedOneWithoutUserInput
+    todoLists?: TodoListUncheckedCreateNestedManyWithoutUserInput
+    todos?: TodoUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogUncheckedCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
+    notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFinancialGoalsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFinancialGoalsInput, UserUncheckedCreateWithoutFinancialGoalsInput>
+  }
+
+  export type UserUpsertWithoutFinancialGoalsInput = {
+    update: XOR<UserUpdateWithoutFinancialGoalsInput, UserUncheckedUpdateWithoutFinancialGoalsInput>
+    create: XOR<UserCreateWithoutFinancialGoalsInput, UserUncheckedCreateWithoutFinancialGoalsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFinancialGoalsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFinancialGoalsInput, UserUncheckedUpdateWithoutFinancialGoalsInput>
+  }
+
+  export type UserUpdateWithoutFinancialGoalsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUpdateManyWithoutUserNestedInput
+    todos?: TodoUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
+    notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFinancialGoalsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUncheckedUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUncheckedUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUncheckedUpdateManyWithoutUserNestedInput
+    todos?: TodoUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUncheckedUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
+    notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutHealthProfileInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeCreateNestedOneWithoutUserInput
+    todoLists?: TodoListCreateNestedManyWithoutUserInput
+    todos?: TodoCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
+    notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutHealthProfileInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleUncheckedCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeUncheckedCreateNestedOneWithoutUserInput
+    todoLists?: TodoListUncheckedCreateNestedManyWithoutUserInput
+    todos?: TodoUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogUncheckedCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
+    notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutHealthProfileInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutHealthProfileInput, UserUncheckedCreateWithoutHealthProfileInput>
+  }
+
+  export type UserUpsertWithoutHealthProfileInput = {
+    update: XOR<UserUpdateWithoutHealthProfileInput, UserUncheckedUpdateWithoutHealthProfileInput>
+    create: XOR<UserCreateWithoutHealthProfileInput, UserUncheckedCreateWithoutHealthProfileInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutHealthProfileInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutHealthProfileInput, UserUncheckedUpdateWithoutHealthProfileInput>
+  }
+
+  export type UserUpdateWithoutHealthProfileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUpdateManyWithoutUserNestedInput
+    todos?: TodoUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
+    notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutHealthProfileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUncheckedUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUncheckedUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUncheckedUpdateManyWithoutUserNestedInput
+    todos?: TodoUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUncheckedUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
+    notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutWeightLogsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeCreateNestedOneWithoutUserInput
+    todoLists?: TodoListCreateNestedManyWithoutUserInput
+    todos?: TodoCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
+    notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutWeightLogsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleUncheckedCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeUncheckedCreateNestedOneWithoutUserInput
+    todoLists?: TodoListUncheckedCreateNestedManyWithoutUserInput
+    todos?: TodoUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogUncheckedCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
+    notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutWeightLogsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutWeightLogsInput, UserUncheckedCreateWithoutWeightLogsInput>
+  }
+
+  export type UserUpsertWithoutWeightLogsInput = {
+    update: XOR<UserUpdateWithoutWeightLogsInput, UserUncheckedUpdateWithoutWeightLogsInput>
+    create: XOR<UserCreateWithoutWeightLogsInput, UserUncheckedCreateWithoutWeightLogsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutWeightLogsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutWeightLogsInput, UserUncheckedUpdateWithoutWeightLogsInput>
+  }
+
+  export type UserUpdateWithoutWeightLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUpdateManyWithoutUserNestedInput
+    todos?: TodoUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
+    notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutWeightLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUncheckedUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUncheckedUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUncheckedUpdateManyWithoutUserNestedInput
+    todos?: TodoUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUncheckedUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
+    notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutStepLogsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeCreateNestedOneWithoutUserInput
+    todoLists?: TodoListCreateNestedManyWithoutUserInput
+    todos?: TodoCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogCreateNestedManyWithoutUserInput
+    notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutStepLogsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleUncheckedCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeUncheckedCreateNestedOneWithoutUserInput
+    todoLists?: TodoListUncheckedCreateNestedManyWithoutUserInput
+    todos?: TodoUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogUncheckedCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    foodLogs?: FoodLogUncheckedCreateNestedManyWithoutUserInput
+    notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutStepLogsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutStepLogsInput, UserUncheckedCreateWithoutStepLogsInput>
+  }
+
+  export type UserUpsertWithoutStepLogsInput = {
+    update: XOR<UserUpdateWithoutStepLogsInput, UserUncheckedUpdateWithoutStepLogsInput>
+    create: XOR<UserCreateWithoutStepLogsInput, UserUncheckedCreateWithoutStepLogsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutStepLogsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutStepLogsInput, UserUncheckedUpdateWithoutStepLogsInput>
+  }
+
+  export type UserUpdateWithoutStepLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUpdateManyWithoutUserNestedInput
+    todos?: TodoUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUpdateManyWithoutUserNestedInput
+    notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutStepLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUncheckedUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUncheckedUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUncheckedUpdateManyWithoutUserNestedInput
+    todos?: TodoUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUncheckedUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    foodLogs?: FoodLogUncheckedUpdateManyWithoutUserNestedInput
+    notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutFoodLogsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeCreateNestedOneWithoutUserInput
+    todoLists?: TodoListCreateNestedManyWithoutUserInput
+    todos?: TodoCreateNestedManyWithoutUserInput
+    notifications?: NotificationCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryCreateNestedManyWithoutUserInput
+    expenses?: ExpenseCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogCreateNestedManyWithoutUserInput
+    notes?: NoteCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFoodLogsInput = {
+    id?: string
+    email: string
+    passwordHash: string
+    fullName: string
+    displayName?: string | null
+    avatarUrl?: string | null
+    timezone?: string
+    locale?: string
+    emailVerified?: boolean
+    status?: $Enums.AccountStatus
+    deletedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    loginAttempts?: LoginAttemptUncheckedCreateNestedManyWithoutUserInput
+    userRoles?: UserRoleUncheckedCreateNestedManyWithoutUserInput
+    appInstallations?: AppInstallationUncheckedCreateNestedManyWithoutUserInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutUserInput
+    passwordResets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    pendingEmailChange?: PendingEmailChangeUncheckedCreateNestedOneWithoutUserInput
+    todoLists?: TodoListUncheckedCreateNestedManyWithoutUserInput
+    todos?: TodoUncheckedCreateNestedManyWithoutUserInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    timeBlocks?: TimeBlockUncheckedCreateNestedManyWithoutUserInput
+    waterLogs?: WaterLogUncheckedCreateNestedManyWithoutUserInput
+    workoutLogs?: WorkoutLogUncheckedCreateNestedManyWithoutUserInput
+    sleepLogs?: SleepLogUncheckedCreateNestedManyWithoutUserInput
+    expenseCategories?: ExpenseCategoryUncheckedCreateNestedManyWithoutUserInput
+    expenses?: ExpenseUncheckedCreateNestedManyWithoutUserInput
+    recurringExpenses?: RecurringExpenseUncheckedCreateNestedManyWithoutUserInput
+    financialGoals?: FinancialGoalUncheckedCreateNestedManyWithoutUserInput
+    healthProfile?: HealthProfileUncheckedCreateNestedOneWithoutUserInput
+    weightLogs?: WeightLogUncheckedCreateNestedManyWithoutUserInput
+    stepLogs?: StepLogUncheckedCreateNestedManyWithoutUserInput
+    notes?: NoteUncheckedCreateNestedManyWithoutUserInput
+    noteFolders?: NoteFolderUncheckedCreateNestedManyWithoutUserInput
+    pomodoroSessions?: PomodoroSessionUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFoodLogsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFoodLogsInput, UserUncheckedCreateWithoutFoodLogsInput>
+  }
+
+  export type UserUpsertWithoutFoodLogsInput = {
+    update: XOR<UserUpdateWithoutFoodLogsInput, UserUncheckedUpdateWithoutFoodLogsInput>
+    create: XOR<UserCreateWithoutFoodLogsInput, UserUncheckedCreateWithoutFoodLogsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFoodLogsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFoodLogsInput, UserUncheckedUpdateWithoutFoodLogsInput>
+  }
+
+  export type UserUpdateWithoutFoodLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUpdateManyWithoutUserNestedInput
+    todos?: TodoUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUpdateManyWithoutUserNestedInput
+    notes?: NoteUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUpdateManyWithoutUserNestedInput
+    pomodoroSessions?: PomodoroSessionUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFoodLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    fullName?: StringFieldUpdateOperationsInput | string
+    displayName?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: StringFieldUpdateOperationsInput | string
+    locale?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumAccountStatusFieldUpdateOperationsInput | $Enums.AccountStatus
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    loginAttempts?: LoginAttemptUncheckedUpdateManyWithoutUserNestedInput
+    userRoles?: UserRoleUncheckedUpdateManyWithoutUserNestedInput
+    appInstallations?: AppInstallationUncheckedUpdateManyWithoutUserNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutUserNestedInput
+    passwordResets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    pendingEmailChange?: PendingEmailChangeUncheckedUpdateOneWithoutUserNestedInput
+    todoLists?: TodoListUncheckedUpdateManyWithoutUserNestedInput
+    todos?: TodoUncheckedUpdateManyWithoutUserNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    timeBlocks?: TimeBlockUncheckedUpdateManyWithoutUserNestedInput
+    waterLogs?: WaterLogUncheckedUpdateManyWithoutUserNestedInput
+    workoutLogs?: WorkoutLogUncheckedUpdateManyWithoutUserNestedInput
+    sleepLogs?: SleepLogUncheckedUpdateManyWithoutUserNestedInput
+    expenseCategories?: ExpenseCategoryUncheckedUpdateManyWithoutUserNestedInput
+    expenses?: ExpenseUncheckedUpdateManyWithoutUserNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutUserNestedInput
+    financialGoals?: FinancialGoalUncheckedUpdateManyWithoutUserNestedInput
+    healthProfile?: HealthProfileUncheckedUpdateOneWithoutUserNestedInput
+    weightLogs?: WeightLogUncheckedUpdateManyWithoutUserNestedInput
+    stepLogs?: StepLogUncheckedUpdateManyWithoutUserNestedInput
+    notes?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    noteFolders?: NoteFolderUncheckedUpdateManyWithoutUserNestedInput
     pomodoroSessions?: PomodoroSessionUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -45133,6 +62440,12 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -45205,16 +62518,83 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type RecurringExpenseCreateManyUserInput = {
+    id?: string
+    title: string
+    amount: number
+    type?: string
+    categoryId?: string | null
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FinancialGoalCreateManyUserInput = {
+    id?: string
+    title: string
+    targetAmount: number
+    savedAmount?: number
+    deadline: Date | string
+    icon?: string
+    color?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type WeightLogCreateManyUserInput = {
+    id?: string
+    date: Date | string
+    weightKg: number
+    notes?: string | null
+    createdAt?: Date | string
+  }
+
+  export type StepLogCreateManyUserInput = {
+    id?: string
+    date: Date | string
+    steps: number
+    goal?: number
+    createdAt?: Date | string
+  }
+
+  export type FoodLogCreateManyUserInput = {
+    id?: string
+    date: Date | string
+    mealType: string
+    name: string
+    calories: number
+    protein?: number | null
+    carbs?: number | null
+    fat?: number | null
+    createdAt?: Date | string
+  }
+
   export type NoteCreateManyUserInput = {
     id?: string
+    folderId?: string | null
     title: string
     content?: string
     tags?: NoteCreatetagsInput | string[]
     isPinned?: boolean
     isJournal?: boolean
     journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type NoteFolderCreateManyUserInput = {
+    id?: string
+    name: string
+    color?: string
+    createdAt?: Date | string
   }
 
   export type PomodoroSessionCreateManyUserInput = {
@@ -45417,9 +62797,16 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     todoList?: TodoListUpdateOneWithoutTodosNestedInput
+    subtasks?: SubtaskUpdateManyWithoutTodoNestedInput
   }
 
   export type TodoUncheckedUpdateWithoutUserInput = {
@@ -45432,8 +62819,15 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subtasks?: SubtaskUncheckedUpdateManyWithoutTodoNestedInput
   }
 
   export type TodoUncheckedUpdateManyWithoutUserInput = {
@@ -45446,6 +62840,12 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -45604,6 +63004,7 @@ export namespace Prisma {
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     budget?: NullableFloatFieldUpdateOperationsInput | number | null
     expenses?: ExpenseUpdateManyWithoutCategoryNestedInput
+    recurringExpenses?: RecurringExpenseUpdateManyWithoutCategoryNestedInput
   }
 
   export type ExpenseCategoryUncheckedUpdateWithoutUserInput = {
@@ -45613,6 +63014,7 @@ export namespace Prisma {
     icon?: NullableStringFieldUpdateOperationsInput | string | null
     budget?: NullableFloatFieldUpdateOperationsInput | number | null
     expenses?: ExpenseUncheckedUpdateManyWithoutCategoryNestedInput
+    recurringExpenses?: RecurringExpenseUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type ExpenseCategoryUncheckedUpdateManyWithoutUserInput = {
@@ -45656,6 +63058,177 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type RecurringExpenseUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: ExpenseCategoryUpdateOneWithoutRecurringExpensesNestedInput
+  }
+
+  export type RecurringExpenseUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RecurringExpenseUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableStringFieldUpdateOperationsInput | string | null
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FinancialGoalUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetAmount?: FloatFieldUpdateOperationsInput | number
+    savedAmount?: FloatFieldUpdateOperationsInput | number
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FinancialGoalUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetAmount?: FloatFieldUpdateOperationsInput | number
+    savedAmount?: FloatFieldUpdateOperationsInput | number
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FinancialGoalUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    targetAmount?: FloatFieldUpdateOperationsInput | number
+    savedAmount?: FloatFieldUpdateOperationsInput | number
+    deadline?: DateTimeFieldUpdateOperationsInput | Date | string
+    icon?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeightLogUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    weightKg?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeightLogUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    weightKg?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type WeightLogUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    weightKg?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StepLogUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    steps?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StepLogUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    steps?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StepLogUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    steps?: IntFieldUpdateOperationsInput | number
+    goal?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FoodLogUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    mealType?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    calories?: IntFieldUpdateOperationsInput | number
+    protein?: NullableFloatFieldUpdateOperationsInput | number | null
+    carbs?: NullableFloatFieldUpdateOperationsInput | number | null
+    fat?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FoodLogUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    mealType?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    calories?: IntFieldUpdateOperationsInput | number
+    protein?: NullableFloatFieldUpdateOperationsInput | number | null
+    carbs?: NullableFloatFieldUpdateOperationsInput | number | null
+    fat?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FoodLogUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    mealType?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    calories?: IntFieldUpdateOperationsInput | number
+    protein?: NullableFloatFieldUpdateOperationsInput | number | null
+    carbs?: NullableFloatFieldUpdateOperationsInput | number | null
+    fat?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type NoteUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
@@ -45664,32 +63237,66 @@ export namespace Prisma {
     isPinned?: BoolFieldUpdateOperationsInput | boolean
     isJournal?: BoolFieldUpdateOperationsInput | boolean
     journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    folder?: NoteFolderUpdateOneWithoutNotesNestedInput
+    versions?: NoteVersionUpdateManyWithoutNoteNestedInput
   }
 
   export type NoteUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    folderId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     tags?: NoteUpdatetagsInput | string[]
     isPinned?: BoolFieldUpdateOperationsInput | boolean
     isJournal?: BoolFieldUpdateOperationsInput | boolean
     journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    versions?: NoteVersionUncheckedUpdateManyWithoutNoteNestedInput
   }
 
   export type NoteUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    folderId?: NullableStringFieldUpdateOperationsInput | string | null
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     tags?: NoteUpdatetagsInput | string[]
     isPinned?: BoolFieldUpdateOperationsInput | boolean
     isJournal?: BoolFieldUpdateOperationsInput | boolean
     journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteFolderUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    notes?: NoteUpdateManyWithoutFolderNestedInput
+  }
+
+  export type NoteFolderUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    notes?: NoteUncheckedUpdateManyWithoutFolderNestedInput
+  }
+
+  export type NoteFolderUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    color?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PomodoroSessionUpdateWithoutUserInput = {
@@ -45889,6 +63496,12 @@ export namespace Prisma {
     priority?: $Enums.Priority
     dueDate?: Date | string | null
     sortOrder?: number
+    status?: string
+    isUrgent?: boolean
+    isImportant?: boolean
+    estimatedMinutes?: number | null
+    actualMinutes?: number
+    timerStartedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -45902,9 +63515,16 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutTodosNestedInput
+    subtasks?: SubtaskUpdateManyWithoutTodoNestedInput
   }
 
   export type TodoUncheckedUpdateWithoutTodoListInput = {
@@ -45917,8 +63537,15 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    subtasks?: SubtaskUncheckedUpdateManyWithoutTodoNestedInput
   }
 
   export type TodoUncheckedUpdateManyWithoutTodoListInput = {
@@ -45931,8 +63558,46 @@ export namespace Prisma {
     priority?: EnumPriorityFieldUpdateOperationsInput | $Enums.Priority
     dueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     sortOrder?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
+    isUrgent?: BoolFieldUpdateOperationsInput | boolean
+    isImportant?: BoolFieldUpdateOperationsInput | boolean
+    estimatedMinutes?: NullableIntFieldUpdateOperationsInput | number | null
+    actualMinutes?: IntFieldUpdateOperationsInput | number
+    timerStartedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubtaskCreateManyTodoInput = {
+    id?: string
+    title: string
+    completed?: boolean
+    sortOrder?: number
+    createdAt?: Date | string
+  }
+
+  export type SubtaskUpdateWithoutTodoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubtaskUncheckedUpdateWithoutTodoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SubtaskUncheckedUpdateManyWithoutTodoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ExpenseCreateManyCategoryInput = {
@@ -45942,6 +63607,22 @@ export namespace Prisma {
     description: string
     date: Date | string
     type?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type RecurringExpenseCreateManyCategoryInput = {
+    id?: string
+    userId: string
+    title: string
+    amount: number
+    type?: string
+    frequency: string
+    dayOfMonth?: number | null
+    dayOfWeek?: number | null
+    notes?: string | null
+    isActive?: boolean
+    nextDueAt: Date | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -45977,6 +63658,144 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RecurringExpenseUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutRecurringExpensesNestedInput
+  }
+
+  export type RecurringExpenseUncheckedUpdateWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RecurringExpenseUncheckedUpdateManyWithoutCategoryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: StringFieldUpdateOperationsInput | string
+    frequency?: StringFieldUpdateOperationsInput | string
+    dayOfMonth?: NullableIntFieldUpdateOperationsInput | number | null
+    dayOfWeek?: NullableIntFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    nextDueAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteCreateManyFolderInput = {
+    id?: string
+    userId: string
+    title: string
+    content?: string
+    tags?: NoteCreatetagsInput | string[]
+    isPinned?: boolean
+    isJournal?: boolean
+    journalDate?: Date | string | null
+    mood?: string | null
+    reminderAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NoteUpdateWithoutFolderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    tags?: NoteUpdatetagsInput | string[]
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isJournal?: BoolFieldUpdateOperationsInput | boolean
+    journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutNotesNestedInput
+    versions?: NoteVersionUpdateManyWithoutNoteNestedInput
+  }
+
+  export type NoteUncheckedUpdateWithoutFolderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    tags?: NoteUpdatetagsInput | string[]
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isJournal?: BoolFieldUpdateOperationsInput | boolean
+    journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    versions?: NoteVersionUncheckedUpdateManyWithoutNoteNestedInput
+  }
+
+  export type NoteUncheckedUpdateManyWithoutFolderInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    tags?: NoteUpdatetagsInput | string[]
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isJournal?: BoolFieldUpdateOperationsInput | boolean
+    journalDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    reminderAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteVersionCreateManyNoteInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+  }
+
+  export type NoteVersionUpdateWithoutNoteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteVersionUncheckedUpdateWithoutNoteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteVersionUncheckedUpdateManyWithoutNoteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

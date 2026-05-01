@@ -48,7 +48,14 @@ model User {
   sleepLogs          SleepLog[]
   expenseCategories  ExpenseCategory[]
   expenses           Expense[]
+  recurringExpenses  RecurringExpense[]
+  financialGoals     FinancialGoal[]
+  healthProfile      HealthProfile?
+  weightLogs         WeightLog[]
+  stepLogs           StepLog[]
+  foodLogs           FoodLog[]
   notes              Note[]
+  noteFolders        NoteFolder[]
   pomodoroSessions   PomodoroSession[]
 
   @@index([deletedAt])
@@ -250,23 +257,44 @@ model TodoList {
 }
 
 model Todo {
-  id          String    @id @default(uuid())
-  userId      String
-  todoListId  String?
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  todoList    TodoList? @relation(fields: [todoListId], references: [id], onDelete: SetNull)
-  title       String
-  description String?
-  completed   Boolean   @default(false)
-  completedAt DateTime?
-  priority    Priority  @default(MEDIUM)
-  dueDate     DateTime?
-  sortOrder   Int       @default(0)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id               String    @id @default(uuid())
+  userId           String
+  todoListId       String?
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  todoList         TodoList? @relation(fields: [todoListId], references: [id], onDelete: SetNull)
+  title            String
+  description      String?
+  completed        Boolean   @default(false)
+  completedAt      DateTime?
+  priority         Priority  @default(MEDIUM)
+  dueDate          DateTime?
+  sortOrder        Int       @default(0)
+  status           String    @default("todo") // todo | in_progress | done
+  isUrgent         Boolean   @default(false)
+  isImportant      Boolean   @default(true)
+  estimatedMinutes Int?
+  actualMinutes    Int       @default(0)
+  timerStartedAt   DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  subtasks Subtask[]
 
   @@index([userId, completed])
   @@index([todoListId])
+  @@index([userId, status])
+}
+
+model Subtask {
+  id        String   @id @default(uuid())
+  todoId    String
+  todo      Todo     @relation(fields: [todoId], references: [id], onDelete: Cascade)
+  title     String
+  completed Boolean  @default(false)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([todoId])
 }
 
 // ── NOTIFICATIONS ────────────────────────────────────────────────────────────
@@ -354,8 +382,9 @@ model ExpenseCategory {
   name     String
   color    String    @default("#6366f1")
   icon     String?
-  budget   Float?
-  expenses Expense[]
+  budget            Float?
+  expenses          Expense[]
+  recurringExpenses RecurringExpense[]
 
   @@unique([userId, name])
   @@index([userId])
@@ -380,21 +409,53 @@ model Expense {
 
 // ── NOTES & DIARY ─────────────────────────────────────────────────────────────
 
+model NoteFolder {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  color     String   @default("#f59e0b")
+  createdAt DateTime @default(now())
+
+  notes Note[]
+
+  @@unique([userId, name])
+  @@index([userId])
+}
+
 model Note {
-  id          String    @id @default(uuid())
+  id          String      @id @default(uuid())
   userId      String
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  folderId    String?
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  folder      NoteFolder? @relation(fields: [folderId], references: [id], onDelete: SetNull)
   title       String
-  content     String    @default("")
+  content     String      @default("")
   tags        String[]
-  isPinned    Boolean   @default(false)
-  isJournal   Boolean   @default(false)
+  isPinned    Boolean     @default(false)
+  isJournal   Boolean     @default(false)
   journalDate DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  mood        String?     // happy | sad | neutral | excited | anxious
+  reminderAt  DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  versions NoteVersion[]
 
   @@index([userId, isJournal])
   @@index([userId, createdAt])
+  @@index([folderId])
+}
+
+model NoteVersion {
+  id        String   @id @default(uuid())
+  noteId    String
+  note      Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+
+  @@index([noteId, createdAt(sort: Desc)])
 }
 
 // ── PRODUCTIVITY ──────────────────────────────────────────────────────────────
@@ -426,4 +487,104 @@ model AuditLog {
 
   @@index([userId, createdAt])
   @@index([event, createdAt])
+}
+
+// ── EXPENSE TRACKER — ADVANCED ────────────────────────────────────────────────
+
+model RecurringExpense {
+  id         String           @id @default(uuid())
+  userId     String
+  user       User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title      String
+  amount     Float
+  type       String           @default("expense")
+  categoryId String?
+  category   ExpenseCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  frequency  String           // monthly | weekly
+  dayOfMonth Int?
+  dayOfWeek  Int?
+  notes      String?
+  isActive   Boolean          @default(true)
+  nextDueAt  DateTime
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  @@index([userId, isActive])
+  @@index([nextDueAt])
+}
+
+model FinancialGoal {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title        String
+  targetAmount Float
+  savedAmount  Float    @default(0)
+  deadline     DateTime
+  icon         String   @default("🎯")
+  color        String   @default("#6366f1")
+  isCompleted  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([userId])
+}
+
+// ── HEALTH TRACKER — ADVANCED ─────────────────────────────────────────────────
+
+model HealthProfile {
+  id               String   @id @default(uuid())
+  userId           String   @unique
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  age              Int?
+  weightKg         Float?
+  heightCm         Float?
+  gender           String?
+  goal             String?
+  targetWeightKg   Float?
+  dailyStepGoal    Int      @default(8000)
+  dailyWaterGoalMl Int      @default(2500)
+  dailyCalorieGoal Int      @default(2000)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model WeightLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+  weightKg  Float
+  notes     String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, date])
+}
+
+model StepLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+  steps     Int
+  goal      Int      @default(8000)
+  createdAt DateTime @default(now())
+
+  @@index([userId, date])
+}
+
+model FoodLog {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime
+  mealType  String
+  name      String
+  calories  Int
+  protein   Float?
+  carbs     Float?
+  fat       Float?
+  createdAt DateTime @default(now())
+
+  @@index([userId, date])
 }
